@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  # Development service
+  profreport-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: profreport-front-dev
+    ports:
+      - "4321:4321"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+    command: npm run dev
+    networks:
+      - profreport-network
+
+  # Production service
+  profreport-prod:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: profreport-front-prod
+    ports:
+      - "4321:4321"
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+    networks:
+      - profreport-network
+
+networks:
+  profreport-network:
+    driver: bridge
