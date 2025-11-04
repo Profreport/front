@@ -1,0 +1,55 @@
+---
+export interface Props {
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost';
+  size?: 'sm' | 'md' | 'lg';
+  fullWidth?: boolean;
+  type?: 'button' | 'submit' | 'reset';
+  disabled?: boolean;
+  class?: string;
+  href?: string;
+}
+
+const {
+  variant = 'primary',
+  size = 'md',
+  fullWidth = false,
+  type = 'button',
+  disabled = false,
+  class: className = '',
+  href,
+} = Astro.props;
+
+const baseClasses = 'inline-flex items-center justify-center font-semibold rounded-md transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:opacity-50 disabled:cursor-not-allowed';
+
+const variantClasses = {
+  primary: 'bg-primary text-white hover:bg-primary-hover shadow-sm hover:shadow-md hover:-translate-y-0.5 disabled:hover:translate-y-0',
+  secondary: 'bg-secondary text-white hover:bg-secondary-hover shadow-sm hover:shadow-md hover:-translate-y-0.5 disabled:hover:translate-y-0',
+  outline: 'border-2 border-primary text-primary hover:bg-primary hover:text-white',
+  ghost: 'text-text-secondary hover:bg-black/5 hover:text-text-primary',
+};
+
+const sizeClasses = {
+  sm: 'px-4 py-2 text-sm min-h-[36px]',
+  md: 'px-6 py-3 text-base min-h-[44px]',
+  lg: 'px-8 py-4 text-lg min-h-[52px]',
+};
+
+const classes = [
+  baseClasses,
+  variantClasses[variant],
+  sizeClasses[size],
+  fullWidth && 'w-full',
+  className,
+].filter(Boolean).join(' ');
+
+const Element = href ? 'a' : 'button';
+---
+
+<Element
+  class={classes}
+  type={href ? undefined : type}
+  disabled={href ? undefined : disabled}
+  href={href}
+>
+  <slot />
+</Element>

@@ -1,0 +1,1146 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import TestFlow from '@/components/islands/TestFlow';
+
+const testConfig = {
+  testType: 'adult' as const,
+  title: 'Тест для взрослых',
+  subtitle: 'Смена или развитие карьеры',
+  price: 900,
+  tariff: 'pro' as const,
+  sections: [
+    {
+      id: 'riasec_interests',
+      title: 'Блок 1: Интересы (RIASEC)',
+      subtitle: 'Оцените следующие утверждения по шкале от 1 до 5',
+      questions: [
+        {
+          id: 'riasec_1',
+          question: 'Мне нравится работать с инструментами и механизмами',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'riasec_2',
+          question: 'Мне нравится проводить эксперименты и исследования',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'riasec_3',
+          question: 'Мне нравится заниматься творчеством (письмо, музыка, дизайн и т. п.)',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'riasec_4',
+          question: 'Мне нравится помогать людям и видеть пользу от своей помощи',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'riasec_5',
+          question: 'Мне нравится организовывать и руководить другими людьми',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'riasec_6',
+          question: 'Мне близка работа с цифрами, таблицами и документами',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'riasec_7',
+          question: 'Я предпочитаю заниматься практическими задачами, а не теоретическими',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'riasec_8',
+          question: 'Я люблю анализировать данные и делать выводы',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'riasec_9',
+          question: 'Я ценю красоту, стиль и гармонию в работе',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'riasec_10',
+          question: 'Я получаю удовольствие от работы в команде',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'riasec_11',
+          question: 'Я умею убеждать и вести переговоры',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'riasec_12',
+          question: 'Я ценю порядок, системность и стандарты',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'riasec_13',
+          question: 'Я хорошо разбираюсь в технике и оборудовании',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'riasec_14',
+          question: 'Я интересуюсь наукой и технологиями',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'riasec_15',
+          question: 'Мне нравится выражать идеи через визуальные/словесные формы',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'riasec_16',
+          question: 'Мне интересно обучать, наставлять, консультировать',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'riasec_17',
+          question: 'Мне интересно инициировать и развивать новые проекты',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'riasec_18',
+          question: 'Я внимателен(на) к деталям и аккуратен(на) в записях',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'riasec_19',
+          question: 'Мне интересно ремонтировать и настраивать вещи',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'riasec_20',
+          question: 'Мне нравится решать сложные головоломки и задачи',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'riasec_21',
+          question: 'Я люблю придумывать новое и оригинальное',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'riasec_22',
+          question: 'Я легко устанавливаю контакт с разными людьми',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'riasec_23',
+          question: 'Я ориентирован(а) на результат и достижения',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'riasec_24',
+          question: 'Мне нравится вести учет, отчеты и регистры',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'riasec_25',
+          question: 'Я получаю удовольствие от работы на свежем воздухе',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'riasec_26',
+          question: 'Я регулярно углубляюсь в новую информацию и знания',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'riasec_27',
+          question: 'Я хорошо чувствую цвет, форму, композицию',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'riasec_28',
+          question: 'Мне нравятся организационные мероприятия для других',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'riasec_29',
+          question: 'Я уверенно принимаю решения в условиях неопределенности',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'riasec_30',
+          question: 'Я предпочитаю понятные инструкции и регламенты',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'riasec_31',
+          question: 'Я люблю работать руками и видеть осязаемый результат',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'riasec_32',
+          question: 'Я люблю читать научно-популярные материалы',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'riasec_33',
+          question: 'Мне интересны музеи, выставки, культурные события',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'riasec_34',
+          question: 'Я умею слушать и понимать потребности человека',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'riasec_35',
+          question: 'Мне интересно организовывать работу других',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'riasec_36',
+          question: 'Я умею хорошо планировать и соблюдать сроки',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        }
+      ]
+    },
+    {
+      id: 'klimov',
+      title: 'Блок 2: Объекты деятельности (Климов)',
+      subtitle: 'В каждом вопросе выберите один вариант ответа, который вам больше всего нравится',
+      questions: [
+        {
+          id: 'klimov_1',
+          question: 'Что вам в целом интереснее по содержанию работы?',
+          type: 'radio' as const,
+          options: [
+            { label: 'Ухаживать за живыми организмами/природными объектами', value: 'nature' },
+            { label: 'Работать с устройствами, механизмами', value: 'tech' },
+            { label: 'Взаимодействовать и помогать людям', value: 'people' },
+            { label: 'Работать со знаковыми системами: числа, коды, тексты, данные', value: 'signs' },
+            { label: 'Создавать художественные/дизайн-образы', value: 'art' }
+          ]
+        },
+        {
+          id: 'klimov_2',
+          question: 'Какая ценность в работе для вас наиболее значима?',
+          type: 'radio' as const,
+          options: [
+            { label: 'Сохранение/забота о природе', value: 'nature' },
+            { label: 'Создание и внедрение технологий', value: 'tech' },
+            { label: 'Социальная польза и поддержка людей', value: 'social' },
+            { label: 'Аналитика, доказательность, точность', value: 'analytics' },
+            { label: 'Эстетика, креативность, самовыражение', value: 'aesthetics' }
+          ]
+        },
+        {
+          id: 'klimov_3',
+          question: 'В каких активностях вы бы охотнее участвовали?',
+          type: 'radio' as const,
+          options: [
+            { label: 'Участие в эко-инициативах', value: 'eco' },
+            { label: 'Инженерные/робототехнические проекты', value: 'engineering' },
+            { label: 'Волонтёрство/менторство', value: 'volunteering' },
+            { label: 'Математико-аналитические клубы/хакатоны данных', value: 'analytics' },
+            { label: 'Креативные мастерские/арт-события', value: 'creative' }
+          ]
+        },
+        {
+          id: 'klimov_4',
+          question: 'Какой материал вам интереснее читать/смотреть?',
+          type: 'radio' as const,
+          options: [
+            { label: 'О природе, биологии, экологии', value: 'nature' },
+            { label: 'Об изобретениях, инженерии, технологиях', value: 'tech' },
+            { label: 'О психологии и социальных практиках', value: 'psychology' },
+            { label: 'О логике, анализе данных, финансовых рынках', value: 'data' },
+            { label: 'О культуре, искусстве, дизайне', value: 'culture' }
+          ]
+        },
+        {
+          id: 'klimov_5',
+          question: 'Какие рабочие задачи вам было бы приятнее выполнять?',
+          type: 'radio' as const,
+          options: [
+            { label: 'Полевые/лабораторные наблюдения живых систем', value: 'field' },
+            { label: 'Разборка/сборка, наладка механизмов', value: 'assembly' },
+            { label: 'Публичные выступления и взаимодействие с аудиторией', value: 'public' },
+            { label: 'Решение численных/логических задач', value: 'logical' },
+            { label: 'Визуальное/творческое производство', value: 'visual' }
+          ]
+        },
+        {
+          id: 'klimov_6',
+          question: 'Какая профессия кажется вам наиболее привлекательной?',
+          type: 'radio' as const,
+          options: [
+            { label: 'Эколог/агроном/биотехнолог', value: 'ecology' },
+            { label: 'Инженер/программист/техник', value: 'engineer' },
+            { label: 'Коуч/педагог/медицинский специалист', value: 'coach' },
+            { label: 'Аналитик данных/финансовый аналитик', value: 'analyst' },
+            { label: 'Архитектор/дизайнер/арт-директор', value: 'designer' }
+          ]
+        },
+        {
+          id: 'klimov_7',
+          question: 'На что бы вы охотнее направили крупный грант?',
+          type: 'radio' as const,
+          options: [
+            { label: 'На природоохранные проекты', value: 'conservation' },
+            { label: 'На разработку нового технологического оборудования', value: 'tech_dev' },
+            { label: 'На социальные программы', value: 'social' },
+            { label: 'На аналитические/научные исследования', value: 'research' },
+            { label: 'На культурные/образовательные инициативы', value: 'cultural' }
+          ]
+        },
+        {
+          id: 'klimov_8',
+          question: 'Какой контент вы чаще выбираете?',
+          type: 'radio' as const,
+          options: [
+            { label: 'Докфильмы о природе', value: 'nature_docs' },
+            { label: 'Научпоп о технологиях/космосе', value: 'tech_pop' },
+            { label: 'Интервью, статьи про людей и команды', value: 'people_stories' },
+            { label: 'Интеллектуальные игры и викторины', value: 'intellectual' },
+            { label: 'Художественные фильмы и сериалы', value: 'art_films' }
+          ]
+        },
+        {
+          id: 'klimov_9',
+          question: 'Какую подработку/проект вы бы выбрали?',
+          type: 'radio' as const,
+          options: [
+            { label: 'Работа с животными/растениями/ландшафтом', value: 'nature_work' },
+            { label: 'Помощь в сервисе/ремонте техники', value: 'repair' },
+            { label: 'Тьюторинг/организация мероприятий', value: 'tutoring' },
+            { label: 'Обработка данных/учёт/отчётность', value: 'data_processing' },
+            { label: 'Роспись/дизайн городской среды', value: 'urban_design' }
+          ]
+        },
+        {
+          id: 'klimov_10',
+          question: 'Какое задание ближе?',
+          type: 'radio' as const,
+          options: [
+            { label: 'Подготовить обзор о редких видах/экосистемах', value: 'nature_review' },
+            { label: 'Собрать рабочий прототип/механизм', value: 'prototype' },
+            { label: 'Провести социологический опрос/интервью', value: 'survey' },
+            { label: 'Сверстать аналитический отчёт', value: 'report' },
+            { label: 'Создать визуальный плакат/макет', value: 'poster' }
+          ]
+        },
+        {
+          id: 'klimov_11',
+          question: 'Что вы больше цените в работе?',
+          type: 'radio' as const,
+          options: [
+            { label: 'Возможность быть на природе/в поле', value: 'outdoor' },
+            { label: 'Создавать осязаемые технологические решения', value: 'tangible_tech' },
+            { label: 'Помогать людям и видеть эффект', value: 'help_effect' },
+            { label: 'Принимать решения на основе данных', value: 'data_decisions' },
+            { label: 'Выражать себя и эстетически оформлять результат', value: 'self_expression' }
+          ]
+        },
+        {
+          id: 'klimov_12',
+          question: 'Какую проблему вы бы хотели решать?',
+          type: 'radio' as const,
+          options: [
+            { label: 'Экологические вызовы', value: 'ecology' },
+            { label: 'Энергетика/инженерные вызовы', value: 'energy' },
+            { label: 'Социальное неравенство/качество жизни', value: 'social_quality' },
+            { label: 'Кибербезопасность/информационные риски', value: 'cyber' },
+            { label: 'Культурное развитие/среда', value: 'cultural_dev' }
+          ]
+        },
+        {
+          id: 'klimov_13',
+          question: 'Что вам интереснее изучать?',
+          type: 'radio' as const,
+          options: [
+            { label: 'Биологию/экологию/агронауки', value: 'bio' },
+            { label: 'Устройство современной техники', value: 'tech_device' },
+            { label: 'Психологию/поведение/коммуникации', value: 'psych' },
+            { label: 'Языки программирования/формальные системы', value: 'programming' },
+            { label: 'Производство кино/дизайн/архитектуры', value: 'production' }
+          ]
+        },
+        {
+          id: 'klimov_14',
+          question: 'Что для вас важнее?',
+          type: 'radio' as const,
+          options: [
+            { label: 'Сохранение природы', value: 'conservation' },
+            { label: 'Технологический прогресс', value: 'progress' },
+            { label: 'Справедливость и равные возможности', value: 'justice' },
+            { label: 'Знания и информация', value: 'knowledge' },
+            { label: 'Красота и гармония среды', value: 'beauty' }
+          ]
+        },
+        {
+          id: 'klimov_15',
+          question: 'Самое важное изобретение для вас?',
+          type: 'radio' as const,
+          options: [
+            { label: 'Технологии защиты окружающей среды', value: 'env_tech' },
+            { label: 'Компьютер/интернет/инженерные решения', value: 'computer' },
+            { label: 'Прорывы в медицине/соцсфере', value: 'medicine' },
+            { label: 'Письменность/печатание/цифровые базы', value: 'writing' },
+            { label: 'Искусство и культурное наследие', value: 'art_heritage' }
+          ]
+        }
+      ]
+    },
+    {
+      id: 'personality',
+      title: 'Блок 3: Личностные качества',
+      subtitle: 'Оцените следующие утверждения по шкале от 1 до 5',
+      questions: [
+        {
+          id: 'personality_1',
+          question: 'Я ответственен(на) за сроки и результат',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'personality_2',
+          question: 'Я легко устанавливаю профессиональный контакт',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'personality_3',
+          question: 'Я умею решать сложные задачи и доводить их до результата',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'personality_4',
+          question: 'Я креативен(на) и нахожу нестандартные решения',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'personality_5',
+          question: 'Я сохраняю эффективность в стрессовых ситуациях',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'personality_6',
+          question: 'Я уверен(а) в себе и своих компетенциях',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'personality_7',
+          question: 'Я планирую работу и соблюдаю план',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'personality_8',
+          question: 'Я спокоен(на) и уравновешен(а) в рабочих вопросах',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'personality_9',
+          question: 'Я быстро адаптируюсь к изменениям',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'personality_10',
+          question: 'Я люблю и умею учиться новому',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'personality_11',
+          question: 'Я настойчив(а) в достижении целей',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'personality_12',
+          question: 'Я эффективно работаю и самостоятельно, и в команде',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'personality_13',
+          question: 'Я умею аргументировать и убеждать',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'personality_14',
+          question: 'Я хорошо управляю временем и приоритетами',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'personality_15',
+          question: 'Я внимателен(на) к деталям и качеству',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'personality_16',
+          question: 'Я умею слушать и эмпатично понимать собеседника',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'personality_17',
+          question: 'Я принимаю решения оперативно при необходимости',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'personality_18',
+          question: 'Я сохраняю продуктивность под давлением',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'personality_19',
+          question: 'Я нахожу компромиссы без потери сути',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'personality_20',
+          question: 'Я сохраняю позитивный рабочий настрой',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'personality_21',
+          question: 'Я умею мотивировать себя и других',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'personality_22',
+          question: 'Я разбираюсь в людях и динамике команд',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'personality_23',
+          question: 'Я умею концентрироваться на главном',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'personality_24',
+          question: 'Я эффективно общаюсь с людьми разного уровня и культур',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        }
+      ]
+    },
+    {
+      id: 'values',
+      title: 'Блок 4: Ценности',
+      subtitle: 'Оцените следующие утверждения по шкале от 1 до 5',
+      questions: [
+        {
+          id: 'values_1',
+          question: 'Важно, чтобы моя работа приносила пользу обществу',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'values_2',
+          question: 'Важно иметь возможности для постоянного развития и обучения',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'values_3',
+          question: 'Важны стабильность и предсказуемость занятости',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'values_4',
+          question: 'Важно влиять на решения в организации',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'values_5',
+          question: 'Важно, чтобы работа была творческой и позволяющей самовыражаться',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'values_6',
+          question: 'Важен конкурентный доход',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'values_7',
+          question: 'Важны доброжелательные отношения в команде',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'values_8',
+          question: 'Важно самостоятельно планировать график и формат работы',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'values_9',
+          question: 'Важно признание и оценка результатов',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'values_10',
+          question: 'Важно работать в команде',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'values_11',
+          question: 'Важно иметь перспективы руководства/лидерства',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'values_12',
+          question: 'Важно ощущать безопасность и социальные гарантии',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'values_13',
+          question: 'Важно вносить вклад в науку/культуру',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'values_14',
+          question: 'Важно регулярно решать интеллектуально сложные задачи',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'values_15',
+          question: 'Важно помогать людям своей работой',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        },
+        {
+          id: 'values_16',
+          question: 'Важно ощущение престижа/статуса профессии',
+          type: 'likert' as const,
+          options: [
+            { label: 'Совершенно не согласен', value: 1 },
+            { label: 'Скорее не согласен', value: 2 },
+            { label: 'Нейтрально', value: 3 },
+            { label: 'Скорее согласен', value: 4 },
+            { label: 'Полностью согласен', value: 5 }
+          ]
+        }
+      ]
+    }
+  ],
+  instructions: [
+    'Отвечайте быстро, основываясь на первом впечатлении',
+    'Нет правильных или неправильных ответов',
+    'Важна ваша честность для точного результата'
+  ]
+};
+---
+
+<BaseLayout
+  title="Тест для взрослых"
+  description="Профориентационный тест для взрослых. Смена или развитие карьеры. Анализ интересов, ценностей и личностных качеств."
+>
+  <TestFlow client:only="react" config={testConfig} />
+</BaseLayout>

@@ -1,0 +1,137 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import ContactForm from '@/components/islands/ContactForm';
+import { generateBreadcrumbSchema } from '@/lib/utils';
+
+const breadcrumbs = [
+  { name: 'Главная', url: 'https://profreport.ru/' },
+  { name: 'Контакты', url: 'https://profreport.ru/contacts' },
+];
+---
+
+<BaseLayout
+  title="Свяжитесь с нами"
+  description="Форма обратной связи ProfReport. Мы ответим на ваши вопросы в течение 24 часов."
+  jsonLd={generateBreadcrumbSchema(breadcrumbs)}
+>
+  <Header />
+
+  <main>
+    <!-- Hero -->
+    <section class="bg-gradient-to-br from-primary/5 to-secondary/5 py-12 lg:py-16">
+      <div class="container-custom text-center">
+        <h1 class="text-4xl lg:text-5xl font-bold text-text-primary mb-4">
+          Свяжитесь с нами
+        </h1>
+        <p class="text-lg text-text-secondary max-w-3xl mx-auto">
+          Мы ответим на ваши вопросы в течение 24 часов
+        </p>
+      </div>
+    </section>
+
+    <!-- Contact Form & Info -->
+    <section class="py-16 lg:py-24 bg-background">
+      <div class="container-custom">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 max-w-6xl mx-auto">
+
+          <!-- Contact Form -->
+          <div class="lg:col-span-2">
+            <div class="bg-surface p-8 rounded-lg border border-border shadow-sm">
+              <h2 class="text-2xl font-bold text-text-primary mb-6">
+                Форма обратной связи
+              </h2>
+              <ContactForm client:load />
+            </div>
+          </div>
+
+          <!-- Contact Info -->
+          <div class="space-y-6">
+            <!-- Contact Details -->
+            <div class="bg-surface p-6 rounded-lg border border-border">
+              <h3 class="text-xl font-semibold text-text-primary mb-4">
+                Контактная информация
+              </h3>
+              <div class="space-y-4">
+                <div class="flex items-start gap-3">
+                  <div class="text-2xl flex-shrink-0">📧</div>
+                  <div>
+                    <h4 class="font-medium text-text-primary mb-1">Email</h4>
+                    <a href="mailto:info@profreport.ru" class="text-primary hover:underline">
+                      info@profreport.ru
+                    </a>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-3">
+                  <div class="text-2xl flex-shrink-0">📞</div>
+                  <div>
+                    <h4 class="font-medium text-text-primary mb-1">Телефон</h4>
+                    <a href="tel:+79991234567" class="text-primary hover:underline">
+                      +7 (999) 123-45-67
+                    </a>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-3">
+                  <div class="text-2xl flex-shrink-0">⏰</div>
+                  <div>
+                    <h4 class="font-medium text-text-primary mb-1">График работы</h4>
+                    <p class="text-text-secondary text-sm">
+                      Пн-Пт: 9:00 - 18:00<br />
+                      Сб-Вс: выходной
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Social Links -->
+            <div class="bg-surface p-6 rounded-lg border border-border">
+              <h3 class="text-xl font-semibold text-text-primary mb-4">
+                Социальные сети
+              </h3>
+              <div class="space-y-2">
+                <a
+                  href="https://vk.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="block text-text-secondary hover:text-primary transition-colors"
+                >
+                  ВКонтакте
+                </a>
+                <a
+                  href="https://t.me"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="block text-text-secondary hover:text-primary transition-colors"
+                >
+                  Telegram
+                </a>
+                <a
+                  href="https://instagram.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="block text-text-secondary hover:text-primary transition-colors"
+                >
+                  Instagram
+                </a>
+              </div>
+            </div>
+
+            <!-- Response Time -->
+            <div class="bg-primary/5 p-4 rounded-lg border-l-4 border-primary">
+              <p class="text-sm text-text-secondary">
+                <strong class="text-text-primary">Время ответа:</strong> Обычно мы отвечаем в течение 24 часов в рабочие дни.
+                В выходные ответ может занять больше времени.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

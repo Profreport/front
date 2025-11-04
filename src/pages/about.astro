@@ -1,0 +1,162 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import Button from '@/components/Button.astro';
+import { generateBreadcrumbSchema } from '@/lib/utils';
+
+const breadcrumbs = [
+  { name: 'Главная', url: 'https://profreport.ru/' },
+  { name: 'О нас', url: 'https://profreport.ru/about' },
+];
+---
+
+<BaseLayout
+  title="О нас"
+  description="Помогаем людям находить профессию, которая им подходит, с помощью научных методик профориентации."
+  jsonLd={generateBreadcrumbSchema(breadcrumbs)}
+>
+  <Header />
+
+  <main>
+    <!-- Hero -->
+    <section class="bg-gradient-to-br from-primary/5 to-secondary/5 py-12 lg:py-16">
+      <div class="container-custom text-center">
+        <h1 class="text-4xl lg:text-5xl font-bold text-text-primary mb-4">
+          О нас
+        </h1>
+        <p class="text-lg text-text-secondary max-w-3xl mx-auto">
+          Помогаем людям находить профессию, которая им подходит, с помощью научных методик
+        </p>
+      </div>
+    </section>
+
+    <!-- Mission -->
+    <section class="py-16 lg:py-24 bg-background">
+      <div class="container-custom">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-3xl lg:text-4xl font-bold text-text-primary mb-6">
+            Зачем мы это делаем
+          </h2>
+          <div class="prose prose-lg max-w-none">
+            <p class="text-text-secondary leading-relaxed mb-4">
+              Многие люди выбирают профессию под давлением родителей, друзей или общественных стереотипов.
+              В результате работают не там, где им было бы комфортно и интересно.
+            </p>
+            <p class="text-text-secondary leading-relaxed mb-4">
+              Мы создали ProfReport, чтобы дать каждому возможность сделать осознанный выбор на основе
+              научных данных о своих интересах, личности и ценностях. Без астрологии, нумерологии и
+              других ненаучных подходов.
+            </p>
+            <p class="text-text-secondary leading-relaxed">
+              Наша цель — помочь вам найти профессию, в которой вы будете успешны и счастливы, потому что
+              она соответствует вашим природным склонностям и жизненным приоритетам.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Platform -->
+    <section class="py-16 lg:py-24 bg-surface">
+      <div class="container-custom">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-3xl lg:text-4xl font-bold text-text-primary mb-6">
+            Наша платформа
+          </h2>
+          <p class="text-lg text-text-secondary mb-8 leading-relaxed">
+            ProfReport — это онлайн-платформа для профориентации на основе проверенных
+            психометрических методик.
+          </p>
+
+          <div class="space-y-6">
+            {[
+              {
+                title: 'Научный подход',
+                description: 'Используем типологию RIASEC (Холланд), классификацию Климова, анализ личностных качеств и ценностей'
+              },
+              {
+                title: 'Персонализация',
+                description: 'Отчеты адаптированы под возраст и жизненную ситуацию: школьники, студенты, взрослые с разными потребностями'
+              },
+              {
+                title: 'Конкретные рекомендации',
+                description: 'Вы получаете не просто список профессий, а объяснение, почему именно они вам подходят, и что делать дальше'
+              },
+              {
+                title: 'Простота и скорость',
+                description: 'Тест занимает 5–7 минут, отчет приходит на email обычно в течение 10 минут'
+              },
+            ].map((feature) => (
+              <div class="flex gap-4 items-start">
+                <div class="w-10 h-10 bg-secondary text-white rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                  </svg>
+                </div>
+                <div class="flex-1">
+                  <h4 class="text-xl font-semibold text-text-primary mb-2">{feature.title}</h4>
+                  <p class="text-text-secondary leading-relaxed">{feature.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="py-16 lg:py-24 bg-background">
+      <div class="container-custom">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-3xl lg:text-4xl font-bold text-text-primary mb-12 text-center">
+            Почему выбирают нас
+          </h2>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              {
+                number: '01',
+                title: 'Без регистрации',
+                text: 'Не нужно создавать личный кабинет — просто пройдите тест и получите отчет на email'
+              },
+              {
+                number: '02',
+                title: 'Прозрачность',
+                text: 'Мы объясняем, какие методики используем и как формируется отчет'
+              },
+              {
+                number: '03',
+                title: 'Приватность',
+                text: 'Ваши данные защищены и используются только для формирования отчета'
+              },
+            ].map((benefit) => (
+              <div class="bg-surface p-6 rounded-lg border border-border hover:border-primary hover:shadow-lg transition-all">
+                <div class="text-5xl font-bold text-primary opacity-20 mb-3">{benefit.number}</div>
+                <h4 class="text-xl font-semibold text-text-primary mb-2">{benefit.title}</h4>
+                <p class="text-text-secondary leading-relaxed">{benefit.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-16 lg:py-24 bg-gradient-to-r from-primary to-secondary text-white">
+      <div class="container-custom text-center">
+        <h2 class="text-3xl lg:text-4xl font-bold mb-4">
+          Попробуйте сейчас
+        </h2>
+        <p class="text-lg mb-8 opacity-90 max-w-2xl mx-auto">
+          Пройдите тест за 5–7 минут и получите персональный отчет с рекомендациями профессий
+        </p>
+        <Button href="/tests" size="lg" class="bg-blue-600 text-white hover:bg-blue-700 shadow-lg hover:shadow-xl font-bold">
+          Выбрать тест
+        </Button>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

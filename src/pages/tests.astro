@@ -1,0 +1,191 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import Button from '@/components/Button.astro';
+import { generateBreadcrumbSchema } from '@/lib/utils';
+
+const breadcrumbs = [
+  { name: 'Главная', url: 'https://profreport.ru/' },
+  { name: 'Тесты', url: 'https://profreport.ru/tests' },
+];
+
+const pricingCards = [
+  {
+    title: 'Для школьников',
+    subtitle: '14-18 лет',
+    price: '500',
+    features: [
+      'Профиль личности и интересов',
+      'Топ-15 подходящих профессий',
+      'Рекомендации учебных направлений',
+      'Советы по выбору кружков и секций',
+      'Анализ сильных сторон',
+    ],
+    link: '/test/students',
+    recommended: false,
+  },
+  {
+    title: 'Для студентов/выпускников',
+    subtitle: 'Абитуриенты и студенты',
+    price: '700',
+    features: [
+      'Расширенный профиль личности',
+      'Топ-20 подходящих профессий',
+      'Анализ по сферам и ролям',
+      'Рекомендации первых шагов',
+      'Советы по развитию карьеры',
+    ],
+    link: '/test/graduates',
+    recommended: true,
+  },
+  {
+    title: 'Для взрослых',
+    subtitle: 'Смена или развитие карьеры',
+    price: '900',
+    features: [
+      'Полный профиль личности',
+      'Топ-20 профессий с детализацией',
+      'Сценарии смены карьеры',
+      'Анализ рисков и стрессов',
+      'Рабочие стили и ценности',
+    ],
+    link: '/test/adults',
+    recommended: false,
+  },
+];
+---
+
+<BaseLayout
+  title="Выберите тест"
+  description="Пройдите тестирование и получите персональный отчет с рекомендациями профессий. Тесты для школьников, студентов и взрослых."
+  jsonLd={generateBreadcrumbSchema(breadcrumbs)}
+>
+  <Header />
+
+  <main>
+    <!-- Hero -->
+    <section class="bg-gradient-to-br from-primary/5 to-secondary/5 py-12 lg:py-16">
+      <div class="container-custom text-center">
+        <h1 class="text-4xl lg:text-5xl font-bold text-text-primary mb-4">
+          Выберите тест
+        </h1>
+        <p class="text-lg text-text-secondary max-w-3xl mx-auto">
+          Пройдите тестирование и получите персональный отчет с рекомендациями профессий
+        </p>
+      </div>
+    </section>
+
+    <!-- Pricing Cards -->
+    <section class="py-16 lg:py-24 bg-background">
+      <div class="container-custom">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          {pricingCards.map((card) => (
+            <div
+              class="bg-surface rounded-lg border-2 border-border hover:border-primary hover:shadow-lg p-8 flex flex-col transition-all"
+            >
+              <div class="text-center mb-6 pb-6 border-b border-border">
+                <h3 class="text-2xl font-bold text-text-primary mb-1">{card.title}</h3>
+                <p class="text-text-secondary mb-4">{card.subtitle}</p>
+                <div class="flex items-baseline justify-center gap-1">
+                  <span class="text-5xl font-bold text-primary">{card.price}</span>
+                  <span class="text-2xl font-semibold text-primary">₽</span>
+                </div>
+              </div>
+
+              <ul class="space-y-3 mb-8 flex-1">
+                {card.features.map((feature) => (
+                  <li class="flex items-start gap-3">
+                    <div class="w-5 h-5 bg-secondary text-white rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                      </svg>
+                    </div>
+                    <span class="text-text-secondary leading-tight">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+
+              {card.link === '/test/adults' ? (
+                <Button
+                  href={card.link}
+                  variant="outline"
+                  size="lg"
+                  fullWidth
+                >
+                  Купить и пройти тест
+                </Button>
+              ) : (
+                <div class="py-4 px-6 text-center border-2 border-border rounded-md bg-gray-50">
+                  <span class="text-text-secondary font-medium">Находится в разработке</span>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="py-16 lg:py-20 bg-surface">
+      <div class="container-custom">
+        <h2 class="text-3xl lg:text-4xl font-bold text-center text-text-primary mb-12">
+          Как это работает
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+          {[
+            {
+              number: '1',
+              title: 'Выберите тест',
+              description: 'Выберите интересующий вас тест',
+            },
+            {
+              number: '2',
+              title: 'Ответьте на вопросы',
+              description: 'Пройдите тест за 5-7 минут, отвечая честно на все вопросы',
+            },
+            {
+              number: '3',
+              title: 'Оплатите тест',
+              description: 'Оплатите выбранный тест в отдельном окне',
+            },
+            {
+              number: '4',
+              title: 'Получите PDF на email',
+              description: 'Отчет придет на почту обычно в течение 10 минут, максимум — 12 часов',
+            }
+          ].map((step) => (
+            <div class="text-center p-6">
+              <div class="w-14 h-14 bg-gradient-to-br from-primary to-secondary text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
+                {step.number}
+              </div>
+              <h4 class="text-xl font-semibold text-text-primary mb-2">{step.title}</h4>
+              <p class="text-text-secondary">{step.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Delivery Info -->
+    <section class="py-16 lg:py-20 bg-background">
+      <div class="container-custom">
+        <div class="max-w-3xl mx-auto bg-surface border border-border rounded-lg p-8 flex items-start gap-6">
+          <div class="text-5xl flex-shrink-0">📧</div>
+          <div>
+            <h3 class="text-2xl font-semibold text-text-primary mb-2">
+              Доставка отчета на email
+            </h3>
+            <p class="text-text-secondary leading-relaxed">
+              После оплаты вы получите персональный отчет в формате PDF на указанный email.
+              Обычное время обработки — 10 минут, максимальное — 12 часов.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

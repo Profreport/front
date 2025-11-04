@@ -1,0 +1,213 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import Button from '@/components/Button.astro';
+import { generateOrganizationSchema, generateHowToSchema } from '@/lib/utils';
+
+const jsonLd = [
+  generateOrganizationSchema(),
+  generateHowToSchema(),
+];
+---
+
+<BaseLayout
+  title="Профессиональная профориентация"
+  description="Научный подход к профориентации: тестирование за 5-7 минут, персональный отчет с рекомендациями профессий на основе ваших интересов, личности и ценностей"
+  jsonLd={jsonLd}
+>
+  <Header />
+
+  <main>
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-primary/5 to-secondary/5 py-16 lg:py-24">
+      <div class="container-custom">
+        <div class="max-w-4xl mx-auto text-center">
+          <h1 class="text-4xl lg:text-5xl xl:text-6xl font-bold text-text-primary mb-6">
+            Найдите профессию, которая вам подходит
+          </h1>
+          <p class="text-lg lg:text-xl text-text-secondary mb-8 leading-relaxed">
+            Научный подход к профориентации: тестирование за 5-7 минут, персональный отчет с рекомендациями профессий на основе ваших интересов, личности и ценностей
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button href="/tests" size="lg" variant="primary">
+              Начать тест
+            </Button>
+            <Button href="/about" size="lg" variant="outline">
+              Узнать больше
+            </Button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technologies Section -->
+    <section class="py-16 lg:py-24 bg-surface">
+      <div class="container-custom">
+        <h2 class="text-3xl lg:text-4xl font-bold text-center text-text-primary mb-4">
+          Наши технологии
+        </h2>
+        <p class="text-lg text-text-secondary text-center max-w-3xl mx-auto mb-12">
+          Мы используем научно обоснованные методики профориентации
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {[
+            {
+              title: 'RIASEC',
+              description: 'Типология профессиональных интересов Холланда для точного определения склонностей',
+            },
+            {
+              title: 'Объекты деятельности Климова',
+              description: 'Классификация профессий по предмету труда для выбора направления',
+            },
+            {
+              title: 'Личностные качества',
+              description: 'Анализ черт характера для соответствия требованиям профессии',
+            },
+            {
+              title: 'Ценности',
+              description: 'Определение важных для вас аспектов работы и карьеры',
+            },
+          ].map((tech, index) => (
+            <div class="bg-background p-6 rounded-lg border border-border hover:border-primary hover:shadow-lg transition-all hover:-translate-y-1">
+              <div class="w-12 h-12 bg-gradient-to-br from-primary to-secondary text-white rounded-md flex items-center justify-center text-2xl font-bold mb-4">
+                {index + 1}
+              </div>
+              <h3 class="text-xl font-semibold text-text-primary mb-2">{tech.title}</h3>
+              <p class="text-text-secondary leading-relaxed">{tech.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Steps Section -->
+    <section class="py-16 lg:py-24 bg-background">
+      <div class="container-custom">
+        <h2 class="text-3xl lg:text-4xl font-bold text-center text-text-primary mb-12">
+          Как это работает
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+          {[
+            {
+              number: '1',
+              title: 'Выберите тест',
+              description: 'Выберите интересующий вас тест',
+            },
+            {
+              number: '2',
+              title: 'Ответьте на вопросы',
+              description: 'Пройдите тест за 5-7 минут, отвечая честно на все вопросы',
+            },
+            {
+              number: '3',
+              title: 'Оплатите тест',
+              description: 'Оплатите выбранный тест в отдельном окне',
+              },
+            {
+
+              number: '4',
+              title: 'Получите PDF на email',
+              description: 'Отчет придет на почту обычно в течение 10 минут, максимум — 12 часов',
+            }
+          ].map((step) => (
+            <div class="bg-surface p-8 rounded-lg border-2 border-border hover:border-primary transition-all text-center">
+              <div class="w-16 h-16 bg-gradient-to-br from-primary to-secondary text-white rounded-full flex items-center justify-center text-3xl font-bold mx-auto mb-4">
+                {step.number}
+              </div>
+              <h3 class="text-2xl font-semibold text-text-primary mb-3">{step.title}</h3>
+              <p class="text-text-secondary leading-relaxed">{step.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="py-16 lg:py-24 bg-surface">
+      <div class="container-custom">
+        <h2 class="text-3xl lg:text-4xl font-bold text-center text-text-primary mb-12">
+          Почему мы лучше
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {[
+            {
+              title: 'Научный подход',
+              description: 'Используем проверенные психометрические методики, а не астрологию',
+            },
+            {
+              title: 'Персонализация',
+              description: 'Отчет адаптирован под ваш возраст и жизненную ситуацию',
+            },
+            {
+              title: 'Быстро и удобно',
+              description: 'Тест займет 5-7 минут, результат получите на email',
+            },
+            {
+              title: 'Конкретные рекомендации',
+              description: 'Топ профессий с объяснением, почему они вам подходят',
+            },
+          ].map((benefit) => (
+            <div class="bg-background p-6 rounded-lg border border-border hover:shadow-lg hover:-translate-y-1 transition-all">
+              <div class="w-10 h-10 bg-secondary text-white rounded-full flex items-center justify-center text-xl font-bold mb-4">
+                ✓
+              </div>
+              <h3 class="text-xl font-semibold text-text-primary mb-2">{benefit.title}</h3>
+              <p class="text-text-secondary leading-relaxed">{benefit.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Report Sections -->
+    <section class="py-16 lg:py-24 bg-background">
+      <div class="container-custom">
+        <h2 class="text-3xl lg:text-4xl font-bold text-center text-text-primary mb-4">
+          Что вы получаете
+        </h2>
+        <p class="text-lg text-text-secondary text-center mb-12">
+          Подробный отчет в формате PDF
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
+          {[
+            'Профиль личности и интересов',
+            'Топ-15-20 подходящих профессий',
+            'Анализ сильных сторон',
+            'Рекомендации по развитию',
+            'Сферы деятельности',
+            'Стили работы и риски',
+          ].map((item) => (
+            <div class="bg-surface p-4 rounded-md border border-border hover:border-primary hover:bg-primary/5 transition-all flex items-center gap-3">
+              <div class="w-6 h-6 bg-secondary text-white rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">
+                ✓
+              </div>
+              <span class="text-text-primary font-medium">{item}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 lg:py-24 bg-gradient-to-r from-primary to-secondary text-white">
+      <div class="container-custom text-center">
+        <h2 class="text-3xl lg:text-4xl font-bold mb-4">
+          Готовы начать?
+        </h2>
+        <p class="text-lg mb-8 opacity-90 max-w-2xl mx-auto">
+          Пройдите тест прямо сейчас и получите персональные рекомендации
+        </p>
+        <Button href="/tests" size="lg" class="bg-blue-600 text-white hover:bg-blue-700 shadow-lg hover:shadow-xl font-bold">
+          Начать тест
+        </Button>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

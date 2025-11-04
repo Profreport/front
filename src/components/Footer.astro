@@ -1,0 +1,82 @@
+---
+const currentYear = new Date().getFullYear();
+
+const footerSections = [
+  {
+    title: 'Навигация',
+    links: [
+      { name: 'Главная', href: '/' },
+      { name: 'Тесты', href: '/tests' },
+      { name: 'FAQ', href: '/faq' },
+      { name: 'О нас', href: '/about' },
+      { name: 'Контакты', href: '/contacts' },
+    ],
+  },
+  {
+    title: 'Документы',
+    links: [
+      { name: 'Политика конфиденциальности', href: '/privacy' },
+      { name: 'Пользовательское соглашение', href: '/terms' },
+      { name: 'Договор оферты', href: '/offer' },
+    ],
+  },
+];
+---
+
+<footer class="bg-surface border-t border-border mt-auto">
+  <div class="container-custom py-12 lg:py-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+      <!-- Brand -->
+      <div class="lg:col-span-1">
+        <h3 class="text-xl font-bold text-primary mb-3">ProfReport</h3>
+        <p class="text-sm text-text-secondary leading-relaxed">
+          Профессиональная профориентация на основе научных методик
+        </p>
+      </div>
+
+      <!-- Footer Sections -->
+      {footerSections.map((section) => (
+        <div>
+          <h4 class="font-semibold text-text-primary mb-3">{section.title}</h4>
+          <ul class="space-y-2">
+            {section.links.map((link) => (
+              <li>
+                <a
+                  href={link.href}
+                  class="text-sm text-text-secondary hover:text-primary transition-colors"
+                >
+                  {link.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+
+      <!-- Contact Info -->
+      <div>
+        <h4 class="font-semibold text-text-primary mb-3">Контакты</h4>
+        <ul class="space-y-2 text-sm text-text-secondary">
+          <li>
+            <a href="mailto:info@profreport.ru" class="hover:text-primary transition-colors">
+              info@profreport.ru
+            </a>
+          </li>
+          <li>
+            <a href="tel:+79991234567" class="hover:text-primary transition-colors">
+              +7 (999) 123-45-67
+            </a>
+          </li>
+          <li>Пн-Пт, 9:00-18:00</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="mt-8 pt-8 border-t border-border">
+      <p class="text-center text-sm text-text-secondary">
+        © {currentYear} ProfReport. Все права защищены.
+      </p>
+    </div>
+  </div>
+</footer>

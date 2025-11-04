@@ -1,0 +1,114 @@
+---
+const navItems = [
+  { name: 'Главная', href: '/' },
+  { name: 'Тесты', href: '/tests' },
+  { name: 'FAQ', href: '/faq' },
+  { name: 'О нас', href: '/about' },
+  { name: 'Контакты', href: '/contacts' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="sticky top-0 z-50 bg-surface border-b border-border shadow-sm">
+  <nav class="container-custom" aria-label="Основная навигация">
+    <div class="flex items-center justify-between h-18 lg:h-20">
+      <!-- Logo -->
+      <a
+        href="/"
+        class="flex items-center hover:opacity-80 transition-opacity"
+        aria-label="ProfReport - Главная"
+      >
+        <img src="/logo.svg" alt="ProfReport - AI career report" class="h-16 w-auto" />
+      </a>
+
+      <!-- Desktop Navigation -->
+      <ul class="hidden lg:flex items-center gap-8">
+        {navItems.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              class:list={[
+                'px-4 py-2 rounded-md font-medium text-sm transition-all',
+                currentPath === item.href
+                  ? 'text-primary bg-primary/5 font-semibold'
+                  : 'text-text-secondary hover:text-primary hover:bg-primary/5'
+              ]}
+              aria-current={currentPath === item.href ? 'page' : undefined}
+            >
+              {item.name}
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      <!-- CTA Button (Desktop) -->
+      <a
+        href="/tests"
+        class="hidden lg:inline-flex items-center justify-center px-6 py-3 bg-primary text-white font-semibold rounded-md hover:bg-primary-hover transition-all hover:shadow-md hover:-translate-y-0.5"
+      >
+        Начать тест
+      </a>
+
+      <!-- Mobile Menu Button -->
+      <button
+        id="mobile-menu-button"
+        class="lg:hidden p-2 text-text-primary hover:bg-primary/5 rounded-md transition-colors"
+        aria-label="Открыть меню"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <div
+      id="mobile-menu"
+      class="hidden lg:hidden py-4 border-t border-border"
+      role="dialog"
+      aria-label="Мобильное меню"
+    >
+      <ul class="flex flex-col gap-2">
+        {navItems.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              class:list={[
+                'block px-4 py-3 rounded-md font-medium transition-colors',
+                currentPath === item.href
+                  ? 'text-primary bg-primary/5'
+                  : 'text-text-secondary hover:text-primary hover:bg-primary/5'
+              ]}
+              aria-current={currentPath === item.href ? 'page' : undefined}
+            >
+              {item.name}
+            </a>
+          </li>
+        ))}
+        <li class="mt-2">
+          <a
+            href="/tests"
+            class="block px-4 py-3 bg-primary text-white font-semibold rounded-md text-center hover:bg-primary-hover transition-colors"
+          >
+            Начать тест
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<script>
+  // Mobile menu toggle
+  const menuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  menuButton?.addEventListener('click', () => {
+    const isExpanded = menuButton.getAttribute('aria-expanded') === 'true';
+    menuButton.setAttribute('aria-expanded', String(!isExpanded));
+    mobileMenu?.classList.toggle('hidden');
+  });
+</script>

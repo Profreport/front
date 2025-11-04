@@ -1,0 +1,107 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import Button from '@/components/Button.astro';
+import FAQAccordion from '@/components/islands/FAQAccordion';
+import { generateFAQSchema, generateBreadcrumbSchema } from '@/lib/utils';
+
+const breadcrumbs = [
+  { name: 'Главная', url: 'https://profreport.ru/' },
+  { name: 'FAQ', url: 'https://profreport.ru/faq' },
+];
+
+const faqItems = [
+  {
+    question: 'Сколько времени занимает прохождение теста?',
+    answer: 'Тест занимает 5–7 минут. Рекомендуем отвечать быстро, основываясь на первом впечатлении. Нет правильных или неправильных ответов — важна ваша честность.'
+  },
+  {
+    question: 'Когда я получу отчет?',
+    answer: 'Обычно отчет приходит на email в течение 10 минут после оплаты. В редких случаях обработка может занять до 12 часов. Проверьте папку "Спам", если не видите письмо.'
+  },
+  {
+    question: 'На чем основан тест? Это научно?',
+    answer: 'Да, мы используем проверенные психометрические методики: типологию RIASEC (Холланд), классификацию Климова, анализ личностных качеств и ценностей. Все тесты основаны на этих научных методиках, различается только глубина анализа в зависимости от возраста. Мы не используем астрологию, нумерологию или графологию.'
+  },
+  {
+    question: 'Чем ваш тест отличается от других?',
+    answer: 'Мы фокусируемся на научном подходе и персонализации. Отчет адаптирован под ваш возраст и жизненную ситуацию. Вы получаете конкретные рекомендации профессий с объяснением, почему они вам подходят, а не общие описания.'
+  },
+  {
+    question: 'Какой тариф мне выбрать?',
+    answer: 'Выбирайте тариф по возрасту и целям: "Школьники" (14–18 лет) — для выбора направления обучения; "Выпускники" — для студентов и абитуриентов; "Взрослые" — для смены или развития карьеры. Все тесты научно обоснованы, различается глубина анализа.'
+  },
+  {
+    question: 'Как вы обрабатываете мои данные?',
+    answer: 'Мы обрабатываем ваши ответы исключительно для формирования персонального отчета. Данные хранятся в зашифрованном виде и не передаются третьим лицам. Подробнее в Политике конфиденциальности.'
+  },
+  {
+    question: 'Нужна ли регистрация?',
+    answer: 'Нет, регистрация не требуется. Вы проходите тест, указываете email для получения отчета и оплачиваете — всё. Личный кабинет не предусмотрен для упрощения процесса.'
+  },
+  {
+    question: 'Можно ли пройти тест повторно?',
+    answer: 'Да, вы можете пройти тест повторно в любое время. Рекомендуем делать это не чаще одного раза в 6–12 месяцев, так как значительные изменения в интересах и личности происходят постепенно.'
+  },
+  {
+    question: 'Что делать, если отчет не пришел?',
+    answer: 'Проверьте папку "Спам" в вашем почтовом ящике. Если письмо не пришло в течение 12 часов, напишите нам через форму обратной связи, указав email, который вы использовали при оплате.'
+  }
+];
+
+const jsonLd = [
+  generateFAQSchema(faqItems),
+  generateBreadcrumbSchema(breadcrumbs),
+];
+---
+
+<BaseLayout
+  title="Часто задаваемые вопросы"
+  description="Ответы на популярные вопросы о тестировании и отчетах ProfReport. Время прохождения, научность методик, возврат средств."
+  jsonLd={jsonLd}
+>
+  <Header />
+
+  <main>
+    <!-- Hero -->
+    <section class="bg-gradient-to-br from-primary/5 to-secondary/5 py-12 lg:py-16">
+      <div class="container-custom text-center">
+        <h1 class="text-4xl lg:text-5xl font-bold text-text-primary mb-4">
+          Часто задаваемые вопросы
+        </h1>
+        <p class="text-lg text-text-secondary max-w-3xl mx-auto">
+          Ответы на популярные вопросы о тестировании и отчетах
+        </p>
+      </div>
+    </section>
+
+    <!-- FAQ Accordion -->
+    <section class="py-16 lg:py-24 bg-background">
+      <div class="container-custom">
+        <div class="max-w-4xl mx-auto">
+          <FAQAccordion client:load items={faqItems} />
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-16 lg:py-20 bg-surface">
+      <div class="container-custom">
+        <div class="max-w-3xl mx-auto text-center bg-gradient-to-br from-primary/5 to-secondary/5 p-8 lg:p-12 rounded-lg border border-border">
+          <h2 class="text-3xl font-bold text-text-primary mb-4">
+            Не нашли ответ?
+          </h2>
+          <p class="text-lg text-text-secondary mb-8">
+            Напишите нам через форму обратной связи, и мы ответим в течение 24 часов
+          </p>
+          <Button href="/contacts" size="lg" variant="primary">
+            Написать нам
+          </Button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>
