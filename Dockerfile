@@ -34,5 +34,5 @@ EXPOSE 4321
 ENV NODE_ENV=production
 ENV HOST=0.0.0.0
 
-# Start the server
-CMD ["node", "./dist/server/entry.mjs"]
+# Start the preview server for static files
+CMD ["npx", "astro", "preview", "--host", "0.0.0.0", "--port", "4321"]
