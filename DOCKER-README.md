@@ -94,20 +94,20 @@ docker run -p 4321:4321 profreport-front-prod
 
 ## Переменные окружения
 
-Создайте `.env` файл в корне проекта для переменных окружения:
+Создайте `.env` файл в корне проекта на основе `.env.example`:
+
+```bash
+cp .env.example .env
+```
+
+Заполните переменные окружения:
 
 ```env
-NODE_ENV=production
-API_URL=https://proffreport.ru/api/v1
+PUBLIC_API_URL=https://your-api-domain.com/api/v1
+PUBLIC_SITE_URL=https://your-domain.com
 ```
 
-Затем подключите его в docker-compose:
-
-```yaml
-environment:
-  - NODE_ENV=${NODE_ENV}
-  - API_URL=${API_URL}
-```
+Переменные с префиксом `PUBLIC_` будут доступны в клиентском коде Astro.
 
 ## Структура файлов
 

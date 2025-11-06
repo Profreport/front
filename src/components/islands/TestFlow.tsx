@@ -190,7 +190,8 @@ export default function TestFlow({ config }: TestFlowProps) {
       const transformedPayload = transformAnswersToAPI(data.name, data.email, answers, config);
 
       try {
-        const response = await fetch('https://proffreport.ru/api/v1/questionnaire', {
+        const apiUrl = import.meta.env.PUBLIC_API_URL || 'https://example.com/api/v1';
+        const response = await fetch(`${apiUrl}/questionnaire`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
