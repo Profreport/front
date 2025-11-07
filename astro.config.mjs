@@ -11,7 +11,7 @@ export default defineConfig({
     }),
   ],
   output: 'static',
-  site: import.meta.env.PUBLIC_SITE_URL,
+  site: import.meta.env.PUBLIC_SITE_URL || undefined,
   compressHTML: true,
   build: {
     inlineStylesheets: 'auto',
