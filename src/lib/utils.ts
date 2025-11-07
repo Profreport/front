@@ -54,13 +54,14 @@ export function mapTariffToContract(pageTariff: string): 'basic' | 'recommended'
 /**
  * Generate JSON-LD schema markup
  */
-export function generateOrganizationSchema() {
+export function generateOrganizationSchema(siteUrl?: string) {
+  const baseUrl = siteUrl || '';
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'ProfReport',
-    url: 'https://proffreport.ru',
-    logo: 'https://proffreport.ru/logo.png',
+    ...(baseUrl && { url: baseUrl }),
+    ...(baseUrl && { logo: `${baseUrl}/logo.png` }),
     description: 'Профессиональная профориентация на основе научных методик',
     contactPoint: {
       '@type': 'ContactPoint',
