@@ -11,7 +11,7 @@ export default defineConfig({
     }),
   ],
   output: 'static',
-  site: 'https://profreport.ru',
+  site: import.meta.env.PUBLIC_SITE_URL || 'https://proffreport.ru',
   compressHTML: true,
   build: {
     inlineStylesheets: 'auto',
