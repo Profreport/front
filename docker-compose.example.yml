@@ -25,9 +25,7 @@ services:
       dockerfile: Dockerfile
     container_name: profreport-front-prod
     ports:
-      - "4321:4321"
-    environment:
-      - NODE_ENV=production
+      - "80:80"
     restart: unless-stopped
     networks:
       - profreport-network

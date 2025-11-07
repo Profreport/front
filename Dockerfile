@@ -15,24 +15,17 @@ COPY . .
 # Build the application
 RUN npm run build
 
-# Production stage
-FROM node:20-alpine AS runner
+# Production stage with nginx
+FROM nginx:alpine
 
-WORKDIR /app
+# Copy built static files from builder
+COPY --from=builder /app/dist /usr/share/nginx/html
 
-# Copy built files from builder
-COPY --from=builder /app/dist ./dist
-COPY --from=builder /app/package*.json ./
+# Copy custom nginx config
+COPY nginx.conf /etc/nginx/nginx.conf
 
-# Install only production dependencies
-RUN npm ci --omit=dev
+# Expose port 80
+EXPOSE 80
 
-# Expose port
-EXPOSE 4321
-
-# Set environment to production
-ENV NODE_ENV=production
-ENV HOST=0.0.0.0
-
-# Start the preview server for static files
-CMD ["npx", "astro", "preview", "--host", "0.0.0.0", "--port", "4321"]
+# Start nginx
+CMD ["nginx", "-g", "daemon off;"]
