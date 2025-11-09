@@ -23,6 +23,9 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      args:
+        - PUBLIC_API_URL=${PUBLIC_API_URL:-https://example.com/api/v1}
+        - PUBLIC_SITE_URL=${PUBLIC_SITE_URL:-https://example.com}
     container_name: profreport-front-prod
     ports:
       - "80:80"

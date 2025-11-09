@@ -3,6 +3,14 @@ FROM node:20-alpine AS builder
 
 WORKDIR /app
 
+# Accept build arguments
+ARG PUBLIC_API_URL
+ARG PUBLIC_SITE_URL
+
+# Set as environment variables for build
+ENV PUBLIC_API_URL=$PUBLIC_API_URL
+ENV PUBLIC_SITE_URL=$PUBLIC_SITE_URL
+
 # Copy package files
 COPY package*.json ./
 
@@ -12,7 +20,7 @@ RUN npm ci
 # Copy source files
 COPY . .
 
-# Build the application
+# Build the application with environment variables
 RUN npm run build
 
 # Production stage with nginx
