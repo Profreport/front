@@ -191,7 +191,17 @@ export default function TestFlow({ config }: TestFlowProps) {
 
       try {
         const apiUrl = import.meta.env.PUBLIC_API_URL || 'https://example.com/api/v1';
-        const response = await fetch(`${apiUrl}/questionnaire`, {
+
+        // Map testType to endpoint suffix
+        const endpointMap = {
+          adult: 'adult',
+          student: 'schoolchild',
+          graduate: 'student'
+        } as const;
+
+        const endpointSuffix = endpointMap[config.testType];
+
+        const response = await fetch(`${apiUrl}/questionnaire/${endpointSuffix}`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
