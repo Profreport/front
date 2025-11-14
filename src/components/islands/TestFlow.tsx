@@ -195,7 +195,7 @@ export default function TestFlow({ config }: TestFlowProps) {
         // Map testType to endpoint suffix
         const endpointMap = {
           adult: 'adult',
-          student: 'schoolchild',
+          school: 'schoolchild',
           graduate: 'student'
         } as const;
 
@@ -264,7 +264,7 @@ export default function TestFlow({ config }: TestFlowProps) {
 
             <div className="mb-8">
               <h3 className="text-xl font-semibold text-text-primary mb-4">
-                Тест займет примерно 5–7 минут
+                Тест займет примерно 10–15 минут
               </h3>
 
               <div className="bg-background p-6 rounded-lg mb-6">
