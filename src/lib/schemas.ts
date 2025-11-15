@@ -3,7 +3,7 @@ import { z } from 'zod';
 /**
  * Test types according to CORE CONTEXT
  */
-export const TestTypeSchema = z.enum(['school', 'graduate', 'adult']);
+export const TestTypeSchema = z.enum(['schoolchild', 'student', 'adult']);
 export type TestType = z.infer<typeof TestTypeSchema>;
 
 /**

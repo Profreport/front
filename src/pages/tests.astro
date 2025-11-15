@@ -22,7 +22,7 @@ const pricingCards = [
       'Список специальностей для обучения',
       'Подробный план действий',
     ],
-    link: '/test/students',
+    link: '/test/schoolchildren',
     recommended: false,
   },
   // {
@@ -36,7 +36,7 @@ const pricingCards = [
   //     'Рекомендации первых шагов',
   //     'Советы по развитию карьеры',
   //   ],
-  //   link: '/test/graduates',
+  //   link: '/test/students',
   //   recommended: true,
   // },
   {
@@ -106,7 +106,7 @@ const pricingCards = [
                 ))}
               </ul>
 
-              {card.link === '/test/students' || card.link === '/test/adults' ? (
+              {card.link === '/test/schoolchildren' || card.link === '/test/adults' ? (
                 <Button
                   href={card.link}
                   variant="outline"

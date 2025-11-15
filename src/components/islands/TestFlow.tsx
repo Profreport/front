@@ -195,8 +195,8 @@ export default function TestFlow({ config }: TestFlowProps) {
         // Map testType to endpoint suffix
         const endpointMap = {
           adult: 'adult',
-          school: 'schoolchild',
-          graduate: 'student'
+          schoolchild: 'schoolchild',
+          student: 'student'
         } as const;
 
         const endpointSuffix = endpointMap[config.testType];
