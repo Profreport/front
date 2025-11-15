@@ -106,7 +106,7 @@ const pricingCards = [
                 ))}
               </ul>
 
-              {card.link === '/test/adults' ? (
+              {card.link === '/test/students' || card.link === '/test/adults' ? (
                 <Button
                   href={card.link}
                   variant="outline"
