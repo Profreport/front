@@ -24,10 +24,10 @@ const jsonLd = [
       <div class="container-custom">
         <div class="max-w-4xl mx-auto text-center">
           <h1 class="text-4xl lg:text-5xl xl:text-6xl font-bold text-text-primary mb-6">
-            «Лучший способ предсказать будущее — создать его»
+            «Найди себе дело по душе и тебе не придется работать ни дня в своей жизни»
           </h1>
           <p class="text-xl lg:text-2xl text-text-secondary mb-4 italic">
-            — Питер Друкер
+            — Конфуций
           </p>
           <p class="text-lg lg:text-xl text-text-secondary mb-8 leading-relaxed">
             Научный подход к профориентации: тестирование за 10-15 минут, персональный отчет с рекомендациями профессий на основе ваших интересов, личности и ценностей
@@ -54,7 +54,7 @@ const jsonLd = [
           Наша платформа помогает людям на разных этапах жизни найти свой профессиональный путь
         </p>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {[
             {
               icon: '🎓',
@@ -62,13 +62,8 @@ const jsonLd = [
               description: 'Для выбора будущей профессии и планирования образовательного маршрута',
             },
             {
-              icon: '🎯',
-              title: 'Выпускники вузов',
-              description: 'Для выбора направления карьеры и определения специализации',
-            },
-            {
               icon: '💼',
-              title: 'Взрослые',
+              title: 'Взрослые и выпускники вузов',
               description: 'Для смены текущей профессиональной деятельности и поиска нового призвания',
             },
           ].map((audience) => (

@@ -327,7 +327,7 @@ export default function TestFlow({ config }: TestFlowProps) {
                 onClick={() => setShowExitModal(true)}
                 className="text-sm text-text-secondary hover:text-text-primary border border-border px-4 py-2 rounded-md transition-colors"
               >
-                Выйти / Сохранить на потом
+                Выйти
               </button>
             </div>
           </div>
