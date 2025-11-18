@@ -4,7 +4,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { PaymentFormSchema, type PaymentFormData, type TestType, type Tariff } from '@/lib/schemas';
 import { submitPayload } from '@/lib/utils';
 
-type QuestionType = 'likert' | 'radio' | 'checkbox';
+type QuestionType = 'likert' | 'radio' | 'checkbox' | 'single';
 
 interface Option {
   label: string;
@@ -52,8 +52,8 @@ function getLabelFromValue(questionId: string, value: string | number | string[]
 
   if (!question) return String(value);
 
-  // For likert/radio, find the matching option label
-  if (question.type === 'likert' || question.type === 'radio') {
+  // For likert/radio/single, find the matching option label
+  if (question.type === 'likert' || question.type === 'radio' || question.type === 'single') {
     const option = question.options.find(opt => opt.value === value);
     return option ? option.label : String(value);
   }
@@ -634,7 +634,7 @@ function QuestionCard({ question, value, onChange }: {
     );
   }
 
-  if (question.type === 'radio') {
+  if (question.type === 'radio' || question.type === 'single') {
     return (
       <div className="bg-surface p-6 lg:p-8 rounded-lg border border-border mb-6">
         <h3 className="text-xl font-semibold text-text-primary mb-2">{question.question}</h3>
