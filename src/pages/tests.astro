@@ -128,60 +128,141 @@ const pricingCards = [
     </section>
 
     <!-- How It Works -->
-    <section class="py-16 lg:py-20 bg-surface">
-      <div class="container-custom">
-        <h2 class="text-3xl lg:text-4xl font-bold text-center text-text-primary mb-12">
-          Как это работает
-        </h2>
+    <section class="py-16 lg:py-24 bg-gradient-to-b from-surface to-background relative overflow-hidden">
+      <!-- Decorative elements -->
+      <div class="absolute top-0 right-1/4 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-          {[
-            {
-              number: '1',
-              title: 'Выберите тест',
-              description: 'Выберите интересующий вас тест',
-            },
-            {
-              number: '2',
-              title: 'Ответьте на вопросы',
-              description: 'Пройдите тест за 10-15 минут, отвечая честно на все вопросы',
-            },
-            {
-              number: '3',
-              title: 'Оплатите тест',
-              description: 'Оплатите выбранный тест в отдельном окне',
-            },
-            {
-              number: '4',
-              title: 'Получите PDF на email',
-              description: 'Отчет придет на почту обычно в течение 10 минут, максимум — 12 часов',
-            }
-          ].map((step) => (
-            <div class="text-center p-6">
-              <div class="w-14 h-14 bg-gradient-to-br from-primary to-secondary text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
-                {step.number}
-              </div>
-              <h4 class="text-xl font-semibold text-text-primary mb-2">{step.title}</h4>
-              <p class="text-text-secondary">{step.description}</p>
+      <div class="container-custom relative z-10">
+        <div class="text-center mb-16">
+          <span class="inline-block px-4 py-2 bg-gradient-to-r from-primary/10 to-secondary/10 text-primary font-semibold rounded-full text-sm mb-4">
+            КАК ЭТО РАБОТАЕТ
+          </span>
+          <h2 class="text-3xl lg:text-5xl font-bold text-text-primary mb-6">
+            Путь к вашей профессии
+          </h2>
+          <p class="text-lg lg:text-xl text-text-secondary max-w-3xl mx-auto">
+            Всего 4 простых шага отделяют вас от профессионального отчета о вашем призвании
+          </p>
+        </div>
+
+        <!-- Progress bar -->
+        <div class="max-w-5xl mx-auto">
+          <div class="relative">
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-0 relative">
+              {[
+                {
+                  number: '1',
+                  title: 'Выберите тест',
+                  description: 'Выберите интересующий вас тест',
+                  icon: '🎯',
+                  gradient: 'from-blue-500 to-cyan-500',
+                },
+                {
+                  number: '2',
+                  title: 'Ответьте на вопросы',
+                  description: 'Пройдите тест за 10-15 минут, отвечая честно на все вопросы',
+                  icon: '✍️',
+                  gradient: 'from-purple-500 to-pink-500',
+                },
+                {
+                  number: '3',
+                  title: 'Оплатите тест',
+                  description: 'Оплатите выбранный тест в отдельном окне',
+                  icon: '💳',
+                  gradient: 'from-green-500 to-emerald-500',
+                },
+                {
+                  number: '4',
+                  title: 'Получите PDF на email',
+                  description: 'Отчет придет на почту обычно в течение 10 минут, максимум — 12 часов',
+                  icon: '📧',
+                  gradient: 'from-orange-500 to-red-500',
+                }
+              ].map((step, index) => (
+                <div class="relative flex flex-col items-center text-center group">
+                  <!-- Connector arrow (only between steps on desktop) -->
+                  {index < 3 && (
+                    <div class="hidden lg:block absolute top-8 left-1/2 w-full h-0.5 pointer-events-none">
+                      <svg class="absolute left-full top-1/2 -translate-y-1/2 -ml-3 w-6 h-6 text-primary opacity-0 group-hover:opacity-100 transition-opacity" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"/>
+                      </svg>
+                    </div>
+                  )}
+
+                  <!-- Step circle with icon -->
+                  <div class="relative mb-6">
+                    <div class={`w-20 h-20 lg:w-24 lg:h-24 bg-gradient-to-br ${step.gradient} rounded-full flex items-center justify-center text-4xl lg:text-5xl shadow-lg relative z-10 group-hover:scale-110 transition-transform duration-300`}>
+                      {step.icon}
+                    </div>
+                    <!-- Glow effect -->
+                    <div class={`absolute inset-0 bg-gradient-to-br ${step.gradient} rounded-full blur-xl opacity-0 group-hover:opacity-50 transition-opacity duration-300`}></div>
+                    <!-- Step number badge -->
+                    <div class={`absolute -top-2 -right-2 w-8 h-8 bg-gradient-to-br ${step.gradient} text-white rounded-full flex items-center justify-center text-sm font-bold shadow-md z-20`}>
+                      {step.number}
+                    </div>
+                  </div>
+
+                  <!-- Content -->
+                  <div class="max-w-xs">
+                    <h3 class="text-xl lg:text-2xl font-bold text-text-primary mb-3 group-hover:text-primary transition-colors">
+                      {step.title}
+                    </h3>
+                    <p class="text-sm lg:text-base text-text-secondary leading-relaxed">
+                      {step.description}
+                    </p>
+                  </div>
+
+                  <!-- Mobile connector -->
+                  {index < 3 && (
+                    <div class="lg:hidden flex justify-center my-6">
+                      <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                      </svg>
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Delivery Info -->
-    <section class="py-16 lg:py-20 bg-background">
-      <div class="container-custom">
-        <div class="max-w-3xl mx-auto bg-surface border border-border rounded-lg p-8 flex items-start gap-6">
-          <div class="text-5xl flex-shrink-0">📧</div>
-          <div>
-            <h3 class="text-2xl font-semibold text-text-primary mb-2">
-              Доставка отчета на email
-            </h3>
-            <p class="text-text-secondary leading-relaxed">
-              После оплаты вы получите персональный отчет в формате PDF на указанный email.
-              Обычное время обработки — 10 минут, максимальное — 12 часов.
-            </p>
+    <section class="py-16 lg:py-24 bg-gradient-to-b from-background to-surface relative overflow-hidden">
+      <!-- Decorative elements -->
+      <div class="absolute top-1/2 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-x-1/2"></div>
+      <div class="absolute top-1/2 right-0 w-96 h-96 bg-secondary/5 rounded-full blur-3xl translate-x-1/2"></div>
+
+      <div class="container-custom relative z-10">
+        <div class="max-w-4xl mx-auto">
+          <div class="relative group bg-gradient-to-br from-blue-500/10 to-purple-500/10 backdrop-blur-sm p-8 lg:p-12 rounded-2xl border-2 border-border hover:border-primary hover:shadow-2xl transition-all duration-300">
+            <!-- Glow effect -->
+            <div class="absolute inset-0 bg-gradient-to-br from-primary/0 to-secondary/0 group-hover:from-primary/5 group-hover:to-secondary/5 rounded-2xl transition-all duration-300"></div>
+
+            <div class="relative z-10 flex flex-col md:flex-row items-center md:items-start gap-6">
+              <!-- Icon with gradient background -->
+              <div class="relative flex-shrink-0">
+                <div class="absolute inset-0 bg-gradient-to-br from-primary to-secondary opacity-20 rounded-2xl blur-xl"></div>
+                <div class="relative w-20 h-20 lg:w-24 lg:h-24 bg-gradient-to-br from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center text-4xl lg:text-5xl shadow-lg group-hover:scale-110 transition-transform duration-300">
+                  📧
+                </div>
+              </div>
+
+              <!-- Content -->
+              <div class="flex-1 text-center md:text-left">
+                <h3 class="text-2xl lg:text-3xl font-bold text-text-primary mb-3 group-hover:text-primary transition-colors">
+                  Доставка отчета на email
+                </h3>
+                <p class="text-base lg:text-lg text-text-secondary leading-relaxed">
+                  После оплаты вы получите персональный отчет в формате PDF на указанный email.
+                  Обычное время обработки — <span class="font-semibold text-primary">10 минут</span>, максимальное — <span class="font-semibold text-primary">12 часов</span>.
+                </p>
+              </div>
+            </div>
+
+            <!-- Decorative corner -->
+            <div class="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tl from-primary/10 to-secondary/10 opacity-0 group-hover:opacity-100 rounded-tl-full transition-opacity"></div>
           </div>
         </div>
       </div>

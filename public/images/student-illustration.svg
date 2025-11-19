@@ -1,0 +1,36 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Student with book illustration -->
+
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="95" fill="#EFF6FF"/>
+
+  <!-- Book -->
+  <rect x="70" y="120" width="60" height="45" rx="3" fill="#3B82F6"/>
+  <rect x="72" y="122" width="56" height="41" rx="2" fill="#60A5FA"/>
+  <line x1="100" y1="122" x2="100" y2="163" stroke="#3B82F6" stroke-width="2"/>
+  <line x1="85" y1="135" x2="95" y2="135" stroke="#DBEAFE" stroke-width="2" stroke-linecap="round"/>
+  <line x1="85" y1="145" x2="95" y2="145" stroke="#DBEAFE" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Student head -->
+  <circle cx="100" cy="70" r="20" fill="#FBBF24"/>
+
+  <!-- Hair -->
+  <path d="M 85 60 Q 80 50 90 48 Q 95 45 100 46 Q 105 45 110 48 Q 120 50 115 60" fill="#1F2937"/>
+
+  <!-- Face -->
+  <circle cx="93" cy="68" r="2" fill="#1F2937"/>
+  <circle cx="107" cy="68" r="2" fill="#1F2937"/>
+  <path d="M 95 75 Q 100 78 105 75" stroke="#1F2937" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
+  <!-- Body -->
+  <rect x="85" y="88" width="30" height="35" rx="5" fill="#60A5FA"/>
+
+  <!-- Arms -->
+  <rect x="70" y="95" width="15" height="25" rx="7" fill="#FBBF24"/>
+  <rect x="115" y="95" width="15" height="25" rx="7" fill="#FBBF24"/>
+
+  <!-- Graduation cap icon -->
+  <polygon points="140,35 155,30 170,35 155,40" fill="#1F2937"/>
+  <rect x="152" y="35" width="6" height="15" fill="#1F2937"/>
+  <circle cx="155" cy="52" r="3" fill="#3B82F6"/>
+</svg>

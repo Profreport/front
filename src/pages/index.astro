@@ -22,57 +22,109 @@ const jsonLd = [
     <!-- Hero Section -->
     <section class="bg-gradient-to-br from-primary/5 to-secondary/5 py-16 lg:py-24">
       <div class="container-custom">
-        <div class="max-w-4xl mx-auto text-center">
-          <h1 class="text-4xl lg:text-5xl xl:text-6xl font-bold text-text-primary mb-6">
-            «Лучший способ предсказать будущее - создать его»
-          </h1>
-          <p class="text-xl lg:text-2xl text-text-secondary mb-4 italic">
-            — Питер Друкер
-          </p>
-          <p class="text-lg lg:text-xl text-text-secondary mb-8 leading-relaxed">
-            Научный подход к профориентации: тестирование за 10-15 минут, персональный отчет с рекомендациями профессий на основе ваших интересов, личности и ценностей
-          </p>
-          <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button href="/tests" size="lg" variant="primary">
-              Начать тест
-            </Button>
-            <Button href="/about" size="lg" variant="outline">
-              Узнать больше
-            </Button>
+        <div class="max-w-4xl mx-auto">
+          <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
+            <!-- Image -->
+            <div class="w-48 h-48 lg:w-56 lg:h-56 flex-shrink-0">
+              <img
+                src="/images/peter-drucker.jpg"
+                alt="Питер Друкер"
+                class="w-full h-full object-cover rounded-full border-4 border-primary/20 shadow-xl"
+              />
+            </div>
+
+            <!-- Content -->
+            <div class="text-center lg:text-left flex-1">
+              <h1 class="text-4xl lg:text-5xl xl:text-6xl font-bold text-text-primary mb-6">
+                «Лучший способ предсказать будущее - создать его»
+              </h1>
+              <p class="text-xl lg:text-2xl text-text-secondary mb-4 italic">
+                — Питер Друкер
+              </p>
+              <p class="text-lg lg:text-xl text-text-secondary mb-8 leading-relaxed">
+                Научный подход к профориентации: тестирование за 10-15 минут, персональный отчет с рекомендациями профессий на основе ваших интересов, личности и ценностей
+              </p>
+              <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <Button href="/tests" size="lg" variant="primary">
+                  Начать тест
+                </Button>
+                <Button href="/about" size="lg" variant="outline">
+                  Узнать больше
+                </Button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Target Audience Section -->
-    <section class="py-16 lg:py-24 bg-surface">
-      <div class="container-custom">
-        <h2 class="text-3xl lg:text-4xl font-bold text-center text-text-primary mb-4">
-          Для кого
-        </h2>
-        <p class="text-lg text-text-secondary text-center max-w-3xl mx-auto mb-12">
-          Наша платформа помогает людям на разных этапах жизни найти свой профессиональный путь
-        </p>
+    <section class="py-16 lg:py-24 bg-gradient-to-b from-surface to-background relative overflow-hidden">
+      <!-- Decorative background elements -->
+      <div class="absolute top-0 left-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+      <div class="absolute bottom-0 right-0 w-96 h-96 bg-secondary/5 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      <div class="container-custom relative z-10">
+        <div class="text-center mb-16">
+          <span class="inline-block px-4 py-2 bg-primary/10 text-primary font-semibold rounded-full text-sm mb-4">
+            ДЛЯ КОГО
+          </span>
+          <h2 class="text-3xl lg:text-5xl font-bold text-text-primary mb-6">
+            Подберем путь для каждого
+          </h2>
+          <p class="text-lg lg:text-xl text-text-secondary max-w-3xl mx-auto">
+            Наша платформа помогает людям на разных этапах жизни найти свой профессиональный путь
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto">
           {[
             {
-              icon: '🎓',
+              image: '/images/student-interests.png',
               title: 'Подростки 12-17 лет',
               description: 'Для выбора будущей профессии и планирования образовательного маршрута',
+              color: 'from-blue-500/10 to-cyan-500/10',
+              borderColor: 'hover:border-blue-500',
             },
             {
-              icon: '💼',
+              image: '/images/career-growth.png',
               title: 'Взрослые и выпускники вузов',
               description: 'Для смены текущей профессиональной деятельности и поиска нового призвания',
+              color: 'from-purple-500/10 to-pink-500/10',
+              borderColor: 'hover:border-purple-500',
             },
           ].map((audience) => (
-            <div class="bg-background p-8 rounded-xl border-2 border-border hover:border-primary hover:shadow-xl transition-all hover:-translate-y-2 text-center group">
-              <div class="text-6xl mb-4 group-hover:scale-110 transition-transform">
-                {audience.icon}
+            <div class={`relative group bg-gradient-to-br ${audience.color} backdrop-blur-sm p-8 lg:p-10 rounded-2xl border-2 border-border ${audience.borderColor} hover:shadow-2xl transition-all duration-300 hover:-translate-y-3`}>
+              <!-- Glow effect -->
+              <div class="absolute inset-0 bg-gradient-to-br from-primary/0 to-secondary/0 group-hover:from-primary/5 group-hover:to-secondary/5 rounded-2xl transition-all duration-300"></div>
+
+              <div class="relative z-10">
+                <div class="mb-8 flex justify-center">
+                  <div class="relative">
+                    <div class="absolute inset-0 bg-gradient-to-br from-primary to-secondary opacity-20 rounded-2xl blur-xl group-hover:opacity-30 transition-opacity"></div>
+                    <img
+                      src={audience.image}
+                      alt={audience.title}
+                      class="relative w-40 h-40 lg:w-48 lg:h-48 object-contain group-hover:scale-110 transition-transform duration-300 drop-shadow-lg"
+                    />
+                  </div>
+                </div>
+
+                <h3 class="text-2xl lg:text-3xl font-bold text-text-primary mb-4 text-center group-hover:text-primary transition-colors">
+                  {audience.title}
+                </h3>
+
+                <p class="text-base lg:text-lg text-text-secondary leading-relaxed text-center">
+                  {audience.description}
+                </p>
+
+                <!-- Decorative arrow -->
+                <div class="mt-6 flex justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <svg class="w-6 h-6 text-primary animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                  </svg>
+                </div>
               </div>
-              <h3 class="text-xl font-semibold text-text-primary mb-3">{audience.title}</h3>
-              <p class="text-text-secondary leading-relaxed">{audience.description}</p>
             </div>
           ))}
         </div>
@@ -80,121 +132,270 @@ const jsonLd = [
     </section>
 
     <!-- Technologies Section -->
-    <section class="py-16 lg:py-24 bg-background">
-      <div class="container-custom">
-        <h2 class="text-3xl lg:text-4xl font-bold text-center text-text-primary mb-4">
-          Наши технологии
-        </h2>
-        <p class="text-lg text-text-secondary text-center max-w-3xl mx-auto mb-12">
-          Мы используем научно обоснованные методики профориентации, усиленные технологиями искусственного интеллекта и машинного обучения для максимально точных и персонализированных рекомендаций
-        </p>
+    <section class="py-16 lg:py-24 bg-gradient-to-b from-background to-surface relative overflow-hidden">
+      <!-- Decorative background elements -->
+      <div class="absolute top-1/4 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl translate-x-1/2"></div>
+      <div class="absolute bottom-1/4 left-0 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl -translate-x-1/2"></div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {[
-            {
-              title: 'RIASEC',
-              description: 'Типология профессиональных интересов Холланда для точного определения склонностей и построения персонализированной карты профессиональных предпочтений',
-            },
-            {
-              title: 'Объекты деятельности Климова',
-              description: 'Классификация профессий по предмету труда для выбора оптимального направления развития карьеры на основе индивидуальных способностей',
-            },
-            {
-              title: 'Личностные качества',
-              description: 'Комплексный анализ черт характера для соответствия требованиям профессии и формирования детального психологического профиля',
-            },
-            {
-              title: 'Ценности',
-              description: 'Определение важных для вас аспектов работы и карьеры для прогнозирования профессиональной удовлетворенности и построения устойчивой карьерной траектории',
-            },
-          ].map((tech, index) => (
-            <div class="bg-background p-6 rounded-lg border border-border hover:border-primary hover:shadow-lg transition-all hover:-translate-y-1">
-              <div class="w-12 h-12 bg-gradient-to-br from-primary to-secondary text-white rounded-md flex items-center justify-center text-2xl font-bold mb-4">
-                {index + 1}
-              </div>
-              <h3 class="text-xl font-semibold text-text-primary mb-2">{tech.title}</h3>
-              <p class="text-text-secondary leading-relaxed">{tech.description}</p>
+      <div class="container-custom relative z-10">
+        <div class="text-center mb-16">
+          <span class="inline-block px-4 py-2 bg-gradient-to-r from-primary/10 to-secondary/10 text-primary font-semibold rounded-full text-sm mb-4">
+            ТЕХНОЛОГИИ
+          </span>
+          <h2 class="text-3xl lg:text-5xl font-bold text-text-primary mb-6">
+            Наши технологии
+          </h2>
+          <p class="text-lg lg:text-xl text-text-secondary max-w-3xl mx-auto">
+            Мы используем научно обоснованные методики профориентации, усиленные технологиями искусственного интеллекта и машинного обучения для максимально точных и персонализированных рекомендаций
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto mb-12">
+          <!-- Illustration -->
+          <div class="flex items-center justify-center order-2 lg:order-1">
+            <div class="relative">
+              <div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-3xl blur-2xl"></div>
+              <img
+                src="/images/technologies-illustration.png"
+                alt="Наши технологии профориентации"
+                class="relative w-full max-w-md mx-auto drop-shadow-2xl"
+              />
             </div>
-          ))}
+          </div>
+
+          <!-- Technologies Grid -->
+          <div class="grid grid-cols-1 gap-6 order-1 lg:order-2">
+            {[
+              {
+                title: 'RIASEC',
+                description: 'Типология профессиональных интересов Холланда для точного определения склонностей и построения персонализированной карты профессиональных предпочтений',
+                icon: '🎯',
+                gradient: 'from-blue-500 to-cyan-500',
+              },
+              {
+                title: 'Объекты деятельности Климова',
+                description: 'Классификация профессий по предмету труда для выбора оптимального направления развития карьеры на основе индивидуальных способностей',
+                icon: '🔍',
+                gradient: 'from-purple-500 to-pink-500',
+              },
+              {
+                title: 'Личностные качества',
+                description: 'Комплексный анализ черт характера для соответствия требованиям профессии и формирования детального психологического профиля',
+                icon: '🧠',
+                gradient: 'from-green-500 to-emerald-500',
+              },
+              {
+                title: 'Ценности',
+                description: 'Определение важных для вас аспектов работы и карьеры для прогнозирования профессиональной удовлетворенности и построения устойчивой карьерной траектории',
+                icon: '💎',
+                gradient: 'from-orange-500 to-red-500',
+              },
+            ].map((tech) => (
+              <div class="group relative bg-surface/80 backdrop-blur-sm p-6 rounded-xl border-2 border-border hover:border-transparent hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+                <!-- Gradient border on hover -->
+                <div class={`absolute inset-0 bg-gradient-to-r ${tech.gradient} opacity-0 group-hover:opacity-100 rounded-xl transition-opacity -z-10 blur-sm`}></div>
+
+                <div class="flex items-start gap-4">
+                  <div class={`w-12 h-12 bg-gradient-to-br ${tech.gradient} text-white rounded-lg flex items-center justify-center text-2xl flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform`}>
+                    {tech.icon}
+                  </div>
+                  <div class="flex-1">
+                    <h3 class="text-xl font-bold text-text-primary mb-2 group-hover:text-primary transition-colors">{tech.title}</h3>
+                    <p class="text-text-secondary text-sm leading-relaxed">{tech.description}</p>
+                  </div>
+                </div>
+
+                <!-- Decorative corner accent -->
+                <div class={`absolute top-0 right-0 w-20 h-20 bg-gradient-to-br ${tech.gradient} opacity-0 group-hover:opacity-10 rounded-bl-full transition-opacity`}></div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Steps Section -->
-    <section class="py-16 lg:py-24 bg-surface">
-      <div class="container-custom">
-        <h2 class="text-3xl lg:text-4xl font-bold text-center text-text-primary mb-12">
-          Как это работает
-        </h2>
+    <section class="py-16 lg:py-24 bg-gradient-to-b from-surface to-background relative overflow-hidden">
+      <!-- Decorative elements -->
+      <div class="absolute top-0 right-1/4 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-          {[
-            {
-              number: '1',
-              title: 'Выберите тест',
-              description: 'Выберите интересующий вас тест',
-            },
-            {
-              number: '2',
-              title: 'Ответьте на вопросы',
-              description: 'Пройдите тест за 10-15 минут, отвечая честно на все вопросы',
-            },
-            {
-              number: '3',
-              title: 'Оплатите тест',
-              description: 'Оплатите выбранный тест в отдельном окне',
-              },
-            {
+      <div class="container-custom relative z-10">
+        <div class="text-center mb-16">
+          <span class="inline-block px-4 py-2 bg-gradient-to-r from-primary/10 to-secondary/10 text-primary font-semibold rounded-full text-sm mb-4">
+            КАК ЭТО РАБОТАЕТ
+          </span>
+          <h2 class="text-3xl lg:text-5xl font-bold text-text-primary mb-6">
+            Путь к вашей профессии
+          </h2>
+          <p class="text-lg lg:text-xl text-text-secondary max-w-3xl mx-auto">
+            Всего 4 простых шага отделяют вас от профессионального отчета о вашем призвании
+          </p>
+        </div>
 
-              number: '4',
-              title: 'Получите PDF на email',
-              description: 'Отчет придет на почту обычно в течение 10 минут, максимум — 12 часов',
-            }
-          ].map((step) => (
-            <div class="bg-surface p-8 rounded-lg border-2 border-border hover:border-primary transition-all text-center">
-              <div class="w-16 h-16 bg-gradient-to-br from-primary to-secondary text-white rounded-full flex items-center justify-center text-3xl font-bold mx-auto mb-4">
-                {step.number}
-              </div>
-              <h3 class="text-2xl font-semibold text-text-primary mb-3">{step.title}</h3>
-              <p class="text-text-secondary leading-relaxed">{step.description}</p>
+        <!-- Progress bar -->
+        <div class="max-w-5xl mx-auto mb-16">
+          <div class="relative">
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-0 relative">
+              {[
+                {
+                  number: '1',
+                  title: 'Выберите тест',
+                  description: 'Выберите интересующий вас тест',
+                  icon: '🎯',
+                  gradient: 'from-blue-500 to-cyan-500',
+                },
+                {
+                  number: '2',
+                  title: 'Ответьте на вопросы',
+                  description: 'Пройдите тест за 10-15 минут, отвечая честно на все вопросы',
+                  icon: '✍️',
+                  gradient: 'from-purple-500 to-pink-500',
+                },
+                {
+                  number: '3',
+                  title: 'Оплатите тест',
+                  description: 'Оплатите выбранный тест в отдельном окне',
+                  icon: '💳',
+                  gradient: 'from-green-500 to-emerald-500',
+                },
+                {
+                  number: '4',
+                  title: 'Получите PDF на email',
+                  description: 'Отчет придет на почту обычно в течение 10 минут, максимум — 12 часов',
+                  icon: '📧',
+                  gradient: 'from-orange-500 to-red-500',
+                }
+              ].map((step, index) => (
+                <div class="relative flex flex-col items-center text-center group">
+                  <!-- Connector arrow (only between steps on desktop) -->
+                  {index < 3 && (
+                    <div class="hidden lg:block absolute top-8 left-1/2 w-full h-0.5 pointer-events-none">
+                      <svg class="absolute left-full top-1/2 -translate-y-1/2 -ml-3 w-6 h-6 text-primary opacity-0 group-hover:opacity-100 transition-opacity" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"/>
+                      </svg>
+                    </div>
+                  )}
+
+                  <!-- Step circle with icon -->
+                  <div class="relative mb-6">
+                    <div class={`w-20 h-20 lg:w-24 lg:h-24 bg-gradient-to-br ${step.gradient} rounded-full flex items-center justify-center text-4xl lg:text-5xl shadow-lg relative z-10 group-hover:scale-110 transition-transform duration-300`}>
+                      {step.icon}
+                    </div>
+                    <!-- Glow effect -->
+                    <div class={`absolute inset-0 bg-gradient-to-br ${step.gradient} rounded-full blur-xl opacity-0 group-hover:opacity-50 transition-opacity duration-300`}></div>
+                    <!-- Step number badge -->
+                    <div class={`absolute -top-2 -right-2 w-8 h-8 bg-gradient-to-br ${step.gradient} text-white rounded-full flex items-center justify-center text-sm font-bold shadow-md z-20`}>
+                      {step.number}
+                    </div>
+                  </div>
+
+                  <!-- Content -->
+                  <div class="max-w-xs">
+                    <h3 class="text-xl lg:text-2xl font-bold text-text-primary mb-3 group-hover:text-primary transition-colors">
+                      {step.title}
+                    </h3>
+                    <p class="text-sm lg:text-base text-text-secondary leading-relaxed">
+                      {step.description}
+                    </p>
+                  </div>
+
+                  <!-- Mobile connector -->
+                  {index < 3 && (
+                    <div class="lg:hidden flex justify-center my-6">
+                      <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                      </svg>
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="text-center">
+          <p class="text-lg text-text-secondary mb-6">
+            Готовы начать свой путь к идеальной профессии?
+          </p>
+          <Button href="/tests" size="lg" variant="primary">
+            Выбрать тест
+          </Button>
         </div>
       </div>
     </section>
 
     <!-- Benefits Section -->
-    <section class="py-16 lg:py-24 bg-background">
-      <div class="container-custom">
-        <h2 class="text-3xl lg:text-4xl font-bold text-center text-text-primary mb-12">
-          Почему мы лучше
-        </h2>
+    <section class="py-16 lg:py-24 bg-gradient-to-b from-background to-surface relative overflow-hidden">
+      <!-- Decorative elements -->
+      <div class="absolute top-1/3 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-x-1/2"></div>
+      <div class="absolute bottom-1/3 right-0 w-96 h-96 bg-secondary/5 rounded-full blur-3xl translate-x-1/2"></div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="container-custom relative z-10">
+        <div class="text-center mb-16">
+          <span class="inline-block px-4 py-2 bg-gradient-to-r from-secondary/10 to-primary/10 text-secondary font-semibold rounded-full text-sm mb-4">
+            ПРЕИМУЩЕСТВА
+          </span>
+          <h2 class="text-3xl lg:text-5xl font-bold text-text-primary mb-6">
+            Почему выбирают нас
+          </h2>
+          <p class="text-lg lg:text-xl text-text-secondary max-w-3xl mx-auto">
+            Мы объединили науку, технологии и персональный подход для вашего успеха
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {[
             {
               title: 'Научный подход',
               description: 'Используем проверенные психометрические методики, валидированные на тысячах респондентов, а не астрологию или псевдонаучные тесты',
+              icon: '🔬',
+              gradient: 'from-blue-500 to-cyan-500',
             },
             {
               title: 'Персонализация',
               description: 'Отчет адаптирован под ваш возраст, жизненную ситуацию и индивидуальные особенности для максимально релевантных рекомендаций',
+              icon: '🎯',
+              gradient: 'from-purple-500 to-pink-500',
             },
             {
               title: 'Быстро и удобно',
               description: 'Тест займет 10-15 минут, результат с подробным анализом и практическими рекомендациями получите на email сразу после прохождения',
+              icon: '⚡',
+              gradient: 'from-green-500 to-emerald-500',
             },
             {
               title: 'Конкретные рекомендации',
               description: 'Топ профессий с детальным объяснением соответствия вашему профилю, требуемыми навыками и путями развития в каждом направлении',
+              icon: '📊',
+              gradient: 'from-orange-500 to-red-500',
             },
           ].map((benefit) => (
-            <div class="bg-background p-6 rounded-lg border border-border hover:shadow-lg hover:-translate-y-1 transition-all">
-              <div class="w-10 h-10 bg-secondary text-white rounded-full flex items-center justify-center text-xl font-bold mb-4">
-                ✓
+            <div class="group relative bg-surface/80 backdrop-blur-sm p-8 rounded-2xl border-2 border-border hover:border-transparent hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+              <!-- Gradient glow on hover -->
+              <div class={`absolute inset-0 bg-gradient-to-br ${benefit.gradient} opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity -z-10`}></div>
+
+              <!-- Icon with gradient background -->
+              <div class="flex items-start gap-6 mb-6">
+                <div class={`relative flex-shrink-0 w-16 h-16 bg-gradient-to-br ${benefit.gradient} rounded-xl flex items-center justify-center text-3xl shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                  {benefit.icon}
+                  <!-- Icon glow -->
+                  <div class={`absolute inset-0 bg-gradient-to-br ${benefit.gradient} rounded-xl blur-lg opacity-0 group-hover:opacity-50 transition-opacity -z-10`}></div>
+                </div>
+
+                <div class="flex-1">
+                  <h3 class="text-2xl font-bold text-text-primary mb-3 group-hover:text-primary transition-colors">
+                    {benefit.title}
+                  </h3>
+                </div>
               </div>
-              <h3 class="text-xl font-semibold text-text-primary mb-2">{benefit.title}</h3>
-              <p class="text-text-secondary leading-relaxed">{benefit.description}</p>
+
+              <p class="text-text-secondary leading-relaxed text-base">
+                {benefit.description}
+              </p>
+
+              <!-- Decorative corner -->
+              <div class={`absolute bottom-0 right-0 w-24 h-24 bg-gradient-to-tl ${benefit.gradient} opacity-0 group-hover:opacity-5 rounded-tl-full transition-opacity`}></div>
             </div>
           ))}
         </div>
@@ -202,31 +403,109 @@ const jsonLd = [
     </section>
 
     <!-- Report Sections -->
-    <section class="py-16 lg:py-24 bg-surface">
-      <div class="container-custom">
-        <h2 class="text-3xl lg:text-4xl font-bold text-center text-text-primary mb-4">
-          Что вы получаете
-        </h2>
-        <p class="text-lg text-text-secondary text-center mb-12">
-          Подробный отчет в формате PDF
-        </p>
+    <section class="py-16 lg:py-24 bg-gradient-to-b from-surface to-background relative overflow-hidden">
+      <!-- Decorative elements -->
+      <div class="absolute top-1/4 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-x-1/2"></div>
+      <div class="absolute bottom-1/4 right-0 w-96 h-96 bg-secondary/5 rounded-full blur-3xl translate-x-1/2"></div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
-          {[
-            'Профиль личности и интересов',
-            'Топ-15-20 подходящих профессий',
-            'Анализ сильных и слабых сторон',
-            'Подробный план развития',
-            'Сферы деятельности',
-            'Профиль профессиональных ценностей',
-          ].map((item) => (
-            <div class="bg-surface p-4 rounded-md border border-border hover:border-primary hover:bg-primary/5 transition-all flex items-center gap-3">
-              <div class="w-6 h-6 bg-secondary text-white rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">
-                ✓
+      <div class="container-custom relative z-10">
+        <div class="text-center mb-16">
+          <span class="inline-block px-4 py-2 bg-gradient-to-r from-primary/10 to-secondary/10 text-primary font-semibold rounded-full text-sm mb-4">
+            ВАШ РЕЗУЛЬТАТ
+          </span>
+          <h2 class="text-3xl lg:text-5xl font-bold text-text-primary mb-6">
+            Что вы получаете
+          </h2>
+          <p class="text-lg lg:text-xl text-text-secondary max-w-3xl mx-auto">
+            Подробный профессиональный отчет в формате PDF с персонализированными рекомендациями
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto items-center">
+          <!-- Report Features -->
+          <div class="grid grid-cols-1 gap-4 order-2 lg:order-1">
+            {[
+              {
+                title: 'Профиль личности и интересов',
+                icon: '👤',
+                gradient: 'from-blue-500 to-cyan-500',
+              },
+              {
+                title: 'Топ-15-20 подходящих профессий',
+                icon: '🎯',
+                gradient: 'from-purple-500 to-pink-500',
+              },
+              {
+                title: 'Анализ сильных и слабых сторон',
+                icon: '💪',
+                gradient: 'from-green-500 to-emerald-500',
+              },
+              {
+                title: 'Подробный план развития',
+                icon: '📈',
+                gradient: 'from-orange-500 to-red-500',
+              },
+              {
+                title: 'Сферы деятельности',
+                icon: '🏢',
+                gradient: 'from-indigo-500 to-blue-500',
+              },
+              {
+                title: 'Профиль профессиональных ценностей',
+                icon: '💎',
+                gradient: 'from-pink-500 to-rose-500',
+              },
+            ].map((item) => (
+              <div class="group relative bg-surface/80 backdrop-blur-sm p-4 lg:p-5 rounded-xl border-2 border-border hover:border-transparent hover:shadow-xl transition-all duration-300 hover:-translate-x-2">
+                <!-- Gradient glow on hover -->
+                <div class={`absolute inset-0 bg-gradient-to-r ${item.gradient} opacity-0 group-hover:opacity-10 rounded-xl transition-opacity -z-10`}></div>
+
+                <div class="flex items-center gap-4">
+                  <div class={`w-12 h-12 bg-gradient-to-br ${item.gradient} rounded-lg flex items-center justify-center text-2xl flex-shrink-0 shadow-md group-hover:scale-110 transition-transform`}>
+                    {item.icon}
+                  </div>
+                  <span class="text-text-primary font-semibold text-base lg:text-lg group-hover:text-primary transition-colors">
+                    {item.title}
+                  </span>
+                </div>
               </div>
-              <span class="text-text-primary font-medium">{item}</span>
+            ))}
+          </div>
+
+          <!-- Illustration -->
+          <div class="flex items-center justify-center order-1 lg:order-2">
+            <div class="relative w-full max-w-md mx-auto h-96 perspective-1000">
+              <!-- Glow effect -->
+              <div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-3xl blur-2xl"></div>
+
+              <!-- Fan layout with 3 pages -->
+              <div class="relative w-full h-full flex items-center justify-center">
+                <!-- Left page -->
+                <img
+                  src="/images/report-preview-1.png"
+                  alt="Пример отчета - страница 1"
+                  class="absolute w-64 h-80 object-cover rounded-lg shadow-2xl border-2 border-white/20"
+                  style="transform: rotate(-10deg) translateX(-50px) scale(0.9); z-index: 1;"
+                />
+
+                <!-- Center page (main) -->
+                <img
+                  src="/images/report-preview-2.png"
+                  alt="Пример отчета - страница 2"
+                  class="absolute w-64 h-80 object-cover rounded-lg shadow-2xl border-2 border-white/30"
+                  style="transform: rotate(0deg) translateY(-10px) scale(1); z-index: 3;"
+                />
+
+                <!-- Right page -->
+                <img
+                  src="/images/report-preview-3.png"
+                  alt="Пример отчета - страница 3"
+                  class="absolute w-64 h-80 object-cover rounded-lg shadow-2xl border-2 border-white/20"
+                  style="transform: rotate(10deg) translateX(50px) scale(0.9); z-index: 2;"
+                />
+              </div>
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </section>
