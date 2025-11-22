@@ -20,13 +20,13 @@ const breadcrumbs = [
 
   <main>
     <!-- Hero -->
-    <section class="bg-gradient-to-br from-primary/5 to-secondary/5 py-12 lg:py-16">
+    <section class="bg-surface py-12 lg:py-16">
       <div class="container-custom text-center">
         <h1 class="text-4xl lg:text-5xl font-bold text-text-primary mb-4">
           О нас
         </h1>
         <p class="text-lg text-text-secondary max-w-3xl mx-auto">
-          Помогаем людям находить профессию, которая им подходит, с помощью научных методик
+          Мы — команда энтузиастов, мотивированных сделать технологии искусственного интеллекта более доступными для обычных людей. Мы верим в то, что лишь люди, занимающиеся своим любимым делом, могут изменить этот мир к лучшему.
         </p>
       </div>
     </section>
@@ -34,110 +34,88 @@ const breadcrumbs = [
     <!-- Mission -->
     <section class="py-16 lg:py-24 bg-background">
       <div class="container-custom">
-        <div class="max-w-4xl mx-auto">
+        <div class="max-w-4xl mx-auto text-center">
           <h2 class="text-3xl lg:text-4xl font-bold text-text-primary mb-6">
-            Зачем мы это делаем
+            Наша миссия
           </h2>
           <div class="prose prose-lg max-w-none">
             <p class="text-text-secondary leading-relaxed mb-4">
-              Многие люди выбирают профессию под давлением родителей, друзей или общественных стереотипов.
-              В результате работают не там, где им было бы комфортно и интересно.
+              Наша миссия — помочь найти не просто профессию, а любимое дело, от которого у человека будут идти мурашки, настолько ему будет нравиться этим заниматься.
             </p>
             <p class="text-text-secondary leading-relaxed mb-4">
-              Мы создали ProfReport, чтобы дать каждому возможность сделать осознанный выбор на основе
-              научных данных о своих интересах, личности и ценностях. Без астрологии, нумерологии и
-              других ненаучных подходов.
+              В свое время мы тоже прошли долгий путь поиска профессии на собственном опыте, потеряв при этом много времени. Мы знаем, каково это — искать свое призвание методом проб и ошибок.
             </p>
             <p class="text-text-secondary leading-relaxed">
-              Наша цель — помочь вам найти профессию, в которой вы будете успешны и счастливы, потому что
-              она соответствует вашим природным склонностям и жизненным приоритетам.
+              В настоящий момент появился работающий инструмент, позволяющий избежать этих долгих поисков, и именно его мы применяем. Мы создали ProfReport, чтобы дать каждому возможность сделать осознанный выбор на основе научных данных о своих интересах, личности и ценностях — без астрологии, нумерологии и других ненаучных подходов.
             </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Platform -->
-    <section class="py-16 lg:py-24 bg-surface">
-      <div class="container-custom">
-        <div class="max-w-4xl mx-auto">
-          <h2 class="text-3xl lg:text-4xl font-bold text-text-primary mb-6">
-            Наша платформа
-          </h2>
-          <p class="text-lg text-text-secondary mb-8 leading-relaxed">
-            ProfReport — это онлайн-платформа для профориентации на основе проверенных
-            психометрических методик.
-          </p>
-
-          <div class="space-y-6">
-            {[
-              {
-                title: 'Научный подход',
-                description: 'Используем типологию RIASEC (Холланд), классификацию Климова, анализ личностных качеств и ценностей'
-              },
-              {
-                title: 'Персонализация',
-                description: 'Отчеты адаптированы под возраст и жизненную ситуацию: школьники, студенты, взрослые с разными потребностями'
-              },
-              {
-                title: 'Конкретные рекомендации',
-                description: 'Вы получаете не просто список профессий, а объяснение, почему именно они вам подходят, и что делать дальше'
-              },
-              {
-                title: 'Простота и скорость',
-                description: 'Тест занимает 10-15 минут, отчет приходит на email обычно в течение 10 минут'
-              },
-            ].map((feature) => (
-              <div class="flex gap-4 items-start">
-                <div class="w-10 h-10 bg-secondary text-white rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                  </svg>
-                </div>
-                <div class="flex-1">
-                  <h4 class="text-xl font-semibold text-text-primary mb-2">{feature.title}</h4>
-                  <p class="text-text-secondary leading-relaxed">{feature.description}</p>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </div>
     </section>
 
     <!-- Why Choose Us -->
-    <section class="py-16 lg:py-24 bg-background">
-      <div class="container-custom">
-        <div class="max-w-4xl mx-auto">
-          <h2 class="text-3xl lg:text-4xl font-bold text-text-primary mb-12 text-center">
+    <section class="py-16 lg:py-24 bg-surface relative overflow-hidden">
+
+      <div class="container-custom relative z-10">
+        <div class="text-center mb-16">
+          
+          <h2 class="text-3xl lg:text-5xl font-bold text-text-primary mb-6">
             Почему выбирают нас
           </h2>
+          <p class="text-lg lg:text-xl text-text-secondary max-w-3xl mx-auto">
+            Мы создали сервис, который сочетает доступность, качество и заботу о ваших данных
+          </p>
+        </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              {
-                number: '01',
-                title: 'Без регистрации',
-                text: 'Не нужно создавать личный кабинет — просто пройдите тест и получите отчет на email'
-              },
-              {
-                number: '02',
-                title: 'Прозрачность',
-                text: 'Мы объясняем, какие методики используем и как формируется отчет'
-              },
-              {
-                number: '03',
-                title: 'Приватность',
-                text: 'Ваши данные защищены и используются только для формирования отчета'
-              },
-            ].map((benefit) => (
-              <div class="bg-surface p-6 rounded-lg border border-border hover:border-primary hover:shadow-lg transition-all">
-                <div class="text-5xl font-bold text-primary opacity-20 mb-3">{benefit.number}</div>
-                <h4 class="text-xl font-semibold text-text-primary mb-2">{benefit.title}</h4>
-                <p class="text-text-secondary leading-relaxed">{benefit.text}</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 max-w-7xl mx-auto">
+          {[
+            {
+              title: 'Без регистрации',
+              text: 'Не нужно создавать личный кабинет — просто пройдите тест и получите отчет на email',
+              icon: '🚀',
+              gradient: 'from-blue-500 to-cyan-500',
+            },
+            {
+              title: 'Прозрачность',
+              text: 'Мы объясняем, какие методики используем и как формируется отчет',
+              icon: '🔍',
+              gradient: 'from-purple-500 to-pink-500',
+            },
+            {
+              title: 'Приватность',
+              text: 'Ваши данные защищены и используются только для формирования отчета',
+              icon: '🔒',
+              gradient: 'from-green-500 to-emerald-500',
+            },
+            {
+              title: 'Цены доступные каждому',
+              text: 'Качественная профориентация не должна быть роскошью — наши цены делают тесты доступными для всех',
+              icon: '💰',
+              gradient: 'from-orange-500 to-red-500',
+            },
+            {
+              title: 'Высокое качество отчета',
+              text: 'Детальный анализ с конкретными рекомендациями, основанный на научных методиках профориентации',
+              icon: '⭐',
+              gradient: 'from-indigo-500 to-blue-500',
+            },
+          ].map((benefit) => (
+            <div class="group relative bg-surface/80 backdrop-blur-sm p-6 rounded-xl border-2 border-border hover:border-transparent hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+              <!-- Gradient glow on hover -->
+              <div class={`absolute inset-0 bg-gradient-to-br ${benefit.gradient} opacity-0 group-hover:opacity-10 rounded-xl transition-opacity -z-10`}></div>
+
+              <!-- Icon -->
+              <div class={`w-14 h-14 bg-gradient-to-br ${benefit.gradient} rounded-lg flex items-center justify-center text-3xl mb-4 shadow-lg group-hover:scale-110 transition-transform`}>
+                {benefit.icon}
               </div>
-            ))}
-          </div>
+
+              <h4 class="text-xl font-bold text-text-primary mb-3 group-hover:text-primary transition-colors">{benefit.title}</h4>
+              <p class="text-text-secondary text-sm leading-relaxed">{benefit.text}</p>
+
+              <!-- Decorative corner -->
+              <div class={`absolute bottom-0 right-0 w-20 h-20 bg-gradient-to-tl ${benefit.gradient} opacity-0 group-hover:opacity-5 rounded-tl-full transition-opacity`}></div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
@@ -151,7 +129,7 @@ const breadcrumbs = [
         <p class="text-lg mb-8 opacity-90 max-w-2xl mx-auto">
           Пройдите тест за 10-15 минут и получите персональный отчет с рекомендациями профессий
         </p>
-        <Button href="/tests" size="lg" class="bg-blue-600 text-white hover:bg-blue-700 shadow-lg hover:shadow-xl font-bold">
+        <Button href="/tests" size="lg" class="bg-gradient-to-r from-primary to-secondary text-white hover:opacity-90 shadow-lg hover:shadow-xl font-bold">
           Выбрать тест
         </Button>
       </div>
