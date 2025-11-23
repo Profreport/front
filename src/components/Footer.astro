@@ -20,6 +20,12 @@ const footerSections = [
       { name: 'Договор оферты', href: '/offer' },
     ],
   },
+  {
+    title: 'Источники',
+    credits: [
+      { text: 'Фото: jeffmcneill / CC BY-SA 2.0' },
+    ],
+  },
 ];
 ---
 
@@ -39,7 +45,7 @@ const footerSections = [
         <div>
           <h4 class="font-semibold text-text-primary mb-3">{section.title}</h4>
           <ul class="space-y-2">
-            {section.links.map((link) => (
+            {section.links && section.links.map((link) => (
               <li>
                 <a
                   href={link.href}
@@ -47,6 +53,11 @@ const footerSections = [
                 >
                   {link.name}
                 </a>
+              </li>
+            ))}
+            {section.credits && section.credits.map((credit) => (
+              <li class="text-sm text-text-secondary">
+                {credit.text}
               </li>
             ))}
           </ul>

@@ -89,7 +89,10 @@ const jsonLd = [
               borderColor: 'hover:border-purple-500',
             },
           ].map((audience) => (
-            <div class={`relative group bg-gradient-to-br ${audience.color} backdrop-blur-sm p-8 lg:p-10 rounded-2xl border-2 border-border ${audience.borderColor} hover:shadow-2xl transition-all duration-300 hover:-translate-y-3`}>
+            <a
+              href="/tests"
+              class={`relative group bg-gradient-to-br ${audience.color} backdrop-blur-sm p-8 lg:p-10 rounded-2xl border-2 border-border ${audience.borderColor} hover:shadow-2xl transition-all duration-300 hover:-translate-y-3 block cursor-pointer`}
+            >
               <!-- Glow effect -->
               <div class="absolute inset-0 bg-gradient-to-br from-primary/0 to-secondary/0 group-hover:from-primary/5 group-hover:to-secondary/5 rounded-2xl transition-all duration-300"></div>
 
@@ -113,7 +116,7 @@ const jsonLd = [
                   {audience.description}
                 </p>
               </div>
-            </div>
+            </a>
           ))}
         </div>
       </div>
@@ -172,6 +175,12 @@ const jsonLd = [
                 description: 'Определение важных для вас аспектов работы и карьеры для прогнозирования профессиональной удовлетворенности и построения устойчивой карьерной траектории',
                 icon: '💎',
                 gradient: 'from-orange-500 to-red-500',
+              },
+              {
+                title: 'Интеграционный анализ с ИИ',
+                description: 'Искусственный интеллект объединяет результаты всех методик выше и формирует целостный и персонализированный профессиональный профиль с учетом уникальных особенностей',
+                icon: '🤖',
+                gradient: 'from-indigo-500 to-purple-500',
               },
             ].map((tech) => (
               <div class="group relative bg-surface/80 backdrop-blur-sm p-6 rounded-xl border-2 border-border hover:border-transparent hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
