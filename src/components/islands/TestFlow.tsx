@@ -190,7 +190,7 @@ export default function TestFlow({ config }: TestFlowProps) {
       const transformedPayload = transformAnswersToAPI(data.name, data.email, answers, config);
 
       try {
-        const apiUrl = import.meta.env.PUBLIC_API_URL || 'https://example.com/api/v1';
+        const apiUrl = import.meta.env.PUBLIC_API_BASEURL || 'https://example.com/api/v1';
 
         // Map testType to endpoint suffix
         const endpointMap = {
