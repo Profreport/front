@@ -383,13 +383,13 @@ export default function TestFlow({ config }: TestFlowProps) {
               <button
                 onClick={handleBack}
                 disabled={currentQuestionIndex === 0}
-                className="flex-1 px-6 py-3 border-2 border-primary text-primary font-semibold rounded-md hover:bg-primary hover:text-white transition-all disabled:opacity-50 disabled:cursor-not-allowed min-h-[44px]"
+                className="flex-1 px-6 py-3 border-2 border-primary text-primary font-semibold rounded-md hover:bg-primary hover:text-white transition-all disabled:opacity-50 disabled:cursor-not-allowed min-h-[44px] cursor-pointer"
               >
                 Назад
               </button>
               <button
                 onClick={handleNext}
-                className="flex-1 px-6 py-3 bg-primary text-white font-semibold rounded-md hover:bg-primary-hover transition-all hover:shadow-md min-h-[44px]"
+                className="flex-1 px-6 py-3 bg-primary text-white font-semibold rounded-md hover:bg-primary-hover transition-all hover:shadow-md min-h-[44px] cursor-pointer"
               >
                 {currentQuestionIndex === totalQuestions - 1 ? 'Перейти к оплате' : 'Далее'}
               </button>
@@ -447,7 +447,7 @@ export default function TestFlow({ config }: TestFlowProps) {
         <main className="container-custom py-12">
           <div className="max-w-2xl mx-auto">
             <h2 className="text-3xl font-bold text-text-primary mb-8 text-center">
-              Оплата и получение отчета
+              Получение отчета
             </h2>
 
             <div className="bg-surface p-8 rounded-lg border border-border shadow-sm">
@@ -455,9 +455,6 @@ export default function TestFlow({ config }: TestFlowProps) {
                 <h3 className="text-2xl font-semibold text-text-primary mb-2">
                   {config.title}
                 </h3>
-                <div className="text-5xl font-bold text-primary">
-                  {config.price} <span className="text-2xl">₽</span>
-                </div>
               </div>
 
               <form onSubmit={handlePaymentSubmit(handlePayment)} className="space-y-6">
@@ -542,7 +539,7 @@ export default function TestFlow({ config }: TestFlowProps) {
                   disabled={isSubmitting}
                   className="w-full px-6 py-4 bg-primary text-white font-semibold rounded-md hover:bg-primary-hover transition-all hover:shadow-md disabled:opacity-50 disabled:cursor-not-allowed text-lg"
                 >
-                  {isSubmitting ? 'Обработка...' : 'Оплатить и получить отчет'}
+                  {isSubmitting ? 'Обработка...' : 'Получить отчет'}
                 </button>
               </form>
             </div>
@@ -620,7 +617,7 @@ function QuestionCard({ question, value, onChange }: {
             <button
               key={option.value}
               onClick={() => onChange(option.value)}
-              className={`flex-1 px-4 py-3 rounded-md font-medium transition-all border-2 min-h-[44px] ${
+              className={`flex-1 px-4 py-3 rounded-md font-medium transition-all border-2 min-h-[44px] cursor-pointer ${
                 value === option.value
                   ? 'bg-gradient-to-r from-primary to-secondary text-white border-primary shadow-md'
                   : 'bg-background text-text-secondary border-border hover:border-primary'
