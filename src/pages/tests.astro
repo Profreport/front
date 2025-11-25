@@ -89,8 +89,7 @@ const pricingCards = [
                 <h3 class="text-2xl font-bold text-text-primary mb-1">{card.title}</h3>
                 <p class="text-text-secondary mb-4">{card.subtitle}</p>
                 <div class="flex items-baseline justify-center gap-1">
-                  <span class="text-5xl font-bold text-primary">{card.price}</span>
-                  <span class="text-2xl font-semibold text-primary">₽</span>
+                  <span class="text-3xl font-bold text-primary">Бесплатно</span>
                 </div>
               </div>
 
@@ -114,7 +113,7 @@ const pricingCards = [
                   size="lg"
                   fullWidth
                 >
-                  Купить и пройти тест
+                  Пройти тест
                 </Button>
               ) : (
                 <div class="py-4 px-6 text-center border-2 border-border rounded-md bg-gray-50">
@@ -163,9 +162,9 @@ const pricingCards = [
                 },
                 {
                   number: '3',
-                  title: 'Оплатите тест',
-                  description: 'Оплатите выбранный тест в отдельном окне',
-                  icon: '💳',
+                  title: 'Заполните данные',
+                  description: 'Укажите ваше имя и email для получения отчета',
+                  icon: '📝',
                   gradient: 'from-green-500 to-emerald-500',
                 },
                 {
@@ -248,7 +247,7 @@ const pricingCards = [
                   Доставка отчета на email
                 </h3>
                 <p class="text-base lg:text-lg text-text-secondary leading-relaxed">
-                  После оплаты вы получите персональный отчет в формате PDF на указанный email.
+                  После прохождения теста вы получите персональный отчет в формате PDF на указанный email.
                   Обычное время обработки — <span class="font-semibold text-primary">10 минут</span>, максимальное — <span class="font-semibold text-primary">12 часов</span>.
                 </p>
               </div>
