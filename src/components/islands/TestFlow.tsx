@@ -488,6 +488,11 @@ export default function TestFlow({ config }: TestFlowProps) {
                   {paymentErrors.email && (
                     <p className="mt-2 text-sm text-error">{paymentErrors.email.message}</p>
                   )}
+                  <div className="mt-3 bg-amber-50 border-l-4 border-amber-400 p-3 rounded">
+                    <p className="text-sm text-amber-800">
+                      ⚠️ Обычно отчет приходит в течение 10 минут, иногда чуть дольше. Если не нашли отчет во Входящих, проверьте папку Спам. Если письмо не пришло в течение 12 часов, напишите нам через форму обратной связи.
+                    </p>
+                  </div>
                 </div>
 
                 <div>
@@ -573,9 +578,15 @@ export default function TestFlow({ config }: TestFlowProps) {
             <p className="text-lg text-text-secondary mb-2">
               Отчет придет на указанный email
             </p>
-            <p className="text-text-secondary mb-8">
-              Обычно — 10 минут, максимум — 12 часов
+            <p className="text-text-secondary mb-4">
+              Обычно — 10 минут, иногда чуть дольше
             </p>
+
+            <div className="bg-amber-50 border-l-4 border-amber-400 p-4 rounded mb-8 text-left">
+              <p className="text-sm text-amber-800">
+                ⚠️ <strong>Важно:</strong> Если не нашли отчет во Входящих, проверьте папку Спам. Если письмо не пришло в течение 12 часов, напишите нам через форму обратной связи.
+              </p>
+            </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a

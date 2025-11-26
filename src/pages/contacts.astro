@@ -34,99 +34,22 @@ const breadcrumbs = [
     <!-- Contact Form & Info -->
     <section class="py-16 lg:py-24 bg-background">
       <div class="container-custom">
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 max-w-6xl mx-auto">
+        <div class="max-w-3xl mx-auto space-y-6">
 
           <!-- Contact Form -->
-          <div class="lg:col-span-2">
-            <div class="bg-surface p-8 rounded-lg border border-border shadow-sm">
-              <h2 class="text-2xl font-bold text-text-primary mb-6">
-                Форма обратной связи
-              </h2>
-              <ContactForm client:load />
-            </div>
+          <div class="bg-surface p-8 rounded-lg border border-border shadow-sm">
+            <h2 class="text-2xl font-bold text-text-primary mb-6">
+              Форма обратной связи
+            </h2>
+            <ContactForm client:load />
           </div>
 
-          <!-- Contact Info -->
-          <div class="space-y-6">
-            <!-- Contact Details -->
-            <div class="bg-surface p-6 rounded-lg border border-border">
-              <h3 class="text-xl font-semibold text-text-primary mb-4">
-                Контактная информация
-              </h3>
-              <div class="space-y-4">
-                <div class="flex items-start gap-3">
-                  <div class="text-2xl flex-shrink-0">📧</div>
-                  <div>
-                    <h4 class="font-medium text-text-primary mb-1">Email</h4>
-                    <a href="mailto:info@proffreport.ru" class="text-primary hover:underline">
-                      info@proffreport.ru
-                    </a>
-                  </div>
-                </div>
-
-                <div class="flex items-start gap-3">
-                  <div class="text-2xl flex-shrink-0">📞</div>
-                  <div>
-                    <h4 class="font-medium text-text-primary mb-1">Телефон</h4>
-                    <a href="tel:+79991234567" class="text-primary hover:underline">
-                      +7 (999) 123-45-67
-                    </a>
-                  </div>
-                </div>
-
-                <div class="flex items-start gap-3">
-                  <div class="text-2xl flex-shrink-0">⏰</div>
-                  <div>
-                    <h4 class="font-medium text-text-primary mb-1">График работы</h4>
-                    <p class="text-text-secondary text-sm">
-                      Пн-Пт: 9:00 - 18:00<br />
-                      Сб-Вс: выходной
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Social Links -->
-            <div class="bg-surface p-6 rounded-lg border border-border">
-              <h3 class="text-xl font-semibold text-text-primary mb-4">
-                Социальные сети
-              </h3>
-              <div class="space-y-2">
-                <a
-                  href="https://vk.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="block text-text-secondary hover:text-primary transition-colors"
-                >
-                  ВКонтакте
-                </a>
-                <a
-                  href="https://t.me"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="block text-text-secondary hover:text-primary transition-colors"
-                >
-                  Telegram
-                </a>
-                <a
-                  href="https://instagram.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="block text-text-secondary hover:text-primary transition-colors"
-                >
-                  Instagram
-                </a>
-              </div>
-            </div>
-
-            <!-- Response Time -->
-            <div class="bg-primary/5 p-4 rounded-lg border-l-4 border-primary">
-              <p class="text-sm text-text-secondary">
-                <strong class="text-text-primary">Время ответа:</strong> Обычно мы отвечаем в течение 24 часов в рабочие дни.
-                В выходные ответ может занять больше времени.
-              </p>
-            </div>
+          <!-- Response Time -->
+          <div class="bg-primary/5 p-4 rounded-lg border-l-4 border-primary">
+            <p class="text-sm text-text-secondary">
+              <strong class="text-text-primary">Время ответа:</strong> Обычно мы отвечаем в течение 24 часов в рабочие дни.
+              В выходные ответ может занять больше времени.
+            </p>
           </div>
         </div>
       </div>
