@@ -2,7 +2,6 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
-import ContactForm from '@/components/islands/ContactForm';
 import { generateBreadcrumbSchema } from '@/lib/utils';
 
 const breadcrumbs = [
@@ -12,8 +11,8 @@ const breadcrumbs = [
 ---
 
 <BaseLayout
-  title="Свяжитесь с нами"
-  description="Форма обратной связи ProfReport. Мы ответим на ваши вопросы в течение 24 часов."
+  title="Контакты"
+  description="Свяжитесь с нами по вопросам работы сервиса и сотрудничества."
   jsonLd={generateBreadcrumbSchema(breadcrumbs)}
 >
   <Header />
@@ -23,32 +22,24 @@ const breadcrumbs = [
     <section class="bg-gradient-to-br from-primary/5 to-secondary/5 py-12 lg:py-16">
       <div class="container-custom text-center">
         <h1 class="text-4xl lg:text-5xl font-bold text-text-primary mb-4">
-          Свяжитесь с нами
+          Контакты
         </h1>
         <p class="text-lg text-text-secondary max-w-3xl mx-auto">
-          Мы ответим на ваши вопросы в течение 24 часов
+          Свяжитесь с нами по любым вопросам
         </p>
       </div>
     </section>
 
-    <!-- Contact Form & Info -->
+    <!-- Contact Info -->
     <section class="py-16 lg:py-24 bg-background">
       <div class="container-custom">
-        <div class="max-w-3xl mx-auto space-y-6">
-
-          <!-- Contact Form -->
+        <div class="max-w-3xl mx-auto">
           <div class="bg-surface p-8 rounded-lg border border-border shadow-sm">
-            <h2 class="text-2xl font-bold text-text-primary mb-6">
-              Форма обратной связи
-            </h2>
-            <ContactForm client:load />
-          </div>
-
-          <!-- Response Time -->
-          <div class="bg-primary/5 p-4 rounded-lg border-l-4 border-primary">
-            <p class="text-sm text-text-secondary">
-              <strong class="text-text-primary">Время ответа:</strong> Обычно мы отвечаем в течение 24 часов в рабочие дни.
-              В выходные ответ может занять больше времени.
+            <p class="text-lg text-text-secondary leading-relaxed">
+              При возникновении любых вопросов по работе сервиса, а также по вопросам сотрудничества обращайтесь на почту
+              <a href="mailto:info@profreport.online" class="text-primary hover:underline font-semibold">
+                info@profreport.online
+              </a>.
             </p>
           </div>
         </div>
