@@ -3,17 +3,19 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
 import Button from '@/components/Button.astro';
-import { generateOrganizationSchema, generateHowToSchema } from '@/lib/utils';
+import { generateOrganizationSchema, generateHowToSchema, generateWebSiteSchema } from '@/lib/utils';
 
 const jsonLd = [
   generateOrganizationSchema(),
   generateHowToSchema(),
+  generateWebSiteSchema(),
 ];
 ---
 
 <BaseLayout
-  title="Профессиональная профориентация"
-  description="Научный подход к профориентации: тестирование за 10-15 минут, персональный отчет с рекомендациями профессий на основе ваших интересов, личности и ценностей"
+  title="Тест на профориентацию онлайн за 15 минут"
+  description="Получите детальный PDF-отчёт с топ-20 профессий под ваш профиль и план действий. Научные методики + анализ ИИ. Для взрослых и подростков."
+  keywords="тест на профориентацию, профориентация онлайн, выбор профессии, тест на профессию, карьерная ориентация, профориентация для подростков, профориентация для взрослых, смена профессии, профориентационный тест, подбор профессии, RIASEC, тест Холланда"
   jsonLd={jsonLd}
 >
   <Header />
@@ -28,7 +30,7 @@ const jsonLd = [
             <div class="w-48 h-48 lg:w-56 lg:h-56 flex-shrink-0">
               <img
                 src="/images/peter-drucker.jpg"
-                alt="Питер Друкер"
+                alt="Питер Друкер - основатель современного менеджмента и теории профориентации"
                 class="w-full h-full object-cover rounded-full border-4 border-primary/20 shadow-xl"
               />
             </div>
@@ -102,7 +104,7 @@ const jsonLd = [
                     <div class="absolute inset-0 bg-gradient-to-br from-primary to-secondary opacity-20 rounded-2xl blur-xl group-hover:opacity-30 transition-opacity"></div>
                     <img
                       src={audience.image}
-                      alt={audience.title}
+                      alt={`Профориентация ${audience.title} - тест на выбор профессии`}
                       class="relative w-40 h-40 lg:w-48 lg:h-48 object-contain group-hover:scale-110 transition-transform duration-300 drop-shadow-lg"
                     />
                   </div>
@@ -143,7 +145,7 @@ const jsonLd = [
               <div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-3xl blur-2xl"></div>
               <img
                 src="/images/technologies-illustration.png"
-                alt="Наши технологии профориентации"
+                alt="Научные методики профориентации: RIASEC, типология Климова, анализ личности и ИИ"
                 class="relative w-full max-w-md mx-auto drop-shadow-2xl"
               />
             </div>
@@ -221,7 +223,7 @@ const jsonLd = [
                 <div class="absolute inset-0 bg-gradient-to-br from-primary to-secondary opacity-20 rounded-2xl blur-xl group-hover:opacity-30 transition-opacity"></div>
                 <img
                   src="/images/sergei.jpg"
-                  alt="Сергей, сооснователь ProfReport"
+                  alt="Сергей, сооснователь ProfReport - история смены профессии и создания сервиса профориентации"
                   class="relative w-80 h-80 lg:w-96 lg:h-96 object-cover object-top rounded-2xl shadow-lg border-4 border-surface"
                 />
               </div>
@@ -533,7 +535,7 @@ const jsonLd = [
                 <!-- Left page -->
                 <img
                   src="/images/report-preview-1.png"
-                  alt="Пример отчета - страница 1"
+                  alt="Образец PDF отчета по профориентации - профиль личности и интересов"
                   class="absolute w-64 h-80 object-cover rounded-lg shadow-2xl border-2 border-white/20"
                   style="transform: rotate(-10deg) translateX(-50px) scale(0.9); z-index: 1;"
                 />
@@ -541,7 +543,7 @@ const jsonLd = [
                 <!-- Center page (main) -->
                 <img
                   src="/images/report-preview-2.png"
-                  alt="Пример отчета - страница 2"
+                  alt="Пример отчета профориентации - список рекомендованных профессий с описанием"
                   class="absolute w-64 h-80 object-cover rounded-lg shadow-2xl border-2 border-white/30"
                   style="transform: rotate(0deg) translateY(-10px) scale(1); z-index: 3;"
                 />
@@ -549,7 +551,7 @@ const jsonLd = [
                 <!-- Right page -->
                 <img
                   src="/images/report-preview-3.png"
-                  alt="Пример отчета - страница 3"
+                  alt="Отчет по профориентации - план развития карьеры и сильные стороны"
                   class="absolute w-64 h-80 object-cover rounded-lg shadow-2xl border-2 border-white/20"
                   style="transform: rotate(10deg) translateX(50px) scale(0.9); z-index: 2;"
                 />

@@ -1,0 +1,21 @@
+# ProfReport - Robots.txt
+# Разрешаем индексацию всех основных страниц
+
+User-agent: *
+Allow: /
+
+# Запрещаем индексацию служебных страниц
+Disallow: /api/
+Disallow: /_astro/
+Disallow: /admin/
+
+# Яндекс
+User-agent: Yandex
+Allow: /
+
+# Google
+User-agent: Googlebot
+Allow: /
+
+# Sitemap
+Sitemap: https://proffreport.ru/sitemap.xml

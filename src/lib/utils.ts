@@ -129,6 +129,49 @@ export function generateHowToSchema() {
   };
 }
 
+export function generateWebSiteSchema(siteUrl?: string) {
+  const baseUrl = siteUrl || '';
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'ProfReport',
+    ...(baseUrl && { url: baseUrl }),
+    description: 'Онлайн-платформа для профориентации с помощью искусственного интеллекта',
+    inLanguage: 'ru-RU',
+    ...(baseUrl && {
+      potentialAction: {
+        '@type': 'SearchAction',
+        target: {
+          '@type': 'EntryPoint',
+          urlTemplate: `${baseUrl}/tests?q={search_term_string}`,
+        },
+        'query-input': 'required name=search_term_string',
+      },
+    }),
+  };
+}
+
+export function generateProductSchema(productName: string, price: string, siteUrl?: string) {
+  const baseUrl = siteUrl || '';
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: productName,
+    description: 'Персонализированный профессиональный отчет с рекомендациями профессий',
+    brand: {
+      '@type': 'Brand',
+      name: 'ProfReport',
+    },
+    offers: {
+      '@type': 'Offer',
+      price: price,
+      priceCurrency: 'RUB',
+      availability: 'https://schema.org/InStock',
+      ...(baseUrl && { url: `${baseUrl}/tests` }),
+    },
+  };
+}
+
 /**
  * Honeypot validation helper
  */
