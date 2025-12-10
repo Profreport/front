@@ -65,7 +65,7 @@ export function generateOrganizationSchema(siteUrl?: string) {
     description: 'Профессиональная профориентация на основе научных методик',
     contactPoint: {
       '@type': 'ContactPoint',
-      email: 'info@proffreport.ru',
+      email: 'info@profreport.online',
       contactType: 'customer service',
       availableLanguage: 'Russian',
     },

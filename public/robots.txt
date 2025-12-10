@@ -18,4 +18,4 @@ User-agent: Googlebot
 Allow: /
 
 # Sitemap
-Sitemap: https://proffreport.ru/sitemap.xml
+Sitemap: https://profreport.online/sitemap.xml
