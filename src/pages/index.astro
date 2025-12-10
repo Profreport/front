@@ -1,9 +1,20 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
 import Button from '@/components/Button.astro';
 import { generateOrganizationSchema, generateHowToSchema, generateWebSiteSchema } from '@/lib/utils';
+
+// Import optimized images
+import peterDruckerImg from '@/assets/images/peter-drucker.jpg';
+import sergeiImg from '@/assets/images/sergei.jpg';
+import studentInterestsImg from '@/assets/images/student-interests.png';
+import careerGrowthImg from '@/assets/images/career-growth.png';
+import technologiesImg from '@/assets/images/technologies-illustration.png';
+import reportPreview1Img from '@/assets/images/report-preview-1.png';
+import reportPreview2Img from '@/assets/images/report-preview-2.png';
+import reportPreview3Img from '@/assets/images/report-preview-3.png';
 
 const jsonLd = [
   generateOrganizationSchema(),
@@ -28,10 +39,14 @@ const jsonLd = [
           <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
             <!-- Image -->
             <div class="w-48 h-48 lg:w-56 lg:h-56 flex-shrink-0">
-              <img
-                src="/images/peter-drucker.jpg"
+              <Image
+                src={peterDruckerImg}
                 alt="Питер Друкер - основатель современного менеджмента и теории профориентации"
                 class="w-full h-full object-cover rounded-full border-4 border-primary/20 shadow-xl"
+                width={224}
+                height={224}
+                loading="eager"
+                format="webp"
               />
             </div>
 
@@ -75,51 +90,73 @@ const jsonLd = [
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto">
-          {[
-            {
-              image: '/images/student-interests.png',
-              title: 'Подростки 12-17 лет',
-              description: 'Для выбора будущей профессии и планирования образовательного маршрута',
-              color: 'from-blue-500/10 to-cyan-500/10',
-              borderColor: 'hover:border-blue-500',
-            },
-            {
-              image: '/images/career-growth.png',
-              title: 'Взрослые и выпускники вузов',
-              description: 'Для смены текущей профессиональной деятельности и поиска нового призвания',
-              color: 'from-purple-500/10 to-pink-500/10',
-              borderColor: 'hover:border-purple-500',
-            },
-          ].map((audience) => (
-            <a
-              href="/tests"
-              class={`relative group bg-gradient-to-br ${audience.color} backdrop-blur-sm p-8 lg:p-10 rounded-2xl border-2 border-border ${audience.borderColor} hover:shadow-2xl transition-all duration-300 hover:-translate-y-3 block cursor-pointer`}
-            >
-              <!-- Glow effect -->
-              <div class="absolute inset-0 bg-gradient-to-br from-primary/0 to-secondary/0 group-hover:from-primary/5 group-hover:to-secondary/5 rounded-2xl transition-all duration-300"></div>
+          <!-- Подростки -->
+          <a
+            href="/tests"
+            class="relative group bg-gradient-to-br from-blue-500/10 to-cyan-500/10 backdrop-blur-sm p-8 lg:p-10 rounded-2xl border-2 border-border hover:border-blue-500 hover:shadow-2xl transition-all duration-300 hover:-translate-y-3 block cursor-pointer"
+          >
+            <!-- Glow effect -->
+            <div class="absolute inset-0 bg-gradient-to-br from-primary/0 to-secondary/0 group-hover:from-primary/5 group-hover:to-secondary/5 rounded-2xl transition-all duration-300"></div>
 
-              <div class="relative z-10">
-                <div class="mb-8 flex justify-center">
-                  <div class="relative">
-                    <div class="absolute inset-0 bg-gradient-to-br from-primary to-secondary opacity-20 rounded-2xl blur-xl group-hover:opacity-30 transition-opacity"></div>
-                    <img
-                      src={audience.image}
-                      alt={`Профориентация ${audience.title} - тест на выбор профессии`}
-                      class="relative w-40 h-40 lg:w-48 lg:h-48 object-contain group-hover:scale-110 transition-transform duration-300 drop-shadow-lg"
-                    />
-                  </div>
+            <div class="relative z-10">
+              <div class="mb-8 flex justify-center">
+                <div class="relative">
+                  <div class="absolute inset-0 bg-gradient-to-br from-primary to-secondary opacity-20 rounded-2xl blur-xl group-hover:opacity-30 transition-opacity"></div>
+                  <Image
+                    src={studentInterestsImg}
+                    alt="Профориентация Подростки 12-17 лет - тест на выбор профессии"
+                    class="relative w-40 h-40 lg:w-48 lg:h-48 object-contain group-hover:scale-110 transition-transform duration-300 drop-shadow-lg"
+                    width={192}
+                    height={192}
+                    loading="lazy"
+                    format="webp"
+                  />
                 </div>
-
-                <h3 class="text-2xl lg:text-3xl font-bold text-text-primary mb-4 text-center group-hover:text-primary transition-colors">
-                  {audience.title}
-                </h3>
-
-                <p class="text-base lg:text-lg text-text-secondary leading-relaxed text-center">
-                  {audience.description}
-                </p>
               </div>
-            </a>
-          ))}
+
+              <h3 class="text-2xl lg:text-3xl font-bold text-text-primary mb-4 text-center group-hover:text-primary transition-colors">
+                Подростки 12-17 лет
+              </h3>
+
+              <p class="text-base lg:text-lg text-text-secondary leading-relaxed text-center">
+                Для выбора будущей профессии и планирования образовательного маршрута
+              </p>
+            </div>
+          </a>
+
+          <!-- Взрослые -->
+          <a
+            href="/tests"
+            class="relative group bg-gradient-to-br from-purple-500/10 to-pink-500/10 backdrop-blur-sm p-8 lg:p-10 rounded-2xl border-2 border-border hover:border-purple-500 hover:shadow-2xl transition-all duration-300 hover:-translate-y-3 block cursor-pointer"
+          >
+            <!-- Glow effect -->
+            <div class="absolute inset-0 bg-gradient-to-br from-primary/0 to-secondary/0 group-hover:from-primary/5 group-hover:to-secondary/5 rounded-2xl transition-all duration-300"></div>
+
+            <div class="relative z-10">
+              <div class="mb-8 flex justify-center">
+                <div class="relative">
+                  <div class="absolute inset-0 bg-gradient-to-br from-primary to-secondary opacity-20 rounded-2xl blur-xl group-hover:opacity-30 transition-opacity"></div>
+                  <Image
+                    src={careerGrowthImg}
+                    alt="Профориентация Взрослые и выпускники вузов - тест на выбор профессии"
+                    class="relative w-40 h-40 lg:w-48 lg:h-48 object-contain group-hover:scale-110 transition-transform duration-300 drop-shadow-lg"
+                    width={192}
+                    height={192}
+                    loading="lazy"
+                    format="webp"
+                  />
+                </div>
+              </div>
+
+              <h3 class="text-2xl lg:text-3xl font-bold text-text-primary mb-4 text-center group-hover:text-primary transition-colors">
+                Взрослые и выпускники вузов
+              </h3>
+
+              <p class="text-base lg:text-lg text-text-secondary leading-relaxed text-center">
+                Для смены текущей профессиональной деятельности и поиска нового призвания
+              </p>
+            </div>
+          </a>
         </div>
       </div>
     </section>
@@ -143,10 +180,14 @@ const jsonLd = [
           <div class="flex items-center justify-center order-2 lg:order-1">
             <div class="relative">
               <div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-3xl blur-2xl"></div>
-              <img
-                src="/images/technologies-illustration.png"
+              <Image
+                src={technologiesImg}
                 alt="Научные методики профориентации: RIASEC, типология Климова, анализ личности и ИИ"
                 class="relative w-full max-w-md mx-auto drop-shadow-2xl"
+                width={448}
+                height={448}
+                loading="lazy"
+                format="webp"
               />
             </div>
           </div>
@@ -221,10 +262,14 @@ const jsonLd = [
             <div class="lg:col-span-4 flex justify-center">
               <div class="relative group">
                 <div class="absolute inset-0 bg-gradient-to-br from-primary to-secondary opacity-20 rounded-2xl blur-xl group-hover:opacity-30 transition-opacity"></div>
-                <img
-                  src="/images/sergei.jpg"
+                <Image
+                  src={sergeiImg}
                   alt="Сергей, сооснователь ProfReport - история смены профессии и создания сервиса профориентации"
                   class="relative w-80 h-80 lg:w-96 lg:h-96 object-cover object-top rounded-2xl shadow-lg border-4 border-surface"
+                  width={384}
+                  height={384}
+                  loading="lazy"
+                  format="webp"
                 />
               </div>
             </div>
@@ -533,27 +578,39 @@ const jsonLd = [
               <!-- Fan layout with 3 pages -->
               <div class="relative w-full h-full flex items-center justify-center">
                 <!-- Left page -->
-                <img
-                  src="/images/report-preview-1.png"
+                <Image
+                  src={reportPreview1Img}
                   alt="Образец PDF отчета по профориентации - профиль личности и интересов"
                   class="absolute w-64 h-80 object-cover rounded-lg shadow-2xl border-2 border-white/20"
                   style="transform: rotate(-10deg) translateX(-50px) scale(0.9); z-index: 1;"
+                  width={256}
+                  height={320}
+                  loading="lazy"
+                  format="webp"
                 />
 
                 <!-- Center page (main) -->
-                <img
-                  src="/images/report-preview-2.png"
+                <Image
+                  src={reportPreview2Img}
                   alt="Пример отчета профориентации - список рекомендованных профессий с описанием"
                   class="absolute w-64 h-80 object-cover rounded-lg shadow-2xl border-2 border-white/30"
                   style="transform: rotate(0deg) translateY(-10px) scale(1); z-index: 3;"
+                  width={256}
+                  height={320}
+                  loading="lazy"
+                  format="webp"
                 />
 
                 <!-- Right page -->
-                <img
-                  src="/images/report-preview-3.png"
+                <Image
+                  src={reportPreview3Img}
                   alt="Отчет по профориентации - план развития карьеры и сильные стороны"
                   class="absolute w-64 h-80 object-cover rounded-lg shadow-2xl border-2 border-white/20"
                   style="transform: rotate(10deg) translateX(50px) scale(0.9); z-index: 2;"
+                  width={256}
+                  height={320}
+                  loading="lazy"
+                  format="webp"
                 />
               </div>
             </div>
