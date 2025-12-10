@@ -1,4 +1,7 @@
 ---
+import { Image } from 'astro:assets';
+import logoImg from '@/assets/images/logo.png';
+
 const navItems = [
   { name: 'Главная', href: '/' },
   { name: 'Тесты', href: '/tests' },
@@ -19,7 +22,15 @@ const currentPath = Astro.url.pathname;
         class="flex items-center hover:opacity-80 transition-opacity"
         aria-label="ProfReport - Главная"
       >
-        <img src="/logo.png" alt="ProfReport - Профориентация с ИИ" class="h-20 w-auto" />
+        <Image
+          src={logoImg}
+          alt="ProfReport - Профориентация с ИИ"
+          class="h-20 w-auto"
+          width={120}
+          height={80}
+          loading="eager"
+          format="webp"
+        />
       </a>
 
       <!-- Desktop Navigation -->
