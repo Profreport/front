@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import TestFlow from '@/components/islands/TestFlow';
+import { generateProductSchema, generateBreadcrumbSchema } from '@/lib/utils';
 
 const testConfig = {
   testType: 'adult' as const,
@@ -1139,11 +1140,26 @@ const testConfig = {
     'Приготовьтесь и настройтесь на успешную работу!'
   ]
 };
+
+const breadcrumbs = [
+  { name: 'Главная', url: '/' },
+  { name: 'Тесты', url: '/tests' },
+  { name: 'Тест для взрослых', url: '/test/adults' },
+];
+
+const siteUrl = 'https://profreport.online';
+
+const jsonLd = [
+  generateProductSchema('Тест для взрослых (смена/развитие карьеры)', '890', siteUrl),
+  generateBreadcrumbSchema(breadcrumbs),
+];
 ---
 
 <BaseLayout
   title="Тест для взрослых"
   description="Профориентационный тест для взрослых. Смена или развитие карьеры. Анализ интересов, ценностей и личностных качеств."
+  keywords="профориентация взрослых, смена профессии, развитие карьеры, тест RIASEC, методика Климова, выбор карьеры"
+  jsonLd={jsonLd}
 >
   <TestFlow client:only="react" config={testConfig} />
 </BaseLayout>

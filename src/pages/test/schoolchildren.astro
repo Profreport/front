@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import TestFlow from '@/components/islands/TestFlow';
+import { generateProductSchema, generateBreadcrumbSchema } from '@/lib/utils';
 
 const testConfig = {
   testType: 'schoolchild' as const,
@@ -1139,11 +1140,26 @@ const testConfig = {
     'Приготовься и настройся на успешную работу!'
   ]
 };
+
+const breadcrumbs = [
+  { name: 'Главная', url: '/' },
+  { name: 'Тесты', url: '/tests' },
+  { name: 'Тест для школьников', url: '/test/schoolchildren' },
+];
+
+const siteUrl = 'https://profreport.online';
+
+const jsonLd = [
+  generateProductSchema('Тест для школьников (14-18 лет)', '490', siteUrl),
+  generateBreadcrumbSchema(breadcrumbs),
+];
 ---
 
 <BaseLayout
   title={testConfig.title}
   description="Профориентационный тест для школьников 12-17 лет. Определение интересов, склонностей и подходящих профессий на основе научных методик."
+  keywords="профориентация школьников, тест для подростков, выбор профессии, RIASEC, методика Климова, профессии для школьников"
+  jsonLd={jsonLd}
 >
   <TestFlow client:only="react" config={testConfig} />
 </BaseLayout>

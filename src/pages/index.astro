@@ -4,7 +4,8 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
 import Button from '@/components/Button.astro';
-import { generateOrganizationSchema, generateHowToSchema, generateWebSiteSchema } from '@/lib/utils';
+import FAQAccordion from '@/components/islands/FAQAccordion';
+import { generateOrganizationSchema, generateHowToSchema, generateWebSiteSchema, generateFAQSchema } from '@/lib/utils';
 
 // Import optimized images
 import peterDruckerImg from '@/assets/images/peter-drucker.jpg';
@@ -16,10 +17,38 @@ import reportPreview1Img from '@/assets/images/report-preview-1.png';
 import reportPreview2Img from '@/assets/images/report-preview-2.png';
 import reportPreview3Img from '@/assets/images/report-preview-3.png';
 
+const faqItems = [
+  {
+    question: 'Сколько времени занимает прохождение теста?',
+    answer: 'Прохождение теста занимает 10-15 минут. Отвечайте искренне, опираясь на первое впечатление — правильных или неправильных ответов не существует.'
+  },
+  {
+    question: 'Когда я получу отчет?',
+    answer: 'Обычно отчет приходит на email в течение 10 минут после оплаты. В редких случаях обработка может занять до 12 часов. Проверьте папку "Спам", если не видите письмо.'
+  },
+  {
+    question: 'Чем ваш тест отличается от других?',
+    answer: 'Наш тест основан на глубокой оценке склонностей и ценностей человека, что отвечает на вопрос, какие профессии максимально ему подойдут. При этом у нас отсутствуют тесты на логику или внимание, так как они только вносят дополнительный фактор неопределенности и искажают результат — ведь логику и внимание можно развить при наличии должной мотивации.'
+  },
+  {
+    question: 'Какой тариф мне выбрать?',
+    answer: 'Выбирайте тариф по возрасту и целям: "Школьники" (14–18 лет) — для выбора направления обучения после школы; "Взрослые" — для смены или развития карьеры. Все тесты научно обоснованы, различается глубина анализа и акценты на разных этапах жизни.'
+  },
+  {
+    question: 'Насколько точны результаты теста?',
+    answer: 'Точность результатов зависит от вашей честности при ответах. Тест основан на проверенных научных методиках (RIASEC и Климова), которые используются профориентологами по всему миру. При правдивых ответах точность составляет 80-90%.'
+  },
+  {
+    question: 'Можно ли пройти тест повторно?',
+    answer: 'Да, тест можно пройти повторно. Искусственный интеллект на основании вашего результата может предложить другой набор подходящих профессий, так как отчет ограничен 15–20 профессиями, в то время как человеку обычно может подходить до 200 различных профессий.'
+  }
+];
+
 const jsonLd = [
   generateOrganizationSchema(),
   generateHowToSchema(),
   generateWebSiteSchema(),
+  generateFAQSchema(faqItems),
 ];
 ---
 
@@ -615,6 +644,31 @@ const jsonLd = [
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 lg:py-24 bg-background">
+      <div class="container-custom">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl lg:text-5xl font-bold text-text-primary mb-6">
+            Частые вопросы
+          </h2>
+          <p class="text-lg lg:text-xl text-text-secondary max-w-3xl mx-auto">
+            Ответы на популярные вопросы о прохождении теста и получении отчета
+          </p>
+        </div>
+
+        <div class="max-w-4xl mx-auto mb-8">
+          <FAQAccordion client:load items={faqItems} />
+        </div>
+
+        <div class="text-center">
+          <p class="text-text-secondary mb-4">Не нашли ответ на свой вопрос?</p>
+          <Button href="/faq" variant="outline" size="md">
+            Смотреть все вопросы
+          </Button>
         </div>
       </div>
     </section>

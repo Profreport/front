@@ -3,6 +3,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
 import Button from '@/components/Button.astro';
+import Breadcrumb from '@/components/Breadcrumb.astro';
 import { generateBreadcrumbSchema } from '@/lib/utils';
 
 const breadcrumbs = [
@@ -63,6 +64,7 @@ const pricingCards = [
   jsonLd={generateBreadcrumbSchema(breadcrumbs)}
 >
   <Header />
+  <Breadcrumb items={breadcrumbs} />
 
   <main>
     <!-- Hero -->
