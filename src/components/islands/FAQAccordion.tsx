@@ -43,17 +43,15 @@ export default function FAQAccordion({ items }: FAQAccordionProps) {
             </span>
           </button>
 
-          <div
-            id={`faq-answer-${index}`}
-            className={`transition-all ${
-              openIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-            } overflow-hidden`}
-            aria-hidden={openIndex !== index}
-          >
-            <div className="p-6 pt-0">
+          {openIndex === index && (
+            <div
+              id={`faq-answer-${index}`}
+              className="p-6 pt-0 animate-fadeIn"
+              aria-hidden={false}
+            >
               <p className="text-text-secondary leading-relaxed">{item.answer}</p>
             </div>
-          </div>
+          )}
         </div>
       ))}
     </div>
