@@ -62,7 +62,13 @@ const handlePayment = async (data: PaymentFormData) => {
     invoiceId: requestID,
     email: data.email,
     accountId: data.email,
-    // ... other options
+    skin: 'modern',
+    language: 'ru-RU',
+    requireEmail: false,
+    data: {
+      testType: config.testType,
+      requestID: requestID
+    }
   }, {
     onSuccess: () => setStage('success'),
     onFail: (reason) => setError('Оплата не прошла...'),
@@ -109,11 +115,7 @@ CloudPayments will send payment notifications here with the `InvoiceId` (which i
 
 ## Test Mode
 
-To enable CloudPayments test mode, enter one of these codes in the "Код доступа" field:
-- `test`
-- `testmode`
-
-This will add `CloudPayments: { TestMode: true }` to the payment widget data.
+Test mode has been removed from the production flow. For testing, use CloudPayments sandbox environment or test cards according to their documentation.
 
 ## Environment Configuration
 

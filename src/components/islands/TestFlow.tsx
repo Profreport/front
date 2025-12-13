@@ -228,9 +228,6 @@ export default function TestFlow({ config }: TestFlowProps) {
         throw new Error('CloudPayments виджет не загружен');
       }
 
-      // Check if test mode is enabled via code
-      const isTestMode = data.code === 'test' || data.code === 'testmode';
-
       widget.pay('charge', {
         publicId: 'pk_282948d0d59277c437103adf48a92',
         description: config.title,
@@ -244,8 +241,7 @@ export default function TestFlow({ config }: TestFlowProps) {
         requireEmail: false,
         data: {
           testType: config.testType,
-          requestID: requestID,
-          ...(isTestMode && { CloudPayments: { TestMode: true } })
+          requestID: requestID
         }
       }, {
         onSuccess: (options: any) => {
@@ -527,22 +523,6 @@ export default function TestFlow({ config }: TestFlowProps) {
                       ⚠️ Обычно отчет приходит в течение 10 минут, иногда чуть дольше. Если не нашли отчет во Входящих, проверьте папку Спам. Если письмо не пришло в течение 12 часов, напишите нам на info@profreport.online.
                     </p>
                   </div>
-                </div>
-
-                <div>
-                  <label htmlFor="code" className="block text-sm font-semibold text-text-primary mb-2">
-                    Код доступа (опционально)
-                  </label>
-                  <input
-                    {...registerPayment('code')}
-                    type="text"
-                    id="code"
-                    className="w-full px-4 py-3 bg-background border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
-                    placeholder="Введите код"
-                  />
-                  {paymentErrors.code && (
-                    <p className="mt-2 text-sm text-error">{paymentErrors.code.message}</p>
-                  )}
                 </div>
 
                 <div>
