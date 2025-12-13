@@ -23,8 +23,10 @@ const fullTitle = `${title} | ProfReport`;
     <link rel="canonical" href={canonicalURL} />
 
     <!-- Preconnect for external resources -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://mc.yandex.ru" crossorigin />
     <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
     <link rel="dns-prefetch" href="https://mc.yandex.ru" />
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
 
@@ -70,6 +72,9 @@ const fullTitle = `${title} | ProfReport`;
     {jsonLd && (
       <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
     )}
+
+    <!-- CloudPayments Widget -->
+    <script src="https://widget.cloudpayments.ru/bundles/cloudpayments.js"></script>
 
     <!-- Yandex.Metrika counter -->
     <script is:inline type="text/javascript">

@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { PaymentFormSchema, type PaymentFormData, type TestType, type Tariff } from '@/lib/schemas';
-import { submitPayload } from '@/lib/utils';
 
 type QuestionType = 'likert' | 'radio' | 'checkbox' | 'single';
 
@@ -184,59 +183,94 @@ export default function TestFlow({ config }: TestFlowProps) {
     setIsSubmitting(true);
     setError(null);
 
-    // Check if code is metamorfoza to enable API submission
-    if (data.code === 'metamorfoza') {
+    try {
       // Transform answers into API format
       const transformedPayload = transformAnswersToAPI(data.name, data.email, answers, config);
 
-      try {
-        const apiUrl = import.meta.env.PUBLIC_API_BASEURL || 'https://example.com/api/v1';
+      const apiUrl = import.meta.env.PUBLIC_API_BASEURL || 'https://profreport.online/api/v1';
 
-        // Map testType to endpoint suffix
-        const endpointMap = {
-          adult: 'adult',
-          schoolchild: 'schoolchild',
-          student: 'student'
-        } as const;
+      // Map testType to endpoint suffix
+      const endpointMap = {
+        adult: 'adult',
+        schoolchild: 'schoolchild',
+        student: 'student'
+      } as const;
 
-        const endpointSuffix = endpointMap[config.testType];
+      const endpointSuffix = endpointMap[config.testType];
 
-        const response = await fetch(`${apiUrl}/questionnaire/${endpointSuffix}`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(transformedPayload),
-        });
+      // Step 1: Save questionnaire to backend and get requestID
+      const response = await fetch(`${apiUrl}/questionnaire/${endpointSuffix}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(transformedPayload),
+      });
 
-        if (!response.ok) {
-          throw new Error('Ошибка при отправке данных');
-        }
-
-        setStage('success');
-      } catch (err) {
-        setError(err instanceof Error ? err.message : 'Ошибка при отправке');
+      if (!response.ok) {
+        throw new Error('Ошибка при отправке данных');
       }
-    } else {
-      // Original payment flow
-      const payload = {
-        testType: config.testType,
+
+      const result = await response.json();
+      const requestID = result.requestID;
+
+      if (!requestID) {
+        throw new Error('Не получен ID запроса от сервера');
+      }
+
+      // Step 2: Store requestID in cookie
+      document.cookie = `requestID=${requestID}; path=/; max-age=86400; SameSite=Strict`;
+
+      // Step 3: Initialize CloudPayments widget
+      const widget = (window as any).cp;
+
+      if (!widget) {
+        throw new Error('CloudPayments виджет не загружен');
+      }
+
+      // Check if test mode is enabled via code
+      const isTestMode = data.code === 'test' || data.code === 'testmode';
+
+      widget.pay('charge', {
+        publicId: 'pk_282948d0d59277c437103adf48a92',
+        description: config.title,
+        amount: config.price,
+        currency: 'RUB',
+        invoiceId: requestID,
         email: data.email,
-        tariff: config.tariff,
-        answers,
-        consent: true as const,
-      };
+        accountId: data.email,
+        skin: 'modern',
+        language: 'ru-RU',
+        requireEmail: false,
+        data: {
+          testType: config.testType,
+          requestID: requestID,
+          ...(isTestMode && { CloudPayments: { TestMode: true } })
+        }
+      }, {
+        onSuccess: (options: any) => {
+          // Payment successful
+          console.log('Payment successful:', options);
+          setStage('success');
+          setIsSubmitting(false);
+        },
+        onFail: (reason: string, options: any) => {
+          // Payment failed
+          console.error('Payment failed:', reason, options);
+          setError('Оплата не прошла. Попробуйте снова или используйте другую карту.');
+          setIsSubmitting(false);
+        },
+        onComplete: (paymentResult: any, options: any) => {
+          // Payment process completed (success or fail)
+          console.log('Payment completed:', paymentResult, options);
+          setIsSubmitting(false);
+        }
+      });
 
-      const result = await submitPayload(payload);
-
-      if (result.success) {
-        setStage('success');
-      } else {
-        setError(result.error || 'Ошибка при отправке');
-      }
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Ошибка при отправке');
+      setIsSubmitting(false);
     }
-
-    setIsSubmitting(false);
   };
 
   const handleExit = () => {
@@ -490,7 +524,7 @@ export default function TestFlow({ config }: TestFlowProps) {
                   )}
                   <div className="mt-3 bg-amber-50 border-l-4 border-amber-400 p-3 rounded">
                     <p className="text-sm text-amber-800">
-                      ⚠️ Обычно отчет приходит в течение 10 минут, иногда чуть дольше. Если не нашли отчет во Входящих, проверьте папку Спам. Если письмо не пришло в течение 12 часов, напишите нам через форму обратной связи.
+                      ⚠️ Обычно отчет приходит в течение 10 минут, иногда чуть дольше. Если не нашли отчет во Входящих, проверьте папку Спам. Если письмо не пришло в течение 12 часов, напишите нам на info@profreport.online.
                     </p>
                   </div>
                 </div>
@@ -584,7 +618,7 @@ export default function TestFlow({ config }: TestFlowProps) {
 
             <div className="bg-amber-50 border-l-4 border-amber-400 p-4 rounded mb-8 text-left">
               <p className="text-sm text-amber-800">
-                ⚠️ <strong>Важно:</strong> Если не нашли отчет во Входящих, проверьте папку Спам. Если письмо не пришло в течение 12 часов, напишите нам через форму обратной связи.
+                ⚠️ <strong>Важно:</strong> Если не нашли отчет во Входящих, проверьте папку Спам. Если письмо не пришло в течение 12 часов, напишите нам на info@profreport.online.
               </p>
             </div>
 
