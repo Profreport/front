@@ -16,7 +16,7 @@ export default {
         surface: '#FFFFFF',
         text: {
           primary: '#1E293B',
-          secondary: '#64748B',
+          secondary: '#475569', // Improved contrast: 6.2:1 (was 4.54:1)
         },
         border: '#E2E8F0',
         error: '#EF4444',

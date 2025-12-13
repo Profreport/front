@@ -11,7 +11,7 @@ export default defineConfig({
     }),
   ],
   output: 'static',
-  site: import.meta.env.PUBLIC_SITE_URL || undefined,
+  site: 'https://profreport.online',
   compressHTML: true,
   build: {
     inlineStylesheets: 'auto',
@@ -28,9 +28,19 @@ export default defineConfig({
   },
   vite: {
     build: {
-      // Minify CSS and JS
-      minify: 'esbuild',
+      // Minify CSS and JS with terser for better compression
+      minify: 'terser',
       cssMinify: true,
+      terserOptions: {
+        compress: {
+          drop_console: true,
+          drop_debugger: true,
+          pure_funcs: ['console.log', 'console.info', 'console.debug'],
+        },
+        format: {
+          comments: false,
+        },
+      },
       // Split chunks for better caching
       rollupOptions: {
         output: {
@@ -38,6 +48,10 @@ export default defineConfig({
             'react-vendor': ['react', 'react-dom'],
             'form-vendor': ['react-hook-form', '@hookform/resolvers', 'zod'],
           },
+          // Better file naming for long-term caching
+          assetFileNames: 'assets/[name].[hash][extname]',
+          chunkFileNames: 'chunks/[name].[hash].js',
+          entryFileNames: 'entry/[name].[hash].js',
         },
       },
     },
