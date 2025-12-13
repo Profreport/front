@@ -75,7 +75,9 @@ const jsonLd = [
                 width={224}
                 height={224}
                 loading="eager"
+                fetchpriority="high"
                 format="webp"
+                quality={85}
               />
             </div>
 
@@ -139,6 +141,7 @@ const jsonLd = [
                     height={192}
                     loading="lazy"
                     format="webp"
+                    quality={65}
                   />
                 </div>
               </div>
@@ -173,6 +176,7 @@ const jsonLd = [
                     height={192}
                     loading="lazy"
                     format="webp"
+                    quality={65}
                   />
                 </div>
               </div>
@@ -217,6 +221,7 @@ const jsonLd = [
                 height={448}
                 loading="lazy"
                 format="webp"
+                quality={65}
               />
             </div>
           </div>
@@ -299,6 +304,7 @@ const jsonLd = [
                   height={384}
                   loading="lazy"
                   format="webp"
+                  quality={70}
                 />
               </div>
             </div>
@@ -616,6 +622,7 @@ const jsonLd = [
                   height={320}
                   loading="lazy"
                   format="webp"
+                  quality={60}
                 />
 
                 <!-- Center page (main) -->
@@ -628,6 +635,7 @@ const jsonLd = [
                   height={320}
                   loading="lazy"
                   format="webp"
+                  quality={60}
                 />
 
                 <!-- Right page -->
@@ -640,6 +648,7 @@ const jsonLd = [
                   height={320}
                   loading="lazy"
                   format="webp"
+                  quality={60}
                 />
               </div>
             </div>
@@ -661,7 +670,7 @@ const jsonLd = [
         </div>
 
         <div class="max-w-4xl mx-auto mb-8">
-          <FAQAccordion client:load items={faqItems} />
+          <FAQAccordion client:visible items={faqItems} />
         </div>
 
         <div class="text-center">
