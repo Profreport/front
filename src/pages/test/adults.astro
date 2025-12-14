@@ -7,7 +7,7 @@ const testConfig = {
   testType: 'adult' as const,
   title: 'Тест для взрослых',
   subtitle: 'Смена или развитие карьеры',
-  price: 900,
+  price: 890,
   tariff: 'pro' as const,
   sections: [
     {
@@ -1147,7 +1147,7 @@ const breadcrumbs = [
   { name: 'Тест для взрослых', url: '/test/adults' },
 ];
 
-const siteUrl = 'https://profreport.online';
+const siteUrl = Astro.site?.toString() || import.meta.env.PUBLIC_SITE_URL;
 
 const jsonLd = [
   generateProductSchema('Тест для взрослых (смена/развитие карьеры)', '890', siteUrl),

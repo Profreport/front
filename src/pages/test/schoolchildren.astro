@@ -7,8 +7,8 @@ const testConfig = {
   testType: 'schoolchild' as const,
   title: 'Тест для школьников',
   subtitle: '12-17 лет • Выбор будущей профессии',
-  price: 500,
-  tariff: 'pro' as const,
+  price: 490,
+  tariff: 'basic' as const,
   sections: [
     {
       id: 'riasec_interests',
@@ -1147,10 +1147,10 @@ const breadcrumbs = [
   { name: 'Тест для школьников', url: '/test/schoolchildren' },
 ];
 
-const siteUrl = 'https://profreport.online';
+const siteUrl = Astro.site?.toString() || import.meta.env.PUBLIC_SITE_URL;
 
 const jsonLd = [
-  generateProductSchema('Тест для школьников (14-18 лет)', '490', siteUrl),
+  generateProductSchema('Тест для школьников (12-17 лет)', '490', siteUrl),
   generateBreadcrumbSchema(breadcrumbs),
 ];
 ---

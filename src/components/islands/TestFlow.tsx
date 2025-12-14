@@ -187,7 +187,14 @@ export default function TestFlow({ config }: TestFlowProps) {
       // Transform answers into API format
       const transformedPayload = transformAnswersToAPI(data.name, data.email, answers, config);
 
-      const apiUrl = import.meta.env.PUBLIC_API_BASEURL || 'https://profreport.online/api/v1';
+      const apiUrl = import.meta.env.PUBLIC_API_BASEURL;
+
+      console.log('🔍 API URL from env:', apiUrl);
+      console.log('🔍 All env vars:', import.meta.env);
+
+      if (!apiUrl) {
+        throw new Error('PUBLIC_API_BASEURL не задан в .env файле!');
+      }
 
       // Map testType to endpoint suffix
       const endpointMap = {
@@ -221,47 +228,74 @@ export default function TestFlow({ config }: TestFlowProps) {
       // Step 2: Store requestID in cookie
       document.cookie = `requestID=${requestID}; path=/; max-age=86400; SameSite=Strict`;
 
-      // Step 3: Initialize CloudPayments widget
-      const widget = (window as any).cp;
+      // Step 3: Wait for CloudPayments library to load
+      const waitForCloudPayments = async (maxAttempts = 20) => {
+        for (let i = 0; i < maxAttempts; i++) {
+          if ((window as any).cp) {
+            return true;
+          }
+          await new Promise(resolve => setTimeout(resolve, 100));
+        }
+        return false;
+      };
 
-      if (!widget) {
-        throw new Error('CloudPayments виджет не загружен');
+      try {
+        // Wait for CloudPayments library
+        const isLoaded = await waitForCloudPayments();
+
+        if (!isLoaded) {
+          throw new Error('CloudPayments library not loaded');
+        }
+
+        // Create widget instance according to official documentation
+        const widget = new (window as any).cp.CloudPayments();
+
+        // Call pay method according to official documentation
+        widget.pay('charge', {
+          publicId: 'pk_ac1361259a0491535f21f7b6b29bf',  // TEST MODE
+          description: config.title,
+          amount: config.price,
+          currency: 'RUB',
+          accountId: data.email,
+          invoiceId: requestID,
+          email: data.email,
+          skin: 'modern',
+          data: {
+            testType: config.testType,
+            requestID: requestID
+          }
+        }, {
+          onSuccess: function (options: any) {
+            console.log('Payment successful:', options);
+            setStage('success');
+            setIsSubmitting(false);
+          },
+          onFail: function (reason: string, options: any) {
+            console.error('Payment failed:', reason, options);
+            setError('Оплата не прошла. Попробуйте снова или используйте другую карту.');
+            setIsSubmitting(false);
+          },
+          onComplete: function (paymentResult: any, options: any) {
+            console.log('Payment completed:', paymentResult, options);
+            setIsSubmitting(false);
+          }
+        });
+      } catch (widgetError) {
+        // Fallback to payment link if widget fails to load
+        console.log('Widget not available, redirecting to payment link:', widgetError);
+
+        // Static payment links from CloudPayments dashboard
+        const paymentLinks = {
+          schoolchild: 'https://c.cloudpayments.ru/payments/b4f64d0373ed4fa1a5525c4c8ee2e7a9',
+          adult: 'https://c.cloudpayments.ru/payments/c5616ce3713f434b8a33ed610977cdc2',
+          student: 'https://c.cloudpayments.ru/payments/c5616ce3713f434b8a33ed610977cdc2', // TODO: Add student link if needed
+        } as const;
+
+        const paymentUrl = paymentLinks[config.testType];
+
+        // Redirect to CloudPayments payment page
+        window.location.href = paymentUrl;
       }
-
-      widget.pay('charge', {
-        publicId: 'pk_282948d0d59277c437103adf48a92',
-        description: config.title,
-        amount: config.price,
-        currency: 'RUB',
-        invoiceId: requestID,
-        email: data.email,
-        accountId: data.email,
-        skin: 'modern',
-        language: 'ru-RU',
-        requireEmail: false,
-        data: {
-          testType: config.testType,
-          requestID: requestID
-        }
-      }, {
-        onSuccess: (options: any) => {
-          // Payment successful
-          console.log('Payment successful:', options);
-          setStage('success');
-          setIsSubmitting(false);
-        },
-        onFail: (reason: string, options: any) => {
-          // Payment failed
-          console.error('Payment failed:', reason, options);
-          setError('Оплата не прошла. Попробуйте снова или используйте другую карту.');
-          setIsSubmitting(false);
-        },
-        onComplete: (paymentResult: any, options: any) => {
-          // Payment process completed (success or fail)
-          console.log('Payment completed:', paymentResult, options);
-          setIsSubmitting(false);
-        }
-      });
 
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Ошибка при отправке');
@@ -558,7 +592,7 @@ export default function TestFlow({ config }: TestFlowProps) {
                   disabled={isSubmitting}
                   className="w-full px-6 py-4 bg-primary text-white font-semibold rounded-md hover:bg-primary-hover transition-all hover:shadow-md disabled:opacity-50 disabled:cursor-not-allowed text-lg"
                 >
-                  {isSubmitting ? 'Обработка...' : 'Получить отчет'}
+                  {isSubmitting ? 'Обработка...' : 'Оплатить и получить отчет'}
                 </button>
               </form>
             </div>
