@@ -28,19 +28,9 @@ export default defineConfig({
   },
   vite: {
     build: {
-      // Minify CSS and JS with terser for better compression
-      minify: 'terser',
+      // Minify CSS and JS with esbuild (faster than terser)
+      minify: 'esbuild',
       cssMinify: true,
-      terserOptions: {
-        compress: {
-          drop_console: true,
-          drop_debugger: true,
-          pure_funcs: ['console.log', 'console.info', 'console.debug'],
-        },
-        format: {
-          comments: false,
-        },
-      },
       // Split chunks for better caching
       rollupOptions: {
         output: {
