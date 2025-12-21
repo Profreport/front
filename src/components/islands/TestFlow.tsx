@@ -127,6 +127,7 @@ export default function TestFlow({ config }: TestFlowProps) {
   const [showExitModal, setShowExitModal] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [questionError, setQuestionError] = useState<string | null>(null);
 
   const {
     register: registerPayment,
@@ -158,14 +159,16 @@ export default function TestFlow({ config }: TestFlowProps) {
 
   const handleAnswer = (value: string | number | string[]) => {
     setAnswers({ ...answers, [currentQuestion.id]: value });
+    setQuestionError(null); // Clear error when answer is selected
   };
 
   const handleNext = () => {
     if (!answers[currentQuestion.id]) {
-      alert('Пожалуйста, выберите ответ');
+      setQuestionError('Пожалуйста, выберите ответ');
       return;
     }
 
+    setQuestionError(null);
     if (currentQuestionIndex < totalQuestions - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
     } else {
@@ -174,6 +177,7 @@ export default function TestFlow({ config }: TestFlowProps) {
   };
 
   const handleBack = () => {
+    setQuestionError(null); // Clear error when going back
     if (currentQuestionIndex > 0) {
       setCurrentQuestionIndex(currentQuestionIndex - 1);
     }
@@ -433,6 +437,15 @@ export default function TestFlow({ config }: TestFlowProps) {
                 value={answers[currentQuestion.id]}
                 onChange={handleAnswer}
               />
+            )}
+
+            {/* Validation error */}
+            {questionError && (
+              <div className="mt-4 p-3 bg-red-50 border border-red-300 rounded-md">
+                <p className="text-sm text-red-600 font-medium">
+                  {questionError}
+                </p>
+              </div>
             )}
 
             {/* Help text */}
