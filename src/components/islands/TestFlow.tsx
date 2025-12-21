@@ -252,7 +252,7 @@ export default function TestFlow({ config }: TestFlowProps) {
 
         // Call pay method according to official documentation
         widget.pay('charge', {
-          publicId: 'pk_ac1361259a0491535f21f7b6b29bf',  // TEST MODE
+          publicId: 'pk_282948d0d59277c437103adf48a92',  // PRODUCTION MODE
           description: config.title,
           amount: config.price,
           currency: 'RUB',
