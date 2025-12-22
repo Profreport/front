@@ -146,39 +146,7 @@ CloudPayments will send payment notifications here with the `InvoiceId` (which i
 
 ## Payment Mode
 
-**Currently enabled:** The integration is using **production Public ID** `pk_282948d0d59277c437103adf48a92`.
-
-### Test Cards
-
-⚠️ **WARNING:** These test cards work ONLY in TEST MODE. They are blocked in production mode for security.
-
-To use test cards, switch to test Public ID: `pk_ac1361259a0491535f21f7b6b29bf`
-
-**✅ Successful payment:**
-- Card: `4242 4242 4242 4242`
-- Expiry: any future date (e.g., 12/25)
-- CVV: any 3 digits (e.g., 123)
-
-**❌ Failed payment (insufficient funds):**
-- Card: `4000 0000 0000 0002`
-- Expiry: any future date
-- CVV: any 3 digits
-
-**🔐 3D-Secure test:**
-- Card: `4000 0000 0000 3220`
-- Expiry: any future date
-- CVV: any 3 digits
-
-### Switching Between Test and Production
-
-**Currently in PRODUCTION mode.**
-
-To switch back to test mode:
-1. Replace `pk_282948d0d59277c437103adf48a92` with `pk_ac1361259a0491535f21f7b6b29bf` in TestFlow.tsx
-2. Use test cards for testing (see list above)
-3. Test cards will NOT work in production mode
-
-**Note:** Production mode requires real cards. Test cards like `4242 4242 4242 4242` are blocked in production for security.
+The integration is using **production Public ID** `pk_282948d0d59277c437103adf48a92`.
 
 ## Environment Configuration
 
@@ -190,8 +158,7 @@ PUBLIC_SITE_URL=https://profreport.online
 
 ## CloudPayments Configuration
 
-**Public ID (TEST MODE):** `pk_ac1361259a0491535f21f7b6b29bf` _(currently disabled - using production)_
-**Public ID (PRODUCTION):** `pk_282948d0d59277c437103adf48a92` ✅ **ACTIVE**
+**Public ID (PRODUCTION):** `pk_282948d0d59277c437103adf48a92`
 
 **Payment Type:** `charge` (one-stage payment)
 
@@ -247,7 +214,6 @@ Before going live, test:
 - [ ] Backend returns valid requestID
 - [ ] requestID stored in cookie
 - [ ] CloudPayments widget opens
-- [ ] Test mode works (with code: test/testmode)
 - [ ] Payment success shows success screen
 - [ ] Payment failure shows error message
 - [ ] Webhook receives payment notification
