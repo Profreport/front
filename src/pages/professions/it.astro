@@ -1,0 +1,140 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import Breadcrumb from '@/components/Breadcrumb.astro';
+import { generateBreadcrumbSchema } from '@/lib/utils';
+
+const breadcrumbs = [
+  { name: 'Главная', url: '/' },
+  { name: 'Профессии', url: '/professions' },
+  { name: 'Профессии в IT', url: '/professions/it' },
+];
+
+// Placeholder для будущего списка профессий
+// TODO: Добавить реальные данные о IT-профессиях
+const professions = [
+  // Здесь будет список IT-профессий
+];
+---
+
+<BaseLayout
+  title="Профессии в IT - Обзор IT-специальностей"
+  description="Востребованные IT-специальности: разработка, дизайн, аналитика, тестирование. Подробные описания и требования к IT-профессиям."
+  jsonLd={generateBreadcrumbSchema(breadcrumbs)}
+>
+  <Header />
+  <Breadcrumb items={breadcrumbs} />
+
+  <main>
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-primary/5 to-secondary/5 py-12 lg:py-16">
+      <div class="container-custom">
+        <div class="text-center mb-8">
+          <div class="text-6xl mb-4">💻</div>
+          <h1 class="text-4xl lg:text-5xl font-bold text-text-primary mb-4">
+            Профессии в IT
+          </h1>
+          <p class="text-lg text-text-secondary max-w-3xl mx-auto">
+            Востребованные IT-специальности: разработка, дизайн, аналитика, тестирование и другие направления в сфере информационных технологий.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Professions List Section -->
+    <section class="py-16 lg:py-24 bg-background">
+      <div class="container-custom">
+        {professions.length > 0 ? (
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Здесь будут карточки IT-профессий */}
+          </div>
+        ) : (
+          <div class="max-w-2xl mx-auto text-center">
+            <div class="bg-surface rounded-lg border-2 border-border p-12">
+              <svg class="w-24 h-24 mx-auto mb-6 text-text-secondary opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+              </svg>
+              <h2 class="text-2xl font-bold text-text-primary mb-4">
+                Список IT-профессий в разработке
+              </h2>
+              <p class="text-text-secondary mb-8">
+                Мы работаем над подробным описанием IT-специальностей. Скоро здесь появится полный каталог профессий с требованиями, технологическими стеками и карьерными перспективами.
+              </p>
+              <a
+                href="/tests"
+                class="inline-flex items-center justify-center px-6 py-3 bg-primary text-white font-semibold rounded-md hover:bg-primary-hover transition-all hover:shadow-md"
+              >
+                Пройти тест на профориентацию
+              </a>
+            </div>
+          </div>
+        )}
+      </div>
+    </section>
+
+    <!-- IT Industry Info -->
+    <section class="py-16 bg-gradient-to-br from-blue-50 to-purple-50">
+      <div class="container-custom">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-3xl font-bold text-text-primary mb-8 text-center">
+            Почему IT-сфера?
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-white rounded-lg p-6 shadow-sm">
+              <div class="text-4xl mb-4">📈</div>
+              <h3 class="text-xl font-bold text-text-primary mb-2">Высокий спрос</h3>
+              <p class="text-text-secondary">
+                IT-специалисты востребованы на рынке труда во всем мире
+              </p>
+            </div>
+            <div class="bg-white rounded-lg p-6 shadow-sm">
+              <div class="text-4xl mb-4">💰</div>
+              <h3 class="text-xl font-bold text-text-primary mb-2">Достойная оплата</h3>
+              <p class="text-text-secondary">
+                Конкурентные зарплаты и возможность удаленной работы
+              </p>
+            </div>
+            <div class="bg-white rounded-lg p-6 shadow-sm">
+              <div class="text-4xl mb-4">🚀</div>
+              <h3 class="text-xl font-bold text-text-primary mb-2">Развитие</h3>
+              <p class="text-text-secondary">
+                Постоянное обучение и карьерный рост в динамичной сфере
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-primary/5">
+      <div class="container-custom">
+        <div class="max-w-3xl mx-auto text-center">
+          <h2 class="text-3xl font-bold text-text-primary mb-6">
+            Узнайте, какие IT-профессии вам подходят
+          </h2>
+          <p class="text-lg text-text-secondary mb-8">
+            Наш тест на профориентацию поможет определить ваши сильные стороны и подобрать подходящие направления в IT.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="/tests"
+              class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-primary to-secondary text-white font-semibold rounded-md hover:opacity-90 transition-all hover:shadow-md hover:-translate-y-0.5"
+            >
+              Пройти тест
+            </a>
+            <a
+              href="/professions"
+              class="inline-flex items-center justify-center px-8 py-4 bg-surface border-2 border-primary text-primary font-semibold rounded-md hover:bg-primary/5 transition-all"
+            >
+              Все категории профессий
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

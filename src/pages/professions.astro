@@ -1,0 +1,117 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import Breadcrumb from '@/components/Breadcrumb.astro';
+import { generateBreadcrumbSchema } from '@/lib/utils';
+
+const breadcrumbs = [
+  { name: 'Главная', url: '/' },
+  { name: 'Профессии', url: '/professions' },
+];
+
+const sections = [
+  {
+    title: 'Общие профессии',
+    description: 'Широкий спектр профессий в различных сферах деятельности. От традиционных до современных специальностей.',
+    link: '/professions/general',
+    icon: '👥',
+  },
+  {
+    title: 'Профессии в IT',
+    description: 'Востребованные IT-специальности: разработка, дизайн, аналитика, тестирование и другие направления.',
+    link: '/professions/it',
+    icon: '💻',
+  },
+  {
+    title: 'Атлас новых профессий',
+    description: 'Профессии будущего, которые появятся или станут актуальными в ближайшие годы.',
+    link: '/professions/new',
+    icon: '🚀',
+  },
+];
+---
+
+<BaseLayout
+  title="Профессии - Обзор специальностей и карьерных путей"
+  description="Узнайте о различных профессиях: общие специальности, IT-направления и профессии будущего. Подробные описания и требования."
+  jsonLd={generateBreadcrumbSchema(breadcrumbs)}
+>
+  <Header />
+  <Breadcrumb items={breadcrumbs} />
+
+  <main>
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-primary/5 to-secondary/5 py-12 lg:py-16">
+      <div class="container-custom text-center">
+        <h1 class="text-4xl lg:text-5xl font-bold text-text-primary mb-4">
+          Профессии
+        </h1>
+        <p class="text-lg text-text-secondary max-w-3xl mx-auto">
+          Исследуйте мир профессий: от традиционных специальностей до IT и профессий будущего
+        </p>
+      </div>
+    </section>
+
+    <!-- Sections Grid -->
+    <section class="py-16 lg:py-24 bg-background">
+      <div class="container-custom">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {sections.map((section) => (
+            <a
+              href={section.link}
+              class="group bg-surface rounded-lg border-2 border-border hover:border-primary hover:shadow-xl p-8 flex flex-col transition-all transform hover:-translate-y-1"
+            >
+              <!-- Icon -->
+              <div class="text-6xl mb-6 text-center">
+                {section.icon}
+              </div>
+
+              <!-- Title -->
+              <h2 class="text-2xl font-bold text-text-primary mb-4 text-center group-hover:text-primary transition-colors">
+                {section.title}
+              </h2>
+
+              <!-- Description -->
+              <p class="text-text-secondary text-center mb-6 flex-1">
+                {section.description}
+              </p>
+
+              <!-- CTA -->
+              <div class="text-center">
+                <span class="inline-flex items-center gap-2 text-primary font-semibold group-hover:gap-3 transition-all">
+                  Смотреть профессии
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                  </svg>
+                </span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Info Section -->
+    <section class="py-16 bg-primary/5">
+      <div class="container-custom">
+        <div class="max-w-3xl mx-auto text-center">
+          <h2 class="text-3xl font-bold text-text-primary mb-6">
+            Не знаете, какая профессия вам подходит?
+          </h2>
+          <p class="text-lg text-text-secondary mb-8">
+            Пройдите наш тест на профориентацию и получите персональные рекомендации на основе ваших интересов, способностей и личностных качеств.
+          </p>
+          <a
+            href="/tests"
+            class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-primary to-secondary text-white font-semibold rounded-md hover:opacity-90 transition-all hover:shadow-md hover:-translate-y-0.5"
+          >
+            Пройти тест на профориентацию
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>
