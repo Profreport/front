@@ -16,11 +16,11 @@ const currentPath = Astro.url.pathname;
 
 <header class="sticky top-0 z-50 bg-surface border-b border-border shadow-sm">
   <nav class="container-custom" aria-label="Основная навигация">
-    <div class="flex items-center justify-between h-24 lg:h-26">
+    <div class="flex items-center justify-between h-24 lg:h-26 gap-4">
       <!-- Logo -->
       <a
         href="/"
-        class="flex items-center hover:opacity-80 transition-opacity"
+        class="flex items-center hover:opacity-80 transition-opacity flex-shrink-0"
         aria-label="ProfReport - Главная"
       >
         <Image
@@ -35,13 +35,13 @@ const currentPath = Astro.url.pathname;
       </a>
 
       <!-- Desktop Navigation -->
-      <ul class="hidden lg:flex items-center gap-8">
+      <ul class="hidden lg:flex items-center gap-2 flex-1 justify-center">
         {navItems.map((item) => (
           <li>
             <a
               href={item.href}
               class:list={[
-                'px-4 py-2 rounded-md font-medium text-sm transition-all',
+                'px-3 py-2 rounded-md font-medium text-sm transition-all whitespace-nowrap',
                 currentPath === item.href
                   ? 'text-primary bg-primary/5 font-semibold'
                   : 'text-text-secondary hover:text-primary hover:bg-primary/5'
@@ -57,7 +57,7 @@ const currentPath = Astro.url.pathname;
       <!-- CTA Button (Desktop) -->
       <a
         href="/tests"
-        class="hidden lg:inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-primary to-secondary text-white font-semibold rounded-md hover:opacity-90 transition-all hover:shadow-md hover:-translate-y-0.5"
+        class="hidden lg:inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-primary to-secondary text-white font-semibold rounded-md hover:opacity-90 transition-all hover:shadow-md hover:-translate-y-0.5 flex-shrink-0"
       >
         Начать тест
       </a>

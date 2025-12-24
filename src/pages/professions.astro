@@ -15,19 +15,19 @@ const sections = [
     title: 'Общие профессии',
     description: 'Широкий спектр профессий в различных сферах деятельности. От традиционных до современных специальностей.',
     link: '/professions/general',
-    icon: '👥',
+    image: '/images/Prof1.png',
   },
   {
     title: 'Профессии в IT',
     description: 'Востребованные IT-специальности: разработка, дизайн, аналитика, тестирование и другие направления.',
     link: '/professions/it',
-    icon: '💻',
+    image: '/images/prof2.png',
   },
   {
     title: 'Атлас новых профессий',
     description: 'Профессии будущего, которые появятся или станут актуальными в ближайшие годы.',
     link: '/professions/new',
-    icon: '🚀',
+    image: '/images/prof3.png',
   },
 ];
 ---
@@ -62,9 +62,9 @@ const sections = [
               href={section.link}
               class="group bg-surface rounded-lg border-2 border-border hover:border-primary hover:shadow-xl p-8 flex flex-col transition-all transform hover:-translate-y-1"
             >
-              <!-- Icon -->
-              <div class="text-6xl mb-6 text-center">
-                {section.icon}
+              <!-- Image -->
+              <div class="mb-6 text-center">
+                <img src={section.image} alt={section.title} class="w-32 h-32 mx-auto object-contain" />
               </div>
 
               <!-- Title -->
