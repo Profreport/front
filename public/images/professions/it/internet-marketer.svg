@@ -1,0 +1,208 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Gradient background -->
+  <defs>
+    <linearGradient id="marketingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#EF4444;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F59E0B;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="95" fill="url(#marketingGrad)" opacity="0.1"/>
+
+  <!-- Google Ads Dashboard (center) -->
+  <rect x="55" y="45" width="90" height="85" rx="3" fill="#1E293B" opacity="0.9" stroke="#EF4444" stroke-width="3"/>
+  <text x="100" y="38" font-family="Arial" font-size="7" fill="#EF4444" text-anchor="middle" font-weight="bold">GOOGLE ADS</text>
+
+  <!-- Dashboard header -->
+  <rect x="60" y="50" width="80" height="7" rx="1" fill="#0F172A"/>
+  <text x="63" y="55" font-family="Arial" font-size="4" fill="#EF4444" font-weight="bold">Campaigns</text>
+  <text x="125" y="55" font-family="Arial" font-size="3" fill="#10B981">Active: 5</text>
+
+  <!-- Campaign stats -->
+  <rect x="60" y="60" width="80" height="65" fill="#0F172A"/>
+
+  <!-- Metrics -->
+  <text x="63" y="67" font-family="Arial" font-size="4" fill="#06B6D4">Performance:</text>
+
+  <!-- Clicks -->
+  <text x="63" y="74" font-family="Arial" font-size="5" fill="#10B981" font-weight="bold">8,542</text>
+  <text x="85" y="74" font-family="Arial" font-size="3" fill="#6B7280">clicks</text>
+  <circle cx="108" cy="72" r="1" fill="#10B981"/>
+  <text x="111" y="74" font-family="Arial" font-size="3" fill="#10B981">+12%</text>
+
+  <!-- CPC -->
+  <text x="63" y="82" font-family="Arial" font-size="5" fill="#F59E0B" font-weight="bold">₽24.50</text>
+  <text x="85" y="82" font-family="Arial" font-size="3" fill="#6B7280">CPC</text>
+  <circle cx="108" cy="80" r="1" fill="#EF4444"/>
+  <text x="111" y="82" font-family="Arial" font-size="3" fill="#EF4444">+5%</text>
+
+  <!-- CTR -->
+  <text x="63" y="90" font-family="Arial" font-size="5" fill="#8B5CF6" font-weight="bold">3.2%</text>
+  <text x="85" y="90" font-family="Arial" font-size="3" fill="#6B7280">CTR</text>
+  <circle cx="108" cy="88" r="1" fill="#10B981"/>
+  <text x="111" y="90" font-family="Arial" font-size="3" fill="#10B981">+0.8%</text>
+
+  <!-- Conv Rate -->
+  <text x="63" y="98" font-family="Arial" font-size="5" fill="#EC4899" font-weight="bold">4.5%</text>
+  <text x="85" y="98" font-family="Arial" font-size="3" fill="#6B7280">Conv Rate</text>
+  <circle cx="108" cy="96" r="1" fill="#10B981"/>
+  <text x="111" y="98" font-family="Arial" font-size="3" fill="#10B981">+1.2%</text>
+
+  <!-- Budget -->
+  <rect x="63" y="102" width="72" height="18" rx="1" fill="#1E293B" stroke="#F59E0B" stroke-width="1"/>
+  <text x="66" y="107" font-family="Arial" font-size="3" fill="#F59E0B">Budget: ₽150,000/month</text>
+  <text x="66" y="112" font-family="Arial" font-size="3" fill="#10B981">Spent: ₽89,340 (59.6%)</text>
+  <rect x="66" y="114" width="66" height="3" fill="#374151" rx="1"/>
+  <rect x="66" y="114" width="39" height="3" fill="#10B981" rx="1"/>
+
+  <!-- Яндекс.Директ (top left) -->
+  <rect x="15" y="15" width="35" height="55" rx="3" fill="none" stroke="#FFCC00" stroke-width="2"/>
+  <text x="32" y="10" font-family="Arial" font-size="5" fill="#FFCC00" text-anchor="middle" font-weight="bold">ЯНДЕКС</text>
+  <text x="32" y="16" font-family="Arial" font-size="4" fill="#FFCC00" text-anchor="middle" font-weight="bold">ДИРЕКТ</text>
+
+  <!-- Campaign list -->
+  <rect x="20" y="22" width="25" height="43" rx="1" fill="#1E293B" opacity="0.8"/>
+
+  <rect x="22" y="25" width="21" height="3" rx="0.5" fill="#10B981" opacity="0.3"/>
+  <text x="23" y="27.5" font-family="Arial" font-size="2" fill="#10B981">Поиск - Москва</text>
+
+  <rect x="22" y="30" width="21" height="3" rx="0.5" fill="#06B6D4" opacity="0.3"/>
+  <text x="23" y="32.5" font-family="Arial" font-size="2" fill="#06B6D4">РСЯ - Ретаргет</text>
+
+  <rect x="22" y="35" width="21" height="3" rx="0.5" fill="#8B5CF6" opacity="0.3"/>
+  <text x="23" y="37.5" font-family="Arial" font-size="2" fill="#8B5CF6">Бренд</text>
+
+  <!-- Stats -->
+  <text x="22" y="43" font-family="Arial" font-size="3" fill="#FFCC00">Показы:</text>
+  <text x="22" y="47" font-family="Arial" font-size="4" fill="#10B981" font-weight="bold">124K</text>
+
+  <text x="22" y="53" font-family="Arial" font-size="3" fill="#FFCC00">ROI:</text>
+  <text x="22" y="57" font-family="Arial" font-size="4" fill="#10B981" font-weight="bold">285%</text>
+
+  <!-- VK Ads (top right) -->
+  <rect x="150" y="15" width="35" height="55" rx="3" fill="#0077FF" opacity="0.1" stroke="#0077FF" stroke-width="2"/>
+  <text x="167" y="10" font-family="Arial" font-size="6" fill="#0077FF" text-anchor="middle" font-weight="bold">VK ADS</text>
+
+  <!-- Targeting -->
+  <rect x="155" y="18" width="25" height="47" rx="1" fill="#1E293B" opacity="0.8"/>
+
+  <text x="157" y="23" font-family="Arial" font-size="3" fill="#0077FF">Таргетинг:</text>
+
+  <circle cx="158" cy="27" r="1" fill="#10B981"/>
+  <text x="161" y="28" font-family="Arial" font-size="2" fill="#D1D5DB">18-35 лет</text>
+
+  <circle cx="158" cy="31" r="1" fill="#06B6D4"/>
+  <text x="161" y="32" font-family="Arial" font-size="2" fill="#D1D5DB">Москва, СПб</text>
+
+  <circle cx="158" cy="35" r="1" fill="#8B5CF6"/>
+  <text x="161" y="36" font-family="Arial" font-size="2" fill="#D1D5DB">Интересы: IT</text>
+
+  <!-- Ad performance -->
+  <text x="157" y="42" font-family="Arial" font-size="3" fill="#0077FF">Охват:</text>
+  <text x="157" y="47" font-family="Arial" font-size="5" fill="#10B981" font-weight="bold">45.2K</text>
+
+  <text x="157" y="53" font-family="Arial" font-size="3" fill="#0077FF">CPA:</text>
+  <text x="157" y="58" font-family="Arial" font-size="5" fill="#F59E0B" font-weight="bold">₽420</text>
+
+  <!-- Email Marketing (bottom left) -->
+  <rect x="15" y="135" width="55" height="50" rx="3" fill="none" stroke="#10B981" stroke-width="2"/>
+  <text x="42" y="130" font-family="Arial" font-size="6" fill="#10B981" text-anchor="middle" font-weight="bold">EMAIL</text>
+
+  <!-- Email campaign -->
+  <rect x="20" y="140" width="45" height="40" rx="1" fill="#1E293B" opacity="0.8"/>
+
+  <!-- Email preview -->
+  <rect x="23" y="143" width="39" height="22" rx="1" fill="#F3F4F6"/>
+  <rect x="25" y="145" width="35" height="3" fill="#EF4444"/>
+  <text x="27" y="147.5" font-family="Arial" font-size="2" fill="#FFF">🎉 Специальное предложение!</text>
+  <rect x="25" y="150" width="20" height="2" fill="#D1D5DB"/>
+  <rect x="25" y="153" width="30" height="2" fill="#E5E7EB"/>
+  <rect x="25" y="156" width="25" height="2" fill="#E5E7EB"/>
+  <rect x="25" y="160" width="15" height="3" rx="0.5" fill="#10B981"/>
+  <text x="32" y="162" font-family="Arial" font-size="2" fill="#FFF" text-anchor="middle">CTA</text>
+
+  <!-- Email stats -->
+  <text x="23" y="171" font-family="Arial" font-size="3" fill="#10B981">Open Rate: 24.5%</text>
+  <text x="23" y="176" font-family="Arial" font-size="3" fill="#06B6D4">Click Rate: 8.2%</text>
+
+  <!-- Analytics (bottom center) -->
+  <rect x="80" y="135" width="55" height="50" rx="3" fill="#8B5CF6" opacity="0.1" stroke="#8B5CF6" stroke-width="2"/>
+  <text x="107" y="130" font-family="Arial" font-size="6" fill="#8B5CF6" text-anchor="middle" font-weight="bold">ANALYTICS</text>
+
+  <!-- Google Analytics -->
+  <rect x="85" y="140" width="45" height="40" rx="1" fill="#1E293B" opacity="0.8"/>
+
+  <!-- Traffic sources -->
+  <text x="87" y="146" font-family="Arial" font-size="4" fill="#8B5CF6">Traffic Sources:</text>
+
+  <!-- Pie chart segments -->
+  <circle cx="97" cy="160" r="10" fill="none" stroke="#E5E7EB" stroke-width="1"/>
+  <path d="M 97 150 L 97 160 L 107 160 A 10 10 0 0 0 97 150" fill="#10B981" opacity="0.7"/>
+  <path d="M 97 160 L 107 160 A 10 10 0 0 0 102 169 Z" fill="#06B6D4" opacity="0.7"/>
+  <path d="M 97 160 L 102 169 A 10 10 0 0 0 92 169 Z" fill="#F59E0B" opacity="0.7"/>
+  <path d="M 97 160 L 92 169 A 10 10 0 0 0 97 150 Z" fill="#EC4899" opacity="0.7"/>
+
+  <!-- Legend -->
+  <rect x="110" y="151" width="3" height="3" fill="#10B981"/>
+  <text x="115" y="153" font-family="Arial" font-size="2" fill="#10B981">Direct 28%</text>
+
+  <rect x="110" y="156" width="3" height="3" fill="#06B6D4"/>
+  <text x="115" y="158" font-family="Arial" font-size="2" fill="#06B6D4">Organic 35%</text>
+
+  <rect x="110" y="161" width="3" height="3" fill="#F59E0B"/>
+  <text x="115" y="163" font-family="Arial" font-size="2" fill="#F59E0B">Paid 25%</text>
+
+  <rect x="110" y="166" width="3" height="3" fill="#EC4899"/>
+  <text x="115" y="168" font-family="Arial" font-size="2" fill="#EC4899">Social 12%</text>
+
+  <!-- Conversion -->
+  <text x="87" y="177" font-family="Arial" font-size="3" fill="#8B5CF6">Conversions: 342</text>
+
+  <!-- A/B Testing (bottom right) -->
+  <rect x="145" y="135" width="40" height="50" rx="3" fill="none" stroke="#06B6D4" stroke-width="2"/>
+  <text x="165" y="130" font-family="Arial" font-size="5" fill="#06B6D4" text-anchor="middle" font-weight="bold">A/B TEST</text>
+
+  <!-- Test comparison -->
+  <rect x="150" y="140" width="30" height="40" rx="1" fill="#1E293B" opacity="0.8"/>
+
+  <!-- Variant A -->
+  <rect x="152" y="143" width="12" height="8" rx="1" fill="#F3F4F6" stroke="#6B7280" stroke-width="0.5"/>
+  <text x="158" y="145" font-family="Arial" font-size="2" fill="#6B7280" text-anchor="middle">Вариант A</text>
+  <rect x="154" y="148" width="8" height="2" rx="0.5" fill="#8B5CF6"/>
+  <text x="158" y="151" font-family="Arial" font-size="2" fill="#6B7280" text-anchor="middle">CTR: 2.8%</text>
+
+  <!-- Variant B -->
+  <rect x="166" y="143" width="12" height="8" rx="1" fill="#F3F4F6" stroke="#10B981" stroke-width="1"/>
+  <text x="172" y="145" font-family="Arial" font-size="2" fill="#10B981" text-anchor="middle" font-weight="bold">Вариант B</text>
+  <rect x="168" y="148" width="8" height="2" rx="0.5" fill="#EC4899"/>
+  <text x="172" y="151" font-family="Arial" font-size="2" fill="#10B981" text-anchor="middle">CTR: 4.1%</text>
+
+  <!-- Winner -->
+  <text x="165" y="157" font-family="Arial" font-size="4" fill="#10B981" text-anchor="middle" font-weight="bold">B выигрывает!</text>
+  <text x="165" y="162" font-family="Arial" font-size="3" fill="#06B6D4" text-anchor="middle">+46% прирост</text>
+
+  <!-- Test stats -->
+  <text x="152" y="168" font-family="Arial" font-size="2" fill="#6B7280">Достоверность:</text>
+  <text x="165" y="173" font-family="Arial" font-size="4" fill="#10B981" text-anchor="middle" font-weight="bold">95%</text>
+  <text x="152" y="178" font-family="Arial" font-size="2" fill="#6B7280">Sample: 5,240</text>
+
+  <!-- ROI badge (left) -->
+  <circle cx="20" cy="95" r="8" fill="none" stroke="#10B981" stroke-width="2"/>
+  <text x="20" y="98" font-family="Arial" font-size="6" fill="#10B981" text-anchor="middle" font-weight="bold">₽</text>
+  <text x="20" y="87" font-family="Arial" font-size="3" fill="#10B981" text-anchor="middle">ROI</text>
+  <text x="20" y="108" font-family="Arial" font-size="3" fill="#10B981" text-anchor="middle">+250%</text>
+
+  <!-- Data-driven badge (right) -->
+  <circle cx="180" cy="95" r="8" fill="#EF4444" opacity="0.3"/>
+  <text x="180" y="98" font-family="Arial" font-size="6" fill="#EF4444" text-anchor="middle" font-weight="bold">📊</text>
+  <text x="180" y="87" font-family="Arial" font-size="3" fill="#EF4444" text-anchor="middle">Data</text>
+  <text x="180" y="108" font-family="Arial" font-size="3" fill="#EF4444" text-anchor="middle">Driven</text>
+
+  <!-- Tools badge (top) -->
+  <rect x="65" y="5" width="70" height="10" rx="2" fill="#EF4444" opacity="0.3" stroke="#EF4444" stroke-width="1.5"/>
+  <text x="100" y="12" font-family="Arial" font-size="6" fill="#EF4444" text-anchor="middle" font-weight="bold">Ads • Analytics • Email • SMM</text>
+
+  <!-- "INTERNET MARKETER" text -->
+  <text x="100" y="197" font-family="Arial" font-size="9" fill="#EF4444" text-anchor="middle" font-weight="bold">INTERNET MARKETER</text>
+</svg>
