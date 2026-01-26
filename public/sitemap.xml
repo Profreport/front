@@ -3,7 +3,7 @@
   <!-- Главная страница -->
   <url>
     <loc>https://profreport.online/</loc>
-    <lastmod>2025-12-09</lastmod>
+    <lastmod>2025-01-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -11,7 +11,7 @@
   <!-- О нас -->
   <url>
     <loc>https://profreport.online/about</loc>
-    <lastmod>2025-12-09</lastmod>
+    <lastmod>2025-01-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -19,39 +19,200 @@
   <!-- Тесты -->
   <url>
     <loc>https://profreport.online/tests</loc>
-    <lastmod>2025-12-09</lastmod>
+    <lastmod>2025-01-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <!-- Тест для школьников -->
   <url>
     <loc>https://profreport.online/test/schoolchildren</loc>
-    <lastmod>2025-12-09</lastmod>
+    <lastmod>2025-01-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <!-- Тест для студентов -->
   <url>
     <loc>https://profreport.online/test/students</loc>
-    <lastmod>2025-12-09</lastmod>
+    <lastmod>2025-01-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <!-- Тест для взрослых -->
   <url>
     <loc>https://profreport.online/test/adults</loc>
-    <lastmod>2025-12-09</lastmod>
+    <lastmod>2025-01-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
+
+  <!-- Профессии - главная -->
+  <url>
+    <loc>https://profreport.online/professions</loc>
+    <lastmod>2025-01-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Общие профессии -->
+  <url>
+    <loc>https://profreport.online/professions/general</loc>
+    <lastmod>2025-01-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- IT профессии -->
+  <url>
+    <loc>https://profreport.online/professions/it</loc>
+    <lastmod>2025-01-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Общие профессии - индивидуальные страницы -->
+  <url><loc>https://profreport.online/professions/general/vrach</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/inzhener</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/uchitel</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/povar</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/sledovatel</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/yurist</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/slesar</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/konditer</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/psiholog</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/tokar</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/svarshchik</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/stolyar</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/programmist</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/plotnik</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/voditel</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/menedzher</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/buhgalter</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/elektrik</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/medsestra</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/prodavets</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/stroitel</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/ofitsiant</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/dizayner</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/farmatsevt</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/mehanik</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/parikmaher</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/massazhist</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/arhitektor</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/logoped</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/vospitatel</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/agronom</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/zhurnalist</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/perevodchik</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/veterinar</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/sotsrabotnik</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/bibliotekar</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/zootekhnik</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/muzykant</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/pilot</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/spasatel</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/pozharnyy</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/politseyskiy</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/voennyy</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/sudya</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/prokuror</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/advokat</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/notarius</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/ekonomist</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/marketolog</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/hr-menedzher</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/rieltor</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/auditor</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/inspektor</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/tamozhennik</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/nalogovyy-inspektor</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/geolog</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/biolog</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/khimik</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/fizik</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/matematik</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/istorik</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/arkheolog</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/antropolog</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/sotsiolog</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/filosof</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/politolog</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/kulturolog</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/lingvist</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/fotograf</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/modeler</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/stilist</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/vizazhist</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/kosmetolog</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/avtomekhanik</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/gruzchik</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/uborshchik</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/okhrannik</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/konsultant</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/sekretar</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/administrator</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/kassir</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/barista</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/gornichnaya</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/portye</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/kurer</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/takist</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/ekskursovod</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/gid</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/general/animator</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- IT профессии - индивидуальные страницы -->
+  <url><loc>https://profreport.online/professions/it/frontend-developer</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/it/backend-developer</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/it/fullstack-developer</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/it/ios-developer</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/it/android-developer</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/it/game-developer</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/it/1c-developer</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/it/system-programmer</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/it/web-developer</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/it/embedded-developer</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/it/software-architect</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/it/system-architect</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/it/solution-architect</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/it/data-scientist</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/it/data-analyst</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/it/product-analyst</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/it/product-manager</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/it/product-owner</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/it/it-project-manager</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/it/scrum-master</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/it/agile-coach</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/it/delivery-manager</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/it/technical-product-manager</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/it/chief-product-officer</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/it/qa-manual</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/it/qa-automation</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/it/qa-lead</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/it/performance-engineer</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/it/devops-engineer</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/it/sre</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/it/system-administrator</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/it/cloud-engineer</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/it/database-administrator</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/it/network-engineer</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/it/platform-engineer</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/it/infrastructure-architect</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/it/information-security-specialist</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/it/pentester</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/it/soc-analyst</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/it/data-protection-specialist</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/it/ux-ui-designer</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/it/technical-writer</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/it/internet-marketer</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/it/blockchain-developer</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/it/vr-ar-developer</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/it/it-recruiter</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profreport.online/professions/it/it-manager</loc><lastmod>2025-01-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
   <!-- FAQ -->
   <url>
     <loc>https://profreport.online/faq</loc>
-    <lastmod>2025-12-09</lastmod>
+    <lastmod>2025-01-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -59,7 +220,7 @@
   <!-- Контакты -->
   <url>
     <loc>https://profreport.online/contacts</loc>
-    <lastmod>2025-12-09</lastmod>
+    <lastmod>2025-01-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -67,7 +228,7 @@
   <!-- Политика конфиденциальности -->
   <url>
     <loc>https://profreport.online/privacy</loc>
-    <lastmod>2025-12-09</lastmod>
+    <lastmod>2025-01-26</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
@@ -75,7 +236,7 @@
   <!-- Условия использования -->
   <url>
     <loc>https://profreport.online/terms</loc>
-    <lastmod>2025-12-09</lastmod>
+    <lastmod>2025-01-26</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
