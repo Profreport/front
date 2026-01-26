@@ -1,0 +1,151 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Gradient background -->
+  <defs>
+    <linearGradient id="platformGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B5CF6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#06B6D4;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="95" fill="url(#platformGrad)" opacity="0.1"/>
+
+  <!-- Platform Layers (main element) -->
+  <!-- Infrastructure Layer (bottom) -->
+  <rect x="25" y="130" width="150" height="20" rx="2" fill="#1E293B" stroke="#06B6D4" stroke-width="2"/>
+  <text x="100" y="143" font-family="Arial" font-size="7" fill="#06B6D4" text-anchor="middle" font-weight="bold">INFRASTRUCTURE LAYER</text>
+  <text x="40" y="148" font-family="Arial" font-size="4" fill="#10B981">K8s</text>
+  <text x="60" y="148" font-family="Arial" font-size="4" fill="#10B981">AWS</text>
+  <text x="80" y="148" font-family="Arial" font-size="4" fill="#10B981">Terraform</text>
+  <text x="110" y="148" font-family="Arial" font-size="4" fill="#10B981">Vault</text>
+  <text x="135" y="148" font-family="Arial" font-size="4" fill="#10B981">Postgres</text>
+  <text x="160" y="148" font-family="Arial" font-size="4" fill="#10B981">Redis</text>
+
+  <!-- Platform Services Layer (middle) -->
+  <rect x="25" y="105" width="150" height="20" rx="2" fill="#1E293B" stroke="#8B5CF6" stroke-width="2"/>
+  <text x="100" y="118" font-family="Arial" font-size="7" fill="#8B5CF6" text-anchor="middle" font-weight="bold">PLATFORM SERVICES</text>
+  <text x="50" y="123" font-family="Arial" font-size="4" fill="#F59E0B">CI/CD</text>
+  <text x="75" y="123" font-family="Arial" font-size="4" fill="#F59E0B">Observability</text>
+  <text x="110" y="123" font-family="Arial" font-size="4" fill="#F59E0B">Secrets</text>
+  <text x="135" y="123" font-family="Arial" font-size="4" fill="#F59E0B">Service Mesh</text>
+  <text x="165" y="123" font-family="Arial" font-size="4" fill="#F59E0B">API Gateway</text>
+
+  <!-- Developer Experience Layer (top) -->
+  <rect x="25" y="80" width="150" height="20" rx="2" fill="#1E293B" stroke="#10B981" stroke-width="2"/>
+  <text x="100" y="93" font-family="Arial" font-size="7" fill="#10B981" text-anchor="middle" font-weight="bold">DEVELOPER EXPERIENCE</text>
+  <text x="55" y="98" font-family="Arial" font-size="4" fill="#8B5CF6">Portal</text>
+  <text x="80" y="98" font-family="Arial" font-size="4" fill="#8B5CF6">CLI</text>
+  <text x="100" y="98" font-family="Arial" font-size="4" fill="#8B5CF6">Templates</text>
+  <text x="125" y="98" font-family="Arial" font-size="4" fill="#8B5CF6">Documentation</text>
+  <text x="160" y="98" font-family="Arial" font-size="4" fill="#8B5CF6">Self-service</text>
+
+  <!-- Developer Portal (top left) -->
+  <rect x="15" y="15" width="60" height="55" rx="3" fill="none" stroke="#10B981" stroke-width="2"/>
+  <text x="45" y="27" font-family="Arial" font-size="7" fill="#10B981" text-anchor="middle" font-weight="bold">DEVELOPER</text>
+  <text x="45" y="34" font-family="Arial" font-size="7" fill="#10B981" text-anchor="middle" font-weight="bold">PORTAL</text>
+
+  <!-- Portal UI -->
+  <rect x="20" y="38" width="50" height="28" rx="2" fill="#1E293B" opacity="0.8"/>
+  <rect x="22" y="40" width="15" height="6" rx="1" fill="#8B5CF6" opacity="0.6"/>
+  <text x="29" y="44" font-family="Arial" font-size="4" fill="#FFF" text-anchor="middle">New App</text>
+  <rect x="39" y="40" width="15" height="6" rx="1" fill="#06B6D4" opacity="0.6"/>
+  <text x="46" y="44" font-family="Arial" font-size="4" fill="#FFF" text-anchor="middle">Deploy</text>
+  <rect x="56" y="40" width="11" height="6" rx="1" fill="#10B981" opacity="0.6"/>
+  <text x="61" y="44" font-family="Arial" font-size="4" fill="#FFF" text-anchor="middle">Logs</text>
+
+  <!-- Service catalog -->
+  <text x="23" y="51" font-family="Arial" font-size="4" fill="#10B981">✓ postgres-db</text>
+  <text x="23" y="56" font-family="Arial" font-size="4" fill="#10B981">✓ redis-cache</text>
+  <text x="23" y="61" font-family="Arial" font-size="4" fill="#06B6D4">→ deploy-prod</text>
+  <text x="23" y="65" font-family="Arial" font-size="4" fill="#8B5CF6">○ monitoring</text>
+
+  <!-- Golden Paths (top center) -->
+  <rect x="85" y="15" width="60" height="55" rx="3" fill="#F59E0B" opacity="0.1" stroke="#F59E0B" stroke-width="2"/>
+  <text x="115" y="27" font-family="Arial" font-size="7" fill="#F59E0B" text-anchor="middle" font-weight="bold">GOLDEN PATHS</text>
+  <text x="115" y="33" font-family="Arial" font-size="5" fill="#F59E0B" text-anchor="middle">(Paved Roads)</text>
+
+  <!-- Path templates -->
+  <rect x="90" y="38" width="50" height="8" rx="1" fill="#F59E0B" opacity="0.3" stroke="#F59E0B" stroke-width="1"/>
+  <text x="115" y="44" font-family="Arial" font-size="5" fill="#F59E0B" text-anchor="middle">Node.js Microservice</text>
+
+  <rect x="90" y="48" width="50" height="8" rx="1" fill="#06B6D4" opacity="0.3" stroke="#06B6D4" stroke-width="1"/>
+  <text x="115" y="54" font-family="Arial" font-size="5" fill="#06B6D4" text-anchor="middle">Python API</text>
+
+  <rect x="90" y="58" width="50" height="8" rx="1" fill="#10B981" opacity="0.3" stroke="#10B981" stroke-width="1"/>
+  <text x="115" y="64" font-family="Arial" font-size="5" fill="#10B981" text-anchor="middle">React Frontend</text>
+
+  <!-- Platform APIs/CLI (top right) -->
+  <rect x="155" y="15" width="30" height="55" rx="3" fill="none" stroke="#06B6D4" stroke-width="2"/>
+  <text x="170" y="27" font-family="Arial" font-size="6" fill="#06B6D4" text-anchor="middle" font-weight="bold">API/CLI</text>
+
+  <!-- CLI commands -->
+  <rect x="158" y="32" width="25" height="35" rx="1" fill="#1E293B" opacity="0.8"/>
+  <text x="160" y="38" font-family="Courier" font-size="4" fill="#10B981">$ platform</text>
+  <text x="162" y="43" font-family="Courier" font-size="3" fill="#06B6D4">create app</text>
+  <text x="162" y="48" font-family="Courier" font-size="3" fill="#8B5CF6">deploy</text>
+  <text x="162" y="53" font-family="Courier" font-size="3" fill="#F59E0B">logs -f</text>
+  <text x="162" y="58" font-family="Courier" font-size="3" fill="#10B981">scale 5</text>
+  <text x="162" y="63" font-family="Courier" font-size="3" fill="#EF4444">rollback</text>
+
+  <!-- Developer Teams (bottom left) -->
+  <rect x="15" y="160" width="55" height="25" rx="3" fill="#8B5CF6" opacity="0.1" stroke="#8B5CF6" stroke-width="2"/>
+  <text x="42" y="170" font-family="Arial" font-size="6" fill="#8B5CF6" text-anchor="middle" font-weight="bold">DEV TEAMS</text>
+
+  <!-- Team icons -->
+  <circle cx="25" cy="177" r="3" fill="#10B981"/>
+  <text x="25" y="179" font-family="Arial" font-size="4" fill="#FFF" text-anchor="middle">A</text>
+  <circle cx="35" cy="177" r="3" fill="#10B981"/>
+  <text x="35" y="179" font-family="Arial" font-size="4" fill="#FFF" text-anchor="middle">B</text>
+  <circle cx="45" cy="177" r="3" fill="#10B981"/>
+  <text x="45" y="179" font-family="Arial" font-size="4" fill="#FFF" text-anchor="middle">C</text>
+  <circle cx="55" cy="177" r="3" fill="#10B981"/>
+  <text x="55" y="179" font-family="Arial" font-size="4" fill="#FFF" text-anchor="middle">D</text>
+  <circle cx="65" cy="177" r="3" fill="#10B981"/>
+  <text x="65" y="179" font-family="Arial" font-size="4" fill="#FFF" text-anchor="middle">E</text>
+
+  <text x="42" y="183" font-family="Arial" font-size="4" fill="#8B5CF6" text-anchor="middle">5 teams using</text>
+
+  <!-- Platform Metrics (bottom center) -->
+  <rect x="80" y="160" width="55" height="25" rx="3" fill="none" stroke="#10B981" stroke-width="2"/>
+  <text x="107" y="170" font-family="Arial" font-size="6" fill="#10B981" text-anchor="middle" font-weight="bold">METRICS</text>
+
+  <text x="85" y="177" font-family="Arial" font-size="5" fill="#10B981">Lead Time:</text>
+  <text x="118" y="177" font-family="Arial" font-size="5" fill="#10B981" font-weight="bold">2 hrs</text>
+  <text x="85" y="182" font-family="Arial" font-size="5" fill="#06B6D4">Deploy Freq:</text>
+  <text x="120" y="182" font-family="Arial" font-size="5" fill="#06B6D4" font-weight="bold">50/day</text>
+
+  <!-- Platform Tools (bottom right) -->
+  <rect x="145" y="160" width="40" height="25" rx="3" fill="none" stroke="#F59E0B" stroke-width="2"/>
+  <text x="165" y="170" font-family="Arial" font-size="6" fill="#F59E0B" text-anchor="middle" font-weight="bold">TOOLS</text>
+
+  <circle cx="152" cy="177" r="2" fill="#8B5CF6"/>
+  <text x="155" y="179" font-family="Arial" font-size="4" fill="#8B5CF6">Backstage</text>
+  <circle cx="152" cy="182" r="2" fill="#06B6D4"/>
+  <text x="155" y="184" font-family="Arial" font-size="4" fill="#06B6D4">ArgoCD</text>
+
+  <!-- Platform as Product (left side) -->
+  <rect x="12" y="75" width="8" height="70" rx="1" fill="#8B5CF6" opacity="0.2"/>
+  <text x="16" y="110" font-family="Arial" font-size="5" fill="#8B5CF6" text-anchor="middle" font-weight="bold" transform="rotate(-90 16 110)">Platform as Product</text>
+
+  <!-- Abstraction arrow -->
+  <path d="M 100 150 L 100 105" stroke="#10B981" stroke-width="2" marker-end="url(#arrowPlatform)"/>
+  <defs>
+    <marker id="arrowPlatform" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+      <polygon points="0 0, 3 3, 0 6" fill="#10B981"/>
+    </marker>
+  </defs>
+  <text x="105" y="128" font-family="Arial" font-size="5" fill="#10B981">Abstraction</text>
+
+  <!-- Self-service indicator (right side) -->
+  <circle cx="188" cy="110" r="8" fill="none" stroke="#10B981" stroke-width="2"/>
+  <text x="188" y="113" font-family="Arial" font-size="6" fill="#10B981" text-anchor="middle" font-weight="bold">✓</text>
+  <text x="188" y="103" font-family="Arial" font-size="4" fill="#10B981" text-anchor="middle">Self</text>
+  <text x="188" y="122" font-family="Arial" font-size="4" fill="#10B981" text-anchor="middle">Service</text>
+
+  <!-- IDP (Internal Developer Platform) badge (top) -->
+  <rect x="155" y="3" width="30" height="9" rx="2" fill="#8B5CF6" opacity="0.3" stroke="#8B5CF6" stroke-width="1.5"/>
+  <text x="170" y="9" font-family="Arial" font-size="5" fill="#8B5CF6" text-anchor="middle" font-weight="bold">IDP</text>
+
+  <!-- "PLATFORM ENGINEER" text -->
+  <text x="100" y="197" font-family="Arial" font-size="9" fill="#8B5CF6" text-anchor="middle" font-weight="bold">PLATFORM ENGINEER</text>
+</svg>

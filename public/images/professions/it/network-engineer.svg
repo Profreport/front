@@ -1,0 +1,151 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Gradient background -->
+  <defs>
+    <linearGradient id="networkGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#06B6D4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8B5CF6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="95" fill="url(#networkGrad)" opacity="0.1"/>
+
+  <!-- Network Topology (main element) -->
+  <!-- Core Router (center) -->
+  <rect x="80" y="55" width="40" height="30" rx="3" fill="#06B6D4" opacity="0.3" stroke="#06B6D4" stroke-width="3"/>
+  <text x="100" y="72" font-family="Arial" font-size="8" fill="#06B6D4" text-anchor="middle" font-weight="bold">CORE</text>
+  <text x="100" y="79" font-family="Arial" font-size="6" fill="#06B6D4" text-anchor="middle">Router</text>
+  <circle cx="85" cy="61" r="1.5" fill="#10B981"/>
+  <circle cx="90" cy="61" r="1.5" fill="#10B981"/>
+  <circle cx="95" cy="61" r="1.5" fill="#10B981"/>
+  <circle cx="100" cy="61" r="1.5" fill="#10B981"/>
+
+  <!-- Edge Router 1 (top left) -->
+  <rect x="25" y="20" width="35" height="25" rx="2" fill="#8B5CF6" opacity="0.2" stroke="#8B5CF6" stroke-width="2"/>
+  <text x="42" y="31" font-family="Arial" font-size="6" fill="#8B5CF6" text-anchor="middle" font-weight="bold">Edge</text>
+  <text x="42" y="38" font-family="Arial" font-size="5" fill="#8B5CF6" text-anchor="middle">Router 1</text>
+  <circle cx="29" cy="24" r="1" fill="#10B981"/>
+  <circle cx="32" cy="24" r="1" fill="#10B981"/>
+
+  <!-- Edge Router 2 (top right) -->
+  <rect x="140" y="20" width="35" height="25" rx="2" fill="#8B5CF6" opacity="0.2" stroke="#8B5CF6" stroke-width="2"/>
+  <text x="157" y="31" font-family="Arial" font-size="6" fill="#8B5CF6" text-anchor="middle" font-weight="bold">Edge</text>
+  <text x="157" y="38" font-family="Arial" font-size="5" fill="#8B5CF6" text-anchor="middle">Router 2</text>
+  <circle cx="144" cy="24" r="1" fill="#10B981"/>
+  <circle cx="147" cy="24" r="1" fill="#10B981"/>
+
+  <!-- Switch 1 (left) -->
+  <rect x="20" y="90" width="40" height="20" rx="2" fill="#10B981" opacity="0.2" stroke="#10B981" stroke-width="2"/>
+  <text x="40" y="102" font-family="Arial" font-size="6" fill="#10B981" text-anchor="middle" font-weight="bold">Switch 1</text>
+  <circle cx="25" cy="95" r="1" fill="#10B981"/>
+  <circle cx="28" cy="95" r="1" fill="#10B981"/>
+  <circle cx="31" cy="95" r="1" fill="#10B981"/>
+  <circle cx="34" cy="95" r="1" fill="#10B981"/>
+  <text x="40" y="107" font-family="Arial" font-size="4" fill="#10B981" text-anchor="middle">VLAN 10,20</text>
+
+  <!-- Switch 2 (right) -->
+  <rect x="140" y="90" width="40" height="20" rx="2" fill="#10B981" opacity="0.2" stroke="#10B981" stroke-width="2"/>
+  <text x="160" y="102" font-family="Arial" font-size="6" fill="#10B981" text-anchor="middle" font-weight="bold">Switch 2</text>
+  <circle cx="145" cy="95" r="1" fill="#10B981"/>
+  <circle cx="148" cy="95" r="1" fill="#10B981"/>
+  <circle cx="151" cy="95" r="1" fill="#10B981"/>
+  <circle cx="154" cy="95" r="1" fill="#10B981"/>
+  <text x="160" y="107" font-family="Arial" font-size="4" fill="#10B981" text-anchor="middle">VLAN 30,40</text>
+
+  <!-- Connection lines -->
+  <!-- Core to Edge routers -->
+  <line x1="80" y1="65" x2="60" y2="40" stroke="#06B6D4" stroke-width="2"/>
+  <line x1="120" y1="65" x2="140" y2="40" stroke="#06B6D4" stroke-width="2"/>
+
+  <!-- Core to Switches -->
+  <line x1="80" y1="75" x2="60" y2="95" stroke="#10B981" stroke-width="2"/>
+  <line x1="120" y1="75" x2="140" y2="95" stroke="#10B981" stroke-width="2"/>
+
+  <!-- Routing Protocols (top center) -->
+  <rect x="70" y="15" width="60" height="30" rx="2" fill="#F59E0B" opacity="0.2" stroke="#F59E0B" stroke-width="2"/>
+  <text x="100" y="24" font-family="Arial" font-size="6" fill="#F59E0B" text-anchor="middle" font-weight="bold">ROUTING</text>
+  <rect x="75" y="28" width="20" height="12" rx="1" fill="#F59E0B" opacity="0.3"/>
+  <text x="85" y="36" font-family="Arial" font-size="5" fill="#F59E0B" text-anchor="middle" font-weight="bold">BGP</text>
+  <rect x="98" y="28" width="24" height="12" rx="1" fill="#06B6D4" opacity="0.3"/>
+  <text x="110" y="36" font-family="Arial" font-size="5" fill="#06B6D4" text-anchor="middle" font-weight="bold">OSPF</text>
+
+  <!-- Firewall (bottom left) -->
+  <rect x="15" y="125" width="55" height="60" rx="3" fill="none" stroke="#EF4444" stroke-width="2"/>
+  <text x="42" y="137" font-family="Arial" font-size="7" fill="#EF4444" text-anchor="middle" font-weight="bold">FIREWALL</text>
+
+  <!-- Firewall rules -->
+  <rect x="20" y="143" width="45" height="37" rx="1" fill="#1E293B" opacity="0.8"/>
+  <text x="23" y="150" font-family="Courier" font-size="4" fill="#10B981">permit tcp any 443</text>
+  <text x="23" y="155" font-family="Courier" font-size="4" fill="#10B981">permit tcp any 80</text>
+  <text x="23" y="160" font-family="Courier" font-size="4" fill="#EF4444">deny ip any any</text>
+  <text x="23" y="165" font-family="Courier" font-size="4" fill="#06B6D4">permit icmp any</text>
+  <text x="23" y="170" font-family="Courier" font-size="4" fill="#F59E0B">log violations</text>
+  <text x="23" y="175" font-family="Courier" font-size="4" fill="#8B5CF6">inspect state</text>
+
+  <!-- VPN tunnel (bottom center) -->
+  <rect x="80" y="125" width="55" height="60" rx="3" fill="#8B5CF6" opacity="0.1" stroke="#8B5CF6" stroke-width="2"/>
+  <text x="107" y="137" font-family="Arial" font-size="7" fill="#8B5CF6" text-anchor="middle" font-weight="bold">VPN TUNNEL</text>
+
+  <!-- VPN visualization -->
+  <circle cx="92" cy="150" r="8" fill="none" stroke="#8B5CF6" stroke-width="2"/>
+  <text x="92" y="153" font-family="Arial" font-size="5" fill="#8B5CF6" text-anchor="middle">Site A</text>
+
+  <circle cx="122" cy="150" r="8" fill="none" stroke="#8B5CF6" stroke-width="2"/>
+  <text x="122" y="153" font-family="Arial" font-size="5" fill="#8B5CF6" text-anchor="middle">Site B</text>
+
+  <!-- Encrypted tunnel -->
+  <line x1="100" y1="150" x2="114" y2="150" stroke="#8B5CF6" stroke-width="2" stroke-dasharray="3,2"/>
+  <text x="107" y="148" font-family="Arial" font-size="4" fill="#8B5CF6" text-anchor="middle">encrypted</text>
+
+  <text x="107" y="165" font-family="Arial" font-size="5" fill="#8B5CF6" text-anchor="middle">IPsec/GRE</text>
+  <text x="107" y="172" font-family="Arial" font-size="4" fill="#10B981" text-anchor="middle">AES-256 encryption</text>
+  <text x="107" y="179" font-family="Arial" font-size="4" fill="#06B6D4" text-anchor="middle">100 Mbps throughput</text>
+
+  <!-- Monitoring (bottom right) -->
+  <rect x="145" y="125" width="40" height="60" rx="3" fill="none" stroke="#10B981" stroke-width="2"/>
+  <text x="165" y="137" font-family="Arial" font-size="6" fill="#10B981" text-anchor="middle" font-weight="bold">MONITOR</text>
+
+  <!-- Network traffic graph -->
+  <line x1="150" y1="170" x2="180" y2="170" stroke="#10B981" stroke-width="1"/>
+  <line x1="150" y1="170" x2="150" y2="145" stroke="#10B981" stroke-width="1"/>
+  <polyline points="150,165 155,160 160,163 165,155 170,158 175,150 180,153" fill="none" stroke="#06B6D4" stroke-width="1.5"/>
+  <text x="165" y="143" font-family="Arial" font-size="4" fill="#06B6D4" text-anchor="middle">Traffic</text>
+
+  <!-- Wireshark icon -->
+  <rect x="150" y="175" width="30" height="8" rx="1" fill="#06B6D4" opacity="0.3"/>
+  <text x="165" y="181" font-family="Arial" font-size="5" fill="#06B6D4" text-anchor="middle" font-weight="bold">Wireshark</text>
+
+  <!-- Cisco logo (top left corner) -->
+  <rect x="10" y="10" width="30" height="12" rx="2" fill="#06B6D4" opacity="0.2" stroke="#06B6D4" stroke-width="1.5"/>
+  <text x="25" y="18" font-family="Arial" font-size="6" fill="#06B6D4" text-anchor="middle" font-weight="bold">CISCO</text>
+
+  <!-- Network capacity indicator (top right corner) -->
+  <circle cx="180" cy="16" r="8" fill="none" stroke="#10B981" stroke-width="2"/>
+  <text x="180" y="19" font-family="Arial" font-size="6" fill="#10B981" text-anchor="middle" font-weight="bold">10G</text>
+  <text x="180" y="9" font-family="Arial" font-size="4" fill="#10B981" text-anchor="middle">Uplink</text>
+
+  <!-- TCP/IP Stack (left side) -->
+  <rect x="12" y="50" width="50" height="30" rx="2" fill="none" stroke="#06B6D4" stroke-width="1.5"/>
+  <text x="37" y="58" font-family="Arial" font-size="5" fill="#06B6D4" text-anchor="middle" font-weight="bold">TCP/IP Stack</text>
+  <rect x="15" y="61" width="44" height="4" fill="#8B5CF6" opacity="0.4"/>
+  <text x="37" y="64" font-family="Arial" font-size="3" fill="#8B5CF6" text-anchor="middle">Application</text>
+  <rect x="15" y="66" width="44" height="4" fill="#06B6D4" opacity="0.4"/>
+  <text x="37" y="69" font-family="Arial" font-size="3" fill="#06B6D4" text-anchor="middle">Transport</text>
+  <rect x="15" y="71" width="44" height="4" fill="#10B981" opacity="0.4"/>
+  <text x="37" y="74" font-family="Arial" font-size="3" fill="#10B981" text-anchor="middle">Network</text>
+  <rect x="15" y="76" width="44" height="4" fill="#F59E0B" opacity="0.4"/>
+  <text x="37" y="79" font-family="Arial" font-size="3" fill="#F59E0B" text-anchor="middle">Link</text>
+
+  <!-- Bandwidth utilization (right side) -->
+  <rect x="138" y="50" width="50" height="30" rx="2" fill="#10B981" opacity="0.1" stroke="#10B981" stroke-width="1.5"/>
+  <text x="163" y="58" font-family="Arial" font-size="5" fill="#10B981" text-anchor="middle" font-weight="bold">Bandwidth</text>
+
+  <rect x="142" y="62" width="42" height="6" rx="1" fill="none" stroke="#10B981" stroke-width="1"/>
+  <rect x="143" y="63" width="28" height="4" rx="1" fill="#10B981"/>
+  <text x="163" y="66" font-family="Arial" font-size="3" fill="#10B981" text-anchor="middle">67% used</text>
+
+  <text x="163" y="74" font-family="Arial" font-size="4" fill="#06B6D4" text-anchor="middle">6.7 / 10 Gbps</text>
+
+  <!-- "NETWORK ENGINEER" text -->
+  <text x="100" y="197" font-family="Arial" font-size="10" fill="#06B6D4" text-anchor="middle" font-weight="bold">NETWORK ENGINEER</text>
+</svg>

@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Gradient background -->
+  <defs>
+    <linearGradient id="sysProgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2C3E50;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#34495E;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="95" fill="url(#sysProgGrad)" opacity="0.1"/>
+
+  <!-- CPU/Processor chip (center) -->
+  <rect x="60" y="60" width="80" height="80" rx="4" fill="none" stroke="#2C3E50" stroke-width="3"/>
+  <rect x="70" y="70" width="60" height="60" rx="2" fill="#2C3E50" opacity="0.2"/>
+
+  <!-- CPU pins (sides) -->
+  <line x1="60" y1="75" x2="50" y2="75" stroke="#2C3E50" stroke-width="2"/>
+  <line x1="60" y1="85" x2="50" y2="85" stroke="#2C3E50" stroke-width="2"/>
+  <line x1="60" y1="95" x2="50" y2="95" stroke="#2C3E50" stroke-width="2"/>
+  <line x1="60" y1="105" x2="50" y2="105" stroke="#2C3E50" stroke-width="2"/>
+  <line x1="60" y1="115" x2="50" y2="115" stroke="#2C3E50" stroke-width="2"/>
+  <line x1="60" y1="125" x2="50" y2="125" stroke="#2C3E50" stroke-width="2"/>
+
+  <line x1="140" y1="75" x2="150" y2="75" stroke="#2C3E50" stroke-width="2"/>
+  <line x1="140" y1="85" x2="150" y2="85" stroke="#2C3E50" stroke-width="2"/>
+  <line x1="140" y1="95" x2="150" y2="95" stroke="#2C3E50" stroke-width="2"/>
+  <line x1="140" y1="105" x2="150" y2="105" stroke="#2C3E50" stroke-width="2"/>
+  <line x1="140" y1="115" x2="150" y2="115" stroke="#2C3E50" stroke-width="2"/>
+  <line x1="140" y1="125" x2="150" y2="125" stroke="#2C3E50" stroke-width="2"/>
+
+  <!-- Binary code in center -->
+  <text x="100" y="95" font-family="Courier" font-size="12" fill="#34495E" text-anchor="middle" font-weight="bold">01010</text>
+  <text x="100" y="108" font-family="Courier" font-size="12" fill="#34495E" text-anchor="middle" font-weight="bold">11001</text>
+
+  <!-- Memory modules (top) -->
+  <rect x="30" y="20" width="35" height="20" rx="2" fill="none" stroke="#2C3E50" stroke-width="2"/>
+  <line x1="35" y1="20" x2="35" y2="40" stroke="#2C3E50" stroke-width="1"/>
+  <line x1="40" y1="20" x2="40" y2="40" stroke="#2C3E50" stroke-width="1"/>
+  <line x1="45" y1="20" x2="45" y2="40" stroke="#2C3E50" stroke-width="1"/>
+  <line x1="50" y1="20" x2="50" y2="40" stroke="#2C3E50" stroke-width="1"/>
+  <line x1="55" y1="20" x2="55" y2="40" stroke="#2C3E50" stroke-width="1"/>
+  <line x1="60" y1="20" x2="60" y2="40" stroke="#2C3E50" stroke-width="1"/>
+
+  <!-- Kernel ring representation -->
+  <circle cx="170" cy="30" r="15" fill="none" stroke="#34495E" stroke-width="2"/>
+  <text x="170" y="35" font-family="Arial" font-size="10" fill="#34495E" text-anchor="middle" font-weight="bold">K</text>
+
+  <!-- Low-level code symbols -->
+  <text x="30" y="165" font-family="Courier" font-size="14" fill="#2C3E50" font-weight="bold">C++</text>
+  <text x="75" y="165" font-family="Courier" font-size="14" fill="#34495E" font-weight="bold">ASM</text>
+  <text x="120" y="165" font-family="Courier" font-size="14" fill="#2C3E50" font-weight="bold">Rust</text>
+
+  <!-- Assembly/Hex notation hint -->
+  <text x="100" y="185" font-family="Courier" font-size="10" fill="#34495E" text-anchor="middle" font-weight="bold">0x7FFF</text>
+
+  <!-- Linux penguin hint (simplified) -->
+  <circle cx="165" cy="170" r="8" fill="#34495E"/>
+  <ellipse cx="165" cy="175" rx="10" ry="6" fill="#34495E"/>
+</svg>

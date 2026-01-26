@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Gradient background -->
+  <defs>
+    <linearGradient id="appsecGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10B981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#06B6D4;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="95" fill="url(#appsecGrad)" opacity="0.1"/>
+
+  <!-- Application Code (center) -->
+  <rect x="70" y="50" width="60" height="70" rx="3" fill="#1E293B" opacity="0.9" stroke="#10B981" stroke-width="3"/>
+  <text x="100" y="65" font-family="Arial" font-size="7" fill="#10B981" text-anchor="middle" font-weight="bold">APPLICATION</text>
+  <text x="100" y="72" font-family="Arial" font-size="6" fill="#10B981" text-anchor="middle">CODE</text>
+
+  <!-- Code with vulnerabilities -->
+  <rect x="75" y="78" width="50" height="38" rx="1" fill="#0F172A"/>
+  <text x="78" y="84" font-family="Courier" font-size="3" fill="#06B6D4">function login(user, pass) {</text>
+  <text x="78" y="89" font-family="Courier" font-size="3" fill="#F59E0B">  sql = "SELECT * FROM users</text>
+  <text x="78" y="94" font-family="Courier" font-size="3" fill="#EF4444">  WHERE user='"+user+"'";</text>
+  <circle cx="118" cy="92" r="2" fill="#EF4444"/>
+  <text x="121" y="94" font-family="Arial" font-size="4" fill="#EF4444">SQL Injection!</text>
+  <text x="78" y="99" font-family="Courier" font-size="3" fill="#8B5CF6">  if (hash === pass) {</text>
+  <text x="78" y="104" font-family="Courier" font-size="3" fill="#10B981">    return token;</text>
+  <text x="78" y="109" font-family="Courier" font-size="3" fill="#06B6D4">  }</text>
+  <text x="78" y="114" font-family="Courier" font-size="3" fill="#06B6D4">}</text>
+
+  <!-- SAST Scanner (top left) -->
+  <rect x="15" y="15" width="50" height="50" rx="3" fill="none" stroke="#8B5CF6" stroke-width="2"/>
+  <text x="40" y="27" font-family="Arial" font-size="7" fill="#8B5CF6" text-anchor="middle" font-weight="bold">SAST</text>
+  <text x="40" y="34" font-family="Arial" font-size="5" fill="#8B5CF6" text-anchor="middle">Static Analysis</text>
+
+  <!-- SAST findings -->
+  <rect x="20" y="38" width="40" height="22" rx="1" fill="#1E293B" opacity="0.8"/>
+  <text x="23" y="43" font-family="Arial" font-size="3" fill="#EF4444">⚠ SQL Injection</text>
+  <text x="23" y="48" font-family="Arial" font-size="3" fill="#F59E0B">⚠ XSS Risk</text>
+  <text x="23" y="53" font-family="Arial" font-size="3" fill="#F59E0B">⚠ Hardcoded Secret</text>
+  <text x="23" y="58" font-family="Arial" font-size="3" fill="#06B6D4">ℹ Weak Crypto</text>
+
+  <!-- DAST Scanner (top right) -->
+  <rect x="135" y="15" width="50" height="50" rx="3" fill="#F59E0B" opacity="0.1" stroke="#F59E0B" stroke-width="2"/>
+  <text x="160" y="27" font-family="Arial" font-size="7" fill="#F59E0B" text-anchor="middle" font-weight="bold">DAST</text>
+  <text x="160" y="34" font-family="Arial" font-size="5" fill="#F59E0B" text-anchor="middle">Dynamic Scan</text>
+
+  <!-- DAST findings -->
+  <rect x="140" y="38" width="40" height="22" rx="1" fill="#1E293B" opacity="0.8"/>
+  <text x="143" y="43" font-family="Arial" font-size="3" fill="#EF4444">⚠ Auth Bypass</text>
+  <text x="143" y="48" font-family="Arial" font-size="3" fill="#F59E0B">⚠ CSRF Token</text>
+  <text x="143" y="53" font-family="Arial" font-size="3" fill="#06B6D4">ℹ HTTP Headers</text>
+  <text x="143" y="58" font-family="Arial" font-size="3" fill="#10B981">✓ TLS Config</text>
+
+  <!-- Arrows pointing to app -->
+  <path d="M 65 40 L 75 55" stroke="#8B5CF6" stroke-width="2" marker-end="url(#arrowAppSec1)"/>
+  <path d="M 135 40 L 125 55" stroke="#F59E0B" stroke-width="2" marker-end="url(#arrowAppSec2)"/>
+  <defs>
+    <marker id="arrowAppSec1" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+      <polygon points="0 0, 3 3, 0 6" fill="#8B5CF6"/>
+    </marker>
+    <marker id="arrowAppSec2" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+      <polygon points="0 0, 3 3, 0 6" fill="#F59E0B"/>
+    </marker>
+  </defs>
+
+  <!-- OWASP Top 10 (bottom left) -->
+  <rect x="15" y="130" width="55" height="55" rx="3" fill="none" stroke="#EF4444" stroke-width="2"/>
+  <text x="42" y="142" font-family="Arial" font-size="7" fill="#EF4444" text-anchor="middle" font-weight="bold">OWASP</text>
+  <text x="42" y="149" font-family="Arial" font-size="6" fill="#EF4444" text-anchor="middle" font-weight="bold">TOP 10</text>
+
+  <!-- OWASP list -->
+  <text x="20" y="157" font-family="Arial" font-size="3" fill="#EF4444">1. Broken Access</text>
+  <text x="20" y="162" font-family="Arial" font-size="3" fill="#EF4444">2. Crypto Failures</text>
+  <text x="20" y="167" font-family="Arial" font-size="3" fill="#EF4444">3. Injection</text>
+  <text x="20" y="172" font-family="Arial" font-size="3" fill="#F59E0B">4. Insecure Design</text>
+  <text x="20" y="177" font-family="Arial" font-size="3" fill="#F59E0B">5. Security Misconfig</text>
+  <text x="20" y="182" font-family="Arial" font-size="3" fill="#06B6D4">6. Vulnerable Comps</text>
+
+  <!-- Secure SDLC (bottom center) -->
+  <rect x="80" y="130" width="55" height="55" rx="3" fill="#06B6D4" opacity="0.1" stroke="#06B6D4" stroke-width="2"/>
+  <text x="107" y="142" font-family="Arial" font-size="6" fill="#06B6D4" text-anchor="middle" font-weight="bold">SECURE</text>
+  <text x="107" y="148" font-family="Arial" font-size="6" fill="#06B6D4" text-anchor="middle" font-weight="bold">SDLC</text>
+
+  <!-- SDLC phases -->
+  <circle cx="90" cy="158" r="3" fill="#10B981"/>
+  <text x="95" y="160" font-family="Arial" font-size="4" fill="#10B981">Plan</text>
+  <circle cx="90" cy="166" r="3" fill="#06B6D4"/>
+  <text x="95" y="168" font-family="Arial" font-size="4" fill="#06B6D4">Code</text>
+  <circle cx="90" cy="174" r="3" fill="#8B5CF6"/>
+  <text x="95" y="176" font-family="Arial" font-size="4" fill="#8B5CF6">Test</text>
+  <circle cx="90" cy="182" r="3" fill="#F59E0B"/>
+  <text x="95" y="184" font-family="Arial" font-size="4" fill="#F59E0B">Deploy</text>
+
+  <!-- Security gates -->
+  <text x="118" y="160" font-family="Arial" font-size="3" fill="#10B981">Threat Model</text>
+  <text x="118" y="168" font-family="Arial" font-size="3" fill="#06B6D4">Code Review</text>
+  <text x="118" y="176" font-family="Arial" font-size="3" fill="#8B5CF6">Security Tests</text>
+  <text x="118" y="184" font-family="Arial" font-size="3" fill="#F59E0B">DAST Scan</text>
+
+  <!-- Code Review (bottom right) -->
+  <rect x="145" y="130" width="40" height="55" rx="3" fill="none" stroke="#10B981" stroke-width="2"/>
+  <text x="165" y="142" font-family="Arial" font-size="6" fill="#10B981" text-anchor="middle" font-weight="bold">CODE</text>
+  <text x="165" y="148" font-family="Arial" font-size="6" fill="#10B981" text-anchor="middle" font-weight="bold">REVIEW</text>
+
+  <!-- Review comments -->
+  <rect x="150" y="153" width="30" height="28" rx="1" fill="#1E293B" opacity="0.8"/>
+  <text x="152" y="159" font-family="Arial" font-size="3" fill="#EF4444">❌ Use prepared</text>
+  <text x="152" y="164" font-family="Arial" font-size="3" fill="#EF4444">statements!</text>
+  <text x="152" y="169" font-family="Arial" font-size="3" fill="#F59E0B">⚠ Add input</text>
+  <text x="152" y="174" font-family="Arial" font-size="3" fill="#F59E0B">validation</text>
+  <text x="152" y="179" font-family="Arial" font-size="3" fill="#10B981">✓ Good error</text>
+
+  <!-- Security Champion badge (left side) -->
+  <circle cx="20" cy="90" r="8" fill="none" stroke="#10B981" stroke-width="2"/>
+  <text x="20" y="93" font-family="Arial" font-size="6" fill="#10B981" text-anchor="middle" font-weight="bold">🛡</text>
+  <text x="20" y="82" font-family="Arial" font-size="3" fill="#10B981" text-anchor="middle">Security</text>
+  <text x="20" y="103" font-family="Arial" font-size="3" fill="#10B981" text-anchor="middle">Champion</text>
+
+  <!-- Vulnerability count (right side) -->
+  <circle cx="180" cy="90" r="8" fill="#EF4444" opacity="0.3"/>
+  <text x="180" y="93" font-family="Arial" font-size="7" fill="#EF4444" text-anchor="middle" font-weight="bold">23</text>
+  <text x="180" y="82" font-family="Arial" font-size="3" fill="#EF4444" text-anchor="middle">Critical</text>
+  <text x="180" y="103" font-family="Arial" font-size="3" fill="#EF4444" text-anchor="middle">Vulns</text>
+
+  <!-- Shift Left badge (top) -->
+  <rect x="75" y="5" width="50" height="10" rx="2" fill="#06B6D4" opacity="0.3" stroke="#06B6D4" stroke-width="1.5"/>
+  <text x="100" y="12" font-family="Arial" font-size="6" fill="#06B6D4" text-anchor="middle" font-weight="bold">SHIFT LEFT SECURITY</text>
+
+  <!-- DevSecOps indicator (bottom) -->
+  <text x="100" y="128" font-family="Arial" font-size="5" fill="#10B981" text-anchor="middle" font-weight="bold">DevSecOps Integration</text>
+
+  <!-- "APPSEC ENGINEER" text -->
+  <text x="100" y="197" font-family="Arial" font-size="10" fill="#10B981" text-anchor="middle" font-weight="bold">APPLICATION SECURITY</text>
+</svg>

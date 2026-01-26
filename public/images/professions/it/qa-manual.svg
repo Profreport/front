@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Gradient background -->
+  <defs>
+    <linearGradient id="qaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#20bf6b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0fb9b1;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="95" fill="url(#qaGrad)" opacity="0.1"/>
+
+  <!-- Checklist document -->
+  <rect x="50" y="40" width="100" height="120" rx="6" fill="white" stroke="#20bf6b" stroke-width="2"/>
+
+  <!-- Document header lines -->
+  <line x1="60" y1="55" x2="120" y2="55" stroke="#20bf6b" stroke-width="3" stroke-linecap="round"/>
+  <line x1="60" y1="65" x2="100" y2="65" stroke="#20bf6b" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+
+  <!-- Checklist items with checkmarks -->
+  <rect x="60" y="80" width="15" height="15" rx="3" fill="none" stroke="#20bf6b" stroke-width="2"/>
+  <path d="M 63 87 L 67 91 L 72 83" fill="none" stroke="#20bf6b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="80" y1="87" x2="130" y2="87" stroke="#333" stroke-width="1.5" stroke-linecap="round"/>
+
+  <rect x="60" y="102" width="15" height="15" rx="3" fill="none" stroke="#20bf6b" stroke-width="2"/>
+  <path d="M 63 109 L 67 113 L 72 105" fill="none" stroke="#20bf6b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="80" y1="109" x2="130" y2="109" stroke="#333" stroke-width="1.5" stroke-linecap="round"/>
+
+  <!-- Unchecked item (bug found) -->
+  <rect x="60" y="124" width="15" height="15" rx="3" fill="none" stroke="#eb3b5a" stroke-width="2"/>
+  <path d="M 63 127 L 72 136 M 72 127 L 63 136" stroke="#eb3b5a" stroke-width="2" stroke-linecap="round"/>
+  <line x1="80" y1="131" x2="130" y2="131" stroke="#333" stroke-width="1.5" stroke-linecap="round"/>
+
+  <!-- Magnifying glass (inspection/testing) -->
+  <circle cx="125" cy="145" r="20" fill="none" stroke="#20bf6b" stroke-width="3"/>
+  <circle cx="125" cy="145" r="12" fill="none" stroke="#20bf6b" stroke-width="2"/>
+  <line x1="139" y1="159" x2="150" y2="170" stroke="#20bf6b" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Bug icon -->
+  <ellipse cx="40" cy="145" rx="12" ry="8" fill="#eb3b5a" opacity="0.8"/>
+  <circle cx="35" cy="143" r="2" fill="white"/>
+  <circle cx="45" cy="143" r="2" fill="white"/>
+  <line x1="40" y1="137" x2="40" y2="132" stroke="#eb3b5a" stroke-width="2"/>
+  <line x1="35" y1="139" x2="32" y2="135" stroke="#eb3b5a" stroke-width="2"/>
+  <line x1="45" y1="139" x2="48" y2="135" stroke="#eb3b5a" stroke-width="2"/>
+  <line x1="32" y1="147" x2="28" y2="150" stroke="#eb3b5a" stroke-width="2"/>
+  <line x1="48" y1="147" x2="52" y2="150" stroke="#eb3b5a" stroke-width="2"/>
+  <line x1="32" y1="143" x2="28" y2="143" stroke="#eb3b5a" stroke-width="2"/>
+  <line x1="48" y1="143" x2="52" y2="143" stroke="#eb3b5a" stroke-width="2"/>
+</svg>

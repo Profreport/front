@@ -1,0 +1,156 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Gradient background -->
+  <defs>
+    <linearGradient id="sysadminGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#06B6D4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8B5CF6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="95" fill="url(#sysadminGrad)" opacity="0.1"/>
+
+  <!-- Server Rack (main element) -->
+  <rect x="35" y="30" width="60" height="90" rx="3" fill="none" stroke="#06B6D4" stroke-width="3"/>
+  <text x="65" y="24" font-family="Arial" font-size="6" fill="#06B6D4" text-anchor="middle" font-weight="bold">Server Rack</text>
+
+  <!-- Server units -->
+  <rect x="40" y="35" width="50" height="12" rx="1" fill="#06B6D4" opacity="0.3" stroke="#06B6D4" stroke-width="1.5"/>
+  <circle cx="43" cy="41" r="1.5" fill="#10B981"/>
+  <circle cx="47" cy="41" r="1.5" fill="#10B981"/>
+  <text x="52" y="43" font-family="Arial" font-size="5" fill="#06B6D4">Web Server</text>
+
+  <rect x="40" y="50" width="50" height="12" rx="1" fill="#06B6D4" opacity="0.3" stroke="#06B6D4" stroke-width="1.5"/>
+  <circle cx="43" cy="56" r="1.5" fill="#10B981"/>
+  <circle cx="47" cy="56" r="1.5" fill="#10B981"/>
+  <text x="52" y="58" font-family="Arial" font-size="5" fill="#06B6D4">DB Server</text>
+
+  <rect x="40" y="65" width="50" height="12" rx="1" fill="#06B6D4" opacity="0.3" stroke="#06B6D4" stroke-width="1.5"/>
+  <circle cx="43" cy="71" r="1.5" fill="#10B981"/>
+  <circle cx="47" cy="71" r="1.5" fill="#F59E0B"/>
+  <text x="52" y="73" font-family="Arial" font-size="5" fill="#06B6D4">File Server</text>
+
+  <rect x="40" y="80" width="50" height="12" rx="1" fill="#06B6D4" opacity="0.3" stroke="#06B6D4" stroke-width="1.5"/>
+  <circle cx="43" cy="86" r="1.5" fill="#10B981"/>
+  <circle cx="47" cy="86" r="1.5" fill="#10B981"/>
+  <text x="52" y="88" font-family="Arial" font-size="5" fill="#06B6D4">Mail Server</text>
+
+  <!-- Backup storage -->
+  <rect x="40" y="95" width="50" height="12" rx="1" fill="#8B5CF6" opacity="0.2" stroke="#8B5CF6" stroke-width="1.5"/>
+  <text x="52" y="103" font-family="Arial" font-size="5" fill="#8B5CF6">Backup Storage</text>
+  <rect x="43" y="105" width="6" height="4" rx="0.5" fill="#8B5CF6" opacity="0.5"/>
+  <rect x="50" y="105" width="6" height="4" rx="0.5" fill="#8B5CF6" opacity="0.5"/>
+  <rect x="57" y="105" width="6" height="4" rx="0.5" fill="#8B5CF6" opacity="0.5"/>
+
+  <!-- Network equipment (right side) -->
+  <rect x="105" y="30" width="60" height="50" rx="3" fill="none" stroke="#10B981" stroke-width="2"/>
+  <text x="135" y="24" font-family="Arial" font-size="6" fill="#10B981" text-anchor="middle" font-weight="bold">Network</text>
+
+  <!-- Router -->
+  <rect x="110" y="35" width="50" height="15" rx="1" fill="#10B981" opacity="0.2" stroke="#10B981" stroke-width="1.5"/>
+  <text x="135" y="44" font-family="Arial" font-size="6" fill="#10B981" text-anchor="middle" font-weight="bold">Router</text>
+  <circle cx="113" cy="39" r="1.5" fill="#10B981"/>
+  <circle cx="117" cy="39" r="1.5" fill="#10B981"/>
+  <circle cx="121" cy="39" r="1.5" fill="#10B981"/>
+  <circle cx="125" cy="39" r="1.5" fill="#10B981"/>
+
+  <!-- Switch -->
+  <rect x="110" y="53" width="50" height="15" rx="1" fill="#06B6D4" opacity="0.2" stroke="#06B6D4" stroke-width="1.5"/>
+  <text x="135" y="62" font-family="Arial" font-size="6" fill="#06B6D4" text-anchor="middle" font-weight="bold">Switch 48p</text>
+  <circle cx="113" cy="57" r="1" fill="#10B981"/>
+  <circle cx="116" cy="57" r="1" fill="#10B981"/>
+  <circle cx="119" cy="57" r="1" fill="#10B981"/>
+  <circle cx="122" cy="57" r="1" fill="#10B981"/>
+  <circle cx="125" cy="57" r="1" fill="#10B981"/>
+  <circle cx="128" cy="57" r="1" fill="#10B981"/>
+  <text x="135" y="66" font-family="Arial" font-size="4" fill="#06B6D4" text-anchor="middle">+ 42 ports</text>
+
+  <!-- User workstations (bottom left) -->
+  <rect x="15" y="130" width="60" height="55" rx="3" fill="none" stroke="#8B5CF6" stroke-width="2"/>
+  <text x="45" y="142" font-family="Arial" font-size="7" fill="#8B5CF6" text-anchor="middle" font-weight="bold">USERS</text>
+
+  <!-- Workstation icons -->
+  <rect x="20" y="148" width="15" height="12" rx="1" fill="#8B5CF6" opacity="0.2" stroke="#8B5CF6" stroke-width="1"/>
+  <rect x="21" y="149" width="13" height="8" rx="0.5" fill="#1E293B"/>
+  <rect x="25" y="158" width="5" height="2" fill="#8B5CF6"/>
+  <text x="27" y="156" font-family="Arial" font-size="4" fill="#10B981" text-anchor="middle">✓</text>
+
+  <rect x="40" y="148" width="15" height="12" rx="1" fill="#8B5CF6" opacity="0.2" stroke="#8B5CF6" stroke-width="1"/>
+  <rect x="41" y="149" width="13" height="8" rx="0.5" fill="#1E293B"/>
+  <rect x="45" y="158" width="5" height="2" fill="#8B5CF6"/>
+  <text x="47" y="156" font-family="Arial" font-size="4" fill="#10B981" text-anchor="middle">✓</text>
+
+  <rect x="60" y="148" width="15" height="12" rx="1" fill="#8B5CF6" opacity="0.2" stroke="#8B5CF6" stroke-width="1"/>
+  <rect x="61" y="149" width="13" height="8" rx="0.5" fill="#1E293B"/>
+  <rect x="65" y="158" width="5" height="2" fill="#8B5CF6"/>
+  <text x="67" y="156" font-family="Arial" font-size="4" fill="#EF4444" text-anchor="middle">!</text>
+
+  <!-- Support ticket -->
+  <rect x="20" y="165" width="50" height="15" rx="2" fill="#EF4444" opacity="0.2" stroke="#EF4444" stroke-width="1.5"/>
+  <text x="45" y="173" font-family="Arial" font-size="5" fill="#EF4444" text-anchor="middle" font-weight="bold">Ticket #127</text>
+  <text x="45" y="178" font-family="Arial" font-size="4" fill="#EF4444" text-anchor="middle">"Printer not working"</text>
+
+  <!-- Monitoring (bottom center) -->
+  <rect x="85" y="90" width="55" height="55" rx="3" fill="#10B981" opacity="0.1" stroke="#10B981" stroke-width="2"/>
+  <text x="112" y="102" font-family="Arial" font-size="7" fill="#10B981" text-anchor="middle" font-weight="bold">MONITORING</text>
+
+  <!-- Status indicators -->
+  <circle cx="92" cy="112" r="4" fill="#10B981"/>
+  <text x="100" y="115" font-family="Arial" font-size="5" fill="#10B981">All servers OK</text>
+
+  <circle cx="92" cy="122" r="4" fill="#10B981"/>
+  <text x="100" y="125" font-family="Arial" font-size="5" fill="#10B981">Network: 98%</text>
+
+  <circle cx="92" cy="132" r="4" fill="#F59E0B"/>
+  <text x="100" y="135" font-family="Arial" font-size="5" fill="#F59E0B">Disk: 85% full</text>
+
+  <!-- Active Directory (bottom right) -->
+  <rect x="150" y="90" width="35" height="55" rx="3" fill="none" stroke="#06B6D4" stroke-width="2"/>
+  <text x="167" y="102" font-family="Arial" font-size="6" fill="#06B6D4" text-anchor="middle" font-weight="bold">Active</text>
+  <text x="167" y="108" font-family="Arial" font-size="6" fill="#06B6D4" text-anchor="middle" font-weight="bold">Directory</text>
+
+  <!-- AD tree structure -->
+  <circle cx="167" cy="116" r="3" fill="#06B6D4"/>
+  <line x1="167" y1="119" x2="167" y2="125" stroke="#06B6D4" stroke-width="1"/>
+  <line x1="167" y1="125" x2="160" y2="125" stroke="#06B6D4" stroke-width="1"/>
+  <line x1="167" y1="125" x2="174" y2="125" stroke="#06B6D4" stroke-width="1"/>
+  <circle cx="160" cy="125" r="2" fill="#8B5CF6"/>
+  <circle cx="174" cy="125" r="2" fill="#8B5CF6"/>
+  <line x1="160" y1="127" x2="160" y2="132" stroke="#06B6D4" stroke-width="1"/>
+  <circle cx="160" cy="132" r="1.5" fill="#10B981"/>
+  <circle cx="163" cy="132" r="1.5" fill="#10B981"/>
+
+  <text x="167" y="140" font-family="Arial" font-size="4" fill="#06B6D4" text-anchor="middle">Users: 250</text>
+
+  <!-- Tasks (top center) -->
+  <rect x="105" y="85" width="40" height="30" rx="2" fill="#F59E0B" opacity="0.2" stroke="#F59E0B" stroke-width="2"/>
+  <text x="125" y="93" font-family="Arial" font-size="6" fill="#F59E0B" text-anchor="middle" font-weight="bold">TODAY</text>
+  <text x="108" y="101" font-family="Arial" font-size="4" fill="#10B981">✓ Patch servers</text>
+  <text x="108" y="106" font-family="Arial" font-size="4" fill="#10B981">✓ Backup verify</text>
+  <text x="108" y="111" font-family="Arial" font-size="4" fill="#F59E0B">○ Fix printer</text>
+
+  <!-- Connection lines -->
+  <line x1="95" y1="60" x2="105" y2="60" stroke="#10B981" stroke-width="2"/>
+  <line x1="65" y1="120" x2="65" y2="130" stroke="#8B5CF6" stroke-width="2"/>
+
+  <!-- Linux/Windows icons (top) -->
+  <circle cx="25" cy="20" r="8" fill="#F59E0B" opacity="0.2" stroke="#F59E0B" stroke-width="1.5"/>
+  <text x="25" y="24" font-family="Arial" font-size="8" fill="#F59E0B" text-anchor="middle" font-weight="bold">L</text>
+  <text x="25" y="13" font-family="Arial" font-size="5" fill="#F59E0B" text-anchor="middle">Linux</text>
+
+  <rect x="40" y="13" width="14" height="14" rx="1" fill="#06B6D4" opacity="0.2" stroke="#06B6D4" stroke-width="1.5"/>
+  <rect x="42" y="15" width="5" height="5" fill="#06B6D4"/>
+  <rect x="48" y="15" width="5" height="5" fill="#06B6D4"/>
+  <rect x="42" y="21" width="5" height="5" fill="#06B6D4"/>
+  <rect x="48" y="21" width="5" height="5" fill="#06B6D4"/>
+  <text x="47" y="10" font-family="Arial" font-size="5" fill="#06B6D4" text-anchor="middle">Windows</text>
+
+  <!-- Tool icon (top right) -->
+  <circle cx="175" cy="20" r="8" fill="none" stroke="#10B981" stroke-width="2"/>
+  <line x1="172" y1="17" x2="178" y2="23" stroke="#10B981" stroke-width="2"/>
+  <line x1="172" y1="23" x2="178" y2="17" stroke="#10B981" stroke-width="2"/>
+  <text x="175" y="12" font-family="Arial" font-size="5" fill="#10B981" text-anchor="middle">Admin</text>
+
+  <!-- "SYSADMIN" text -->
+  <text x="100" y="197" font-family="Arial" font-size="11" fill="#06B6D4" text-anchor="middle" font-weight="bold">SYSADMIN</text>
+</svg>

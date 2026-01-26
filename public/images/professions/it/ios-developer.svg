@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Gradient background -->
+  <defs>
+    <linearGradient id="iosGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#007AFF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#5856D6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="95" fill="url(#iosGrad)" opacity="0.1"/>
+
+  <!-- iPhone frame -->
+  <rect x="55" y="30" width="90" height="140" rx="12" fill="#1c1c1e" stroke="#007AFF" stroke-width="3"/>
+
+  <!-- iPhone notch -->
+  <rect x="85" y="30" width="30" height="6" rx="3" fill="#1c1c1e"/>
+
+  <!-- Screen content area -->
+  <rect x="62" y="42" width="76" height="120" rx="6" fill="#007AFF" opacity="0.3"/>
+
+  <!-- App icons grid on screen -->
+  <rect x="70" y="50" width="15" height="15" rx="3" fill="#5856D6"/>
+  <rect x="90" y="50" width="15" height="15" rx="3" fill="#FF2D55"/>
+  <rect x="110" y="50" width="15" height="15" rx="3" fill="#FF9500"/>
+
+  <rect x="70" y="70" width="15" height="15" rx="3" fill="#AF52DE"/>
+  <rect x="90" y="70" width="15" height="15" rx="3" fill="#32ADE6"/>
+  <rect x="110" y="70" width="15" height="15" rx="3" fill="#34C759"/>
+
+  <rect x="70" y="90" width="15" height="15" rx="3" fill="#FFCC00"/>
+  <rect x="90" y="90" width="15" height="15" rx="3" fill="#FF3B30"/>
+  <rect x="110" y="90" width="15" height="15" rx="3" fill="#007AFF"/>
+
+  <!-- Home indicator -->
+  <rect x="85" y="162" width="30" height="4" rx="2" fill="#8E8E93"/>
+
+  <!-- Swift logo hint -->
+  <path d="M 30 170 L 40 170 L 35 180 Z" fill="#FF5722" opacity="0.9"/>
+  <path d="M 35 175 Q 45 170, 50 180" stroke="#FF5722" stroke-width="2" fill="none"/>
+
+  <!-- Xcode text -->
+  <text x="170" y="185" font-family="Arial" font-size="12" fill="#007AFF" font-weight="bold">Xcode</text>
+</svg>

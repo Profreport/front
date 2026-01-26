@@ -1,0 +1,163 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Gradient background -->
+  <defs>
+    <linearGradient id="productDesignGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#EC4899;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8B5CF6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="95" fill="url(#productDesignGrad)" opacity="0.1"/>
+
+  <!-- Product Triad Center (PM-Designer-Tech Lead) -->
+  <circle cx="100" cy="80" r="35" fill="none" stroke="#EC4899" stroke-width="2" stroke-dasharray="5,3"/>
+  <text x="100" y="55" font-family="Arial" font-size="6" fill="#EC4899" text-anchor="middle" font-weight="bold">PRODUCT TRIAD</text>
+
+  <!-- Three roles in triad -->
+  <circle cx="85" cy="75" r="10" fill="#8B5CF6" opacity="0.3"/>
+  <text x="85" y="79" font-family="Arial" font-size="7" fill="#8B5CF6" text-anchor="middle">PM</text>
+
+  <circle cx="100" cy="95" r="12" fill="#EC4899" opacity="0.4" stroke="#EC4899" stroke-width="2"/>
+  <text x="100" y="100" font-family="Arial" font-size="8" fill="#EC4899" text-anchor="middle" font-weight="bold">PD</text>
+
+  <circle cx="115" cy="75" r="10" fill="#06B6D4" opacity="0.3"/>
+  <text x="115" y="79" font-family="Arial" font-size="7" fill="#06B6D4" text-anchor="middle">TL</text>
+
+  <!-- Design + Strategy (top left) -->
+  <rect x="15" y="15" width="55" height="55" rx="3" fill="none" stroke="#8B5CF6" stroke-width="2"/>
+  <text x="42" y="27" font-family="Arial" font-size="7" fill="#8B5CF6" text-anchor="middle" font-weight="bold">DESIGN</text>
+
+  <!-- Design artifacts -->
+  <rect x="20" y="32" width="45" height="33" rx="1" fill="#1E293B" opacity="0.8"/>
+
+  <!-- Wireframe -->
+  <rect x="23" y="36" width="18" height="12" fill="none" stroke="#8B5CF6" stroke-width="1"/>
+  <line x1="25" y1="38" x2="39" y2="38" stroke="#8B5CF6" stroke-width="0.5"/>
+  <line x1="25" y1="41" x2="35" y2="41" stroke="#8B5CF6" stroke-width="0.5"/>
+  <rect x="25" y="44" width="14" height="2" fill="#8B5CF6" opacity="0.3"/>
+
+  <!-- High-fidelity mockup -->
+  <rect x="44" y="36" width="18" height="12" rx="1" fill="#F3F4F6" stroke="#E5E7EB" stroke-width="0.5"/>
+  <rect x="46" y="38" width="14" height="3" fill="#EC4899" opacity="0.4"/>
+  <rect x="46" y="42" width="10" height="1" fill="#D1D5DB"/>
+  <rect x="46" y="44" width="12" height="1" fill="#D1D5DB"/>
+
+  <!-- Design system components -->
+  <text x="23" y="55" font-family="Arial" font-size="3" fill="#8B5CF6">Components:</text>
+  <rect x="23" y="57" width="12" height="3" rx="0.5" fill="#EC4899"/>
+  <text x="29" y="59.5" font-family="Arial" font-size="2" fill="#FFF" text-anchor="middle">Button</text>
+  <rect x="37" y="57" width="12" height="3" rx="0.5" fill="none" stroke="#8B5CF6" stroke-width="0.5"/>
+  <text x="43" y="59.5" font-family="Arial" font-size="2" fill="#8B5CF6" text-anchor="middle">Input</text>
+  <rect x="51" y="57" width="12" height="3" rx="0.5" fill="#10B981"/>
+  <text x="57" y="59.5" font-family="Arial" font-size="2" fill="#FFF" text-anchor="middle">Card</text>
+
+  <!-- Metrics & Analytics (top right) -->
+  <rect x="130" y="15" width="55" height="55" rx="3" fill="#10B981" opacity="0.1" stroke="#10B981" stroke-width="2"/>
+  <text x="157" y="27" font-family="Arial" font-size="7" fill="#10B981" text-anchor="middle" font-weight="bold">METRICS</text>
+
+  <!-- Dashboard with metrics -->
+  <rect x="135" y="32" width="45" height="33" rx="1" fill="#1E293B" opacity="0.8"/>
+
+  <text x="138" y="38" font-family="Arial" font-size="4" fill="#10B981">Product KPIs:</text>
+  <text x="138" y="44" font-family="Arial" font-size="5" fill="#10B981" font-weight="bold">DAU: 45.2K</text>
+  <circle cx="167" cy="42" r="1" fill="#10B981"/>
+  <text x="170" y="44" font-family="Arial" font-size="3" fill="#10B981">+12%</text>
+
+  <text x="138" y="50" font-family="Arial" font-size="5" fill="#06B6D4" font-weight="bold">Conv: 8.3%</text>
+  <circle cx="167" cy="48" r="1" fill="#10B981"/>
+  <text x="170" y="50" font-family="Arial" font-size="3" fill="#10B981">+2.1%</text>
+
+  <text x="138" y="56" font-family="Arial" font-size="5" fill="#F59E0B" font-weight="bold">Churn: 4.2%</text>
+  <circle cx="167" cy="54" r="1" fill="#EF4444"/>
+  <text x="170" y="56" font-family="Arial" font-size="3" fill="#EF4444">-0.8%</text>
+
+  <text x="138" y="62" font-family="Arial" font-size="3" fill="#8B5CF6">Design Impact Tracking</text>
+
+  <!-- User Research (bottom left) -->
+  <rect x="15" y="125" width="55" height="60" rx="3" fill="none" stroke="#EC4899" stroke-width="2"/>
+  <text x="42" y="137" font-family="Arial" font-size="7" fill="#EC4899" text-anchor="middle" font-weight="bold">RESEARCH</text>
+
+  <!-- User insights -->
+  <rect x="20" y="143" width="45" height="37" rx="1" fill="#1E293B" opacity="0.8"/>
+
+  <!-- User interviews -->
+  <circle cx="27" cy="150" r="4" fill="#EC4899" opacity="0.3"/>
+  <text x="27" y="152" font-family="Arial" font-size="5" fill="#EC4899" text-anchor="middle">👤</text>
+  <text x="33" y="152" font-family="Arial" font-size="4" fill="#EC4899">15 interviews</text>
+
+  <!-- Key findings -->
+  <text x="22" y="160" font-family="Arial" font-size="3" fill="#EC4899">Key Findings:</text>
+  <text x="22" y="165" font-family="Arial" font-size="3" fill="#10B981">✓ Users love feature X</text>
+  <text x="22" y="170" font-family="Arial" font-size="3" fill="#EF4444">⚠ Onboarding confusing</text>
+  <text x="22" y="175" font-family="Arial" font-size="3" fill="#F59E0B">→ Need better filters</text>
+
+  <!-- Journey map -->
+  <text x="42" y="183" font-family="Arial" font-size="3" fill="#EC4899" text-anchor="middle">User Journey</text>
+
+  <!-- A/B Testing (bottom center) -->
+  <rect x="80" y="125" width="55" height="60" rx="3" fill="#06B6D4" opacity="0.1" stroke="#06B6D4" stroke-width="2"/>
+  <text x="107" y="137" font-family="Arial" font-size="7" fill="#06B6D4" text-anchor="middle" font-weight="bold">A/B TESTS</text>
+
+  <!-- Test comparison -->
+  <rect x="85" y="143" width="45" height="37" rx="1" fill="#1E293B" opacity="0.8"/>
+
+  <!-- Variant A -->
+  <rect x="88" y="147" width="18" height="12" rx="1" fill="#F3F4F6" stroke="#06B6D4" stroke-width="1"/>
+  <text x="97" y="151" font-family="Arial" font-size="3" fill="#06B6D4" text-anchor="middle">Variant A</text>
+  <rect x="90" y="154" width="14" height="3" rx="0.5" fill="#8B5CF6"/>
+  <text x="97" y="157" font-family="Arial" font-size="2" fill="#FFF" text-anchor="middle">Old Design</text>
+
+  <!-- Variant B -->
+  <rect x="109" y="147" width="18" height="12" rx="1" fill="#F3F4F6" stroke="#10B981" stroke-width="2"/>
+  <text x="118" y="151" font-family="Arial" font-size="3" fill="#10B981" text-anchor="middle" font-weight="bold">Variant B</text>
+  <rect x="111" y="154" width="14" height="3" rx="0.5" fill="#EC4899"/>
+  <text x="118" y="157" font-family="Arial" font-size="2" fill="#FFF" text-anchor="middle">New Design</text>
+
+  <!-- Results -->
+  <text x="107" y="166" font-family="Arial" font-size="4" fill="#10B981" text-anchor="middle" font-weight="bold">B wins: +18% conv</text>
+  <text x="107" y="171" font-family="Arial" font-size="3" fill="#06B6D4" text-anchor="middle">p < 0.05 (significant)</text>
+  <text x="107" y="176" font-family="Arial" font-size="3" fill="#8B5CF6" text-anchor="middle">n=5,240 users</text>
+
+  <!-- Strategy & Roadmap (bottom right) -->
+  <rect x="145" y="125" width="40" height="60" rx="3" fill="none" stroke="#F59E0B" stroke-width="2"/>
+  <text x="165" y="137" font-family="Arial" font-size="6" fill="#F59E0B" text-anchor="middle" font-weight="bold">STRATEGY</text>
+
+  <!-- Roadmap items -->
+  <rect x="150" y="143" width="30" height="37" rx="1" fill="#1E293B" opacity="0.8"/>
+
+  <text x="152" y="149" font-family="Arial" font-size="3" fill="#F59E0B">Q1 Roadmap:</text>
+
+  <circle cx="153" cy="153" r="1" fill="#10B981"/>
+  <text x="156" y="155" font-family="Arial" font-size="3" fill="#10B981">Onboarding V2</text>
+
+  <circle cx="153" cy="159" r="1" fill="#06B6D4"/>
+  <text x="156" y="161" font-family="Arial" font-size="3" fill="#06B6D4">Mobile redesign</text>
+
+  <circle cx="153" cy="165" r="1" fill="#8B5CF6"/>
+  <text x="156" y="167" font-family="Arial" font-size="3" fill="#8B5CF6">Design system</text>
+
+  <circle cx="153" cy="171" r="1" fill="#F59E0B"/>
+  <text x="156" y="173" font-family="Arial" font-size="3" fill="#F59E0B">Accessibility</text>
+
+  <text x="165" y="179" font-family="Arial" font-size="3" fill="#F59E0B" text-anchor="middle">Business Impact</text>
+
+  <!-- Product thinking badge (left) -->
+  <circle cx="20" cy="95" r="8" fill="none" stroke="#EC4899" stroke-width="2"/>
+  <text x="20" y="98" font-family="Arial" font-size="6" fill="#EC4899" text-anchor="middle" font-weight="bold">💡</text>
+  <text x="20" y="87" font-family="Arial" font-size="3" fill="#EC4899" text-anchor="middle">Product</text>
+  <text x="20" y="108" font-family="Arial" font-size="3" fill="#EC4899" text-anchor="middle">Mindset</text>
+
+  <!-- Impact indicator (right) -->
+  <circle cx="180" cy="95" r="8" fill="#10B981" opacity="0.3"/>
+  <text x="180" y="98" font-family="Arial" font-size="7" fill="#10B981" text-anchor="middle" font-weight="bold">↑</text>
+  <text x="180" y="87" font-family="Arial" font-size="3" fill="#10B981" text-anchor="middle">Business</text>
+  <text x="180" y="108" font-family="Arial" font-size="3" fill="#10B981" text-anchor="middle">Impact</text>
+
+  <!-- Holistic approach badge (top) -->
+  <rect x="70" y="5" width="60" height="10" rx="2" fill="#EC4899" opacity="0.3" stroke="#EC4899" stroke-width="1.5"/>
+  <text x="100" y="12" font-family="Arial" font-size="6" fill="#EC4899" text-anchor="middle" font-weight="bold">Design × Product × Business</text>
+
+  <!-- "PRODUCT DESIGNER" text -->
+  <text x="100" y="197" font-family="Arial" font-size="11" fill="#EC4899" text-anchor="middle" font-weight="bold">PRODUCT DESIGNER</text>
+</svg>

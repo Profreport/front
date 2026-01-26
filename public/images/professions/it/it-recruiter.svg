@@ -1,0 +1,170 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Gradient background -->
+  <defs>
+    <linearGradient id="recruiterGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3B82F6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8B5CF6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="95" fill="url(#recruiterGrad)" opacity="0.1"/>
+
+  <!-- LinkedIn Interface (center) -->
+  <rect x="50" y="45" width="100" height="90" rx="3" fill="#1E293B" opacity="0.9" stroke="#3B82F6" stroke-width="3"/>
+  <text x="100" y="38" font-family="Arial" font-size="7" fill="#3B82F6" text-anchor="middle" font-weight="bold">CANDIDATE SEARCH</text>
+
+  <!-- LinkedIn header -->
+  <rect x="55" y="50" width="90" height="8" rx="1" fill="#0A66C2"/>
+  <circle cx="58" cy="54" r="2" fill="#FFF"/>
+  <text x="62" y="56" font-family="Arial" font-size="4" fill="#FFF" font-weight="bold">LinkedIn Recruiter</text>
+  <text x="130" y="56" font-family="Arial" font-size="3" fill="#FFF">Boolean Search</text>
+
+  <!-- Search filters -->
+  <rect x="55" y="60" width="90" height="12" fill="#0F172A"/>
+  <text x="57" y="64" font-family="Arial" font-size="3" fill="#6B7280">Keywords:</text>
+  <rect x="75" y="61" width="65" height="4" rx="1" fill="#374151"/>
+  <text x="77" y="64" font-family="Arial" font-size="3" fill="#D1D5DB">"Python" AND "Django" AND "PostgreSQL"</text>
+
+  <text x="57" y="69" font-family="Arial" font-size="3" fill="#6B7280">Location:</text>
+  <rect x="75" y="66" width="30" height="4" rx="1" fill="#374151"/>
+  <text x="77" y="69" font-family="Arial" font-size="3" fill="#D1D5DB">Москва, Удалённо</text>
+
+  <!-- Candidate cards -->
+  <rect x="55" y="74" width="90" height="58" fill="#1E293B"/>
+
+  <!-- Candidate 1 -->
+  <rect x="58" y="77" width="84" height="17" rx="1" fill="#0F172A" stroke="#10B981" stroke-width="1"/>
+  <circle cx="63" cy="82" r="3" fill="#10B981" opacity="0.4"/>
+  <text x="68" y="81" font-family="Arial" font-size="3" fill="#10B981" font-weight="bold">Иванов Алексей</text>
+  <text x="68" y="84" font-family="Arial" font-size="2" fill="#6B7280">Senior Python Developer • 5 лет опыта</text>
+  <text x="68" y="87" font-family="Arial" font-size="2" fill="#D1D5DB">Python • Django • PostgreSQL • REST API • Docker</text>
+  <rect x="68" y="89" width="12" height="3" rx="0.5" fill="#10B981" opacity="0.3"/>
+  <text x="69" y="91" font-family="Arial" font-size="2" fill="#10B981">Match: 95%</text>
+  <rect x="83" y="89" width="13" height="3" rx="0.5" fill="#3B82F6" opacity="0.3"/>
+  <text x="84" y="91" font-family="Arial" font-size="2" fill="#3B82F6">Open to offers</text>
+
+  <!-- Candidate 2 -->
+  <rect x="58" y="96" width="84" height="17" rx="1" fill="#0F172A" stroke="#F59E0B" stroke-width="1"/>
+  <circle cx="63" cy="101" r="3" fill="#F59E0B" opacity="0.4"/>
+  <text x="68" y="100" font-family="Arial" font-size="3" fill="#F59E0B" font-weight="bold">Петрова Мария</text>
+  <text x="68" y="103" font-family="Arial" font-size="2" fill="#6B7280">Middle Python Developer • 3 года опыта</text>
+  <text x="68" y="106" font-family="Arial" font-size="2" fill="#D1D5DB">Python • Flask • MySQL • Git • Linux</text>
+  <rect x="68" y="108" width="12" height="3" rx="0.5" fill="#F59E0B" opacity="0.3"/>
+  <text x="69" y="110" font-family="Arial" font-size="2" fill="#F59E0B">Match: 78%</text>
+  <rect x="83" y="108" width="16" height="3" rx="0.5" fill="#6B7280" opacity="0.3"/>
+  <text x="84" y="110" font-family="Arial" font-size="2" fill="#9CA3AF">Passive candidate</text>
+
+  <!-- Candidate 3 -->
+  <rect x="58" y="115" width="84" height="17" rx="1" fill="#0F172A" stroke="#06B6D4" stroke-width="1"/>
+  <circle cx="63" cy="120" r="3" fill="#06B6D4" opacity="0.4"/>
+  <text x="68" y="119" font-family="Arial" font-size="3" fill="#06B6D4" font-weight="bold">Сидоров Дмитрий</text>
+  <text x="68" y="122" font-family="Arial" font-size="2" fill="#6B7280">Junior Python Developer • 1 год опыта</text>
+  <text x="68" y="125" font-family="Arial" font-size="2" fill="#D1D5DB">Python • Django • HTML/CSS • Git</text>
+  <rect x="68" y="127" width="12" height="3" rx="0.5" fill="#06B6D4" opacity="0.3"/>
+  <text x="69" y="129" font-family="Arial" font-size="2" fill="#06B6D4">Match: 62%</text>
+  <rect x="83" y="127" width="13" height="3" rx="0.5" fill="#3B82F6" opacity="0.3"/>
+  <text x="84" y="129" font-family="Arial" font-size="2" fill="#3B82F6">Actively seeking</text>
+
+  <!-- Interview Pipeline (left) -->
+  <rect x="10" y="15" width="50" height="70" rx="3" fill="none" stroke="#10B981" stroke-width="2"/>
+  <text x="35" y="27" font-family="Arial" font-size="6" fill="#10B981" text-anchor="middle" font-weight="bold">PIPELINE</text>
+
+  <!-- Pipeline stages -->
+  <rect x="15" y="32" width="40" height="48" rx="1" fill="#1E293B" opacity="0.8"/>
+
+  <!-- Stage: Screening -->
+  <rect x="17" y="35" width="36" height="8" rx="1" fill="#3B82F6" opacity="0.3"/>
+  <text x="19" y="38" font-family="Arial" font-size="3" fill="#3B82F6" font-weight="bold">Screening</text>
+  <circle cx="47" cy="37" r="3" fill="#3B82F6"/>
+  <text x="47" y="39" font-family="Arial" font-size="3" fill="#FFF" text-anchor="middle" font-weight="bold">12</text>
+
+  <!-- Stage: Phone Interview -->
+  <rect x="17" y="44" width="36" height="8" rx="1" fill="#8B5CF6" opacity="0.3"/>
+  <text x="19" y="47" font-family="Arial" font-size="3" fill="#8B5CF6" font-weight="bold">Phone Interview</text>
+  <circle cx="47" cy="46" r="3" fill="#8B5CF6"/>
+  <text x="47" y="48" font-family="Arial" font-size="3" fill="#FFF" text-anchor="middle" font-weight="bold">7</text>
+
+  <!-- Stage: Technical Interview -->
+  <rect x="17" y="53" width="36" height="8" rx="1" fill="#F59E0B" opacity="0.3"/>
+  <text x="19" y="56" font-family="Arial" font-size="3" fill="#F59E0B" font-weight="bold">Tech Interview</text>
+  <circle cx="47" cy="55" r="3" fill="#F59E0B"/>
+  <text x="47" y="57" font-family="Arial" font-size="3" fill="#FFF" text-anchor="middle" font-weight="bold">4</text>
+
+  <!-- Stage: Offer -->
+  <rect x="17" y="62" width="36" height="8" rx="1" fill="#10B981" opacity="0.3"/>
+  <text x="19" y="65" font-family="Arial" font-size="3" fill="#10B981" font-weight="bold">Offer</text>
+  <circle cx="47" cy="64" r="3" fill="#10B981"/>
+  <text x="47" y="66" font-family="Arial" font-size="3" fill="#FFF" text-anchor="middle" font-weight="bold">2</text>
+
+  <text x="35" y="76" font-family="Arial" font-size="2" fill="#6B7280" text-anchor="middle">Conversion: 16.7%</text>
+
+  <!-- ATS System (right) -->
+  <rect x="140" y="15" width="50" height="70" rx="3" fill="#EC4899" opacity="0.1" stroke="#EC4899" stroke-width="2"/>
+  <text x="165" y="27" font-family="Arial" font-size="6" fill="#EC4899" text-anchor="middle" font-weight="bold">ATS</text>
+
+  <!-- ATS Dashboard -->
+  <rect x="145" y="32" width="40" height="48" rx="1" fill="#1E293B" opacity="0.8"/>
+
+  <!-- Metrics -->
+  <text x="147" y="37" font-family="Arial" font-size="3" fill="#EC4899">Open Positions:</text>
+  <text x="147" y="41" font-family="Arial" font-size="6" fill="#EC4899" font-weight="bold">8</text>
+
+  <text x="147" y="47" font-family="Arial" font-size="3" fill="#3B82F6">Active Candidates:</text>
+  <text x="147" y="51" font-family="Arial" font-size="6" fill="#3B82F6" font-weight="bold">156</text>
+
+  <text x="147" y="57" font-family="Arial" font-size="3" fill="#10B981">Hired This Month:</text>
+  <text x="147" y="61" font-family="Arial" font-size="6" fill="#10B981" font-weight="bold">5</text>
+
+  <text x="147" y="67" font-family="Arial" font-size="3" fill="#F59E0B">Avg. Time to Hire:</text>
+  <text x="147" y="71" font-family="Arial" font-size="5" fill="#F59E0B" font-weight="bold">28 days</text>
+
+  <text x="165" y="77" font-family="Arial" font-size="2" fill="#6B7280" text-anchor="middle">Offer Accept Rate: 78%</text>
+
+  <!-- Job Description (bottom left) -->
+  <rect x="10" y="95" width="60" height="90" rx="3" fill="none" stroke="#06B6D4" stroke-width="2"/>
+  <text x="40" y="107" font-family="Arial" font-size="6" fill="#06B6D4" text-anchor="middle" font-weight="bold">JOB DESCRIPTION</text>
+
+  <!-- JD Content -->
+  <rect x="15" y="112" width="50" height="68" rx="1" fill="#1E293B" opacity="0.8"/>
+
+  <text x="17" y="117" font-family="Arial" font-size="4" fill="#06B6D4" font-weight="bold">Senior Python Developer</text>
+  <text x="17" y="121" font-family="Arial" font-size="2" fill="#6B7280">Удалённо • Full-time • ₽250-350K</text>
+
+  <text x="17" y="126" font-family="Arial" font-size="3" fill="#D1D5DB" font-weight="bold">Requirements:</text>
+  <text x="17" y="130" font-family="Arial" font-size="2" fill="#D1D5DB">• 5+ years Python development</text>
+  <text x="17" y="133" font-family="Arial" font-size="2" fill="#D1D5DB">• Django/Flask experience</text>
+  <text x="17" y="136" font-family="Arial" font-size="2" fill="#D1D5DB">• PostgreSQL/MySQL proficiency</text>
+  <text x="17" y="139" font-family="Arial" font-size="2" fill="#D1D5DB">• REST API design</text>
+  <text x="17" y="142" font-family="Arial" font-size="2" fill="#D1D5DB">• Docker/Kubernetes</text>
+
+  <text x="17" y="147" font-family="Arial" font-size="3" fill="#D1D5DB" font-weight="bold">Nice to have:</text>
+  <text x="17" y="151" font-family="Arial" font-size="2" fill="#D1D5DB">• FastAPI experience</text>
+  <text x="17" y="154" font-family="Arial" font-size="2" fill="#D1D5DB">• AWS/GCP cloud</text>
+  <text x="17" y="157" font-family="Arial" font-size="2" fill="#D1D5DB">• Microservices architecture</text>
+
+  <text x="17" y="162" font-family="Arial" font-size="3" fill="#D1D5DB" font-weight="bold">Benefits:</text>
+  <text x="17" y="166" font-family="Arial" font-size="2" fill="#10B981">✓ Flexible schedule</text>
+  <text x="17" y="169" font-family="Arial" font-size="2" fill="#10B981">✓ Learning budget ₽100K/year</text>
+  <text x="17" y="172" font-family="Arial" font-size="2" fill="#10B981">✓ Health insurance</text>
+  <text x="17" y="175" font-family="Arial" font-size="2" fill="#10B981">✓ Stock options</text>
+
+  <!-- Communication (bottom right) -->
+  <rect x="80" y="145" width="110" height="40" rx="3" fill="none" stroke="#8B5CF6" stroke-width="2"/>
+  <text x="135" y="157" font-family="Arial" font-size="6" fill="#8B5CF6" text-anchor="middle" font-weight="bold">OUTREACH</text>
+
+  <!-- Email/Message preview -->
+  <rect x="85" y="162" width="100" height="18" rx="1" fill="#1E293B" opacity="0.8"/>
+
+  <text x="87" y="166" font-family="Arial" font-size="3" fill="#8B5CF6" font-weight="bold">To: aleksey.ivanov@email.com</text>
+  <text x="87" y="169" font-family="Arial" font-size="2" fill="#6B7280">Subject: Exciting Senior Python opportunity</text>
+  <text x="87" y="173" font-family="Arial" font-size="2" fill="#D1D5DB">Привет Алексей! Нашёл твой профиль на LinkedIn.</text>
+  <text x="87" y="176" font-family="Arial" font-size="2" fill="#D1D5DB">Ищем Senior Python Dev в нашу команду...</text>
+
+  <!-- Recruiter badge (top) -->
+  <rect x="60" y="5" width="80" height="10" rx="2" fill="#3B82F6" opacity="0.3" stroke="#3B82F6" stroke-width="1.5"/>
+  <text x="100" y="12" font-family="Arial" font-size="6" fill="#3B82F6" text-anchor="middle" font-weight="bold">LinkedIn • ATS • Sourcing • Hiring</text>
+
+  <!-- "IT RECRUITER" text -->
+  <text x="100" y="197" font-family="Arial" font-size="11" fill="#3B82F6" text-anchor="middle" font-weight="bold">IT RECRUITER</text>
+</svg>

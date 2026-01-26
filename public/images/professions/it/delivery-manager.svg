@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Gradient background -->
+  <defs>
+    <linearGradient id="deliveryGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#06B6D4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3B82F6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="95" fill="url(#deliveryGrad)" opacity="0.1"/>
+
+  <!-- Delivery pipeline (main element) -->
+  <rect x="25" y="40" width="150" height="80" rx="4" fill="none" stroke="#06B6D4" stroke-width="3"/>
+  <line x1="25" y1="55" x2="175" y2="55" stroke="#06B6D4" stroke-width="2"/>
+  <text x="100" y="51" font-family="Arial" font-size="9" fill="#06B6D4" text-anchor="middle" font-weight="bold">DELIVERY PIPELINE</text>
+
+  <!-- Pipeline stages -->
+  <rect x="30" y="65" width="25" height="45" rx="2" fill="#3B82F6" opacity="0.2" stroke="#3B82F6" stroke-width="1.5"/>
+  <text x="42" y="74" font-family="Arial" font-size="6" fill="#3B82F6" text-anchor="middle" font-weight="bold">Plan</text>
+  <rect x="33" y="78" width="6" height="8" fill="#3B82F6" opacity="0.3"/>
+  <rect x="33" y="88" width="6" height="8" fill="#3B82F6" opacity="0.5"/>
+  <rect x="33" y="98" width="6" height="8" fill="#10B981"/>
+
+  <rect x="60" y="65" width="25" height="45" rx="2" fill="#06B6D4" opacity="0.2" stroke="#06B6D4" stroke-width="1.5"/>
+  <text x="72" y="74" font-family="Arial" font-size="6" fill="#06B6D4" text-anchor="middle" font-weight="bold">Build</text>
+  <rect x="63" y="78" width="6" height="8" fill="#06B6D4" opacity="0.5"/>
+  <rect x="63" y="88" width="6" height="8" fill="#10B981"/>
+  <rect x="63" y="98" width="6" height="8" fill="#10B981"/>
+
+  <rect x="90" y="65" width="25" height="45" rx="2" fill="#10B981" opacity="0.2" stroke="#10B981" stroke-width="1.5"/>
+  <text x="102" y="74" font-family="Arial" font-size="6" fill="#10B981" text-anchor="middle" font-weight="bold">Test</text>
+  <rect x="93" y="78" width="6" height="8" fill="#10B981"/>
+  <rect x="93" y="88" width="6" height="8" fill="#10B981"/>
+  <rect x="93" y="98" width="6" height="8" fill="#F59E0B" opacity="0.6"/>
+
+  <rect x="120" y="65" width="25" height="45" rx="2" fill="#8B5CF6" opacity="0.2" stroke="#8B5CF6" stroke-width="1.5"/>
+  <text x="132" y="74" font-family="Arial" font-size="6" fill="#8B5CF6" text-anchor="middle" font-weight="bold">Deploy</text>
+  <rect x="123" y="78" width="6" height="8" fill="#8B5CF6" opacity="0.3"/>
+  <rect x="123" y="88" width="6" height="8" fill="#8B5CF6" opacity="0.5"/>
+  <rect x="123" y="98" width="6" height="8" fill="#8B5CF6" opacity="0.3"/>
+
+  <rect x="150" y="65" width="20" height="45" rx="2" fill="#EC4899" opacity="0.2" stroke="#EC4899" stroke-width="1.5"/>
+  <text x="160" y="74" font-family="Arial" font-size="6" fill="#EC4899" text-anchor="middle" font-weight="bold">Live</text>
+  <circle cx="160" cy="90" r="8" fill="#10B981" opacity="0.3"/>
+  <text x="160" y="94" font-family="Arial" font-size="10" fill="#10B981" text-anchor="middle" font-weight="bold">✓</text>
+
+  <!-- Client communication (bottom left) -->
+  <rect x="15" y="130" width="50" height="50" rx="3" fill="none" stroke="#3B82F6" stroke-width="2"/>
+  <text x="40" y="141" font-family="Arial" font-size="7" fill="#3B82F6" text-anchor="middle" font-weight="bold">CLIENT</text>
+
+  <!-- Client icon -->
+  <circle cx="40" cy="155" r="8" fill="none" stroke="#3B82F6" stroke-width="1.5"/>
+  <circle cx="40" cy="152" r="3" fill="#3B82F6"/>
+  <path d="M 33 163 Q 40 159, 47 163" fill="none" stroke="#3B82F6" stroke-width="1.5"/>
+
+  <!-- Communication lines -->
+  <path d="M 25 167 L 30 170 L 35 167" fill="none" stroke="#06B6D4" stroke-width="1.5"/>
+  <path d="M 45 167 L 50 170 L 55 167" fill="none" stroke="#06B6D4" stroke-width="1.5"/>
+  <text x="40" y="177" font-family="Arial" font-size="5" fill="#3B82F6" text-anchor="middle">Feedback</text>
+
+  <!-- Team coordination (bottom center) -->
+  <rect x="75" y="130" width="50" height="50" rx="3" fill="#06B6D4" opacity="0.1" stroke="#06B6D4" stroke-width="2"/>
+  <text x="100" y="141" font-family="Arial" font-size="7" fill="#06B6D4" text-anchor="middle" font-weight="bold">TEAM</text>
+
+  <!-- Team members -->
+  <circle cx="85" cy="155" r="5" fill="none" stroke="#06B6D4" stroke-width="1.5"/>
+  <text x="85" y="158" font-family="Arial" font-size="6" fill="#06B6D4" text-anchor="middle" font-weight="bold">D</text>
+
+  <circle cx="100" cy="155" r="5" fill="none" stroke="#10B981" stroke-width="1.5"/>
+  <text x="100" y="158" font-family="Arial" font-size="6" fill="#10B981" text-anchor="middle" font-weight="bold">Q</text>
+
+  <circle cx="115" cy="155" r="5" fill="none" stroke="#8B5CF6" stroke-width="1.5"/>
+  <text x="115" y="158" font-family="Arial" font-size="6" fill="#8B5CF6" text-anchor="middle" font-weight="bold">D</text>
+
+  <!-- Connections -->
+  <line x1="90" y1="157" x2="95" y2="156" stroke="#06B6D4" stroke-width="1"/>
+  <line x1="105" y1="156" x2="110" y2="157" stroke="#06B6D4" stroke-width="1"/>
+
+  <text x="85" y="170" font-family="Arial" font-size="5" fill="#06B6D4" text-anchor="middle">Dev</text>
+  <text x="100" y="170" font-family="Arial" font-size="5" fill="#10B981" text-anchor="middle">QA</text>
+  <text x="115" y="170" font-family="Arial" font-size="5" fill="#8B5CF6" text-anchor="middle">Dev</text>
+
+  <!-- Blockers removal (bottom right) -->
+  <rect x="135" y="130" width="50" height="50" rx="3" fill="none" stroke="#EF4444" stroke-width="2"/>
+  <text x="160" y="141" font-family="Arial" font-size="7" fill="#EF4444" text-anchor="middle" font-weight="bold">BLOCKERS</text>
+
+  <!-- Blocker icons -->
+  <circle cx="145" cy="155" r="8" fill="none" stroke="#EF4444" stroke-width="2"/>
+  <line x1="141" y1="151" x2="149" y2="159" stroke="#EF4444" stroke-width="2"/>
+  <line x1="149" y1="151" x2="141" y2="159" stroke="#EF4444" stroke-width="2"/>
+
+  <circle cx="175" cy="155" r="8" fill="none" stroke="#F59E0B" stroke-width="2"/>
+  <text x="175" y="159" font-family="Arial" font-size="8" fill="#F59E0B" text-anchor="middle" font-weight="bold">!</text>
+
+  <text x="160" y="171" font-family="Arial" font-size="5" fill="#EF4444" text-anchor="middle">Remove</text>
+  <text x="160" y="177" font-family="Arial" font-size="5" fill="#EF4444" text-anchor="middle">Impediments</text>
+
+  <!-- Metrics dashboard (top left) -->
+  <rect x="15" y="25" width="30" height="18" rx="2" fill="none" stroke="#10B981" stroke-width="1.5"/>
+  <text x="30" y="32" font-family="Arial" font-size="6" fill="#10B981" text-anchor="middle" font-weight="bold">METRICS</text>
+  <polyline points="18,37 22,35 26,36 30,33 34,34 38,31 42,32" fill="none" stroke="#10B981" stroke-width="1.5"/>
+
+  <!-- Sprint indicator (top right) -->
+  <circle cx="175" cy="28" r="10" fill="none" stroke="#06B6D4" stroke-width="2"/>
+  <text x="175" y="32" font-family="Arial" font-size="9" fill="#06B6D4" text-anchor="middle" font-weight="bold">S3</text>
+  <text x="175" y="21" font-family="Arial" font-size="5" fill="#06B6D4" text-anchor="middle">Sprint</text>
+
+  <!-- Agile/Scrum indicator (top center-left) -->
+  <rect x="52" y="22" width="20" height="12" rx="2" fill="#06B6D4" opacity="0.2"/>
+  <text x="62" y="30" font-family="Arial" font-size="7" fill="#06B6D4" text-anchor="middle" font-weight="bold">Agile</text>
+
+  <!-- "DELIVERY MANAGER" text -->
+  <text x="100" y="197" font-family="Arial" font-size="9" fill="#06B6D4" text-anchor="middle" font-weight="bold">DELIVERY MANAGER</text>
+</svg>

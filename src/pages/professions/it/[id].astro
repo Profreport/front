@@ -1,0 +1,323 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import Breadcrumb from '@/components/Breadcrumb.astro';
+import { generateBreadcrumbSchema } from '@/lib/utils';
+import { getITProfessionById, itProfessions } from '@/data/it-professions';
+
+export function getStaticPaths() {
+  return itProfessions
+    .filter(p => !p.hidden)
+    .map((profession) => ({
+      params: { id: profession.id },
+    }));
+}
+
+const { id } = Astro.params;
+const profession = getITProfessionById(id);
+
+if (!profession || profession.hidden) {
+  return Astro.redirect('/404');
+}
+
+const breadcrumbs = [
+  { name: 'Главная', url: '/' },
+  { name: 'Профессии', url: '/professions' },
+  { name: 'Профессии в IT', url: '/professions/it' },
+  { name: profession.title, url: `/professions/it/${id}` },
+];
+
+// Форматирование зарплаты
+const formatSalary = (min: number, max: number) => {
+  return `${min.toLocaleString('ru-RU')} - ${max.toLocaleString('ru-RU')} ₽`;
+};
+---
+
+<BaseLayout
+  title={`${profession.title} - Описание профессии`}
+  description={profession.description.substring(0, 160)}
+  jsonLd={generateBreadcrumbSchema(breadcrumbs)}
+>
+  <Header />
+  <Breadcrumb items={breadcrumbs} />
+
+  <main>
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-primary/5 to-secondary/5 py-12 lg:py-16">
+      <div class="container-custom">
+        <div class="max-w-4xl mx-auto">
+          <div class="flex flex-col md:flex-row gap-8 items-start">
+            <!-- Image -->
+            <div class="w-full md:w-64 flex-shrink-0">
+              <div class="aspect-square bg-white rounded-lg shadow-lg flex items-center justify-center overflow-hidden p-4">
+                <img
+                  src={profession.image}
+                  alt={profession.title}
+                  class="w-full h-full object-contain"
+                />
+              </div>
+            </div>
+
+            <!-- Title and Salary -->
+            <div class="flex-1">
+              <h1 class="text-4xl lg:text-5xl font-bold text-text-primary mb-4">
+                {profession.title}
+              </h1>
+              <div class="bg-white rounded-lg p-4 shadow-sm">
+                <p class="text-sm text-text-secondary mb-1">Средняя зарплата</p>
+                <p class="text-2xl font-bold text-primary">
+                  {formatSalary(profession.salary.min, profession.salary.max)}
+                </p>
+                <p class="text-sm text-text-secondary mt-2">
+                  {profession.salary.description}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="py-16 lg:py-24 bg-background">
+      <div class="container-custom max-w-4xl">
+        <!-- Description -->
+        <div class="bg-surface rounded-lg p-8 mb-8 shadow-sm">
+          <h2 class="text-2xl font-bold text-text-primary mb-4">Описание профессии</h2>
+          <p class="text-text-secondary leading-relaxed whitespace-pre-line">
+            {profession.description}
+          </p>
+        </div>
+
+        <!-- Suitable For -->
+        <div class="bg-surface rounded-lg p-8 mb-8 shadow-sm">
+          <h2 class="text-2xl font-bold text-text-primary mb-4">Кому подходит</h2>
+          <p class="text-text-secondary leading-relaxed whitespace-pre-line">
+            {profession.suitableFor}
+          </p>
+        </div>
+
+        <!-- Skills -->
+        <div class="bg-surface rounded-lg p-8 mb-8 shadow-sm">
+          <h2 class="text-2xl font-bold text-text-primary mb-6">Навыки и требования</h2>
+
+          <div class="grid md:grid-cols-2 gap-6">
+            <!-- Hard Skills -->
+            <div>
+              <h3 class="text-xl font-semibold text-text-primary mb-4">Hard Skills</h3>
+              <ul class="space-y-2">
+                {profession.skills.hard.map((skill) => (
+                  <li class="flex items-start gap-2">
+                    <svg class="w-5 h-5 text-primary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="text-text-secondary">{skill}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <!-- Soft Skills -->
+            <div>
+              <h3 class="text-xl font-semibold text-text-primary mb-4">Soft Skills</h3>
+              <ul class="space-y-2">
+                {profession.skills.soft.map((skill) => (
+                  <li class="flex items-start gap-2">
+                    <svg class="w-5 h-5 text-secondary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="text-text-secondary">{skill}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Education -->
+        <div class="bg-surface rounded-lg p-8 mb-8 shadow-sm">
+          <h2 class="text-2xl font-bold text-text-primary mb-6">На кого учиться</h2>
+          <div class="space-y-4">
+            {profession.education.map((edu) => (
+              <div class="border-l-4 border-primary pl-4 py-2">
+                <p class="font-semibold text-text-primary">{edu.code} - {edu.title}</p>
+                <p class="text-sm text-text-secondary mt-1">{edu.level}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Responsibilities -->
+        {profession.responsibilities && profession.responsibilities.length > 0 && (
+          <div class="bg-surface rounded-lg p-8 mb-8 shadow-sm">
+            <h2 class="text-2xl font-bold text-text-primary mb-6">Обязанности и функции</h2>
+            <ul class="space-y-3">
+              {profession.responsibilities.map((resp) => (
+                <li class="flex items-start gap-3">
+                  <svg class="w-6 h-6 text-primary mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                  <span class="text-text-secondary">{resp}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        <!-- Pros and Cons -->
+        {profession.prosAndCons && (
+          <div class="bg-surface rounded-lg p-8 mb-8 shadow-sm">
+            <h2 class="text-2xl font-bold text-text-primary mb-6">Плюсы и минусы профессии</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+              <!-- Pros -->
+              <div>
+                <h3 class="text-xl font-semibold text-green-600 mb-4 flex items-center gap-2">
+                  <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                  </svg>
+                  Преимущества
+                </h3>
+                <ul class="space-y-2">
+                  {profession.prosAndCons.pros.map((pro) => (
+                    <li class="flex items-start gap-2">
+                      <span class="text-green-500 text-xl">+</span>
+                      <span class="text-text-secondary">{pro}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <!-- Cons -->
+              <div>
+                <h3 class="text-xl font-semibold text-red-600 mb-4 flex items-center gap-2">
+                  <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path>
+                  </svg>
+                  Недостатки
+                </h3>
+                <ul class="space-y-2">
+                  {profession.prosAndCons.cons.map((con) => (
+                    <li class="flex items-start gap-2">
+                      <span class="text-red-500 text-xl">−</span>
+                      <span class="text-text-secondary">{con}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        )}
+
+        <!-- Demand -->
+        {profession.demand && (
+          <div class="bg-surface rounded-lg p-8 mb-8 shadow-sm">
+            <h2 class="text-2xl font-bold text-text-primary mb-4">Востребованность профессии</h2>
+            <p class="text-text-secondary leading-relaxed whitespace-pre-line">
+              {profession.demand}
+            </p>
+          </div>
+        )}
+
+        <!-- Work Places -->
+        {profession.workPlaces && profession.workPlaces.length > 0 && (
+          <div class="bg-surface rounded-lg p-8 mb-8 shadow-sm">
+            <h2 class="text-2xl font-bold text-text-primary mb-6">Где можно работать</h2>
+            <div class="grid sm:grid-cols-2 gap-3">
+              {profession.workPlaces.map((place) => (
+                <div class="flex items-start gap-2">
+                  <svg class="w-5 h-5 text-secondary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                  </svg>
+                  <span class="text-text-secondary">{place}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        <!-- How to Become -->
+        {profession.howToBecome && (
+          <div class="bg-surface rounded-lg p-8 mb-8 shadow-sm">
+            <h2 class="text-2xl font-bold text-text-primary mb-4">Как получить профессию</h2>
+            <p class="text-text-secondary leading-relaxed whitespace-pre-line">
+              {profession.howToBecome}
+            </p>
+          </div>
+        )}
+
+        <!-- Career Path -->
+        <div class="bg-surface rounded-lg p-8 mb-8 shadow-sm">
+          <h2 class="text-2xl font-bold text-text-primary mb-4">Карьерные перспективы</h2>
+          <p class="text-text-secondary leading-relaxed whitespace-pre-line">
+            {profession.careerPath}
+          </p>
+        </div>
+
+        <!-- Famous People -->
+        {profession.famousPeople && profession.famousPeople.length > 0 && (
+          <div class="bg-surface rounded-lg p-8 mb-8 shadow-sm">
+            <h2 class="text-2xl font-bold text-text-primary mb-6">Известные представители профессии</h2>
+            <ul class="space-y-2">
+              {profession.famousPeople.map((person) => (
+                <li class="flex items-start gap-2">
+                  <svg class="w-5 h-5 text-primary mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
+                  </svg>
+                  <span class="text-text-secondary">{person}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        <!-- Related Professions -->
+        {profession.relatedProfessions && profession.relatedProfessions.length > 0 && (
+          <div class="bg-surface rounded-lg p-8 mb-8 shadow-sm">
+            <h2 class="text-2xl font-bold text-text-primary mb-6">Смежные профессии</h2>
+            <div class="flex flex-wrap gap-3">
+              {profession.relatedProfessions.map((related) => (
+                <span class="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium hover:bg-primary/20 transition-colors">
+                  {related}
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
+
+        <!-- CTA -->
+        <div class="bg-gradient-to-r from-primary/10 to-secondary/10 rounded-lg p-8 text-center">
+          <h2 class="text-2xl font-bold text-text-primary mb-4">
+            Узнайте, подходит ли вам эта профессия
+          </h2>
+          <p class="text-text-secondary mb-6">
+            Пройдите наш тест на профориентацию и получите персональные рекомендации
+          </p>
+          <a
+            href="/tests"
+            class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-primary to-secondary text-white font-semibold rounded-md hover:opacity-90 transition-all hover:shadow-md hover:-translate-y-0.5"
+          >
+            Пройти тест на профориентацию
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Back Button -->
+    <section class="py-8 bg-background">
+      <div class="container-custom max-w-4xl">
+        <a
+          href="/professions/it"
+          class="inline-flex items-center gap-2 text-primary hover:text-primary-hover font-semibold transition-colors"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+          </svg>
+          Вернуться к списку IT-профессий
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

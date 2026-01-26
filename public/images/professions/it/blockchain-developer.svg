@@ -1,0 +1,246 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Gradient background -->
+  <defs>
+    <linearGradient id="blockchainGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F59E0B;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#EF4444;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="95" fill="url(#blockchainGrad)" opacity="0.1"/>
+
+  <!-- Smart Contract Editor (center) -->
+  <rect x="55" y="45" width="90" height="85" rx="3" fill="#1E293B" opacity="0.9" stroke="#F59E0B" stroke-width="3"/>
+  <text x="100" y="38" font-family="Arial" font-size="7" fill="#F59E0B" text-anchor="middle" font-weight="bold">SOLIDITY SMART CONTRACT</text>
+
+  <!-- Code editor header -->
+  <rect x="60" y="50" width="80" height="7" rx="1" fill="#0F172A"/>
+  <text x="63" y="55" font-family="Courier" font-size="4" fill="#F59E0B" font-weight="bold">Token.sol</text>
+  <circle cx="130" cy="53.5" r="1" fill="#10B981"/>
+  <text x="133" y="55" font-family="Arial" font-size="3" fill="#10B981">Compiled</text>
+
+  <!-- Solidity code -->
+  <rect x="60" y="60" width="80" height="65" fill="#0F172A"/>
+
+  <!-- Pragma -->
+  <text x="63" y="67" font-family="Courier" font-size="3" fill="#8B5CF6">pragma solidity ^0.8.20;</text>
+
+  <!-- Contract definition -->
+  <text x="63" y="73" font-family="Courier" font-size="3" fill="#F59E0B">contract</text>
+  <text x="82" y="73" font-family="Courier" font-size="3" fill="#10B981"> MyToken </text>
+  <text x="103" y="73" font-family="Courier" font-size="3" fill="#D1D5DB">{</text>
+
+  <!-- State variables -->
+  <text x="66" y="79" font-family="Courier" font-size="3" fill="#06B6D4">mapping</text>
+  <text x="82" y="79" font-family="Courier" font-size="3" fill="#D1D5DB">(</text>
+  <text x="84" y="79" font-family="Courier" font-size="3" fill="#F59E0B">address</text>
+  <text x="99" y="79" font-family="Courier" font-size="3" fill="#D1D5DB"> => </text>
+  <text x="108" y="79" font-family="Courier" font-size="3" fill="#F59E0B">uint256</text>
+  <text x="125" y="79" font-family="Courier" font-size="3" fill="#D1D5DB">)</text>
+
+  <text x="66" y="83" font-family="Courier" font-size="3" fill="#F59E0B">public</text>
+  <text x="81" y="83" font-family="Courier" font-size="3" fill="#10B981"> balances</text>
+  <text x="102" y="83" font-family="Courier" font-size="3" fill="#D1D5DB">;</text>
+
+  <!-- Function -->
+  <text x="66" y="90" font-family="Courier" font-size="3" fill="#F59E0B">function</text>
+  <text x="88" y="90" font-family="Courier" font-size="3" fill="#10B981"> transfer</text>
+  <text x="110" y="90" font-family="Courier" font-size="3" fill="#D1D5DB">(</text>
+
+  <text x="69" y="95" font-family="Courier" font-size="3" fill="#F59E0B">address</text>
+  <text x="87" y="95" font-family="Courier" font-size="3" fill="#D1D5DB"> to,</text>
+
+  <text x="69" y="99" font-family="Courier" font-size="3" fill="#F59E0B">uint256</text>
+  <text x="87" y="99" font-family="Courier" font-size="3" fill="#D1D5DB"> amount</text>
+
+  <text x="66" y="104" font-family="Courier" font-size="3" fill="#D1D5DB">) </text>
+  <text x="70" y="104" font-family="Courier" font-size="3" fill="#F59E0B">public</text>
+  <text x="85" y="104" font-family="Courier" font-size="3" fill="#F59E0B"> returns</text>
+  <text x="104" y="104" font-family="Courier" font-size="3" fill="#D1D5DB">(</text>
+  <text x="106" y="104" font-family="Courier" font-size="3" fill="#F59E0B">bool</text>
+  <text x="117" y="104" font-family="Courier" font-size="3" fill="#D1D5DB">) {</text>
+
+  <!-- Function body -->
+  <text x="69" y="110" font-family="Courier" font-size="3" fill="#8B5CF6">require</text>
+  <text x="87" y="110" font-family="Courier" font-size="3" fill="#D1D5DB">(balances[</text>
+  <text x="109" y="110" font-family="Courier" font-size="3" fill="#06B6D4">msg.sender</text>
+  <text x="131" y="110" font-family="Courier" font-size="3" fill="#D1D5DB">]</text>
+
+  <text x="72" y="115" font-family="Courier" font-size="3" fill="#D1D5DB">>= amount);</text>
+
+  <text x="69" y="121" font-family="Courier" font-size="3" fill="#D1D5DB">balances[</text>
+  <text x="90" y="121" font-family="Courier" font-size="3" fill="#06B6D4">msg.sender</text>
+  <text x="112" y="121" font-family="Courier" font-size="3" fill="#D1D5DB">] -= amount;</text>
+
+  <text x="66" y="125" font-family="Courier" font-size="3" fill="#D1D5DB">}</text>
+  <text x="63" y="129" font-family="Courier" font-size="3" fill="#D1D5DB">}</text>
+
+  <!-- Blockchain Network (top left) -->
+  <rect x="15" y="15" width="35" height="55" rx="3" fill="none" stroke="#10B981" stroke-width="2"/>
+  <text x="32" y="10" font-family="Arial" font-size="6" fill="#10B981" text-anchor="middle" font-weight="bold">NETWORK</text>
+
+  <!-- Blockchain nodes -->
+  <rect x="20" y="20" width="25" height="45" rx="1" fill="#1E293B" opacity="0.8"/>
+
+  <!-- Node 1 -->
+  <rect x="22" y="24" width="8" height="8" rx="1" fill="#10B981" opacity="0.3"/>
+  <text x="26" y="29" font-family="Arial" font-size="4" fill="#10B981" text-anchor="middle">📦</text>
+  <text x="26" y="32" font-family="Arial" font-size="2" fill="#10B981" text-anchor="middle">Block 1</text>
+
+  <!-- Node 2 -->
+  <rect x="32" y="24" width="8" height="8" rx="1" fill="#06B6D4" opacity="0.3"/>
+  <text x="36" y="29" font-family="Arial" font-size="4" fill="#06B6D4" text-anchor="middle">📦</text>
+  <text x="36" y="32" font-family="Arial" font-size="2" fill="#06B6D4" text-anchor="middle">Block 2</text>
+
+  <!-- Connection lines -->
+  <line x1="30" y1="28" x2="32" y2="28" stroke="#F59E0B" stroke-width="1"/>
+
+  <!-- Node 3 -->
+  <rect x="22" y="35" width="8" height="8" rx="1" fill="#8B5CF6" opacity="0.3"/>
+  <text x="26" y="40" font-family="Arial" font-size="4" fill="#8B5CF6" text-anchor="middle">📦</text>
+  <text x="26" y="43" font-family="Arial" font-size="2" fill="#8B5CF6" text-anchor="middle">Block 3</text>
+
+  <!-- Node 4 -->
+  <rect x="32" y="35" width="8" height="8" rx="1" fill="#EC4899" opacity="0.3"/>
+  <text x="36" y="40" font-family="Arial" font-size="4" fill="#EC4899" text-anchor="middle">📦</text>
+  <text x="36" y="43" font-family="Arial" font-size="2" fill="#EC4899" text-anchor="middle">Block 4</text>
+
+  <!-- Connection lines -->
+  <line x1="26" y1="32" x2="26" y2="35" stroke="#F59E0B" stroke-width="1"/>
+  <line x1="30" y1="39" x2="32" y2="39" stroke="#F59E0B" stroke-width="1"/>
+  <line x1="36" y1="32" x2="36" y2="35" stroke="#F59E0B" stroke-width="1"/>
+
+  <!-- Network stats -->
+  <text x="22" y="50" font-family="Arial" font-size="3" fill="#10B981">Ethereum</text>
+  <text x="22" y="54" font-family="Arial" font-size="2" fill="#6B7280">Gas: 25 gwei</text>
+  <text x="22" y="58" font-family="Arial" font-size="2" fill="#6B7280">Block: 18,420,142</text>
+  <text x="22" y="62" font-family="Arial" font-size="2" fill="#6B7280">TPS: 15-20</text>
+
+  <!-- Web3.js Integration (top right) -->
+  <rect x="150" y="15" width="35" height="55" rx="3" fill="#06B6D4" opacity="0.1" stroke="#06B6D4" stroke-width="2"/>
+  <text x="167" y="10" font-family="Arial" font-size="6" fill="#06B6D4" text-anchor="middle" font-weight="bold">WEB3.JS</text>
+
+  <!-- Web3 code -->
+  <rect x="155" y="20" width="25" height="45" rx="1" fill="#1E293B" opacity="0.8"/>
+
+  <text x="157" y="26" font-family="Courier" font-size="2" fill="#8B5CF6">const</text>
+  <text x="167" y="26" font-family="Courier" font-size="2" fill="#D1D5DB"> web3 =</text>
+
+  <text x="157" y="30" font-family="Courier" font-size="2" fill="#F59E0B">new</text>
+  <text x="166" y="30" font-family="Courier" font-size="2" fill="#10B981"> Web3</text>
+  <text x="175" y="30" font-family="Courier" font-size="2" fill="#D1D5DB">(</text>
+
+  <text x="159" y="34" font-family="Courier" font-size="2" fill="#D1D5DB">provider</text>
+
+  <text x="157" y="38" font-family="Courier" font-size="2" fill="#D1D5DB">);</text>
+
+  <text x="157" y="44" font-family="Courier" font-size="2" fill="#8B5CF6">const</text>
+  <text x="167" y="44" font-family="Courier" font-size="2" fill="#D1D5DB"> contract</text>
+
+  <text x="157" y="48" font-family="Courier" font-size="2" fill="#D1D5DB">= </text>
+  <text x="161" y="48" font-family="Courier" font-size="2" fill="#F59E0B">new</text>
+  <text x="170" y="48" font-family="Courier" font-size="2" fill="#D1D5DB"> web3</text>
+
+  <text x="159" y="52" font-family="Courier" font-size="2" fill="#D1D5DB">.eth</text>
+
+  <text x="159" y="56" font-family="Courier" font-size="2" fill="#D1D5DB">.Contract</text>
+
+  <text x="157" y="60" font-family="Courier" font-size="2" fill="#D1D5DB">(abi, address);</text>
+
+  <!-- DeFi Protocol (bottom left) -->
+  <rect x="15" y="135" width="55" height="50" rx="3" fill="none" stroke="#8B5CF6" stroke-width="2"/>
+  <text x="42" y="130" font-family="Arial" font-size="6" fill="#8B5CF6" text-anchor="middle" font-weight="bold">DeFi</text>
+
+  <!-- DeFi components -->
+  <rect x="20" y="140" width="45" height="40" rx="1" fill="#1E293B" opacity="0.8"/>
+
+  <!-- Liquidity Pool -->
+  <rect x="23" y="144" width="18" height="15" rx="1" fill="#10B981" opacity="0.3" stroke="#10B981" stroke-width="1"/>
+  <text x="32" y="150" font-family="Arial" font-size="3" fill="#10B981" text-anchor="middle" font-weight="bold">LP</text>
+  <text x="32" y="154" font-family="Arial" font-size="2" fill="#10B981" text-anchor="middle">Liquidity</text>
+  <text x="32" y="157" font-family="Arial" font-size="2" fill="#10B981" text-anchor="middle">Pool</text>
+
+  <!-- Staking -->
+  <rect x="43" y="144" width="18" height="15" rx="1" fill="#06B6D4" opacity="0.3" stroke="#06B6D4" stroke-width="1"/>
+  <text x="52" y="150" font-family="Arial" font-size="3" fill="#06B6D4" text-anchor="middle" font-weight="bold">🔒</text>
+  <text x="52" y="154" font-family="Arial" font-size="2" fill="#06B6D4" text-anchor="middle">Staking</text>
+  <text x="52" y="157" font-family="Arial" font-size="2" fill="#06B6D4" text-anchor="middle">APY 12%</text>
+
+  <!-- Lending/Borrowing -->
+  <rect x="23" y="162" width="18" height="15" rx="1" fill="#F59E0B" opacity="0.3" stroke="#F59E0B" stroke-width="1"/>
+  <text x="32" y="168" font-family="Arial" font-size="3" fill="#F59E0B" text-anchor="middle" font-weight="bold">💰</text>
+  <text x="32" y="172" font-family="Arial" font-size="2" fill="#F59E0B" text-anchor="middle">Lending</text>
+  <text x="32" y="175" font-family="Arial" font-size="2" fill="#F59E0B" text-anchor="middle">TVL $2.4M</text>
+
+  <!-- Swap -->
+  <rect x="43" y="162" width="18" height="15" rx="1" fill="#EC4899" opacity="0.3" stroke="#EC4899" stroke-width="1"/>
+  <text x="52" y="168" font-family="Arial" font-size="3" fill="#EC4899" text-anchor="middle" font-weight="bold">🔄</text>
+  <text x="52" y="172" font-family="Arial" font-size="2" fill="#EC4899" text-anchor="middle">Swap</text>
+  <text x="52" y="175" font-family="Arial" font-size="2" fill="#EC4899" text-anchor="middle">Fee 0.3%</text>
+
+  <!-- NFT (bottom center) -->
+  <rect x="80" y="135" width="55" height="50" rx="3" fill="#EC4899" opacity="0.1" stroke="#EC4899" stroke-width="2"/>
+  <text x="107" y="130" font-family="Arial" font-size="6" fill="#EC4899" text-anchor="middle" font-weight="bold">NFT</text>
+
+  <!-- NFT showcase -->
+  <rect x="85" y="140" width="45" height="40" rx="1" fill="#1E293B" opacity="0.8"/>
+
+  <!-- NFT item 1 -->
+  <rect x="88" y="144" width="18" height="18" rx="1" fill="#8B5CF6" opacity="0.3"/>
+  <text x="97" y="155" font-family="Arial" font-size="8" fill="#8B5CF6" text-anchor="middle">🎨</text>
+  <text x="97" y="160" font-family="Arial" font-size="2" fill="#D1D5DB" text-anchor="middle">#1234</text>
+
+  <!-- NFT item 2 -->
+  <rect x="109" y="144" width="18" height="18" rx="1" fill="#10B981" opacity="0.3"/>
+  <text x="118" y="155" font-family="Arial" font-size="8" fill="#10B981" text-anchor="middle">🖼</text>
+  <text x="118" y="160" font-family="Arial" font-size="2" fill="#D1D5DB" text-anchor="middle">#5678</text>
+
+  <!-- ERC-721 -->
+  <text x="88" y="170" font-family="Courier" font-size="3" fill="#EC4899">ERC-721 Standard</text>
+  <text x="88" y="175" font-family="Arial" font-size="2" fill="#6B7280">Minted: 10,420</text>
+  <text x="88" y="179" font-family="Arial" font-size="2" fill="#6B7280">Floor: 0.5 ETH</text>
+
+  <!-- Testing & Security (bottom right) -->
+  <rect x="145" y="135" width="40" height="50" rx="3" fill="none" stroke="#EF4444" stroke-width="2"/>
+  <text x="165" y="130" font-family="Arial" font-size="5" fill="#EF4444" text-anchor="middle" font-weight="bold">SECURITY</text>
+
+  <!-- Security checklist -->
+  <rect x="150" y="140" width="30" height="40" rx="1" fill="#1E293B" opacity="0.8"/>
+
+  <circle cx="153" cy="145" r="1" fill="#10B981"/>
+  <text x="156" y="147" font-family="Arial" font-size="2" fill="#10B981">✓ Reentrancy</text>
+
+  <circle cx="153" cy="151" r="1" fill="#10B981"/>
+  <text x="156" y="153" font-family="Arial" font-size="2" fill="#10B981">✓ Overflow</text>
+
+  <circle cx="153" cy="157" r="1" fill="#F59E0B"/>
+  <text x="156" y="159" font-family="Arial" font-size="2" fill="#F59E0B">⚠ Access control</text>
+
+  <circle cx="153" cy="163" r="1" fill="#10B981"/>
+  <text x="156" y="165" font-family="Arial" font-size="2" fill="#10B981">✓ Gas optimization</text>
+
+  <circle cx="153" cy="169" r="1" fill="#EF4444"/>
+  <text x="156" y="171" font-family="Arial" font-size="2" fill="#EF4444">✗ Front-running</text>
+
+  <text x="152" y="178" font-family="Arial" font-size="2" fill="#EF4444">Audit Required!</text>
+
+  <!-- Decentralized badge (left) -->
+  <circle cx="20" cy="95" r="8" fill="none" stroke="#F59E0B" stroke-width="2"/>
+  <text x="20" y="98" font-family="Arial" font-size="6" fill="#F59E0B" text-anchor="middle" font-weight="bold">⛓</text>
+  <text x="20" y="87" font-family="Arial" font-size="3" fill="#F59E0B" text-anchor="middle">Decentral</text>
+  <text x="20" y="108" font-family="Arial" font-size="3" fill="#F59E0B" text-anchor="middle">ized</text>
+
+  <!-- Smart Contracts badge (right) -->
+  <circle cx="180" cy="95" r="8" fill="#10B981" opacity="0.3"/>
+  <text x="180" y="98" font-family="Arial" font-size="6" fill="#10B981" text-anchor="middle" font-weight="bold">📜</text>
+  <text x="180" y="87" font-family="Arial" font-size="3" fill="#10B981" text-anchor="middle">Smart</text>
+  <text x="180" y="108" font-family="Arial" font-size="3" fill="#10B981" text-anchor="middle">Contracts</text>
+
+  <!-- Tools badge (top) -->
+  <rect x="65" y="5" width="70" height="10" rx="2" fill="#F59E0B" opacity="0.3" stroke="#F59E0B" stroke-width="1.5"/>
+  <text x="100" y="12" font-family="Arial" font-size="6" fill="#F59E0B" text-anchor="middle" font-weight="bold">Solidity • Hardhat • Web3.js</text>
+
+  <!-- "BLOCKCHAIN DEVELOPER" text -->
+  <text x="100" y="197" font-family="Arial" font-size="9" fill="#F59E0B" text-anchor="middle" font-weight="bold">BLOCKCHAIN DEVELOPER</text>
+</svg>

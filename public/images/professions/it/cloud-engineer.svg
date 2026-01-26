@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Gradient background -->
+  <defs>
+    <linearGradient id="cloudGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#06B6D4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#10B981;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="95" fill="url(#cloudGrad)" opacity="0.1"/>
+
+  <!-- Main Cloud (center) -->
+  <ellipse cx="100" cy="65" rx="45" ry="28" fill="none" stroke="#06B6D4" stroke-width="3"/>
+  <ellipse cx="75" cy="75" rx="25" ry="18" fill="none" stroke="#06B6D4" stroke-width="3"/>
+  <ellipse cx="125" cy="75" rx="25" ry="18" fill="none" stroke="#06B6D4" stroke-width="3"/>
+  <path d="M 75 93 L 125 93" stroke="#06B6D4" stroke-width="3"/>
+  <text x="100" y="72" font-family="Arial" font-size="10" fill="#06B6D4" text-anchor="middle" font-weight="bold">CLOUD</text>
+
+  <!-- Cloud providers (top) -->
+  <!-- AWS -->
+  <rect x="15" y="15" width="30" height="15" rx="2" fill="#F59E0B" opacity="0.2" stroke="#F59E0B" stroke-width="2"/>
+  <text x="30" y="25" font-family="Arial" font-size="8" fill="#F59E0B" text-anchor="middle" font-weight="bold">AWS</text>
+
+  <!-- GCP -->
+  <rect x="52" y="15" width="30" height="15" rx="2" fill="#06B6D4" opacity="0.2" stroke="#06B6D4" stroke-width="2"/>
+  <text x="67" y="25" font-family="Arial" font-size="8" fill="#06B6D4" text-anchor="middle" font-weight="bold">GCP</text>
+
+  <!-- Azure -->
+  <rect x="89" y="15" width="30" height="15" rx="2" fill="#8B5CF6" opacity="0.2" stroke="#8B5CF6" stroke-width="2"/>
+  <text x="104" y="25" font-family="Arial" font-size="7" fill="#8B5CF6" text-anchor="middle" font-weight="bold">Azure</text>
+
+  <!-- Multi-cloud icon -->
+  <circle cx="175" cy="22" r="8" fill="none" stroke="#10B981" stroke-width="2"/>
+  <path d="M 170 19 L 173 22 L 170 25" fill="none" stroke="#10B981" stroke-width="1.5"/>
+  <path d="M 180 19 L 177 22 L 180 25" fill="none" stroke="#10B981" stroke-width="1.5"/>
+  <text x="175" y="14" font-family="Arial" font-size="5" fill="#10B981" text-anchor="middle">Multi</text>
+
+  <!-- Infrastructure as Code (left) -->
+  <rect x="15" y="100" width="55" height="75" rx="3" fill="none" stroke="#8B5CF6" stroke-width="2"/>
+  <text x="42" y="112" font-family="Arial" font-size="7" fill="#8B5CF6" text-anchor="middle" font-weight="bold">Infrastructure</text>
+  <text x="42" y="119" font-family="Arial" font-size="7" fill="#8B5CF6" text-anchor="middle" font-weight="bold">as Code</text>
+
+  <!-- Terraform code -->
+  <rect x="20" y="125" width="45" height="30" rx="1" fill="#1E293B" opacity="0.8"/>
+  <text x="25" y="133" font-family="Courier" font-size="5" fill="#8B5CF6">provider "aws" {</text>
+  <text x="28" y="139" font-family="Courier" font-size="5" fill="#06B6D4">region = "us-1"</text>
+  <text x="25" y="145" font-family="Courier" font-size="5" fill="#8B5CF6">}</text>
+  <text x="25" y="151" font-family="Courier" font-size="5" fill="#10B981">resource "ec2"</text>
+
+  <!-- Terraform logo -->
+  <rect x="25" y="160" width="20" height="10" rx="1" fill="#8B5CF6" opacity="0.3"/>
+  <text x="35" y="167" font-family="Arial" font-size="6" fill="#8B5CF6" text-anchor="middle" font-weight="bold">Terraform</text>
+
+  <!-- Cloud services (center) -->
+  <rect x="80" y="100" width="65" height="75" rx="3" fill="#06B6D4" opacity="0.1" stroke="#06B6D4" stroke-width="2"/>
+  <text x="112" y="112" font-family="Arial" font-size="7" fill="#06B6D4" text-anchor="middle" font-weight="bold">CLOUD SERVICES</text>
+
+  <!-- Service boxes -->
+  <rect x="85" y="118" width="25" height="14" rx="1" fill="#06B6D4" opacity="0.3" stroke="#06B6D4" stroke-width="1"/>
+  <text x="97" y="126" font-family="Arial" font-size="5" fill="#06B6D4" text-anchor="middle" font-weight="bold">Compute</text>
+  <text x="97" y="131" font-family="Arial" font-size="4" fill="#06B6D4" text-anchor="middle">EC2/VMs</text>
+
+  <rect x="115" y="118" width="25" height="14" rx="1" fill="#10B981" opacity="0.3" stroke="#10B981" stroke-width="1"/>
+  <text x="127" y="126" font-family="Arial" font-size="5" fill="#10B981" text-anchor="middle" font-weight="bold">Storage</text>
+  <text x="127" y="131" font-family="Arial" font-size="4" fill="#10B981" text-anchor="middle">S3/Blob</text>
+
+  <rect x="85" y="136" width="25" height="14" rx="1" fill="#8B5CF6" opacity="0.3" stroke="#8B5CF6" stroke-width="1"/>
+  <text x="97" y="144" font-family="Arial" font-size="5" fill="#8B5CF6" text-anchor="middle" font-weight="bold">Network</text>
+  <text x="97" y="149" font-family="Arial" font-size="4" fill="#8B5CF6" text-anchor="middle">VPC/LB</text>
+
+  <rect x="115" y="136" width="25" height="14" rx="1" fill="#F59E0B" opacity="0.3" stroke="#F59E0B" stroke-width="1"/>
+  <text x="127" y="144" font-family="Arial" font-size="5" fill="#F59E0B" text-anchor="middle" font-weight="bold">Database</text>
+  <text x="127" y="149" font-family="Arial" font-size="4" fill="#F59E0B" text-anchor="middle">RDS/SQL</text>
+
+  <!-- Kubernetes -->
+  <rect x="85" y="154" width="55" height="16" rx="2" fill="#06B6D4" opacity="0.2" stroke="#06B6D4" stroke-width="1.5"/>
+  <text x="112" y="163" font-family="Arial" font-size="7" fill="#06B6D4" text-anchor="middle" font-weight="bold">Kubernetes (EKS/GKE)</text>
+  <circle cx="90" cy="164" r="2" fill="#10B981"/>
+  <circle cx="95" cy="164" r="2" fill="#10B981"/>
+  <circle cx="100" cy="164" r="2" fill="#10B981"/>
+  <text x="105" y="166" font-family="Arial" font-size="4" fill="#06B6D4">12 pods</text>
+
+  <!-- Cost optimization (right) -->
+  <rect x="155" y="100" width="30" height="75" rx="3" fill="none" stroke="#10B981" stroke-width="2"/>
+  <text x="170" y="112" font-family="Arial" font-size="6" fill="#10B981" text-anchor="middle" font-weight="bold">COST</text>
+  <text x="170" y="118" font-family="Arial" font-size="6" fill="#10B981" text-anchor="middle" font-weight="bold">OPT</text>
+
+  <!-- Cost reduction graph -->
+  <line x1="160" y1="160" x2="180" y2="160" stroke="#10B981" stroke-width="1"/>
+  <line x1="160" y1="160" x2="160" y2="130" stroke="#10B981" stroke-width="1"/>
+
+  <!-- Before bar -->
+  <rect x="162" y="135" width="6" height="25" fill="#EF4444" opacity="0.6"/>
+  <text x="165" y="132" font-family="Arial" font-size="4" fill="#EF4444" text-anchor="middle">Before</text>
+
+  <!-- After bar -->
+  <rect x="172" y="148" width="6" height="12" fill="#10B981" opacity="0.6"/>
+  <text x="175" y="145" font-family="Arial" font-size="4" fill="#10B981" text-anchor="middle">After</text>
+
+  <text x="170" y="167" font-family="Arial" font-size="5" fill="#10B981" text-anchor="middle" font-weight="bold">-40%</text>
+  <text x="170" y="173" font-family="Arial" font-size="4" fill="#10B981" text-anchor="middle">$15K/mo</text>
+
+  <!-- Security icon (top right corner near cloud) -->
+  <circle cx="145" cy="45" r="8" fill="none" stroke="#EF4444" stroke-width="2"/>
+  <rect x="140" y="42" width="10" height="6" rx="1" fill="none" stroke="#EF4444" stroke-width="1.5"/>
+  <path d="M 142 42 L 142 40 C 142 38 143 37 145 37 C 147 37 148 38 148 40 L 148 42" fill="none" stroke="#EF4444" stroke-width="1.5"/>
+  <text x="145" y="38" font-family="Arial" font-size="4" fill="#EF4444" text-anchor="middle">Security</text>
+
+  <!-- Migration arrow -->
+  <path d="M 60 95 Q 80 95 100 100" fill="none" stroke="#10B981" stroke-width="2" marker-end="url(#arrowCloud)"/>
+  <defs>
+    <marker id="arrowCloud" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+      <polygon points="0 0, 3 3, 0 6" fill="#10B981"/>
+    </marker>
+  </defs>
+  <text x="75" y="92" font-family="Arial" font-size="5" fill="#10B981">Migration</text>
+
+  <!-- "CLOUD ENGINEER" text -->
+  <text x="100" y="197" font-family="Arial" font-size="10" fill="#06B6D4" text-anchor="middle" font-weight="bold">CLOUD ENGINEER</text>
+</svg>

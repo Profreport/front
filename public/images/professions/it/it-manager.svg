@@ -1,0 +1,239 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Gradient background -->
+  <defs>
+    <linearGradient id="managerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366F1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8B5CF6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <circle cx="100" cy="100" r="95" fill="url(#managerGrad)" opacity="0.1"/>
+
+  <!-- IT Strategy Dashboard (center) -->
+  <rect x="45" y="40" width="110" height="120" rx="4" fill="#1E293B" opacity="0.9" stroke="#6366F1" stroke-width="3"/>
+  <text x="100" y="33" font-family="Arial" font-size="7" fill="#6366F1" text-anchor="middle" font-weight="bold">IT MANAGEMENT DASHBOARD</text>
+
+  <!-- Dashboard header -->
+  <rect x="50" y="45" width="100" height="10" rx="1" fill="#6366F1" opacity="0.3"/>
+  <text x="100" y="52" font-family="Arial" font-size="5" fill="#6366F1" text-anchor="middle" font-weight="bold">Q4 2024 IT Operations Overview</text>
+
+  <!-- Budget Section -->
+  <rect x="50" y="58" width="48" height="45" rx="2" fill="#0F172A" stroke="#10B981" stroke-width="1.5"/>
+  <text x="74" y="64" font-family="Arial" font-size="4" fill="#10B981" text-anchor="middle" font-weight="bold">IT BUDGET</text>
+
+  <text x="52" y="70" font-family="Arial" font-size="3" fill="#9CA3AF">Total Annual:</text>
+  <text x="52" y="74" font-family="Arial" font-size="5" fill="#10B981" font-weight="bold">₽24.5M</text>
+
+  <text x="52" y="80" font-family="Arial" font-size="2" fill="#6B7280">Infrastructure:</text>
+  <rect x="52" y="81" width="40" height="2" rx="0.5" fill="#374151"/>
+  <rect x="52" y="81" width="28" height="2" rx="0.5" fill="#10B981"/>
+  <text x="94" y="83" font-family="Arial" font-size="2" fill="#10B981">70%</text>
+
+  <text x="52" y="87" font-family="Arial" font-size="2" fill="#6B7280">Software Licenses:</text>
+  <rect x="52" y="88" width="40" height="2" rx="0.5" fill="#374151"/>
+  <rect x="52" y="88" width="22" height="2" rx="0.5" fill="#3B82F6"/>
+  <text x="94" y="90" font-family="Arial" font-size="2" fill="#3B82F6">55%</text>
+
+  <text x="52" y="94" font-family="Arial" font-size="2" fill="#6B7280">Personnel:</text>
+  <rect x="52" y="95" width="40" height="2" rx="0.5" fill="#374151"/>
+  <rect x="52" y="95" width="34" height="2" rx="0.5" fill="#F59E0B"/>
+  <text x="94" y="97" font-family="Arial" font-size="2" fill="#F59E0B">85%</text>
+
+  <text x="74" y="101" font-family="Arial" font-size="2" fill="#10B981">✓ On budget for Q4</text>
+
+  <!-- Infrastructure Health -->
+  <rect x="102" y="58" width="48" height="45" rx="2" fill="#0F172A" stroke="#3B82F6" stroke-width="1.5"/>
+  <text x="126" y="64" font-family="Arial" font-size="4" fill="#3B82F6" text-anchor="middle" font-weight="bold">INFRASTRUCTURE</text>
+
+  <circle cx="108" cy="71" r="2" fill="#10B981"/>
+  <text x="112" y="72" font-family="Arial" font-size="2" fill="#D1D5DB">Servers: 45/48 Online</text>
+  <text x="144" y="72" font-family="Arial" font-size="2" fill="#10B981">94%</text>
+
+  <circle cx="108" cy="77" r="2" fill="#10B981"/>
+  <text x="112" y="78" font-family="Arial" font-size="2" fill="#D1D5DB">Network: Optimal</text>
+  <text x="144" y="78" font-family="Arial" font-size="2" fill="#10B981">99%</text>
+
+  <circle cx="108" cy="83" r="2" fill="#F59E0B"/>
+  <text x="112" y="84" font-family="Arial" font-size="2" fill="#D1D5DB">Storage: 78% Used</text>
+  <text x="144" y="84" font-family="Arial" font-size="2" fill="#F59E0B">⚠</text>
+
+  <circle cx="108" cy="89" r="2" fill="#10B981"/>
+  <text x="112" y="90" font-family="Arial" font-size="2" fill="#D1D5DB">Backup: Current</text>
+  <text x="144" y="90" font-family="Arial" font-size="2" fill="#10B981">✓</text>
+
+  <circle cx="108" cy="95" r="2" fill="#EF4444"/>
+  <text x="112" y="96" font-family="Arial" font-size="2" fill="#D1D5DB">Security Patch Needed</text>
+  <text x="144" y="96" font-family="Arial" font-size="2" fill="#EF4444">!</text>
+
+  <text x="126" y="101" font-family="Arial" font-size="2" fill="#3B82F6">SLA Uptime: 99.7%</text>
+
+  <!-- Team Overview -->
+  <rect x="50" y="107" width="100" height="50" rx="2" fill="#0F172A" stroke="#8B5CF6" stroke-width="1.5"/>
+  <text x="100" y="113" font-family="Arial" font-size="4" fill="#8B5CF6" text-anchor="middle" font-weight="bold">IT TEAM (18 people)</text>
+
+  <!-- Team members grid -->
+  <text x="52" y="119" font-family="Arial" font-size="2" fill="#6B7280">Infrastructure:</text>
+  <circle cx="85" cy="118" r="1.5" fill="#10B981"/>
+  <circle cx="89" cy="118" r="1.5" fill="#10B981"/>
+  <circle cx="93" cy="118" r="1.5" fill="#10B981"/>
+  <circle cx="97" cy="118" r="1.5" fill="#10B981"/>
+  <circle cx="101" cy="118" r="1.5" fill="#10B981"/>
+  <text x="105" y="119" font-family="Arial" font-size="2" fill="#10B981">5 SysAdmins</text>
+
+  <text x="52" y="125" font-family="Arial" font-size="2" fill="#6B7280">Development:</text>
+  <circle cx="85" cy="124" r="1.5" fill="#3B82F6"/>
+  <circle cx="89" cy="124" r="1.5" fill="#3B82F6"/>
+  <circle cx="93" cy="124" r="1.5" fill="#3B82F6"/>
+  <circle cx="97" cy="124" r="1.5" fill="#3B82F6"/>
+  <circle cx="101" cy="124" r="1.5" fill="#3B82F6"/>
+  <circle cx="105" cy="124" r="1.5" fill="#3B82F6"/>
+  <circle cx="109" cy="124" r="1.5" fill="#3B82F6"/>
+  <text x="113" y="125" font-family="Arial" font-size="2" fill="#3B82F6">7 Developers</text>
+
+  <text x="52" y="131" font-family="Arial" font-size="2" fill="#6B7280">Support:</text>
+  <circle cx="85" cy="130" r="1.5" fill="#F59E0B"/>
+  <circle cx="89" cy="130" r="1.5" fill="#F59E0B"/>
+  <circle cx="93" cy="130" r="1.5" fill="#F59E0B"/>
+  <text x="97" y="131" font-family="Arial" font-size="2" fill="#F59E0B">3 Support</text>
+
+  <text x="52" y="137" font-family="Arial" font-size="2" fill="#6B7280">Security:</text>
+  <circle cx="85" cy="136" r="1.5" fill="#EF4444"/>
+  <circle cx="89" cy="136" r="1.5" fill="#EF4444"/>
+  <text x="93" y="137" font-family="Arial" font-size="2" fill="#EF4444">2 InfoSec</text>
+
+  <text x="52" y="143" font-family="Arial" font-size="2" fill="#6B7280">Project Manager:</text>
+  <circle cx="85" cy="142" r="1.5" fill="#8B5CF6"/>
+  <text x="89" y="143" font-family="Arial" font-size="2" fill="#8B5CF6">1 PM</text>
+
+  <!-- Team stats -->
+  <rect x="52" y="146" width="96" height="9" rx="1" fill="#1E293B"/>
+  <text x="54" y="150" font-family="Arial" font-size="2" fill="#6B7280">Avg. Satisfaction:</text>
+  <text x="87" y="150" font-family="Arial" font-size="3" fill="#10B981" font-weight="bold">8.4/10</text>
+  <text x="108" y="150" font-family="Arial" font-size="2" fill="#6B7280">Turnover:</text>
+  <text x="128" y="150" font-family="Arial" font-size="3" fill="#10B981" font-weight="bold">12%</text>
+  <text x="141" y="150" font-family="Arial" font-size="2" fill="#10B981">Low</text>
+
+  <text x="54" y="154" font-family="Arial" font-size="2" fill="#6B7280">Open Positions:</text>
+  <text x="83" y="154" font-family="Arial" font-size="2" fill="#F59E0B" font-weight="bold">2 (DevOps, Senior Dev)</text>
+
+  <!-- Project Portfolio (left) -->
+  <rect x="8" y="15" width="55" height="70" rx="3" fill="none" stroke="#EC4899" stroke-width="2"/>
+  <text x="35" y="27" font-family="Arial" font-size="6" fill="#EC4899" text-anchor="middle" font-weight="bold">PROJECTS</text>
+
+  <rect x="13" y="32" width="45" height="48" rx="1" fill="#1E293B" opacity="0.8"/>
+
+  <!-- Project 1 -->
+  <rect x="15" y="35" width="41" height="10" rx="1" fill="#10B981" opacity="0.2"/>
+  <text x="17" y="38" font-family="Arial" font-size="2" fill="#10B981" font-weight="bold">Cloud Migration</text>
+  <text x="17" y="41" font-family="Arial" font-size="2" fill="#9CA3AF">Budget: ₽8.5M</text>
+  <rect x="17" y="42" width="35" height="2" rx="0.5" fill="#374151"/>
+  <rect x="17" y="42" width="24" height="2" rx="0.5" fill="#10B981"/>
+  <text x="54" y="44" font-family="Arial" font-size="2" fill="#10B981">68%</text>
+
+  <!-- Project 2 -->
+  <rect x="15" y="47" width="41" height="10" rx="1" fill="#3B82F6" opacity="0.2"/>
+  <text x="17" y="50" font-family="Arial" font-size="2" fill="#3B82F6" font-weight="bold">ERP Upgrade</text>
+  <text x="17" y="53" font-family="Arial" font-size="2" fill="#9CA3AF">Budget: ₽5.2M</text>
+  <rect x="17" y="54" width="35" height="2" rx="0.5" fill="#374151"/>
+  <rect x="17" y="54" width="15" height="2" rx="0.5" fill="#3B82F6"/>
+  <text x="54" y="56" font-family="Arial" font-size="2" fill="#3B82F6">42%</text>
+
+  <!-- Project 3 -->
+  <rect x="15" y="59" width="41" height="10" rx="1" fill="#F59E0B" opacity="0.2"/>
+  <text x="17" y="62" font-family="Arial" font-size="2" fill="#F59E0B" font-weight="bold">Security Audit</text>
+  <text x="17" y="65" font-family="Arial" font-size="2" fill="#9CA3AF">Budget: ₽1.8M</text>
+  <rect x="17" y="66" width="35" height="2" rx="0.5" fill="#374151"/>
+  <rect x="17" y="66" width="32" height="2" rx="0.5" fill="#F59E0B"/>
+  <text x="54" y="68" font-family="Arial" font-size="2" fill="#F59E0B">91%</text>
+
+  <!-- Project 4 -->
+  <rect x="15" y="71" width="41" height="8" rx="1" fill="#EF4444" opacity="0.2"/>
+  <text x="17" y="74" font-family="Arial" font-size="2" fill="#EF4444" font-weight="bold">Legacy System Sunset</text>
+  <text x="17" y="77" font-family="Arial" font-size="2" fill="#9CA3AF">Budget: ₽3.1M • Delayed</text>
+
+  <!-- Vendor Management (right) -->
+  <rect x="137" y="15" width="55" height="70" rx="3" fill="#F59E0B" opacity="0.1" stroke="#F59E0B" stroke-width="2"/>
+  <text x="164" y="27" font-family="Arial" font-size="6" fill="#F59E0B" text-anchor="middle" font-weight="bold">VENDORS</text>
+
+  <rect x="142" y="32" width="45" height="48" rx="1" fill="#1E293B" opacity="0.8"/>
+
+  <!-- Vendor 1 -->
+  <rect x="144" y="35" width="41" height="9" rx="1" fill="#0F172A"/>
+  <text x="146" y="38" font-family="Arial" font-size="2" fill="#3B82F6" font-weight="bold">Microsoft 365</text>
+  <text x="146" y="41" font-family="Arial" font-size="2" fill="#9CA3AF">₽2.4M/year • 180 licenses</text>
+  <circle cx="181" cy="40" r="1.5" fill="#10B981"/>
+
+  <!-- Vendor 2 -->
+  <rect x="144" y="46" width="41" height="9" rx="1" fill="#0F172A"/>
+  <text x="146" y="49" font-family="Arial" font-size="2" fill="#3B82F6" font-weight="bold">AWS Cloud</text>
+  <text x="146" y="52" font-family="Arial" font-size="2" fill="#9CA3AF">₽4.8M/year • Infrastructure</text>
+  <circle cx="181" cy="51" r="1.5" fill="#10B981"/>
+
+  <!-- Vendor 3 -->
+  <rect x="144" y="57" width="41" height="9" rx="1" fill="#0F172A"/>
+  <text x="146" y="60" font-family="Arial" font-size="2" fill="#3B82F6" font-weight="bold">1C:Enterprise</text>
+  <text x="146" y="63" font-family="Arial" font-size="2" fill="#9CA3AF">₽1.2M/year • ERP system</text>
+  <circle cx="181" cy="62" r="1.5" fill="#F59E0B"/>
+
+  <!-- Vendor 4 -->
+  <rect x="144" y="68" width="41" height="9" rx="1" fill="#0F172A"/>
+  <text x="146" y="71" font-family="Arial" font-size="2" fill="#3B82F6" font-weight="bold">Kaspersky</text>
+  <text x="146" y="74" font-family="Arial" font-size="2" fill="#9CA3AF">₽0.8M/year • Security</text>
+  <circle cx="181" cy="73" r="1.5" fill="#10B981"/>
+
+  <!-- Meetings Calendar (bottom) -->
+  <rect x="10" y="95" width="75" height="90" rx="3" fill="none" stroke="#06B6D4" stroke-width="2"/>
+  <text x="47" y="107" font-family="Arial" font-size="6" fill="#06B6D4" text-anchor="middle" font-weight="bold">THIS WEEK</text>
+
+  <rect x="15" y="112" width="65" height="68" rx="1" fill="#1E293B" opacity="0.8"/>
+
+  <text x="17" y="117" font-family="Arial" font-size="3" fill="#06B6D4" font-weight="bold">Monday</text>
+  <text x="17" y="121" font-family="Arial" font-size="2" fill="#D1D5DB">09:00 - Weekly IT Team Standup</text>
+  <text x="17" y="124" font-family="Arial" font-size="2" fill="#D1D5DB">14:00 - Budget Review CFO</text>
+
+  <text x="17" y="130" font-family="Arial" font-size="3" fill="#06B6D4" font-weight="bold">Tuesday</text>
+  <text x="17" y="134" font-family="Arial" font-size="2" fill="#D1D5DB">10:00 - Vendor Negotiation AWS</text>
+  <text x="17" y="137" font-family="Arial" font-size="2" fill="#D1D5DB">15:30 - Security Incident Review</text>
+
+  <text x="17" y="143" font-family="Arial" font-size="3" fill="#06B6D4" font-weight="bold">Wednesday</text>
+  <text x="17" y="147" font-family="Arial" font-size="2" fill="#D1D5DB">11:00 - Cloud Migration Status</text>
+  <text x="17" y="150" font-family="Arial" font-size="2" fill="#D1D5DB">16:00 - Executive Board Meeting</text>
+
+  <text x="17" y="156" font-family="Arial" font-size="3" fill="#06B6D4" font-weight="bold">Thursday</text>
+  <text x="17" y="160" font-family="Arial" font-size="2" fill="#D1D5DB">09:30 - Hiring Pipeline Review</text>
+  <text x="17" y="163" font-family="Arial" font-size="2" fill="#D1D5DB">13:00 - Department Heads Sync</text>
+
+  <text x="17" y="169" font-family="Arial" font-size="3" fill="#06B6D4" font-weight="bold">Friday</text>
+  <text x="17" y="173" font-family="Arial" font-size="2" fill="#D1D5DB">10:00 - IT Strategy Planning 2025</text>
+  <text x="17" y="176" font-family="Arial" font-size="2" fill="#D1D5DB">14:00 - Team Retrospective</text>
+
+  <!-- KPIs (bottom right) -->
+  <rect x="95" y="95" width="95" height="90" rx="3" fill="#10B981" opacity="0.1" stroke="#10B981" stroke-width="2"/>
+  <text x="142" y="107" font-family="Arial" font-size="6" fill="#10B981" text-anchor="middle" font-weight="bold">Q4 KPIs</text>
+
+  <rect x="100" y="112" width="85" height="68" rx="1" fill="#1E293B" opacity="0.8"/>
+
+  <text x="102" y="118" font-family="Arial" font-size="3" fill="#10B981" font-weight="bold">✓ System Uptime: 99.7%</text>
+  <text x="102" y="122" font-family="Arial" font-size="2" fill="#6B7280">Target: 99.5% • Exceeded</text>
+
+  <text x="102" y="128" font-family="Arial" font-size="3" fill="#10B981" font-weight="bold">✓ Budget Adherence: 96%</text>
+  <text x="102" y="132" font-family="Arial" font-size="2" fill="#6B7280">Under budget ₽1.2M</text>
+
+  <text x="102" y="138" font-family="Arial" font-size="3" fill="#F59E0B" font-weight="bold">⚠ Project Delivery: 75%</text>
+  <text x="102" y="142" font-family="Arial" font-size="2" fill="#6B7280">3/4 projects on track</text>
+
+  <text x="102" y="148" font-family="Arial" font-size="3" fill="#10B981" font-weight="bold">✓ Security Incidents: 2</text>
+  <text x="102" y="152" font-family="Arial" font-size="2" fill="#6B7280">Low severity, resolved <24hr</text>
+
+  <text x="102" y="158" font-family="Arial" font-size="3" fill="#10B981" font-weight="bold">✓ Team Satisfaction: 8.4/10</text>
+  <text x="102" y="162" font-family="Arial" font-size="2" fill="#6B7280">Improved from 7.9 previous Q</text>
+
+  <text x="102" y="168" font-family="Arial" font-size="3" fill="#EF4444" font-weight="bold">✗ Hiring Target: 50%</text>
+  <text x="102" y="172" font-family="Arial" font-size="2" fill="#6B7280">1/2 positions filled</text>
+
+  <text x="142" y="178" font-family="Arial" font-size="3" fill="#10B981" text-anchor="middle" font-weight="bold">Overall Score: 87/100</text>
+
+  <!-- "IT MANAGER" text -->
+  <text x="100" y="197" font-family="Arial" font-size="11" fill="#6366F1" text-anchor="middle" font-weight="bold">IT MANAGER</text>
+</svg>

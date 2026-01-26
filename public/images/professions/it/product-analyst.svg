@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Gradient background -->
+  <defs>
+    <linearGradient id="productGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F97316;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#A855F7;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="95" fill="url(#productGrad)" opacity="0.1"/>
+
+  <!-- Product metrics dashboard (main) -->
+  <rect x="30" y="30" width="140" height="95" rx="4" fill="none" stroke="#F97316" stroke-width="3"/>
+  <line x1="30" y1="45" x2="170" y2="45" stroke="#F97316" stroke-width="2"/>
+  <text x="100" y="41" font-family="Arial" font-size="9" fill="#F97316" text-anchor="middle" font-weight="bold">PRODUCT METRICS</text>
+
+  <!-- DAU/MAU metric -->
+  <rect x="40" y="55" width="55" height="30" rx="3" fill="#F97316" opacity="0.1" stroke="#F97316" stroke-width="1.5"/>
+  <text x="67" y="67" font-family="Arial" font-size="8" fill="#F97316" text-anchor="middle" font-weight="bold">DAU</text>
+  <text x="67" y="78" font-family="Arial" font-size="14" fill="#F97316" text-anchor="middle" font-weight="bold">42K</text>
+  <text x="67" y="84" font-family="Arial" font-size="6" fill="#10B981">↑ 12%</text>
+
+  <!-- Retention metric -->
+  <rect x="105" y="55" width="55" height="30" rx="3" fill="#A855F7" opacity="0.1" stroke="#A855F7" stroke-width="1.5"/>
+  <text x="132" y="67" font-family="Arial" font-size="7" fill="#A855F7" text-anchor="middle" font-weight="bold">Retention</text>
+  <text x="132" y="78" font-family="Arial" font-size="14" fill="#A855F7" text-anchor="middle" font-weight="bold">67%</text>
+  <text x="132" y="84" font-family="Arial" font-size="6" fill="#10B981">↑ 3%</text>
+
+  <!-- Growth chart -->
+  <polyline points="40,105 55,100 70,95 85,98 100,88 115,85 130,82 145,78 160,75" fill="none" stroke="#10B981" stroke-width="3"/>
+  <circle cx="70" cy="95" r="2.5" fill="#10B981"/>
+  <circle cx="100" cy="88" r="2.5" fill="#10B981"/>
+  <circle cx="130" cy="82" r="2.5" fill="#10B981"/>
+  <circle cx="160" cy="75" r="2.5" fill="#10B981"/>
+
+  <!-- Funnel (user journey) left side -->
+  <path d="M 15 145 L 50 145 L 45 165 L 20 165 Z" fill="#F97316" opacity="0.3" stroke="#F97316" stroke-width="2"/>
+  <path d="M 20 165 L 45 165 L 42 180 L 23 180 Z" fill="#F97316" opacity="0.5" stroke="#F97316" stroke-width="2"/>
+  <text x="32" y="155" font-family="Arial" font-size="7" fill="#F97316" text-anchor="middle" font-weight="bold">100%</text>
+  <text x="32" y="173" font-family="Arial" font-size="7" fill="#F97316" text-anchor="middle" font-weight="bold">52%</text>
+  <text x="32" y="140" font-family="Arial" font-size="6" fill="#F97316" text-anchor="middle">Funnel</text>
+
+  <!-- A/B test (center) -->
+  <rect x="65" y="140" width="70" height="50" rx="4" fill="none" stroke="#A855F7" stroke-width="2"/>
+  <line x1="100" y1="140" x2="100" y2="190" stroke="#A855F7" stroke-width="2"/>
+  <text x="82" y="137" font-family="Arial" font-size="7" fill="#A855F7" text-anchor="middle" font-weight="bold">A/B TEST</text>
+
+  <!-- Variant A -->
+  <text x="82" y="158" font-family="Arial" font-size="16" fill="#F97316" text-anchor="middle" font-weight="bold">A</text>
+  <text x="82" y="170" font-family="Arial" font-size="7" fill="#F97316" text-anchor="middle">Conv: 8.2%</text>
+  <rect x="70" y="175" width="20" height="10" fill="#F97316" opacity="0.6"/>
+
+  <!-- Variant B -->
+  <text x="118" y="158" font-family="Arial" font-size="16" fill="#10B981" text-anchor="middle" font-weight="bold">B</text>
+  <text x="118" y="170" font-family="Arial" font-size="7" fill="#10B981" text-anchor="middle">Conv: 9.7%</text>
+  <rect x="106" y="175" width="24" height="10" fill="#10B981" opacity="0.6"/>
+
+  <!-- Winner marker -->
+  <circle cx="118" cy="180" r="8" fill="none" stroke="#10B981" stroke-width="2"/>
+  <text x="118" y="183" font-family="Arial" font-size="8" fill="#10B981" text-anchor="middle" font-weight="bold">✓</text>
+
+  <!-- Amplitude/Mixpanel icon (right) -->
+  <rect x="145" y="145" width="40" height="40" rx="4" fill="#A855F7" opacity="0.1" stroke="#A855F7" stroke-width="2"/>
+  <circle cx="155" cy="157" r="3" fill="#A855F7"/>
+  <circle cx="165" cy="155" r="4" fill="#A855F7"/>
+  <circle cx="175" cy="160" r="3" fill="#A855F7"/>
+  <line x1="155" y1="157" x2="165" y2="155" stroke="#F97316" stroke-width="2"/>
+  <line x1="165" y1="155" x2="175" y2="160" stroke="#F97316" stroke-width="2"/>
+  <polyline points="150,170 160,165 170,168 180,162" fill="none" stroke="#F97316" stroke-width="2"/>
+  <text x="165" y="182" font-family="Arial" font-size="6" fill="#A855F7" text-anchor="middle">Analytics</text>
+
+  <!-- Cohort icon (top left) -->
+  <rect x="15" y="25" width="8" height="8" fill="#F97316" opacity="0.3"/>
+  <rect x="15" y="35" width="8" height="8" fill="#F97316" opacity="0.5"/>
+  <rect x="15" y="45" width="8" height="8" fill="#F97316" opacity="0.7"/>
+  <rect x="15" y="55" width="8" height="8" fill="#F97316"/>
+  <text x="11" y="72" font-family="Arial" font-size="6" fill="#F97316">Cohort</text>
+
+  <!-- Insight bulb (top right) -->
+  <circle cx="180" cy="35" r="8" fill="none" stroke="#F97316" stroke-width="2"/>
+  <path d="M 175 42 L 175 45 L 185 45 L 185 42" fill="none" stroke="#F97316" stroke-width="1.5"/>
+  <line x1="180" y1="28" x2="180" y2="24" stroke="#F97316" stroke-width="1.5"/>
+  <line x1="186" y1="30" x2="189" y2="27" stroke="#F97316" stroke-width="1.5"/>
+  <line x1="174" y1="30" x2="171" y2="27" stroke="#F97316" stroke-width="1.5"/>
+  <text x="180" y="56" font-family="Arial" font-size="6" fill="#F97316" text-anchor="middle">Insight</text>
+
+  <!-- "PRODUCT ANALYST" text -->
+  <text x="100" y="197" font-family="Arial" font-size="9" fill="#F97316" text-anchor="middle" font-weight="bold">PRODUCT ANALYST</text>
+</svg>

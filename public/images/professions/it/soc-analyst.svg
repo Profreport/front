@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="socGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#06B6D4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#10B981;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <circle cx="100" cy="100" r="95" fill="url(#socGrad)" opacity="0.1"/>
+
+  <!-- Main monitor -->
+  <rect x="40" y="30" width="120" height="80" rx="4" fill="#1E293B" stroke="#06B6D4" stroke-width="3"/>
+  <text x="100" y="45" font-family="Arial, sans-serif" font-size="8" fill="#06B6D4" text-anchor="middle" font-weight="bold">SOC MONITORING</text>
+
+  <!-- Alert lines -->
+  <rect x="48" y="52" width="104" height="10" rx="2" fill="#EF4444" opacity="0.3" stroke="#EF4444" stroke-width="1"/>
+  <circle cx="145" cy="57" r="3" fill="#EF4444"/>
+  <text x="52" y="59" font-family="Arial, sans-serif" font-size="5" fill="#EF4444">CRITICAL: Brute-force detected</text>
+
+  <rect x="48" y="65" width="104" height="10" rx="2" fill="#F59E0B" opacity="0.3" stroke="#F59E0B" stroke-width="1"/>
+  <circle cx="145" cy="70" r="3" fill="#F59E0B"/>
+  <text x="52" y="72" font-family="Arial, sans-serif" font-size="5" fill="#F59E0B">HIGH: Suspicious activity</text>
+
+  <rect x="48" y="78" width="104" height="10" rx="2" fill="#06B6D4" opacity="0.3" stroke="#06B6D4" stroke-width="1"/>
+  <circle cx="145" cy="83" r="3" fill="#06B6D4"/>
+  <text x="52" y="85" font-family="Arial, sans-serif" font-size="5" fill="#06B6D4">MEDIUM: Multiple login attempts</text>
+
+  <rect x="48" y="91" width="104" height="10" rx="2" fill="#10B981" opacity="0.3" stroke="#10B981" stroke-width="1"/>
+  <circle cx="145" cy="96" r="3" fill="#10B981"/>
+  <text x="52" y="98" font-family="Arial, sans-serif" font-size="5" fill="#10B981">LOW: Normal traffic</text>
+
+  <!-- SIEM box -->
+  <rect x="20" y="120" width="50" height="40" rx="3" fill="#8B5CF6" opacity="0.15" stroke="#8B5CF6" stroke-width="2"/>
+  <text x="45" y="135" font-family="Arial, sans-serif" font-size="8" fill="#8B5CF6" text-anchor="middle" font-weight="bold">SIEM</text>
+  <text x="45" y="148" font-family="Arial, sans-serif" font-size="6" fill="#8B5CF6" text-anchor="middle">Splunk</text>
+
+  <!-- Incident Response box -->
+  <rect x="75" y="120" width="50" height="40" rx="3" fill="#F59E0B" opacity="0.15" stroke="#F59E0B" stroke-width="2"/>
+  <text x="100" y="135" font-family="Arial, sans-serif" font-size="7" fill="#F59E0B" text-anchor="middle" font-weight="bold">INCIDENT</text>
+  <text x="100" y="148" font-family="Arial, sans-serif" font-size="6" fill="#F59E0B" text-anchor="middle">Response</text>
+
+  <!-- Threat Intel box -->
+  <rect x="130" y="120" width="50" height="40" rx="3" fill="#EF4444" opacity="0.15" stroke="#EF4444" stroke-width="2"/>
+  <text x="155" y="135" font-family="Arial, sans-serif" font-size="7" fill="#EF4444" text-anchor="middle" font-weight="bold">THREAT</text>
+  <text x="155" y="148" font-family="Arial, sans-serif" font-size="6" fill="#EF4444" text-anchor="middle">Intel</text>
+
+  <!-- 24/7 badge -->
+  <circle cx="170" cy="40" r="15" fill="#10B981" opacity="0.2" stroke="#10B981" stroke-width="2"/>
+  <text x="170" y="44" font-family="Arial, sans-serif" font-size="10" fill="#10B981" text-anchor="middle" font-weight="bold">24/7</text>
+
+  <!-- Alert counter -->
+  <circle cx="30" cy="40" r="12" fill="#EF4444" opacity="0.3" stroke="#EF4444" stroke-width="2"/>
+  <text x="30" y="44" font-family="Arial, sans-serif" font-size="9" fill="#EF4444" text-anchor="middle" font-weight="bold">287</text>
+
+  <!-- Title -->
+  <text x="100" y="185" font-family="Arial, sans-serif" font-size="14" fill="#06B6D4" text-anchor="middle" font-weight="bold">SOC ANALYST</text>
+</svg>

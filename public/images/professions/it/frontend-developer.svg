@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Gradient background -->
+  <defs>
+    <linearGradient id="frontendGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="95" fill="url(#frontendGrad)" opacity="0.1"/>
+
+  <!-- Browser window frame -->
+  <rect x="30" y="40" width="140" height="100" rx="8" fill="#667eea" opacity="0.2"/>
+  <rect x="30" y="40" width="140" height="20" rx="8" fill="#667eea"/>
+
+  <!-- Browser dots -->
+  <circle cx="42" cy="50" r="3" fill="white"/>
+  <circle cx="52" cy="50" r="3" fill="white"/>
+  <circle cx="62" cy="50" r="3" fill="white"/>
+
+  <!-- Code symbols </> -->
+  <text x="100" y="110" font-family="monospace" font-size="40" fill="#667eea" text-anchor="middle" font-weight="bold">&lt;/&gt;</text>
+
+  <!-- React symbol hint (circle with orbit) -->
+  <circle cx="50" cy="160" r="15" fill="none" stroke="#61dafb" stroke-width="2"/>
+  <ellipse cx="50" cy="160" rx="25" ry="10" fill="none" stroke="#61dafb" stroke-width="2"/>
+
+  <!-- CSS box -->
+  <rect x="115" y="145" width="30" height="30" fill="#264de4" opacity="0.8" rx="4"/>
+  <text x="130" y="167" font-family="Arial" font-size="12" fill="white" text-anchor="middle" font-weight="bold">CSS</text>
+
+  <!-- JS logo hint -->
+  <rect x="150" y="145" width="30" height="30" fill="#f7df1e" opacity="0.9" rx="4"/>
+  <text x="165" y="167" font-family="Arial" font-size="14" fill="#000" text-anchor="middle" font-weight="bold">JS</text>
+</svg>

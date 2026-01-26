@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Gradient background -->
+  <defs>
+    <linearGradient id="tpmGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B5CF6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#06B6D4;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="95" fill="url(#tpmGrad)" opacity="0.1"/>
+
+  <!-- Product + Code fusion (main element) -->
+  <!-- Product side (left) -->
+  <rect x="25" y="40" width="70" height="80" rx="4" fill="none" stroke="#8B5CF6" stroke-width="3"/>
+  <text x="60" y="55" font-family="Arial" font-size="8" fill="#8B5CF6" text-anchor="middle" font-weight="bold">PRODUCT</text>
+
+  <!-- User stories -->
+  <rect x="30" y="62" width="60" height="10" rx="2" fill="#8B5CF6" opacity="0.2"/>
+  <text x="35" y="69" font-family="Arial" font-size="5" fill="#8B5CF6">User Story: API auth</text>
+
+  <rect x="30" y="75" width="60" height="10" rx="2" fill="#8B5CF6" opacity="0.2"/>
+  <text x="35" y="82" font-family="Arial" font-size="5" fill="#8B5CF6">Feature: Rate limiting</text>
+
+  <!-- Roadmap -->
+  <line x1="35" y1="92" x2="85" y2="92" stroke="#8B5CF6" stroke-width="2"/>
+  <circle cx="45" cy="92" r="3" fill="#10B981"/>
+  <circle cx="60" cy="92" r="3" fill="#8B5CF6"/>
+  <circle cx="75" cy="92" r="3" fill="#8B5CF6" opacity="0.5"/>
+  <text x="60" y="104" font-family="Arial" font-size="6" fill="#8B5CF6" text-anchor="middle">Roadmap</text>
+
+  <!-- Code side (right) -->
+  <rect x="105" y="40" width="70" height="80" rx="4" fill="none" stroke="#06B6D4" stroke-width="3"/>
+  <text x="140" y="55" font-family="Arial" font-size="8" fill="#06B6D4" text-anchor="middle" font-weight="bold">TECH</text>
+
+  <!-- Code snippet -->
+  <rect x="110" y="60" width="60" height="50" rx="2" fill="#1E293B" opacity="0.8"/>
+  <text x="115" y="70" font-family="Courier" font-size="6" fill="#10B981">class API {</text>
+  <text x="120" y="78" font-family="Courier" font-size="6" fill="#06B6D4">constructor()</text>
+  <text x="120" y="86" font-family="Courier" font-size="6" fill="#F59E0B">authenticate()</text>
+  <text x="120" y="94" font-family="Courier" font-size="6" fill="#EC4899">rateLimit()</text>
+  <text x="115" y="102" font-family="Courier" font-size="6" fill="#10B981">}</text>
+
+  <!-- Architecture icon -->
+  <rect x="110" y="113" width="15" height="5" fill="#06B6D4" opacity="0.3"/>
+  <rect x="128" y="113" width="15" height="5" fill="#06B6D4" opacity="0.3"/>
+  <rect x="146" y="113" width="15" height="5" fill="#06B6D4" opacity="0.3"/>
+  <line x1="117" y1="113" x2="117" y2="108" stroke="#06B6D4" stroke-width="1"/>
+  <line x1="135" y1="113" x2="135" y2="108" stroke="#06B6D4" stroke-width="1"/>
+  <line x1="153" y1="113" x2="153" y2="108" stroke="#06B6D4" stroke-width="1"/>
+  <line x1="117" y1="108" x2="153" y2="108" stroke="#06B6D4" stroke-width="1"/>
+
+  <!-- Bridge between Product and Code -->
+  <path d="M 95 80 L 105 80" stroke="#8B5CF6" stroke-width="3" marker-end="url(#arrowTPM)"/>
+  <defs>
+    <marker id="arrowTPM" markerWidth="8" markerHeight="8" refX="4" refY="3" orient="auto">
+      <polygon points="0 0, 4 3, 0 6" fill="#8B5CF6"/>
+    </marker>
+  </defs>
+  <text x="100" y="75" font-family="Arial" font-size="5" fill="#8B5CF6" text-anchor="middle">TPM</text>
+
+  <!-- API documentation (bottom left) -->
+  <rect x="20" y="130" width="55" height="50" rx="3" fill="none" stroke="#06B6D4" stroke-width="2"/>
+  <text x="47" y="141" font-family="Arial" font-size="7" fill="#06B6D4" text-anchor="middle" font-weight="bold">API DOCS</text>
+
+  <text x="25" y="152" font-family="Courier" font-size="5" fill="#10B981">GET /users</text>
+  <text x="25" y="160" font-family="Courier" font-size="5" fill="#06B6D4">POST /auth</text>
+  <text x="25" y="168" font-family="Courier" font-size="5" fill="#F59E0B">PUT /profile</text>
+  <rect x="25" y="171" width="45" height="6" fill="#8B5CF6" opacity="0.2"/>
+  <text x="27" y="176" font-family="Arial" font-size="4" fill="#8B5CF6">Authentication required</text>
+
+  <!-- System design (bottom center) -->
+  <rect x="85" y="130" width="55" height="50" rx="3" fill="#8B5CF6" opacity="0.1" stroke="#8B5CF6" stroke-width="2"/>
+  <text x="112" y="141" font-family="Arial" font-size="7" fill="#8B5CF6" text-anchor="middle" font-weight="bold">ARCHITECTURE</text>
+
+  <!-- System components -->
+  <rect x="90" y="148" width="18" height="10" rx="1" fill="#06B6D4" opacity="0.3"/>
+  <text x="99" y="155" font-family="Arial" font-size="5" fill="#06B6D4" text-anchor="middle">API</text>
+
+  <rect x="112" y="148" width="18" height="10" rx="1" fill="#10B981" opacity="0.3"/>
+  <text x="121" y="155" font-family="Arial" font-size="5" fill="#10B981" text-anchor="middle">DB</text>
+
+  <rect x="90" y="162" width="18" height="10" rx="1" fill="#F59E0B" opacity="0.3"/>
+  <text x="99" y="169" font-family="Arial" font-size="5" fill="#F59E0B" text-anchor="middle">Cache</text>
+
+  <rect x="112" y="162" width="18" height="10" rx="1" fill="#EC4899" opacity="0.3"/>
+  <text x="121" y="169" font-family="Arial" font-size="5" fill="#EC4899" text-anchor="middle">Queue</text>
+
+  <!-- Connections -->
+  <line x1="99" y1="158" x2="121" y2="158" stroke="#8B5CF6" stroke-width="1"/>
+  <line x1="99" y1="162" x2="99" y2="167" stroke="#8B5CF6" stroke-width="1"/>
+
+  <!-- Developer tools (bottom right) -->
+  <rect x="150" y="130" width="35" height="50" rx="3" fill="none" stroke="#10B981" stroke-width="2"/>
+  <text x="167" y="141" font-family="Arial" font-size="7" fill="#10B981" text-anchor="middle" font-weight="bold">TOOLS</text>
+
+  <!-- Terminal icon -->
+  <rect x="155" y="146" width="25" height="15" rx="1" fill="#1E293B" opacity="0.6"/>
+  <text x="157" y="154" font-family="Courier" font-size="5" fill="#10B981">$ npm run</text>
+  <text x="157" y="159" font-family="Courier" font-size="5" fill="#06B6D4">> build</text>
+
+  <!-- Git icon -->
+  <circle cx="160" cy="170" r="4" fill="none" stroke="#F59E0B" stroke-width="1.5"/>
+  <circle cx="170" cy="170" r="4" fill="none" stroke="#F59E0B" stroke-width="1.5"/>
+  <circle cx="165" cy="177" r="4" fill="none" stroke="#F59E0B" stroke-width="1.5"/>
+  <line x1="160" y1="174" x2="165" y2="177" stroke="#F59E0B" stroke-width="1"/>
+  <line x1="170" y1="174" x2="165" y2="177" stroke="#F59E0B" stroke-width="1"/>
+
+  <!-- Code review icon (top left) -->
+  <rect x="15" y="25" width="20" height="12" rx="2" fill="none" stroke="#06B6D4" stroke-width="1.5"/>
+  <line x1="18" y1="29" x2="28" y2="29" stroke="#10B981" stroke-width="1"/>
+  <line x1="18" y1="32" x2="32" y2="32" stroke="#06B6D4" stroke-width="1"/>
+  <text x="25" y="22" font-family="Arial" font-size="5" fill="#06B6D4" text-anchor="middle">Review</text>
+
+  <!-- Tech debt icon (top right) -->
+  <circle cx="175" cy="30" r="8" fill="none" stroke="#F59E0B" stroke-width="2"/>
+  <text x="175" y="34" font-family="Arial" font-size="8" fill="#F59E0B" text-anchor="middle" font-weight="bold">TD</text>
+  <text x="175" y="23" font-family="Arial" font-size="5" fill="#F59E0B" text-anchor="middle">Tech Debt</text>
+
+  <!-- "TECHNICAL PM" text -->
+  <text x="100" y="197" font-family="Arial" font-size="9" fill="#8B5CF6" text-anchor="middle" font-weight="bold">TECHNICAL PM</text>
+</svg>

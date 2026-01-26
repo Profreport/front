@@ -1,9 +1,12 @@
 ---
+export const prerender = false; // Enable SSR for pagination
+
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
 import Breadcrumb from '@/components/Breadcrumb.astro';
 import { generateBreadcrumbSchema } from '@/lib/utils';
+import itProfessions from '@/data/it-professions';
 
 const breadcrumbs = [
   { name: 'Главная', url: '/' },
@@ -11,11 +14,39 @@ const breadcrumbs = [
   { name: 'Профессии в IT', url: '/professions/it' },
 ];
 
-// Placeholder для будущего списка профессий
-// TODO: Добавить реальные данные о IT-профессиях
-const professions = [
-  // Здесь будет список IT-профессий
-];
+// Filter out hidden professions
+const visibleProfessions = itProfessions.filter(p => !p.hidden);
+
+// Pagination
+const perPage = 25;
+const currentPage = parseInt(Astro.url.searchParams.get('page') || '1');
+const totalCount = visibleProfessions.length;
+const totalPages = Math.ceil(totalCount / perPage);
+
+const startIndex = (currentPage - 1) * perPage;
+const endIndex = startIndex + perPage;
+const professions = visibleProfessions.slice(startIndex, endIndex);
+
+// Helper to generate page numbers with ellipsis
+function getPageNumbers(current: number, total: number): number[] {
+  if (total <= 7) return Array.from({ length: total }, (_, i) => i + 1);
+
+  const pages: number[] = [1];
+
+  if (current > 3) pages.push(-1);
+
+  for (let i = Math.max(2, current - 1); i <= Math.min(total - 1, current + 1); i++) {
+    pages.push(i);
+  }
+
+  if (current < total - 2) pages.push(-1);
+
+  if (total > 1) pages.push(total);
+
+  return pages;
+}
+
+const pageNumbers = getPageNumbers(currentPage, totalPages);
 ---
 
 <BaseLayout
@@ -32,7 +63,7 @@ const professions = [
       <div class="container-custom">
         <div class="text-center mb-8">
           <div class="mb-6">
-            <img src="/images/prof2.png" alt="Профессии в IT" class="w-32 h-32 mx-auto object-contain" />
+            <img src="/images/prof2.jpg" alt="Профессии в IT" class="w-32 h-32 mx-auto object-contain" />
           </div>
           <h1 class="text-4xl lg:text-5xl font-bold text-text-primary mb-4">
             Профессии в IT
@@ -40,36 +71,80 @@ const professions = [
           <p class="text-lg text-text-secondary max-w-3xl mx-auto">
             Востребованные IT-специальности: разработка, дизайн, аналитика, тестирование и другие направления в сфере информационных технологий.
           </p>
+          <p class="text-sm text-text-secondary mt-4">
+            {currentPage > 1 ? `Страница ${currentPage} из ${totalPages}` : `Всего профессий: ${totalCount}`}
+          </p>
         </div>
       </div>
     </section>
 
-    <!-- Professions List Section -->
+    <!-- Professions Grid -->
     <section class="py-16 lg:py-24 bg-background">
       <div class="container-custom">
-        {professions.length > 0 ? (
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Здесь будут карточки IT-профессий */}
-          </div>
-        ) : (
-          <div class="max-w-2xl mx-auto text-center">
-            <div class="bg-surface rounded-lg border-2 border-border p-12">
-              <svg class="w-24 h-24 mx-auto mb-6 text-text-secondary opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
-              </svg>
-              <h2 class="text-2xl font-bold text-text-primary mb-4">
-                Список IT-профессий в разработке
-              </h2>
-              <p class="text-text-secondary mb-8">
-                Мы работаем над подробным описанием IT-специальностей. Скоро здесь появится полный каталог профессий с требованиями, технологическими стеками и карьерными перспективами.
-              </p>
+        <div class="flex flex-wrap justify-center gap-6">
+          {professions.map((profession) => (
+            <a
+              href={`/professions/it/${profession.id}`}
+              class="group bg-surface rounded-lg border-2 border-border hover:border-primary hover:shadow-xl p-6 flex flex-col transition-all transform hover:-translate-y-1 w-full sm:w-[calc(50%-12px)] md:w-[calc(33.333%-16px)] lg:w-[calc(25%-18px)] xl:w-[calc(20%-19.2px)] max-w-[220px]"
+            >
+              <!-- Image Placeholder -->
+              <div class="mb-4 aspect-square bg-primary/5 rounded-lg flex items-center justify-center overflow-hidden">
+                <img
+                  src={profession.image}
+                  alt={profession.title}
+                  class="w-full h-full object-cover"
+                />
+              </div>
+
+              <!-- Title -->
+              <h3 class="text-lg font-bold text-text-primary text-center group-hover:text-primary transition-colors">
+                {profession.title}
+              </h3>
+            </a>
+          ))}
+        </div>
+
+        <!-- Pagination -->
+        {totalPages > 1 && (
+          <div class="mt-12 flex justify-center gap-2 flex-wrap">
+            {/* Previous Button */}
+            {currentPage > 1 && (
               <a
-                href="/tests"
-                class="inline-flex items-center justify-center px-6 py-3 bg-primary text-white font-semibold rounded-md hover:bg-primary-hover transition-all hover:shadow-md"
+                href={`/professions/it?page=${currentPage - 1}`}
+                class="px-4 py-2 border-2 border-primary text-primary font-semibold rounded-md hover:bg-primary hover:text-white transition-all"
               >
-                Пройти тест на профориентацию
+                ← Назад
               </a>
-            </div>
+            )}
+
+            {/* Page Numbers */}
+            {pageNumbers.map((page) => (
+              page === -1 ? (
+                <span class="px-4 py-2 text-text-secondary">...</span>
+              ) : (
+                <a
+                  href={`/professions/it?page=${page}`}
+                  class:list={[
+                    'px-4 py-2 font-semibold rounded-md transition-all',
+                    page === currentPage
+                      ? 'bg-primary text-white'
+                      : 'border-2 border-border text-text-primary hover:border-primary hover:text-primary'
+                  ]}
+                >
+                  {page}
+                </a>
+              )
+            ))}
+
+            {/* Next Button */}
+            {currentPage < totalPages && (
+              <a
+                href={`/professions/it?page=${currentPage + 1}`}
+                class="px-4 py-2 border-2 border-primary text-primary font-semibold rounded-md hover:bg-primary hover:text-white transition-all"
+              >
+                Далее →
+              </a>
+            )}
           </div>
         )}
       </div>

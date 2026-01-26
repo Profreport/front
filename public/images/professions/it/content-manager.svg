@@ -1,0 +1,235 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Gradient background -->
+  <defs>
+    <linearGradient id="contentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B5CF6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#06B6D4;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="95" fill="url(#contentGrad)" opacity="0.1"/>
+
+  <!-- WordPress/CMS Interface (center) -->
+  <rect x="50" y="45" width="100" height="85" rx="3" fill="#1E293B" opacity="0.9" stroke="#8B5CF6" stroke-width="3"/>
+  <text x="100" y="38" font-family="Arial" font-size="7" fill="#8B5CF6" text-anchor="middle" font-weight="bold">WORDPRESS</text>
+
+  <!-- CMS Header -->
+  <rect x="55" y="50" width="90" height="7" rx="1" fill="#23282D"/>
+  <circle cx="58" cy="53.5" r="1.5" fill="#8B5CF6"/>
+  <text x="62" y="55" font-family="Arial" font-size="4" fill="#FFF" font-weight="bold">Dashboard</text>
+  <text x="130" y="55" font-family="Arial" font-size="3" fill="#10B981">Published: 245</text>
+
+  <!-- Editor Area -->
+  <rect x="55" y="60" width="90" height="65" fill="#FFF"/>
+
+  <!-- Title field -->
+  <rect x="60" y="65" width="80" height="5" rx="1" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="0.5"/>
+  <text x="62" y="68.5" font-family="Arial" font-size="3" fill="#6B7280">Введите заголовок...</text>
+
+  <!-- Content blocks -->
+  <rect x="60" y="73" width="80" height="47" fill="#FFF"/>
+
+  <!-- Paragraph block -->
+  <rect x="62" y="76" width="3" height="3" rx="0.5" fill="#8B5CF6"/>
+  <text x="67" y="78.5" font-family="Arial" font-size="3" fill="#374151">Paragraph</text>
+  <rect x="62" y="80" width="74" height="2" fill="#E5E7EB"/>
+  <rect x="62" y="83" width="70" height="2" fill="#E5E7EB"/>
+  <rect x="62" y="86" width="76" height="2" fill="#E5E7EB"/>
+
+  <!-- Image block -->
+  <rect x="62" y="91" width="3" height="3" rx="0.5" fill="#06B6D4"/>
+  <text x="67" y="93.5" font-family="Arial" font-size="3" fill="#374151">Image</text>
+  <rect x="62" y="96" width="74" height="15" rx="1" fill="#8B5CF6" opacity="0.2"/>
+  <text x="99" y="105" font-family="Arial" font-size="5" fill="#8B5CF6" text-anchor="middle">📷</text>
+
+  <!-- Heading block -->
+  <rect x="62" y="114" width="3" height="3" rx="0.5" fill="#10B981"/>
+  <text x="67" y="116.5" font-family="Arial" font-size="3" fill="#374151">Heading</text>
+  <text x="62" y="121" font-family="Arial" font-size="4" fill="#111827" font-weight="bold">Заголовок статьи</text>
+
+  <!-- Sidebar -->
+  <rect x="60" y="125" width="35" height="20" rx="1" fill="#F9FAFB" stroke="#E5E7EB" stroke-width="0.5"/>
+  <text x="62" y="129" font-family="Arial" font-size="3" fill="#8B5CF6" font-weight="bold">Publish</text>
+  <rect x="62" y="131" width="30" height="3" rx="0.5" fill="#10B981"/>
+  <text x="77" y="133.5" font-family="Arial" font-size="2" fill="#FFF" text-anchor="middle">Опубликовать</text>
+
+  <text x="62" y="139" font-family="Arial" font-size="2" fill="#6B7280">Category: Статьи</text>
+  <text x="62" y="143" font-family="Arial" font-size="2" fill="#6B7280">Tags: контент, SEO</text>
+
+  <!-- Analytics -->
+  <rect x="100" y="125" width="35" height="20" rx="1" fill="#F9FAFB" stroke="#E5E7EB" stroke-width="0.5"/>
+  <text x="102" y="129" font-family="Arial" font-size="3" fill="#06B6D4" font-weight="bold">Stats</text>
+  <text x="102" y="134" font-family="Arial" font-size="2" fill="#374151">Views: 2,340</text>
+  <text x="102" y="138" font-family="Arial" font-size="2" fill="#374151">Reads: 1,820</text>
+  <text x="102" y="142" font-family="Arial" font-size="2" fill="#10B981">Avg time: 3:45</text>
+
+  <!-- Content Calendar (top left) -->
+  <rect x="15" y="15" width="50" height="50" rx="3" fill="none" stroke="#F59E0B" stroke-width="2"/>
+  <text x="40" y="27" font-family="Arial" font-size="6" fill="#F59E0B" text-anchor="middle" font-weight="bold">CALENDAR</text>
+
+  <!-- Calendar grid -->
+  <rect x="20" y="32" width="40" height="28" rx="1" fill="#1E293B" opacity="0.8"/>
+
+  <text x="22" y="36" font-family="Arial" font-size="2" fill="#F59E0B">November 2024</text>
+
+  <!-- Week grid -->
+  <text x="22" y="40" font-family="Arial" font-size="2" fill="#6B7280">M  T  W  T  F  S  S</text>
+
+  <!-- Days with content markers -->
+  <circle cx="24" cy="44" r="1.5" fill="#10B981" opacity="0.3"/>
+  <text x="24" y="45" font-family="Arial" font-size="2" fill="#10B981" text-anchor="middle">1</text>
+
+  <circle cx="29" cy="44" r="1.5" fill="none" stroke="#374151" stroke-width="0.3"/>
+  <text x="29" y="45" font-family="Arial" font-size="2" fill="#6B7280" text-anchor="middle">2</text>
+
+  <circle cx="34" cy="44" r="1.5" fill="#8B5CF6" opacity="0.3"/>
+  <text x="34" y="45" font-family="Arial" font-size="2" fill="#8B5CF6" text-anchor="middle">3</text>
+
+  <circle cx="39" cy="44" r="1.5" fill="none" stroke="#374151" stroke-width="0.3"/>
+  <text x="39" y="45" font-family="Arial" font-size="2" fill="#6B7280" text-anchor="middle">4</text>
+
+  <circle cx="44" cy="44" r="1.5" fill="#06B6D4" opacity="0.3"/>
+  <text x="44" y="45" font-family="Arial" font-size="2" fill="#06B6D4" text-anchor="middle">5</text>
+
+  <circle cx="49" cy="44" r="1.5" fill="none" stroke="#374151" stroke-width="0.3"/>
+  <text x="49" y="45" font-family="Arial" font-size="2" fill="#6B7280" text-anchor="middle">6</text>
+
+  <circle cx="54" cy="44" r="1.5" fill="none" stroke="#374151" stroke-width="0.3"/>
+  <text x="54" y="45" font-family="Arial" font-size="2" fill="#6B7280" text-anchor="middle">7</text>
+
+  <!-- Content types legend -->
+  <circle cx="23" cy="51" r="1" fill="#10B981"/>
+  <text x="26" y="52" font-family="Arial" font-size="2" fill="#10B981">Article</text>
+
+  <circle cx="23" cy="55" r="1" fill="#8B5CF6"/>
+  <text x="26" y="56" font-family="Arial" font-size="2" fill="#8B5CF6">Guide</text>
+
+  <circle cx="23" cy="59" r="1" fill="#06B6D4"/>
+  <text x="26" y="60" font-family="Arial" font-size="2" fill="#06B6D4">News</text>
+
+  <!-- SEO Optimization (top right) -->
+  <rect x="135" y="15" width="50" height="50" rx="3" fill="#10B981" opacity="0.1" stroke="#10B981" stroke-width="2"/>
+  <text x="160" y="27" font-family="Arial" font-size="6" fill="#10B981" text-anchor="middle" font-weight="bold">SEO</text>
+
+  <!-- SEO checklist -->
+  <rect x="140" y="32" width="40" height="28" rx="1" fill="#1E293B" opacity="0.8"/>
+
+  <circle cx="143" cy="36" r="1" fill="#10B981"/>
+  <text x="146" y="37" font-family="Arial" font-size="2" fill="#10B981">✓ Title optimized</text>
+
+  <circle cx="143" cy="41" r="1" fill="#10B981"/>
+  <text x="146" y="42" font-family="Arial" font-size="2" fill="#10B981">✓ Meta description</text>
+
+  <circle cx="143" cy="46" r="1" fill="#10B981"/>
+  <text x="146" y="47" font-family="Arial" font-size="2" fill="#10B981">✓ Keywords placed</text>
+
+  <circle cx="143" cy="51" r="1" fill="#F59E0B"/>
+  <text x="146" y="52" font-family="Arial" font-size="2" fill="#F59E0B">○ Alt tags missing</text>
+
+  <circle cx="143" cy="56" r="1" fill="#10B981"/>
+  <text x="146" y="57" font-family="Arial" font-size="2" fill="#10B981">✓ Internal links</text>
+
+  <!-- Content Types (bottom left) -->
+  <rect x="15" y="135" width="55" height="50" rx="3" fill="none" stroke="#06B6D4" stroke-width="2"/>
+  <text x="42" y="147" font-family="Arial" font-size="6" fill="#06B6D4" text-anchor="middle" font-weight="bold">CONTENT</text>
+
+  <!-- Content formats -->
+  <rect x="20" y="152" width="45" height="28" rx="1" fill="#1E293B" opacity="0.8"/>
+
+  <!-- Article icon -->
+  <rect x="23" y="156" width="8" height="10" rx="0.5" fill="#F3F4F6"/>
+  <rect x="24" y="158" width="6" height="1" fill="#8B5CF6" opacity="0.3"/>
+  <rect x="24" y="160" width="6" height="1" fill="#E5E7EB"/>
+  <rect x="24" y="162" width="5" height="1" fill="#E5E7EB"/>
+  <text x="27" y="169" font-family="Arial" font-size="2" fill="#06B6D4" text-anchor="middle">Articles</text>
+
+  <!-- Guide icon -->
+  <rect x="35" y="156" width="8" height="10" rx="0.5" fill="#F3F4F6"/>
+  <rect x="36" y="158" width="6" height="1" fill="#10B981" opacity="0.3"/>
+  <rect x="36" y="160" width="6" height="1" fill="#E5E7EB"/>
+  <rect x="36" y="162" width="6" height="1" fill="#E5E7EB"/>
+  <rect x="36" y="164" width="5" height="1" fill="#E5E7EB"/>
+  <text x="39" y="169" font-family="Arial" font-size="2" fill="#06B6D4" text-anchor="middle">Guides</text>
+
+  <!-- Landing icon -->
+  <rect x="47" y="156" width="8" height="10" rx="0.5" fill="#F3F4F6"/>
+  <rect x="48" y="158" width="6" height="3" fill="#EC4899" opacity="0.3"/>
+  <rect x="48" y="162" width="4" height="2" rx="0.3" fill="#10B981"/>
+  <text x="51" y="169" font-family="Arial" font-size="2" fill="#06B6D4" text-anchor="middle">Landing</text>
+
+  <!-- Stats -->
+  <text x="42" y="177" font-family="Arial" font-size="3" fill="#06B6D4" text-anchor="middle">Published: 245</text>
+
+  <!-- Editorial Workflow (bottom center) -->
+  <rect x="80" y="135" width="55" height="50" rx="3" fill="#8B5CF6" opacity="0.1" stroke="#8B5CF6" stroke-width="2"/>
+  <text x="107" y="147" font-family="Arial" font-size="6" fill="#8B5CF6" text-anchor="middle" font-weight="bold">WORKFLOW</text>
+
+  <!-- Workflow stages -->
+  <rect x="85" y="152" width="45" height="28" rx="1" fill="#1E293B" opacity="0.8"/>
+
+  <!-- Draft -->
+  <circle cx="90" cy="158" r="3" fill="#6B7280" opacity="0.3"/>
+  <text x="90" y="160" font-family="Arial" font-size="2" fill="#FFF" text-anchor="middle">5</text>
+  <text x="95" y="159" font-family="Arial" font-size="2" fill="#6B7280">Draft</text>
+
+  <!-- Review -->
+  <text x="107" y="159" font-family="Arial" font-size="3" fill="#8B5CF6" text-anchor="middle">→</text>
+
+  <circle cx="115" cy="158" r="3" fill="#F59E0B" opacity="0.3"/>
+  <text x="115" y="160" font-family="Arial" font-size="2" fill="#FFF" text-anchor="middle">3</text>
+  <text x="120" y="159" font-family="Arial" font-size="2" fill="#F59E0B">Review</text>
+
+  <!-- Published -->
+  <text x="90" y="167" font-family="Arial" font-size="3" fill="#8B5CF6" text-anchor="middle">↓</text>
+
+  <circle cx="90" cy="173" r="3" fill="#10B981" opacity="0.3"/>
+  <text x="90" y="175" font-family="Arial" font-size="2" fill="#FFF" text-anchor="middle">12</text>
+  <text x="95" y="174" font-family="Arial" font-size="2" fill="#10B981">Published</text>
+
+  <!-- Scheduled -->
+  <text x="107" y="174" font-family="Arial" font-size="3" fill="#8B5CF6" text-anchor="middle">→</text>
+
+  <circle cx="115" cy="173" r="3" fill="#06B6D4" opacity="0.3"/>
+  <text x="115" y="175" font-family="Arial" font-size="2" fill="#FFF" text-anchor="middle">7</text>
+  <text x="120" y="174" font-family="Arial" font-size="2" fill="#06B6D4">Scheduled</text>
+
+  <!-- Media Library (bottom right) -->
+  <rect x="145" y="135" width="40" height="50" rx="3" fill="none" stroke="#EC4899" stroke-width="2"/>
+  <text x="165" y="147" font-family="Arial" font-size="5" fill="#EC4899" text-anchor="middle" font-weight="bold">MEDIA</text>
+
+  <!-- Media grid -->
+  <rect x="150" y="152" width="30" height="28" rx="1" fill="#1E293B" opacity="0.8"/>
+
+  <!-- Image thumbnails -->
+  <rect x="152" y="155" width="12" height="10" rx="0.5" fill="#8B5CF6" opacity="0.3"/>
+  <text x="158" y="161" font-family="Arial" font-size="4" fill="#8B5CF6" text-anchor="middle">🖼</text>
+
+  <rect x="166" y="155" width="12" height="10" rx="0.5" fill="#06B6D4" opacity="0.3"/>
+  <text x="172" y="161" font-family="Arial" font-size="4" fill="#06B6D4" text-anchor="middle">📸</text>
+
+  <rect x="152" y="167" width="12" height="10" rx="0.5" fill="#10B981" opacity="0.3"/>
+  <text x="158" y="173" font-family="Arial" font-size="4" fill="#10B981" text-anchor="middle">🎬</text>
+
+  <rect x="166" y="167" width="12" height="10" rx="0.5" fill="#F59E0B" opacity="0.3"/>
+  <text x="172" y="173" font-family="Arial" font-size="4" fill="#F59E0B" text-anchor="middle">📄</text>
+
+  <!-- Quality badge (left) -->
+  <circle cx="20" cy="95" r="8" fill="none" stroke="#8B5CF6" stroke-width="2"/>
+  <text x="20" y="98" font-family="Arial" font-size="6" fill="#8B5CF6" text-anchor="middle" font-weight="bold">A+</text>
+  <text x="20" y="87" font-family="Arial" font-size="3" fill="#8B5CF6" text-anchor="middle">Quality</text>
+  <text x="20" y="108" font-family="Arial" font-size="3" fill="#8B5CF6" text-anchor="middle">Content</text>
+
+  <!-- Publishing badge (right) -->
+  <circle cx="180" cy="95" r="8" fill="#10B981" opacity="0.3"/>
+  <text x="180" y="98" font-family="Arial" font-size="6" fill="#10B981" text-anchor="middle" font-weight="bold">✓</text>
+  <text x="180" y="87" font-family="Arial" font-size="3" fill="#10B981" text-anchor="middle">24/5</text>
+  <text x="180" y="108" font-family="Arial" font-size="3" fill="#10B981" text-anchor="middle">Publishing</text>
+
+  <!-- Tools badge (top) -->
+  <rect x="60" y="5" width="80" height="10" rx="2" fill="#8B5CF6" opacity="0.3" stroke="#8B5CF6" stroke-width="1.5"/>
+  <text x="100" y="12" font-family="Arial" font-size="6" fill="#8B5CF6" text-anchor="middle" font-weight="bold">WordPress • CMS • Editorial • Analytics</text>
+
+  <!-- "CONTENT MANAGER" text -->
+  <text x="100" y="197" font-family="Arial" font-size="10" fill="#8B5CF6" text-anchor="middle" font-weight="bold">CONTENT MANAGER</text>
+</svg>

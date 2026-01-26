@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Gradient background -->
+  <defs>
+    <linearGradient id="dpoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B5CF6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#06B6D4;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="95" fill="url(#dpoGrad)" opacity="0.1"/>
+
+  <!-- Data Shield (main element) -->
+  <path d="M 100 40 L 130 52 L 130 80 Q 130 100 100 115 Q 70 100 70 80 L 70 52 Z" fill="none" stroke="#8B5CF6" stroke-width="3"/>
+  <path d="M 100 45 L 125 55 L 125 80 Q 125 97 100 110 Q 75 97 75 80 L 75 55 Z" fill="#8B5CF6" opacity="0.1"/>
+
+  <!-- Lock with "PD" (Personal Data) -->
+  <rect x="93" y="72" width="14" height="10" rx="1" fill="none" stroke="#8B5CF6" stroke-width="2"/>
+  <path d="M 96 72 L 96 68 Q 96 65 100 65 Q 104 65 104 68 L 104 72" fill="none" stroke="#8B5CF6" stroke-width="2"/>
+  <text x="100" y="80" font-family="Arial" font-size="5" fill="#8B5CF6" text-anchor="middle" font-weight="bold">PD</text>
+
+  <!-- GDPR Badge (top left) -->
+  <rect x="15" y="15" width="50" height="50" rx="3" fill="none" stroke="#06B6D4" stroke-width="2"/>
+  <text x="40" y="28" font-family="Arial" font-size="8" fill="#06B6D4" text-anchor="middle" font-weight="bold">GDPR</text>
+  <text x="40" y="36" font-family="Arial" font-size="5" fill="#06B6D4" text-anchor="middle">Regulation (EU)</text>
+
+  <!-- GDPR Articles -->
+  <rect x="20" y="40" width="40" height="22" rx="1" fill="#1E293B" opacity="0.8"/>
+  <text x="22" y="45" font-family="Arial" font-size="4" fill="#10B981">✓ Art. 5 - Principles</text>
+  <text x="22" y="50" font-family="Arial" font-size="4" fill="#10B981">✓ Art. 6 - Lawfulness</text>
+  <text x="22" y="55" font-family="Arial" font-size="4" fill="#F59E0B">○ Art. 30 - Records</text>
+  <text x="22" y="60" font-family="Arial" font-size="4" fill="#EF4444">! Art. 33 - Breach</text>
+
+  <!-- 152-ФЗ Badge (top right) -->
+  <rect x="135" y="15" width="50" height="50" rx="3" fill="none" stroke="#8B5CF6" stroke-width="2"/>
+  <text x="160" y="28" font-family="Arial" font-size="8" fill="#8B5CF6" text-anchor="middle" font-weight="bold">152-ФЗ</text>
+  <text x="160" y="36" font-family="Arial" font-size="5" fill="#8B5CF6" text-anchor="middle">РФ ПДн</text>
+
+  <!-- 152-ФЗ Requirements -->
+  <rect x="140" y="40" width="40" height="22" rx="1" fill="#1E293B" opacity="0.8"/>
+  <text x="142" y="45" font-family="Arial" font-size="4" fill="#10B981">✓ Уровни УЗ</text>
+  <text x="142" y="50" font-family="Arial" font-size="4" fill="#10B981">✓ Категории ПДн</text>
+  <text x="142" y="55" font-family="Arial" font-size="4" fill="#F59E0B">○ Аттестация</text>
+  <text x="142" y="60" font-family="Arial" font-size="4" fill="#06B6D4">✓ Согласия</text>
+
+  <!-- Compliance Audit (bottom left) -->
+  <rect x="15" y="125" width="55" height="60" rx="3" fill="#10B981" opacity="0.1" stroke="#10B981" stroke-width="2"/>
+  <text x="42" y="137" font-family="Arial" font-size="7" fill="#10B981" text-anchor="middle" font-weight="bold">AUDIT</text>
+
+  <!-- Audit checklist -->
+  <rect x="20" y="143" width="45" height="37" rx="1" fill="#1E293B" opacity="0.8"/>
+  <text x="22" y="149" font-family="Arial" font-size="4" fill="#10B981">✓ Data inventory done</text>
+  <text x="22" y="154" font-family="Arial" font-size="4" fill="#10B981">✓ Policies updated</text>
+  <text x="22" y="159" font-family="Arial" font-size="4" fill="#F59E0B">○ Staff training</text>
+  <text x="22" y="164" font-family="Arial" font-size="4" fill="#06B6D4">→ DPIA in progress</text>
+  <text x="22" y="169" font-family="Arial" font-size="4" fill="#EF4444">! Gap: encryption</text>
+  <text x="22" y="174" font-family="Arial" font-size="4" fill="#10B981">✓ Consent forms OK</text>
+
+  <!-- Data Mapping (bottom center) -->
+  <rect x="80" y="125" width="55" height="60" rx="3" fill="none" stroke="#06B6D4" stroke-width="2"/>
+  <text x="107" y="137" font-family="Arial" font-size="6" fill="#06B6D4" text-anchor="middle" font-weight="bold">DATA MAP</text>
+
+  <!-- Data flow diagram -->
+  <circle cx="95" cy="150" r="5" fill="#8B5CF6" opacity="0.3" stroke="#8B5CF6" stroke-width="1"/>
+  <text x="95" y="152" font-family="Arial" font-size="4" fill="#8B5CF6" text-anchor="middle">Users</text>
+
+  <path d="M 100 150 L 110 155" stroke="#06B6D4" stroke-width="1.5" marker-end="url(#arrowDPO)"/>
+
+  <rect x="110" y="152" width="15" height="8" rx="1" fill="#06B6D4" opacity="0.3"/>
+  <text x="117" y="157" font-family="Arial" font-size="4" fill="#06B6D4" text-anchor="middle">DB</text>
+
+  <path d="M 117 160 L 117 168" stroke="#06B6D4" stroke-width="1.5" marker-end="url(#arrowDPO)"/>
+
+  <rect x="110" y="168" width="15" height="8" rx="1" fill="#10B981" opacity="0.3"/>
+  <text x="117" y="173" font-family="Arial" font-size="4" fill="#10B981" text-anchor="middle">3rd</text>
+
+  <defs>
+    <marker id="arrowDPO" markerWidth="4" markerHeight="4" refX="2" refY="2" orient="auto">
+      <polygon points="0 0, 2 2, 0 4" fill="#06B6D4"/>
+    </marker>
+  </defs>
+
+  <text x="107" y="178" font-family="Arial" font-size="4" fill="#06B6D4" text-anchor="middle">Processing Map</text>
+
+  <!-- Risk Assessment (bottom right) -->
+  <rect x="145" y="125" width="40" height="60" rx="3" fill="none" stroke="#F59E0B" stroke-width="2"/>
+  <text x="165" y="137" font-family="Arial" font-size="6" fill="#F59E0B" text-anchor="middle" font-weight="bold">RISK</text>
+  <text x="165" y="143" font-family="Arial" font-size="5" fill="#F59E0B" text-anchor="middle">DPIA</text>
+
+  <!-- Risk matrix -->
+  <rect x="150" y="148" width="30" height="32" rx="1" fill="#1E293B" opacity="0.8"/>
+
+  <rect x="152" y="150" width="26" height="6" fill="#EF4444" opacity="0.4"/>
+  <text x="165" y="154" font-family="Arial" font-size="4" fill="#EF4444" text-anchor="middle">HIGH: Data leak</text>
+
+  <rect x="152" y="158" width="26" height="6" fill="#F59E0B" opacity="0.4"/>
+  <text x="165" y="162" font-family="Arial" font-size="4" fill="#F59E0B" text-anchor="middle">MED: Access</text>
+
+  <rect x="152" y="166" width="26" height="6" fill="#10B981" opacity="0.4"/>
+  <text x="165" y="170" font-family="Arial" font-size="4" fill="#10B981" text-anchor="middle">LOW: Consent</text>
+
+  <text x="165" y="177" font-family="Arial" font-size="4" fill="#F59E0B" text-anchor="middle">Mitigation plan</text>
+
+  <!-- DPO Badge (center top) -->
+  <rect x="75" y="5" width="50" height="12" rx="2" fill="#8B5CF6" opacity="0.3" stroke="#8B5CF6" stroke-width="1.5"/>
+  <text x="100" y="13" font-family="Arial" font-size="6" fill="#8B5CF6" text-anchor="middle" font-weight="bold">DPO (Data Protection Officer)</text>
+
+  <!-- Breach Response (left side) -->
+  <rect x="10" y="75" width="50" height="40" rx="2" fill="none" stroke="#EF4444" stroke-width="1.5"/>
+  <text x="35" y="84" font-family="Arial" font-size="6" fill="#EF4444" text-anchor="middle" font-weight="bold">BREACH</text>
+  <text x="35" y="90" font-family="Arial" font-size="5" fill="#EF4444" text-anchor="middle">72 Hours</text>
+
+  <rect x="15" y="94" width="40" height="18" rx="1" fill="#1E293B" opacity="0.8"/>
+  <text x="17" y="99" font-family="Arial" font-size="4" fill="#EF4444">1. Detect breach</text>
+  <text x="17" y="104" font-family="Arial" font-size="4" fill="#F59E0B">2. Notify DPA</text>
+  <text x="17" y="109" font-family="Arial" font-size="4" fill="#06B6D4">3. Inform subjects</text>
+
+  <!-- Subject Rights (right side) -->
+  <rect x="140" y="75" width="50" height="40" rx="2" fill="#06B6D4" opacity="0.1" stroke="#06B6D4" stroke-width="1.5"/>
+  <text x="165" y="84" font-family="Arial" font-size="6" fill="#06B6D4" text-anchor="middle" font-weight="bold">RIGHTS</text>
+
+  <text x="143" y="91" font-family="Arial" font-size="4" fill="#06B6D4">✓ Access</text>
+  <text x="143" y="96" font-family="Arial" font-size="4" fill="#06B6D4">✓ Rectification</text>
+  <text x="143" y="101" font-family="Arial" font-size="4" fill="#06B6D4">✓ Erasure</text>
+  <text x="143" y="106" font-family="Arial" font-size="4" fill="#06B6D4">✓ Portability</text>
+  <text x="143" y="111" font-family="Arial" font-size="4" fill="#06B6D4">✓ Objection</text>
+
+  <!-- Fine indicator (bottom) -->
+  <circle cx="100" cy="195" r="8" fill="#EF4444" opacity="0.3"/>
+  <text x="100" y="198" font-family="Arial" font-size="6" fill="#EF4444" text-anchor="middle" font-weight="bold">€20M</text>
+  <text x="100" y="186" font-family="Arial" font-size="4" fill="#EF4444" text-anchor="middle">Max Fine</text>
+
+  <!-- "DATA PROTECTION" text -->
+  <text x="100" y="197" font-family="Arial" font-size="9" fill="#8B5CF6" text-anchor="middle" font-weight="bold">DATA PROTECTION</text>
+</svg>

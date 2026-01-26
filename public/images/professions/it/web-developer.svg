@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Gradient background -->
+  <defs>
+    <linearGradient id="webDevGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00C9FF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#92FE9D;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="95" fill="url(#webDevGrad)" opacity="0.1"/>
+
+  <!-- Browser window -->
+  <rect x="30" y="30" width="140" height="110" rx="6" fill="none" stroke="#00C9FF" stroke-width="3"/>
+
+  <!-- Browser toolbar -->
+  <rect x="30" y="30" width="140" height="18" rx="6" fill="#00C9FF" opacity="0.3"/>
+  <circle cx="42" cy="39" r="3" fill="#00C9FF"/>
+  <circle cx="52" cy="39" r="3" fill="#00C9FF"/>
+  <circle cx="62" cy="39" r="3" fill="#00C9FF"/>
+
+  <!-- HTML tag -->
+  <text x="50" y="75" font-family="Courier" font-size="18" fill="#E34C26" font-weight="bold">&lt;html&gt;</text>
+
+  <!-- CSS symbol -->
+  <rect x="45" y="85" width="25" height="25" rx="3" fill="none" stroke="#264DE4" stroke-width="2"/>
+  <text x="52" y="102" font-family="Arial" font-size="14" fill="#264DE4" font-weight="bold">CSS</text>
+
+  <!-- JS symbol -->
+  <rect x="125" y="85" width="25" height="25" rx="3" fill="#F7DF1E" opacity="0.3" stroke="#F7DF1E" stroke-width="2"/>
+  <text x="130" y="102" font-family="Arial" font-size="14" fill="#F0DB4F" font-weight="bold">JS</text>
+
+  <!-- Code brackets -->
+  <text x="85" y="105" font-family="Courier" font-size="20" fill="#92FE9D" font-weight="bold">{ }</text>
+
+  <!-- Responsive design hint (mobile + desktop) -->
+  <rect x="110" y="60" width="12" height="20" rx="2" fill="none" stroke="#00C9FF" stroke-width="2"/>
+  <rect x="128" y="55" width="25" height="30" rx="2" fill="none" stroke="#00C9FF" stroke-width="2"/>
+
+  <!-- WordPress "W" hint -->
+  <circle cx="45" cy="160" r="18" fill="#21759B" opacity="0.3"/>
+  <text x="45" y="170" font-family="Arial" font-size="24" fill="#21759B" text-anchor="middle" font-weight="bold">W</text>
+
+  <!-- Database symbol -->
+  <ellipse cx="160" cy="160" rx="15" ry="5" fill="none" stroke="#92FE9D" stroke-width="2"/>
+  <line x1="145" y1="160" x2="145" y2="170" stroke="#92FE9D" stroke-width="2"/>
+  <line x1="175" y1="160" x2="175" y2="170" stroke="#92FE9D" stroke-width="2"/>
+  <ellipse cx="160" cy="170" rx="15" ry="5" fill="#92FE9D" opacity="0.3" stroke="#92FE9D" stroke-width="2"/>
+
+  <!-- Globe/Web icon -->
+  <circle cx="100" cy="165" r="15" fill="none" stroke="#00C9FF" stroke-width="2"/>
+  <ellipse cx="100" cy="165" rx="6" ry="15" fill="none" stroke="#00C9FF" stroke-width="2"/>
+  <line x1="85" y1="165" x2="115" y2="165" stroke="#00C9FF" stroke-width="2"/>
+
+  <!-- "WEB" text -->
+  <text x="100" y="195" font-family="Arial" font-size="14" fill="#00C9FF" text-anchor="middle" font-weight="bold">WEB DEV</text>
+</svg>
