@@ -662,124 +662,189 @@ export default function FreeTestFlow({ config }: FreeTestFlowProps) {
               {/* DISC-specific results */}
               {result.discResults && result.discResults.length > 0 ? (
                 <>
-                  {result.discResults.map((discResult, index) => {
-                    const isLowScore = discResult.level === 'Не характерен';
+                  {/* All DISC Types Profile */}
+                  <div className="bg-surface p-6 lg:p-8 rounded-lg border border-border shadow-sm">
+                    <h2 className="text-2xl font-bold text-text-primary mb-6">
+                      Ваш DISC-профиль поведения
+                    </h2>
+                    <p className="text-text-secondary mb-6">
+                      DISC измеряет четыре основных поведенческих стиля. Каждый тип оценивается в процентах. Ваш профиль показывает уникальную комбинацию этих стилей.
+                    </p>
+                    <div className="space-y-4">
+                      {result.discResults.map((discResult, index) => {
+                        const isTop = index === 0;
 
-                    // Get level badge color
-                    const getLevelColor = (level: string) => {
-                      if (level === 'Ярко выражен') return 'bg-green-100 text-green-800 border-green-300';
-                      if (level === 'Средне выражен') return 'bg-blue-100 text-blue-800 border-blue-300';
-                      if (level === 'Слабо выражен') return 'bg-yellow-100 text-yellow-800 border-yellow-300';
-                      return 'bg-gray-100 text-gray-600 border-gray-300';
-                    };
+                        // Determine level based on percentage
+                        let levelText = '';
+                        let levelDescription = '';
+                        let levelColor = '';
+                        let barColor = '';
 
-                    return (
-                    <div key={index} className="bg-surface p-6 lg:p-8 rounded-lg border border-border shadow-sm">
-                      <div className="flex flex-wrap justify-between items-start gap-4 mb-4">
-                        <div className="flex-1 min-w-0">
-                          <h2 className="text-2xl font-bold text-text-primary mb-2">
-                            {discResult.type.title}
-                          </h2>
-                          <span className={`inline-block px-3 py-1 text-sm font-semibold rounded-full border ${getLevelColor(discResult.level)}`}>
-                            {discResult.level}
-                          </span>
-                        </div>
-                        <div className="text-right">
-                          <div className="text-3xl font-bold text-primary">{discResult.percentage}%</div>
-                          <div className="text-sm text-text-secondary">{discResult.score} из {discResult.maxScore} баллов</div>
-                        </div>
-                      </div>
+                        if (discResult.percentage >= 51) {
+                          levelText = 'Ярко выражен';
+                          levelDescription = 'Доминирующий стиль';
+                          levelColor = 'text-green-700';
+                          barColor = 'bg-gradient-to-r from-green-500 to-emerald-500';
+                        } else if (discResult.percentage >= 26) {
+                          levelText = 'Средне выражен';
+                          levelDescription = 'Значимый стиль';
+                          levelColor = 'text-blue-700';
+                          barColor = 'bg-gradient-to-r from-blue-500 to-cyan-500';
+                        } else if (discResult.percentage >= 11) {
+                          levelText = 'Слабо выражен';
+                          levelDescription = 'Умеренно присутствует';
+                          levelColor = 'text-yellow-700';
+                          barColor = 'bg-gradient-to-r from-yellow-500 to-orange-500';
+                        } else {
+                          levelText = 'Не характерен';
+                          levelDescription = 'Не выражен';
+                          levelColor = 'text-gray-600';
+                          barColor = 'bg-gradient-to-r from-gray-400 to-gray-500';
+                        }
 
-                      {/* Progress bar */}
-                      <div className="w-full h-3 bg-border rounded-full overflow-hidden mb-6">
-                        <div
-                          className="h-full bg-gradient-to-r from-primary to-secondary transition-all duration-300"
-                          style={{ width: `${discResult.percentage}%` }}
-                        />
-                      </div>
-
-                      {/* Show simplified content for very low scores */}
-                      {isLowScore ? (
-                        <div className="space-y-4">
-                          <div>
-                            <h3 className="text-lg font-semibold text-text-primary mb-2">Описание</h3>
-                            <p className="text-text-secondary leading-relaxed">
-                              {discResult.type.description}
-                            </p>
-                          </div>
-                          <div className="p-4 bg-gray-50 rounded-lg border border-gray-200">
-                            <p className="text-sm text-gray-600">
-                              Данный стиль поведения не характерен для вас. Это нормально — каждый человек имеет свою уникальную комбинацию поведенческих стилей.
-                            </p>
-                          </div>
-                        </div>
-                      ) : (
-                        <div className="space-y-6">
-                          <div>
-                            <h3 className="text-lg font-semibold text-text-primary mb-2">Описание</h3>
-                            <p className="text-text-secondary leading-relaxed">
-                              {discResult.type.description}
-                            </p>
-                          </div>
-
-                          <div>
-                            <h3 className="text-lg font-semibold text-text-primary mb-3">Характеристики</h3>
-                            <ul className="space-y-2">
-                              {discResult.type.characteristics.map((char, idx) => (
-                                <li key={idx} className="flex items-start gap-2">
-                                  <span className="text-primary mt-1">•</span>
-                                  <span className="text-text-secondary">{char}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-
-                          <div>
-                            <h3 className="text-lg font-semibold text-text-primary mb-3">Сильные стороны</h3>
-                            <ul className="space-y-2">
-                              {discResult.type.strengths.map((strength, idx) => (
-                                <li key={idx} className="flex items-start gap-2">
-                                  <span className="text-secondary mt-1">✓</span>
-                                  <span className="text-text-secondary">{strength}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-
-                          <div>
-                            <h3 className="text-lg font-semibold text-text-primary mb-3">Подходящие профессии</h3>
-                            <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
-                              {discResult.type.professions.map((profession, idx) => (
-                                <div key={idx} className="px-3 py-2 bg-primary/5 rounded-md text-sm text-text-primary">
-                                  {profession}
+                        return (
+                          <div key={discResult.type.title} className={`p-4 rounded-lg border-2 transition-all ${
+                            isTop ? 'bg-primary/5 border-primary' : 'bg-background border-border'
+                          }`}>
+                            <div className="flex justify-between items-start mb-2">
+                              <div className="flex-1">
+                                <h3 className={`text-lg font-semibold ${isTop ? 'text-primary' : 'text-text-primary'}`}>
+                                  {index + 1}. {discResult.type.title}
+                                  {isTop && discResult.percentage >= 51 && (
+                                    <span className="ml-2 text-sm bg-primary text-white px-2 py-1 rounded">
+                                      Доминирующий
+                                    </span>
+                                  )}
+                                </h3>
+                                <div className="mt-1">
+                                  <span className={`text-sm font-semibold ${levelColor}`}>
+                                    {levelText}
+                                  </span>
+                                  <span className="text-xs text-text-secondary ml-2">
+                                    • {levelDescription}
+                                  </span>
                                 </div>
-                              ))}
+                              </div>
+                              <div className="text-right ml-4">
+                                <div className={`text-2xl font-bold ${isTop ? 'text-primary' : 'text-text-primary'}`}>
+                                  {discResult.percentage}%
+                                </div>
+                                <div className="text-sm text-text-secondary">{discResult.score} баллов</div>
+                              </div>
+                            </div>
+
+                            {/* Progress bar */}
+                            <div className="w-full h-3 bg-border rounded-full overflow-hidden mb-3">
+                              <div
+                                className={`h-full transition-all duration-500 ${barColor}`}
+                                style={{ width: `${discResult.percentage}%` }}
+                              />
+                            </div>
+
+                            <p className="text-sm text-text-secondary leading-relaxed">
+                              {discResult.type.description}
+                            </p>
+                          </div>
+                        );
+                      })}
+                    </div>
+
+                    {/* Legend */}
+                    <div className="mt-6 p-4 bg-background rounded-lg border border-border">
+                      <h4 className="text-sm font-semibold text-text-primary mb-3">Интерпретация процентов:</h4>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm">
+                        <div className="flex items-center gap-2">
+                          <div className="w-3 h-3 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full"></div>
+                          <span className="text-text-secondary"><strong>51-100%:</strong> Ярко выражен</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <div className="w-3 h-3 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full"></div>
+                          <span className="text-text-secondary"><strong>26-50%:</strong> Средне выражен</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <div className="w-3 h-3 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full"></div>
+                          <span className="text-text-secondary"><strong>11-25%:</strong> Слабо выражен</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <div className="w-3 h-3 bg-gradient-to-r from-gray-400 to-gray-500 rounded-full"></div>
+                          <span className="text-text-secondary"><strong>0-10%:</strong> Не характерен</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Detailed information for each type */}
+                  {result.discResults
+                    .filter(discResult => discResult.percentage >= 11)
+                    .map((discResult, index) => {
+                      const isTop = index === 0;
+
+                      return (
+                        <div key={discResult.type.title} className={`p-6 lg:p-8 rounded-lg border shadow-sm ${
+                          isTop ? 'bg-gradient-to-br from-primary/5 to-secondary/5 border-primary' : 'bg-surface border-border'
+                        }`}>
+                          <h2 className={`text-2xl font-bold mb-4 ${isTop ? 'text-primary' : 'text-text-primary'}`}>
+                            {discResult.type.title} {isTop && '(Ваш доминирующий стиль)'}
+                          </h2>
+
+                          <div className="space-y-6">
+                            <div>
+                              <h3 className="text-lg font-semibold text-text-primary mb-3">Характеристики</h3>
+                              <ul className="space-y-2">
+                                {discResult.type.characteristics.map((char, idx) => (
+                                  <li key={idx} className="flex items-start gap-2">
+                                    <span className="text-primary mt-1">•</span>
+                                    <span className="text-text-secondary">{char}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+
+                            <div>
+                              <h3 className="text-lg font-semibold text-text-primary mb-3">Сильные стороны</h3>
+                              <ul className="space-y-2">
+                                {discResult.type.strengths.map((strength, idx) => (
+                                  <li key={idx} className="flex items-start gap-2">
+                                    <span className="text-secondary mt-1">✓</span>
+                                    <span className="text-text-secondary">{strength}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+
+                            <div>
+                              <h3 className="text-lg font-semibold text-text-primary mb-3">Подходящие профессии</h3>
+                              <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
+                                {discResult.type.professions.map((profession, idx) => (
+                                  <div key={idx} className="px-3 py-2 bg-white rounded-md text-sm text-text-primary border border-border">
+                                    {profession}
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+
+                            <div>
+                              <h3 className="text-lg font-semibold text-text-primary mb-3">Рекомендации по развитию</h3>
+                              <ul className="space-y-2">
+                                {discResult.type.recommendations.map((rec, idx) => (
+                                  <li key={idx} className="flex items-start gap-2">
+                                    <span className="text-primary mt-1">💡</span>
+                                    <span className="text-text-secondary">{rec}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+
+                            <div className="p-4 bg-primary/5 rounded-lg border border-primary/20">
+                              <h3 className="text-lg font-semibold text-text-primary mb-2">Стиль работы</h3>
+                              <p className="text-text-secondary">
+                                {discResult.type.workStyle}
+                              </p>
                             </div>
                           </div>
-
-                          <div>
-                            <h3 className="text-lg font-semibold text-text-primary mb-3">Рекомендации по развитию</h3>
-                            <ul className="space-y-2">
-                              {discResult.type.recommendations.map((rec, idx) => (
-                                <li key={idx} className="flex items-start gap-2">
-                                  <span className="text-primary mt-1">💡</span>
-                                  <span className="text-text-secondary">{rec}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-
-                          <div className="p-4 bg-primary/5 rounded-lg">
-                            <h3 className="text-lg font-semibold text-text-primary mb-2">Стиль работы</h3>
-                            <p className="text-text-secondary">
-                              {discResult.type.workStyle}
-                            </p>
-                          </div>
                         </div>
-                      )}
-                    </div>
-                    );
-                  })}
+                      );
+                    })}
 
                   {/* General description */}
                   <div className="bg-yellow-50 border-l-4 border-yellow-500 p-6 rounded-lg">
@@ -790,27 +855,116 @@ export default function FreeTestFlow({ config }: FreeTestFlowProps) {
                 </>
               ) : result.klimovResults && result.klimovResults.length > 0 ? (
                 <>
-                  {result.klimovResults.map((klimovResult, index) => (
-                    <div key={index} className="bg-surface p-6 lg:p-8 rounded-lg border border-border shadow-sm">
-                      <h2 className="text-2xl font-bold text-text-primary mb-4">
-                        Профессии типа «{klimovResult.type.title}» – {klimovResult.level} ({klimovResult.score} из {klimovResult.maxScore} баллов)
-                      </h2>
-                      <div className="space-y-4">
-                        <p className="text-text-secondary leading-relaxed">
-                          {klimovResult.type.description}
-                        </p>
+                  {/* All Klimov Types Profile */}
+                  <div className="bg-surface p-6 lg:p-8 rounded-lg border border-border shadow-sm">
+                    <h2 className="text-2xl font-bold text-text-primary mb-6">
+                      Ваш профиль профессиональных склонностей
+                    </h2>
+                    <p className="text-text-secondary mb-6">
+                      Каждый тип оценивается по количеству набранных баллов. Чем выше балл, тем сильнее выражена склонность к данному типу профессий.
+                    </p>
+                    <div className="space-y-4">
+                      {result.klimovResults.map((klimovResult, index) => {
+                        const percentage = Math.round((klimovResult.score / klimovResult.maxScore) * 100);
+                        const isTop = index === 0;
 
-                        {klimovResult.type.courses && (
-                          <div className="mt-4 p-4 bg-primary/5 rounded-lg">
-                            <p className="text-text-primary">
-                              <strong>Можете начать осваивать одну из подходящих вам профессий, пройдя онлайн-курсы:</strong>{' '}
-                              {klimovResult.type.courses}.
+                        // Determine level based on score
+                        let levelText = '';
+                        let levelDescription = '';
+                        let levelColor = '';
+                        let barColor = '';
+
+                        if (klimovResult.score >= 11) {
+                          levelText = 'Ярко выраженная склонность';
+                          levelDescription = 'Доминирующий тип';
+                          levelColor = 'text-green-700';
+                          barColor = 'bg-gradient-to-r from-green-500 to-emerald-500';
+                        } else if (klimovResult.score >= 6) {
+                          levelText = 'Средне выраженная склонность';
+                          levelDescription = 'Значимый тип';
+                          levelColor = 'text-blue-700';
+                          barColor = 'bg-gradient-to-r from-blue-500 to-cyan-500';
+                        } else {
+                          levelText = 'Низкая склонность';
+                          levelDescription = 'Не характерен';
+                          levelColor = 'text-gray-600';
+                          barColor = 'bg-gradient-to-r from-gray-400 to-gray-500';
+                        }
+
+                        return (
+                          <div key={klimovResult.type.title} className={`p-4 rounded-lg border-2 transition-all ${
+                            isTop ? 'bg-primary/5 border-primary' : 'bg-background border-border'
+                          }`}>
+                            <div className="flex justify-between items-start mb-2">
+                              <div className="flex-1">
+                                <h3 className={`text-lg font-semibold ${isTop ? 'text-primary' : 'text-text-primary'}`}>
+                                  {index + 1}. {klimovResult.type.title}
+                                  {isTop && klimovResult.score >= 11 && (
+                                    <span className="ml-2 text-sm bg-primary text-white px-2 py-1 rounded">
+                                      Доминирующий
+                                    </span>
+                                  )}
+                                </h3>
+                                <div className="mt-1">
+                                  <span className={`text-sm font-semibold ${levelColor}`}>
+                                    {levelText}
+                                  </span>
+                                  <span className="text-xs text-text-secondary ml-2">
+                                    • {levelDescription}
+                                  </span>
+                                </div>
+                              </div>
+                              <div className="text-right ml-4">
+                                <div className={`text-2xl font-bold ${isTop ? 'text-primary' : 'text-text-primary'}`}>
+                                  {klimovResult.score}
+                                </div>
+                                <div className="text-sm text-text-secondary">из {klimovResult.maxScore}</div>
+                              </div>
+                            </div>
+
+                            {/* Progress bar */}
+                            <div className="w-full h-3 bg-border rounded-full overflow-hidden mb-3">
+                              <div
+                                className={`h-full transition-all duration-500 ${barColor}`}
+                                style={{ width: `${percentage}%` }}
+                              />
+                            </div>
+
+                            <p className="text-sm text-text-secondary leading-relaxed">
+                              {klimovResult.type.description}
                             </p>
+
+                            {klimovResult.type.courses && klimovResult.score >= 6 && (
+                              <div className="mt-3 p-3 bg-primary/5 rounded-lg border border-primary/20">
+                                <p className="text-sm text-text-primary">
+                                  <strong>💡 Рекомендуем:</strong> {klimovResult.type.courses}
+                                </p>
+                              </div>
+                            )}
                           </div>
-                        )}
+                        );
+                      })}
+                    </div>
+
+                    {/* Legend */}
+                    <div className="mt-6 p-4 bg-background rounded-lg border border-border">
+                      <h4 className="text-sm font-semibold text-text-primary mb-3">Интерпретация баллов:</h4>
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-2 text-sm">
+                        <div className="flex items-center gap-2">
+                          <div className="w-3 h-3 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full"></div>
+                          <span className="text-text-secondary"><strong>11-16:</strong> Ярко выраженная склонность</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <div className="w-3 h-3 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full"></div>
+                          <span className="text-text-secondary"><strong>6-10:</strong> Средне выраженная склонность</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <div className="w-3 h-3 bg-gradient-to-r from-gray-400 to-gray-500 rounded-full"></div>
+                          <span className="text-text-secondary"><strong>0-5:</strong> Низкая склонность</span>
+                        </div>
                       </div>
                     </div>
-                  ))}
+                  </div>
 
                   {/* General description */}
                   <div className="bg-yellow-50 border-l-4 border-yellow-500 p-6 rounded-lg">

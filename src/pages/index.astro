@@ -54,7 +54,7 @@ const jsonLd = [
 
 <BaseLayout
   title="Тест на профориентацию онлайн за 15 минут"
-  description="Получите детальный PDF-отчёт с топ-20 профессий под ваш профиль и план действий. Научные методики + анализ ИИ. Для взрослых и подростков."
+  description="Пройдите научный тест на профориентацию за 15 минут и получите персональный PDF-отчёт с ТОП-20 подходящих профессий, детальным анализом личности и планом развития карьеры. Научные методики RIASEC + искусственный интеллект. Для школьников, студентов и взрослых."
   keywords="тест на профориентацию, профориентация онлайн, выбор профессии, тест на профессию, карьерная ориентация, профориентация для подростков, профориентация для взрослых, смена профессии, профориентационный тест, подбор профессии, RIASEC, тест Холланда"
   jsonLd={jsonLd}
 >
@@ -102,6 +102,22 @@ const jsonLd = [
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEO Priority Content Section -->
+    <section class="py-12 lg:py-16 bg-gradient-to-b from-background to-surface">
+      <div class="container-custom">
+        <div class="max-w-4xl mx-auto text-center">
+          <p class="text-lg lg:text-xl text-text-primary leading-relaxed mb-4" itemprop="description">
+            <strong>ProfReport</strong> — онлайн-платформа для профессиональной ориентации на основе научных методик RIASEC и типологии Климова.
+            Пройдите тест за 15 минут и получите персональный PDF-отчёт с анализом вашей личности, списком из 20 наиболее подходящих профессий и конкретным планом развития карьеры.
+          </p>
+          <p class="text-base lg:text-lg text-text-secondary leading-relaxed">
+            Наш тест помогает подросткам выбрать будущую профессию и образовательный путь, а взрослым — найти новое призвание и сменить карьеру.
+            Искусственный интеллект анализирует ваши интересы, ценности и личностные качества для максимально точных рекомендаций.
+          </p>
         </div>
       </div>
     </section>
@@ -189,99 +205,6 @@ const jsonLd = [
                 Для смены текущей профессиональной деятельности и поиска нового призвания
               </p>
             </div>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Free Tests Section -->
-    <section class="py-16 lg:py-24 bg-gradient-to-b from-background to-surface relative overflow-hidden">
-      <!-- Decorative elements -->
-      <div class="absolute top-1/2 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-x-1/2"></div>
-      <div class="absolute top-1/2 right-0 w-96 h-96 bg-secondary/5 rounded-full blur-3xl translate-x-1/2"></div>
-
-      <div class="container-custom relative z-10">
-        <div class="text-center mb-12">
-          <div class="inline-flex items-center gap-2 bg-green-100 text-green-800 px-4 py-2 rounded-full font-semibold mb-4">
-            <span class="text-xl">🎁</span>
-            <span>БЕСПЛАТНО</span>
-          </div>
-          <h2 class="text-3xl lg:text-5xl font-bold text-text-primary mb-6">
-            Попробуйте бесплатные тесты
-          </h2>
-          <p class="text-lg lg:text-xl text-text-secondary max-w-3xl mx-auto">
-            Короткие тесты с мгновенными результатами, которые помогут вам лучше понять себя
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-12">
-          <!-- Test 1 -->
-          <div class="bg-surface rounded-xl border-2 border-border hover:border-purple-500 hover:shadow-lg transition-all p-6">
-            <div class="text-4xl mb-4 text-center">🧠</div>
-            <h3 class="text-xl font-bold text-text-primary mb-2 text-center">
-              Тест MBTI
-            </h3>
-            <p class="text-text-secondary text-sm mb-4 text-center">
-              Узнайте свой тип личности из 16 возможных
-            </p>
-            <div class="text-center">
-              <span class="inline-flex items-center gap-1 text-sm text-text-secondary bg-purple-50 px-3 py-1 rounded-full">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                </svg>
-                5-7 минут
-              </span>
-            </div>
-          </div>
-
-          <!-- Test 2 -->
-          <div class="bg-surface rounded-xl border-2 border-border hover:border-blue-500 hover:shadow-lg transition-all p-6">
-            <div class="text-4xl mb-4 text-center">🎯</div>
-            <h3 class="text-xl font-bold text-text-primary mb-2 text-center">
-              Тест Климова
-            </h3>
-            <p class="text-text-secondary text-sm mb-4 text-center">
-              Определите тип профессий по объекту труда
-            </p>
-            <div class="text-center">
-              <span class="inline-flex items-center gap-1 text-sm text-text-secondary bg-blue-50 px-3 py-1 rounded-full">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                </svg>
-                3-5 минут
-              </span>
-            </div>
-          </div>
-
-          <!-- Test 3 -->
-          <div class="bg-surface rounded-xl border-2 border-border hover:border-green-500 hover:shadow-lg transition-all p-6">
-            <div class="text-4xl mb-4 text-center">💼</div>
-            <h3 class="text-xl font-bold text-text-primary mb-2 text-center">
-              DISC профиль
-            </h3>
-            <p class="text-text-secondary text-sm mb-4 text-center">
-              Узнайте свой стиль работы и общения
-            </p>
-            <div class="text-center">
-              <span class="inline-flex items-center gap-1 text-sm text-text-secondary bg-green-50 px-3 py-1 rounded-full">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                </svg>
-                2-3 минуты
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <div class="text-center">
-          <a
-            href="/free-tests"
-            class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-primary to-secondary text-white font-semibold rounded-lg hover:opacity-90 transition-all hover:shadow-lg hover:-translate-y-0.5 text-lg"
-          >
-            Все бесплатные тесты
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-            </svg>
           </a>
         </div>
       </div>
