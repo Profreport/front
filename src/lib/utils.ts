@@ -173,6 +173,26 @@ export function generateProductSchema(productName: string, price: string, siteUr
 }
 
 /**
+ * Generate ItemList Schema for list of items
+ */
+export function generateItemListSchema(items: Array<{ name: string; description: string; url: string }>) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    itemListElement: items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      item: {
+        '@type': 'Thing',
+        name: item.name,
+        description: item.description,
+        url: item.url,
+      },
+    })),
+  };
+}
+
+/**
  * Honeypot validation helper
  */
 export function isHoneypotFilled(value: string | undefined): boolean {

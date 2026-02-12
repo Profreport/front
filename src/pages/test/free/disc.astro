@@ -1,0 +1,627 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import FreeTestFlow from '@/components/islands/FreeTestFlow';
+import { generateBreadcrumbSchema } from '@/lib/utils';
+
+const breadcrumbs = [
+  { name: 'Главная', url: '/' },
+  { name: 'Бесплатные тесты', url: '/free-tests' },
+  { name: 'Тест DISC', url: '/test/free/disc' },
+];
+
+// DISC Test Configuration - Classic Format (Most/Least)
+const testConfig = {
+  testId: 'disc',
+  title: 'DISC: Стиль поведения',
+  subtitle: 'Определите свой поведенческий профиль',
+  sectionsAdult: [
+    {
+      id: 'disc_section',
+      title: 'Определение поведенческого стиля',
+      subtitle: 'В каждом вопросе выберите НАИБОЛЕЕ и НАИМЕНЕЕ подходящее утверждение',
+      questions: [
+        {
+          id: 'q1',
+          question: 'На работе я обычно',
+          type: 'most_least' as const,
+          dimension: 'DISC',
+          options: [
+            { label: 'Работаю методично и последовательно', value: 'S', dimension: 'S' },
+            { label: 'Быстро принимаю решения и двигаюсь дальше', value: 'D', dimension: 'D' },
+            { label: 'Тщательно проверяю все детали', value: 'C', dimension: 'C' },
+            { label: 'Убеждаю других в своих идеях с энтузиазмом', value: 'I', dimension: 'I' },
+          ],
+        },
+        {
+          id: 'q2',
+          question: 'Коллеги описывают меня как человека',
+          type: 'most_least' as const,
+          dimension: 'DISC',
+          options: [
+            { label: 'Общительного и оптимистичного', value: 'I', dimension: 'I' },
+            { label: 'Точного и аналитичного', value: 'C', dimension: 'C' },
+            { label: 'Решительного и целеустремленного', value: 'D', dimension: 'D' },
+            { label: 'Терпеливого и надежного', value: 'S', dimension: 'S' },
+          ],
+        },
+        {
+          id: 'q3',
+          question: 'В конфликтных ситуациях я склонен',
+          type: 'most_least' as const,
+          dimension: 'DISC',
+          options: [
+            { label: 'Использовать факты и логику', value: 'C', dimension: 'C' },
+            { label: 'Избегать конфронтации и искать компромисс', value: 'S', dimension: 'S' },
+            { label: 'Убеждать и находить общий язык', value: 'I', dimension: 'I' },
+            { label: 'Прямо высказывать свою позицию', value: 'D', dimension: 'D' },
+          ],
+        },
+        {
+          id: 'q4',
+          question: 'Мой стиль работы можно описать как',
+          type: 'most_least' as const,
+          dimension: 'DISC',
+          options: [
+            { label: 'Ориентированный на результаты', value: 'D', dimension: 'D' },
+            { label: 'Стабильный и предсказуемый', value: 'S', dimension: 'S' },
+            { label: 'Организованный и систематичный', value: 'C', dimension: 'C' },
+            { label: 'Творческий и спонтанный', value: 'I', dimension: 'I' },
+          ],
+        },
+        {
+          id: 'q5',
+          question: 'При работе над проектом я',
+          type: 'most_least' as const,
+          dimension: 'DISC',
+          options: [
+            { label: 'Вдохновляю команду и генерирую идеи', value: 'I', dimension: 'I' },
+            { label: 'Планирую детали и контролирую качество', value: 'C', dimension: 'C' },
+            { label: 'Поддерживаю других и обеспечиваю стабильность', value: 'S', dimension: 'S' },
+            { label: 'Беру на себя лидерство и направляю процесс', value: 'D', dimension: 'D' },
+          ],
+        },
+        {
+          id: 'q6',
+          question: 'Я чувствую себя комфортно, когда',
+          type: 'most_least' as const,
+          dimension: 'DISC',
+          options: [
+            { label: 'Все четко структурировано', value: 'C', dimension: 'C' },
+            { label: 'Атмосфера спокойная и предсказуемая', value: 'S', dimension: 'S' },
+            { label: 'Могу контролировать ситуацию', value: 'D', dimension: 'D' },
+            { label: 'Нахожусь в центре внимания', value: 'I', dimension: 'I' },
+          ],
+        },
+        {
+          id: 'q7',
+          question: 'Мой подход к новым задачам',
+          type: 'most_least' as const,
+          dimension: 'DISC',
+          options: [
+            { label: 'Изучаю опыт и действую постепенно', value: 'S', dimension: 'S' },
+            { label: 'Обсуждаю с другими и генерирую энтузиазм', value: 'I', dimension: 'I' },
+            { label: 'Действую быстро и решительно', value: 'D', dimension: 'D' },
+            { label: 'Анализирую риски и составляю план', value: 'C', dimension: 'C' },
+          ],
+        },
+        {
+          id: 'q8',
+          question: 'При общении я предпочитаю',
+          type: 'most_least' as const,
+          dimension: 'DISC',
+          options: [
+            { label: 'Живое и эмоциональное общение', value: 'I', dimension: 'I' },
+            { label: 'Краткость и конкретику', value: 'D', dimension: 'D' },
+            { label: 'Точность и использование фактов', value: 'C', dimension: 'C' },
+            { label: 'Дружелюбный и терпеливый подход', value: 'S', dimension: 'S' },
+          ],
+        },
+        {
+          id: 'q9',
+          question: 'Моя сильная сторона в команде',
+          type: 'most_least' as const,
+          dimension: 'DISC',
+          options: [
+            { label: 'Внимание к деталям и качеству', value: 'C', dimension: 'C' },
+            { label: 'Умение мотивировать и вдохновлять', value: 'I', dimension: 'I' },
+            { label: 'Создание гармонии и поддержка', value: 'S', dimension: 'S' },
+            { label: 'Способность принимать трудные решения', value: 'D', dimension: 'D' },
+          ],
+        },
+        {
+          id: 'q10',
+          question: 'Под давлением я становлюсь',
+          type: 'most_least' as const,
+          dimension: 'DISC',
+          options: [
+            { label: 'Более напористым и прямолинейным', value: 'D', dimension: 'D' },
+            { label: 'Более осторожным и уступчивым', value: 'S', dimension: 'S' },
+            { label: 'Более импульсивным и разговорчивым', value: 'I', dimension: 'I' },
+            { label: 'Более критичным и замкнутым', value: 'C', dimension: 'C' },
+          ],
+        },
+        {
+          id: 'q11',
+          question: 'Я мотивирован',
+          type: 'most_least' as const,
+          dimension: 'DISC',
+          options: [
+            { label: 'Стабильностью и безопасностью', value: 'S', dimension: 'S' },
+            { label: 'Достижением целей и победами', value: 'D', dimension: 'D' },
+            { label: 'Признанием и одобрением', value: 'I', dimension: 'I' },
+            { label: 'Точностью и качеством работы', value: 'C', dimension: 'C' },
+          ],
+        },
+        {
+          id: 'q12',
+          question: 'Мой темп работы обычно',
+          type: 'most_least' as const,
+          dimension: 'DISC',
+          options: [
+            { label: 'Методичный и осторожный', value: 'C', dimension: 'C' },
+            { label: 'Энергичный и переменный', value: 'I', dimension: 'I' },
+            { label: 'Размеренный и постоянный', value: 'S', dimension: 'S' },
+            { label: 'Быстрый и динамичный', value: 'D', dimension: 'D' },
+          ],
+        },
+        {
+          id: 'q13',
+          question: 'При принятии решений я',
+          type: 'most_least' as const,
+          dimension: 'DISC',
+          options: [
+            { label: 'Полагаюсь на интуицию и действую', value: 'D', dimension: 'D' },
+            { label: 'Собираю данные и анализирую', value: 'C', dimension: 'C' },
+            { label: 'Советуюсь с другими и доверяю чувствам', value: 'I', dimension: 'I' },
+            { label: 'Ищу проверенные варианты', value: 'S', dimension: 'S' },
+          ],
+        },
+        {
+          id: 'q14',
+          question: 'В командной работе я склонен',
+          type: 'most_least' as const,
+          dimension: 'DISC',
+          options: [
+            { label: 'Слушать и помогать другим', value: 'S', dimension: 'S' },
+            { label: 'Брать инициативу и руководить', value: 'D', dimension: 'D' },
+            { label: 'Следить за процессом и качеством', value: 'C', dimension: 'C' },
+            { label: 'Вовлекать всех и создавать энтузиазм', value: 'I', dimension: 'I' },
+          ],
+        },
+        {
+          id: 'q15',
+          question: 'Мой стиль лидерства',
+          type: 'most_least' as const,
+          dimension: 'DISC',
+          options: [
+            { label: 'Вдохновляющий и харизматичный', value: 'I', dimension: 'I' },
+            { label: 'Методичный и справедливый', value: 'C', dimension: 'C' },
+            { label: 'Директивный и требовательный', value: 'D', dimension: 'D' },
+            { label: 'Поддерживающий и терпеливый', value: 'S', dimension: 'S' },
+          ],
+        },
+        {
+          id: 'q16',
+          question: 'Я предпочитаю рабочую среду',
+          type: 'most_least' as const,
+          dimension: 'DISC',
+          options: [
+            { label: 'Спокойную и предсказуемую', value: 'S', dimension: 'S' },
+            { label: 'Структурированную и организованную', value: 'C', dimension: 'C' },
+            { label: 'Социальную и неформальную', value: 'I', dimension: 'I' },
+            { label: 'Динамичную с возможностью контроля', value: 'D', dimension: 'D' },
+          ],
+        },
+        {
+          id: 'q17',
+          question: 'При обратной связи я',
+          type: 'most_least' as const,
+          dimension: 'DISC',
+          options: [
+            { label: 'Говорю прямо и откровенно', value: 'D', dimension: 'D' },
+            { label: 'Осторожен, чтобы не обидеть', value: 'S', dimension: 'S' },
+            { label: 'Подчеркиваю позитивное и вдохновляю', value: 'I', dimension: 'I' },
+            { label: 'Даю конкретную и детальную критику', value: 'C', dimension: 'C' },
+          ],
+        },
+        {
+          id: 'q18',
+          question: 'Мои приоритеты на работе',
+          type: 'most_least' as const,
+          dimension: 'DISC',
+          options: [
+            { label: 'Точность и соответствие стандартам', value: 'C', dimension: 'C' },
+            { label: 'Достижение результатов и побед', value: 'D', dimension: 'D' },
+            { label: 'Гармония в команде и помощь другим', value: 'S', dimension: 'S' },
+            { label: 'Построение отношений и влияние', value: 'I', dimension: 'I' },
+          ],
+        },
+        {
+          id: 'q19',
+          question: 'При делегировании задач я',
+          type: 'most_least' as const,
+          dimension: 'DISC',
+          options: [
+            { label: 'Вдохновляю и предоставляю свободу', value: 'I', dimension: 'I' },
+            { label: 'Даю четкие указания и жду результата', value: 'D', dimension: 'D' },
+            { label: 'Даю детальные инструкции', value: 'C', dimension: 'C' },
+            { label: 'Предлагаю помощь и поддержку', value: 'S', dimension: 'S' },
+          ],
+        },
+        {
+          id: 'q20',
+          question: 'В стрессовых ситуациях я',
+          type: 'most_least' as const,
+          dimension: 'DISC',
+          options: [
+            { label: 'Становлюсь более осторожным', value: 'S', dimension: 'S' },
+            { label: 'Остаюсь позитивным и ищу поддержки', value: 'I', dimension: 'I' },
+            { label: 'Ухожу в себя и анализирую', value: 'C', dimension: 'C' },
+            { label: 'Беру ситуацию под контроль', value: 'D', dimension: 'D' },
+          ],
+        },
+        {
+          id: 'q21',
+          question: 'Мой подход к изменениям',
+          type: 'most_least' as const,
+          dimension: 'DISC',
+          options: [
+            { label: 'Требую обоснования и плана', value: 'C', dimension: 'C' },
+            { label: 'Инициирую и внедряю быстро', value: 'D', dimension: 'D' },
+            { label: 'Принимаю с энтузиазмом, если это интересно', value: 'I', dimension: 'I' },
+            { label: 'Предпочитаю постепенность и стабильность', value: 'S', dimension: 'S' },
+          ],
+        },
+        {
+          id: 'q22',
+          question: 'В презентациях и выступлениях я',
+          type: 'most_least' as const,
+          dimension: 'DISC',
+          options: [
+            { label: 'Использую истории и эмоции', value: 'I', dimension: 'I' },
+            { label: 'Опираюсь на факты и данные', value: 'C', dimension: 'C' },
+            { label: 'Четко излагаю суть и призываю к действию', value: 'D', dimension: 'D' },
+            { label: 'Предпочитаю избегать выступлений', value: 'S', dimension: 'S' },
+          ],
+        },
+        {
+          id: 'q23',
+          question: 'Мое отношение к правилам',
+          type: 'most_least' as const,
+          dimension: 'DISC',
+          options: [
+            { label: 'Строго придерживаюсь их', value: 'C', dimension: 'C' },
+            { label: 'Следую им для стабильности', value: 'S', dimension: 'S' },
+            { label: 'Могу их игнорировать ради результата', value: 'D', dimension: 'D' },
+            { label: 'Обхожу их творчески, если нужно', value: 'I', dimension: 'I' },
+          ],
+        },
+        {
+          id: 'q24',
+          question: 'Мой стиль решения проблем',
+          type: 'most_least' as const,
+          dimension: 'DISC',
+          options: [
+            { label: 'Систематический и логичный', value: 'C', dimension: 'C' },
+            { label: 'Прямой и быстрый', value: 'D', dimension: 'D' },
+            { label: 'Осторожный и взвешенный', value: 'S', dimension: 'S' },
+            { label: 'Коллективный и креативный', value: 'I', dimension: 'I' },
+          ],
+        },
+      ],
+    },
+  ],
+  sectionsTeen: [
+    {
+      id: 'disc_section',
+      title: 'Определение поведенческого стиля',
+      subtitle: 'В каждом вопросе выберите НАИБОЛЕЕ и НАИМЕНЕЕ подходящее утверждение',
+      questions: [
+        {
+          id: 'q1',
+          question: 'В школе я обычно',
+          type: 'most_least' as const,
+          dimension: 'DISC',
+          options: [
+            { label: 'Быстро принимаю решения и действую', value: 'D', dimension: 'D' },
+            { label: 'Убеждаю других в своих идеях с энтузиазмом', value: 'I', dimension: 'I' },
+            { label: 'Делаю задания методично и последовательно', value: 'S', dimension: 'S' },
+            { label: 'Тщательно проверяю все детали', value: 'C', dimension: 'C' },
+          ],
+        },
+        {
+          id: 'q2',
+          question: 'Друзья описывают меня как',
+          type: 'most_least' as const,
+          dimension: 'DISC',
+          options: [
+            { label: 'Терпеливого и надежного', value: 'S', dimension: 'S' },
+            { label: 'Решительного и целеустремленного', value: 'D', dimension: 'D' },
+            { label: 'Общительного и оптимистичного', value: 'I', dimension: 'I' },
+            { label: 'Точного и внимательного к деталям', value: 'C', dimension: 'C' },
+          ],
+        },
+        {
+          id: 'q3',
+          question: 'В конфликтах с друзьями я склонен',
+          type: 'most_least' as const,
+          dimension: 'DISC',
+          options: [
+            { label: 'Прямо высказывать свою позицию', value: 'D', dimension: 'D' },
+            { label: 'Избегать конфронтации и искать компромисс', value: 'S', dimension: 'S' },
+            { label: 'Использовать факты и логику', value: 'C', dimension: 'C' },
+            { label: 'Убеждать и находить общий язык', value: 'I', dimension: 'I' },
+          ],
+        },
+        {
+          id: 'q4',
+          question: 'Мой стиль учебы можно описать как',
+          type: 'most_least' as const,
+          dimension: 'DISC',
+          options: [
+            { label: 'Творческий и спонтанный', value: 'I', dimension: 'I' },
+            { label: 'Ориентированный на результаты', value: 'D', dimension: 'D' },
+            { label: 'Организованный и систематичный', value: 'C', dimension: 'C' },
+            { label: 'Стабильный и предсказуемый', value: 'S', dimension: 'S' },
+          ],
+        },
+        {
+          id: 'q5',
+          question: 'При выполнении группового задания я',
+          type: 'most_least' as const,
+          dimension: 'DISC',
+          options: [
+            { label: 'Поддерживаю других и обеспечиваю стабильность', value: 'S', dimension: 'S' },
+            { label: 'Беру на себя лидерство и направляю процесс', value: 'D', dimension: 'D' },
+            { label: 'Вдохновляю команду и генерирую идеи', value: 'I', dimension: 'I' },
+            { label: 'Планирую детали и контролирую качество', value: 'C', dimension: 'C' },
+          ],
+        },
+        {
+          id: 'q6',
+          question: 'Я чувствую себя комфортно, когда',
+          type: 'most_least' as const,
+          dimension: 'DISC',
+          options: [
+            { label: 'Могу контролировать ситуацию', value: 'D', dimension: 'D' },
+            { label: 'Нахожусь в центре внимания', value: 'I', dimension: 'I' },
+            { label: 'Все четко структурировано', value: 'C', dimension: 'C' },
+            { label: 'Атмосфера спокойная и предсказуемая', value: 'S', dimension: 'S' },
+          ],
+        },
+        {
+          id: 'q7',
+          question: 'Мой подход к новым заданиям',
+          type: 'most_least' as const,
+          dimension: 'DISC',
+          options: [
+            { label: 'Анализирую риски и составляю план', value: 'C', dimension: 'C' },
+            { label: 'Изучаю опыт и действую постепенно', value: 'S', dimension: 'S' },
+            { label: 'Действую быстро и решительно', value: 'D', dimension: 'D' },
+            { label: 'Обсуждаю с другими и генерирую энтузиазм', value: 'I', dimension: 'I' },
+          ],
+        },
+        {
+          id: 'q8',
+          question: 'При общении я предпочитаю',
+          type: 'most_least' as const,
+          dimension: 'DISC',
+          options: [
+            { label: 'Дружелюбный и терпеливый подход', value: 'S', dimension: 'S' },
+            { label: 'Живое и эмоциональное общение', value: 'I', dimension: 'I' },
+            { label: 'Краткость и конкретику', value: 'D', dimension: 'D' },
+            { label: 'Точность и использование фактов', value: 'C', dimension: 'C' },
+          ],
+        },
+        {
+          id: 'q9',
+          question: 'Моя сильная сторона в команде',
+          type: 'most_least' as const,
+          dimension: 'DISC',
+          options: [
+            { label: 'Способность принимать трудные решения', value: 'D', dimension: 'D' },
+            { label: 'Внимание к деталям и качеству', value: 'C', dimension: 'C' },
+            { label: 'Создание гармонии и поддержка', value: 'S', dimension: 'S' },
+            { label: 'Умение мотивировать и вдохновлять', value: 'I', dimension: 'I' },
+          ],
+        },
+        {
+          id: 'q10',
+          question: 'Под давлением я становлюсь',
+          type: 'most_least' as const,
+          dimension: 'DISC',
+          options: [
+            { label: 'Более импульсивным и разговорчивым', value: 'I', dimension: 'I' },
+            { label: 'Более критичным и замкнутым', value: 'C', dimension: 'C' },
+            { label: 'Более напористым и прямолинейным', value: 'D', dimension: 'D' },
+            { label: 'Более осторожным и уступчивым', value: 'S', dimension: 'S' },
+          ],
+        },
+        {
+          id: 'q11',
+          question: 'Меня мотивирует',
+          type: 'most_least' as const,
+          dimension: 'DISC',
+          options: [
+            { label: 'Точность и качество работы', value: 'C', dimension: 'C' },
+            { label: 'Стабильность и безопасность', value: 'S', dimension: 'S' },
+            { label: 'Признание и одобрение', value: 'I', dimension: 'I' },
+            { label: 'Достижение целей и победы', value: 'D', dimension: 'D' },
+          ],
+        },
+        {
+          id: 'q12',
+          question: 'Мой темп выполнения заданий обычно',
+          type: 'most_least' as const,
+          dimension: 'DISC',
+          options: [
+            { label: 'Размеренный и постоянный', value: 'S', dimension: 'S' },
+            { label: 'Быстрый и динамичный', value: 'D', dimension: 'D' },
+            { label: 'Методичный и осторожный', value: 'C', dimension: 'C' },
+            { label: 'Энергичный и переменный', value: 'I', dimension: 'I' },
+          ],
+        },
+        {
+          id: 'q13',
+          question: 'Принимая решения, я',
+          type: 'most_least' as const,
+          dimension: 'DISC',
+          options: [
+            { label: 'Советуюсь с другими и доверяю чувствам', value: 'I', dimension: 'I' },
+            { label: 'Ищу проверенные варианты', value: 'S', dimension: 'S' },
+            { label: 'Полагаюсь на интуицию и действую', value: 'D', dimension: 'D' },
+            { label: 'Собираю информацию и анализирую', value: 'C', dimension: 'C' },
+          ],
+        },
+        {
+          id: 'q14',
+          question: 'В командной работе я склонен',
+          type: 'most_least' as const,
+          dimension: 'DISC',
+          options: [
+            { label: 'Вовлекать всех и создавать энтузиазм', value: 'I', dimension: 'I' },
+            { label: 'Слушать и помогать другим', value: 'S', dimension: 'S' },
+            { label: 'Следить за процессом и качеством', value: 'C', dimension: 'C' },
+            { label: 'Брать инициативу и руководить', value: 'D', dimension: 'D' },
+          ],
+        },
+        {
+          id: 'q15',
+          question: 'Когда я лидер в команде, я',
+          type: 'most_least' as const,
+          dimension: 'DISC',
+          options: [
+            { label: 'Поддерживаю и терпелив', value: 'S', dimension: 'S' },
+            { label: 'Директивен и требователен', value: 'D', dimension: 'D' },
+            { label: 'Вдохновляю и харизматичен', value: 'I', dimension: 'I' },
+            { label: 'Методичен и справедлив', value: 'C', dimension: 'C' },
+          ],
+        },
+        {
+          id: 'q16',
+          question: 'Я предпочитаю обстановку',
+          type: 'most_least' as const,
+          dimension: 'DISC',
+          options: [
+            { label: 'Динамичную с возможностью контроля', value: 'D', dimension: 'D' },
+            { label: 'Социальную и неформальную', value: 'I', dimension: 'I' },
+            { label: 'Спокойную и предсказуемую', value: 'S', dimension: 'S' },
+            { label: 'Структурированную и организованную', value: 'C', dimension: 'C' },
+          ],
+        },
+        {
+          id: 'q17',
+          question: 'Давая обратную связь, я',
+          type: 'most_least' as const,
+          dimension: 'DISC',
+          options: [
+            { label: 'Даю конкретную и детальную критику', value: 'C', dimension: 'C' },
+            { label: 'Говорю прямо и откровенно', value: 'D', dimension: 'D' },
+            { label: 'Подчеркиваю позитивное и вдохновляю', value: 'I', dimension: 'I' },
+            { label: 'Осторожен, чтобы не обидеть', value: 'S', dimension: 'S' },
+          ],
+        },
+        {
+          id: 'q18',
+          question: 'Мои приоритеты в учебе',
+          type: 'most_least' as const,
+          dimension: 'DISC',
+          options: [
+            { label: 'Построение отношений и влияние', value: 'I', dimension: 'I' },
+            { label: 'Точность и соответствие стандартам', value: 'C', dimension: 'C' },
+            { label: 'Гармония в группе и помощь другим', value: 'S', dimension: 'S' },
+            { label: 'Достижение результатов и успехов', value: 'D', dimension: 'D' },
+          ],
+        },
+        {
+          id: 'q19',
+          question: 'Распределяя обязанности в группе, я',
+          type: 'most_least' as const,
+          dimension: 'DISC',
+          options: [
+            { label: 'Предлагаю помощь и поддержку', value: 'S', dimension: 'S' },
+            { label: 'Вдохновляю и предоставляю свободу', value: 'I', dimension: 'I' },
+            { label: 'Даю четкие указания и жду результата', value: 'D', dimension: 'D' },
+            { label: 'Даю детальные инструкции', value: 'C', dimension: 'C' },
+          ],
+        },
+        {
+          id: 'q20',
+          question: 'В стрессовых ситуациях я',
+          type: 'most_least' as const,
+          dimension: 'DISC',
+          options: [
+            { label: 'Ухожу в себя и анализирую', value: 'C', dimension: 'C' },
+            { label: 'Беру ситуацию под контроль', value: 'D', dimension: 'D' },
+            { label: 'Становлюсь более осторожным', value: 'S', dimension: 'S' },
+            { label: 'Остаюсь позитивным и ищу поддержки', value: 'I', dimension: 'I' },
+          ],
+        },
+        {
+          id: 'q21',
+          question: 'Мое отношение к переменам',
+          type: 'most_least' as const,
+          dimension: 'DISC',
+          options: [
+            { label: 'Принимаю с энтузиазмом, если это интересно', value: 'I', dimension: 'I' },
+            { label: 'Предпочитаю постепенность и стабильность', value: 'S', dimension: 'S' },
+            { label: 'Требую обоснования и плана', value: 'C', dimension: 'C' },
+            { label: 'Инициирую и внедряю быстро', value: 'D', dimension: 'D' },
+          ],
+        },
+        {
+          id: 'q22',
+          question: 'В презентациях и выступлениях я',
+          type: 'most_least' as const,
+          dimension: 'DISC',
+          options: [
+            { label: 'Предпочитаю избегать выступлений', value: 'S', dimension: 'S' },
+            { label: 'Использую истории и эмоции', value: 'I', dimension: 'I' },
+            { label: 'Четко излагаю суть и призываю к действию', value: 'D', dimension: 'D' },
+            { label: 'Опираюсь на факты и данные', value: 'C', dimension: 'C' },
+          ],
+        },
+        {
+          id: 'q23',
+          question: 'Мое отношение к правилам',
+          type: 'most_least' as const,
+          dimension: 'DISC',
+          options: [
+            { label: 'Обхожу их творчески, если нужно', value: 'I', dimension: 'I' },
+            { label: 'Строго придерживаюсь их', value: 'C', dimension: 'C' },
+            { label: 'Могу их игнорировать ради результата', value: 'D', dimension: 'D' },
+            { label: 'Следую им для стабильности', value: 'S', dimension: 'S' },
+          ],
+        },
+        {
+          id: 'q24',
+          question: 'Мой стиль решения проблем',
+          type: 'most_least' as const,
+          dimension: 'DISC',
+          options: [
+            { label: 'Осторожный и взвешенный', value: 'S', dimension: 'S' },
+            { label: 'Коллективный и креативный', value: 'I', dimension: 'I' },
+            { label: 'Систематический и логичный', value: 'C', dimension: 'C' },
+            { label: 'Прямой и быстрый', value: 'D', dimension: 'D' },
+          ],
+        },
+      ],
+    },
+  ],
+  instructions: [
+    'В каждом вопросе выберите ДВА утверждения:',
+    '✓ Одно НАИБОЛЕЕ подходящее для вас',
+    '✗ Одно НАИМЕНЕЕ подходящее для вас',
+    'Тест содержит 24 вопроса и займет около 8-10 минут',
+  ],
+};
+---
+
+<BaseLayout
+  title="Тест DISC бесплатно онлайн - определение стиля поведения"
+  description="Пройдите бесплатный классический тест DISC и узнайте свой поведенческий профиль: доминирование, влияние, стабильность или добросовестность. Мгновенные результаты."
+  keywords="DISC тест бесплатно, тест на стиль поведения, DISC профиль онлайн, поведенческий тест, тест на тип личности, доминирование влияние стабильность добросовестность, DISC assessment, психологический тест поведения"
+  jsonLd={generateBreadcrumbSchema(breadcrumbs)}
+>
+  <FreeTestFlow client:only="react" config={testConfig} />
+</BaseLayout>

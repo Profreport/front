@@ -1,0 +1,851 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import FreeTestFlow from '@/components/islands/FreeTestFlow';
+import { generateBreadcrumbSchema } from '@/lib/utils';
+
+const breadcrumbs = [
+  { name: 'Главная', url: '/' },
+  { name: 'Бесплатные тесты', url: '/free-tests' },
+  { name: 'Тест Климова', url: '/test/free/klimov' },
+];
+
+// Klimov Test Configuration (DDO - Differential Diagnostic Questionnaire)
+const testConfig = {
+  testId: 'klimov',
+  title: 'Тест Климова (ДДО)',
+  subtitle: 'Дифференциально-диагностический опросник для определения профессиональных склонностей',
+  sectionsAdult: [
+    {
+      id: 'klimov_section',
+      title: 'Выберите предпочитаемый вид деятельности',
+      subtitle: 'В каждом вопросе выберите то, что вам ближе',
+      questions: [
+        {
+          id: 'q1',
+          question: 'Что вам больше нравится?',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Ухаживать за животными', value: 'P', dimension: 'P' },
+            { label: 'Обслуживать машины и оборудование', value: 'T', dimension: 'T' },
+          ],
+        },
+        {
+          id: 'q2',
+          question: 'Вы предпочитаете работу, где нужно',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Выращивать растения или ухаживать за садом', value: 'P', dimension: 'P' },
+            { label: 'Общаться с людьми и помогать им', value: 'CH', dimension: 'CH' },
+          ],
+        },
+        {
+          id: 'q3',
+          question: 'Что вас больше привлекает?',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Составлять таблицы, схемы, программы', value: 'Z', dimension: 'Z' },
+            { label: 'Рисовать, фотографировать, создавать дизайн', value: 'KH', dimension: 'KH' },
+          ],
+        },
+        {
+          id: 'q4',
+          question: 'Вам интереснее',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Обучать и объяснять что-то другим', value: 'CH', dimension: 'CH' },
+            { label: 'Ремонтировать технику и электроприборы', value: 'T', dimension: 'T' },
+          ],
+        },
+        {
+          id: 'q5',
+          question: 'Вы бы хотели',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Изучать жизнь растений и животных', value: 'P', dimension: 'P' },
+            { label: 'Писать статьи, рассказы или стихи', value: 'KH', dimension: 'KH' },
+          ],
+        },
+        {
+          id: 'q6',
+          question: 'Что вам ближе?',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Проверять и анализировать тексты или документы', value: 'Z', dimension: 'Z' },
+            { label: 'Конструировать и собирать технические устройства', value: 'T', dimension: 'T' },
+          ],
+        },
+        {
+          id: 'q7',
+          question: 'Вы предпочтёте',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Оформлять витрины, создавать композиции', value: 'KH', dimension: 'KH' },
+            { label: 'Помогать больным людям или животным', value: 'CH', dimension: 'CH' },
+          ],
+        },
+        {
+          id: 'q8',
+          question: 'Вам больше подходит',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Работать с природными материалами (дерево, камень)', value: 'P', dimension: 'P' },
+            { label: 'Вести учёт товаров, денег или документов', value: 'Z', dimension: 'Z' },
+          ],
+        },
+        {
+          id: 'q9',
+          question: 'Что вас привлекает больше?',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Водить транспорт или управлять техникой', value: 'T', dimension: 'T' },
+            { label: 'Играть на музыкальных инструментах или петь', value: 'KH', dimension: 'KH' },
+          ],
+        },
+        {
+          id: 'q10',
+          question: 'Вы бы выбрали работу, где нужно',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Обслуживать клиентов, продавать товары', value: 'CH', dimension: 'CH' },
+            { label: 'Обрабатывать данные, работать с цифрами', value: 'Z', dimension: 'Z' },
+          ],
+        },
+        {
+          id: 'q11',
+          question: 'Вам интереснее',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Выступать на сцене, играть роли', value: 'KH', dimension: 'KH' },
+            { label: 'Разводить рыб, птиц или других животных', value: 'P', dimension: 'P' },
+          ],
+        },
+        {
+          id: 'q12',
+          question: 'Что вам ближе?',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Налаживать и программировать оборудование', value: 'T', dimension: 'T' },
+            { label: 'Консультировать людей по разным вопросам', value: 'CH', dimension: 'CH' },
+          ],
+        },
+        {
+          id: 'q13',
+          question: 'Вы предпочтёте',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Заботиться о лесе, высаживать деревья', value: 'P', dimension: 'P' },
+            { label: 'Редактировать тексты, искать ошибки', value: 'Z', dimension: 'Z' },
+          ],
+        },
+        {
+          id: 'q14',
+          question: 'Вам больше нравится',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Создавать модели одежды, украшения', value: 'KH', dimension: 'KH' },
+            { label: 'Чинить и настраивать технику', value: 'T', dimension: 'T' },
+          ],
+        },
+        {
+          id: 'q15',
+          question: 'Что вас больше привлекает?',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Шить, вязать, создавать изделия своими руками', value: 'KH', dimension: 'KH' },
+            { label: 'Руководить группой людей, организовывать', value: 'CH', dimension: 'CH' },
+          ],
+        },
+        {
+          id: 'q16',
+          question: 'Вы бы выбрали',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Переводить тексты, работать со словарями', value: 'Z', dimension: 'Z' },
+            { label: 'Изучать погоду, составлять прогнозы', value: 'P', dimension: 'P' },
+          ],
+        },
+        {
+          id: 'q17',
+          question: 'Вам ближе',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Копировать рисунки, чертежи, карты', value: 'Z', dimension: 'Z' },
+            { label: 'Проектировать здания, сооружения', value: 'T', dimension: 'T' },
+          ],
+        },
+        {
+          id: 'q18',
+          question: 'Что вас привлекает?',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Ухаживать за больными растениями', value: 'P', dimension: 'P' },
+            { label: 'Разрабатывать дизайн интерьеров', value: 'KH', dimension: 'KH' },
+          ],
+        },
+        {
+          id: 'q19',
+          question: 'Вы предпочтёте работу',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Консультировать по выбору профессии', value: 'CH', dimension: 'CH' },
+            { label: 'Работать с базами данных и архивами', value: 'Z', dimension: 'Z' },
+          ],
+        },
+        {
+          id: 'q20',
+          question: 'Вам больше подходит',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Монтировать и настраивать системы связи', value: 'T', dimension: 'T' },
+            { label: 'Создавать анимацию, видеомонтаж', value: 'KH', dimension: 'KH' },
+          ],
+        },
+        {
+          id: 'q21',
+          question: 'Вы предпочтёте',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Обучать детей или взрослых', value: 'CH', dimension: 'CH' },
+            { label: 'Ухаживать за комнатными растениями', value: 'P', dimension: 'P' },
+          ],
+        },
+        {
+          id: 'q22',
+          question: 'Что вас больше привлекает?',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Составлять финансовые отчеты', value: 'Z', dimension: 'Z' },
+            { label: 'Настраивать компьютеры и сети', value: 'T', dimension: 'T' },
+          ],
+        },
+        {
+          id: 'q23',
+          question: 'Вы бы выбрали',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Разрабатывать логотипы и фирменный стиль', value: 'KH', dimension: 'KH' },
+            { label: 'Консультировать клиентов по юридическим вопросам', value: 'CH', dimension: 'CH' },
+          ],
+        },
+        {
+          id: 'q24',
+          question: 'Вам ближе',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Изучать микроорганизмы под микроскопом', value: 'P', dimension: 'P' },
+            { label: 'Программировать и писать код', value: 'Z', dimension: 'Z' },
+          ],
+        },
+        {
+          id: 'q25',
+          question: 'Что вам интереснее?',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Собирать и ремонтировать электронику', value: 'T', dimension: 'T' },
+            { label: 'Рисовать портреты или пейзажи', value: 'KH', dimension: 'KH' },
+          ],
+        },
+        {
+          id: 'q26',
+          question: 'Вы предпочтёте работу',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Вести переговоры и заключать сделки', value: 'CH', dimension: 'CH' },
+            { label: 'Анализировать статистические данные', value: 'Z', dimension: 'Z' },
+          ],
+        },
+        {
+          id: 'q27',
+          question: 'Вам больше нравится',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Заниматься ландшафтным озеленением', value: 'P', dimension: 'P' },
+            { label: 'Создавать 3D-модели и визуализации', value: 'KH', dimension: 'KH' },
+          ],
+        },
+        {
+          id: 'q28',
+          question: 'Что вас привлекает?',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Управлять производственными процессами', value: 'T', dimension: 'T' },
+            { label: 'Помогать людям решать их проблемы', value: 'CH', dimension: 'CH' },
+          ],
+        },
+        {
+          id: 'q29',
+          question: 'Вы бы выбрали',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Составлять бизнес-планы и отчеты', value: 'Z', dimension: 'Z' },
+            { label: 'Дрессировать животных', value: 'P', dimension: 'P' },
+          ],
+        },
+        {
+          id: 'q30',
+          question: 'Вам ближе',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Снимать и монтировать видео', value: 'KH', dimension: 'KH' },
+            { label: 'Чинить автомобили и мотоциклы', value: 'T', dimension: 'T' },
+          ],
+        },
+        {
+          id: 'q31',
+          question: 'Что вам интереснее?',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Проводить психологические консультации', value: 'CH', dimension: 'CH' },
+            { label: 'Работать с большими данными', value: 'Z', dimension: 'Z' },
+          ],
+        },
+        {
+          id: 'q32',
+          question: 'Вы предпочтёте',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Исследовать морскую фауну', value: 'P', dimension: 'P' },
+            { label: 'Оформлять интерьеры помещений', value: 'KH', dimension: 'KH' },
+          ],
+        },
+        {
+          id: 'q33',
+          question: 'Вам больше подходит',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Проектировать механизмы и устройства', value: 'T', dimension: 'T' },
+            { label: 'Работать с медицинской документацией', value: 'Z', dimension: 'Z' },
+          ],
+        },
+        {
+          id: 'q34',
+          question: 'Что вас привлекает больше?',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Организовывать мероприятия для людей', value: 'CH', dimension: 'CH' },
+            { label: 'Разводить и селекционировать растения', value: 'P', dimension: 'P' },
+          ],
+        },
+        {
+          id: 'q35',
+          question: 'Вы бы выбрали работу',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Создавать дизайн сайтов и приложений', value: 'KH', dimension: 'KH' },
+            { label: 'Налаживать промышленное оборудование', value: 'T', dimension: 'T' },
+          ],
+        },
+        {
+          id: 'q36',
+          question: 'Вам ближе',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Проверять качество товаров и услуг', value: 'Z', dimension: 'Z' },
+            { label: 'Работать с детьми, заниматься их развитием', value: 'CH', dimension: 'CH' },
+          ],
+        },
+        {
+          id: 'q37',
+          question: 'Что вам интереснее?',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Заниматься экологическим мониторингом', value: 'P', dimension: 'P' },
+            { label: 'Разрабатывать рекламные макеты', value: 'KH', dimension: 'KH' },
+          ],
+        },
+        {
+          id: 'q38',
+          question: 'Вы предпочтёте',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Обслуживать авиационную технику', value: 'T', dimension: 'T' },
+            { label: 'Обрабатывать и анализировать документы', value: 'Z', dimension: 'Z' },
+          ],
+        },
+        {
+          id: 'q39',
+          question: 'Вам больше нравится',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Тренировать спортсменов или команды', value: 'CH', dimension: 'CH' },
+            { label: 'Создавать музыку или звуковые эффекты', value: 'KH', dimension: 'KH' },
+          ],
+        },
+        {
+          id: 'q40',
+          question: 'Что вас привлекает?',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Работать в лаборатории с образцами', value: 'P', dimension: 'P' },
+            { label: 'Монтировать и обслуживать оборудование', value: 'T', dimension: 'T' },
+          ],
+        },
+      ],
+    },
+  ],
+  sectionsTeen: [
+    {
+      id: 'klimov_section',
+      title: 'Выбери то, что тебе интереснее',
+      subtitle: 'В каждом вопросе выбери один вариант, который тебе больше нравится',
+      questions: [
+        {
+          id: 'q1',
+          question: 'Что тебе больше нравится делать?',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Ухаживать за домашними животными', value: 'P', dimension: 'P' },
+            { label: 'Разбираться в гаджетах и технике', value: 'T', dimension: 'T' },
+          ],
+        },
+        {
+          id: 'q2',
+          question: 'Тебе интереснее',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Выращивать растения дома или в саду', value: 'P', dimension: 'P' },
+            { label: 'Помогать друзьям и общаться с людьми', value: 'CH', dimension: 'CH' },
+          ],
+        },
+        {
+          id: 'q3',
+          question: 'Что тебя больше привлекает?',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Делать таблицы, схемы, презентации', value: 'Z', dimension: 'Z' },
+            { label: 'Рисовать, фотографировать, делать дизайн', value: 'KH', dimension: 'KH' },
+          ],
+        },
+        {
+          id: 'q4',
+          question: 'Тебе больше нравится',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Объяснять что-то одноклассникам', value: 'CH', dimension: 'CH' },
+            { label: 'Чинить или собирать что-то своими руками', value: 'T', dimension: 'T' },
+          ],
+        },
+        {
+          id: 'q5',
+          question: 'Ты бы хотел(а)',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Изучать природу, животных и растения', value: 'P', dimension: 'P' },
+            { label: 'Писать рассказы, стихи или сценарии', value: 'KH', dimension: 'KH' },
+          ],
+        },
+        {
+          id: 'q6',
+          question: 'Что тебе ближе?',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Проверять и исправлять тексты', value: 'Z', dimension: 'Z' },
+            { label: 'Собирать конструкторы, модели', value: 'T', dimension: 'T' },
+          ],
+        },
+        {
+          id: 'q7',
+          question: 'Ты предпочтёшь',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Украшать комнату, создавать декор', value: 'KH', dimension: 'KH' },
+            { label: 'Помогать тем, кому нужна поддержка', value: 'CH', dimension: 'CH' },
+          ],
+        },
+        {
+          id: 'q8',
+          question: 'Тебе больше подходит',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Работать с природными материалами (дерево, глина)', value: 'P', dimension: 'P' },
+            { label: 'Вести учёт, считать деньги или очки', value: 'Z', dimension: 'Z' },
+          ],
+        },
+        {
+          id: 'q9',
+          question: 'Что тебя привлекает больше?',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Управлять машинами в играх или реальности', value: 'T', dimension: 'T' },
+            { label: 'Играть на музыкальных инструментах или петь', value: 'KH', dimension: 'KH' },
+          ],
+        },
+        {
+          id: 'q10',
+          question: 'Ты бы выбрал(а) занятие, где нужно',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Общаться с разными людьми', value: 'CH', dimension: 'CH' },
+            { label: 'Работать с цифрами и расчётами', value: 'Z', dimension: 'Z' },
+          ],
+        },
+        {
+          id: 'q11',
+          question: 'Тебе интереснее',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Выступать на сцене, играть в театре', value: 'KH', dimension: 'KH' },
+            { label: 'Ухаживать за домашними питомцами', value: 'P', dimension: 'P' },
+          ],
+        },
+        {
+          id: 'q12',
+          question: 'Что тебе ближе?',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Настраивать компьютеры и программы', value: 'T', dimension: 'T' },
+            { label: 'Давать советы друзьям', value: 'CH', dimension: 'CH' },
+          ],
+        },
+        {
+          id: 'q13',
+          question: 'Ты предпочтёшь',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Гулять на природе, наблюдать за животными', value: 'P', dimension: 'P' },
+            { label: 'Исправлять ошибки в текстах', value: 'Z', dimension: 'Z' },
+          ],
+        },
+        {
+          id: 'q14',
+          question: 'Тебе больше нравится',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Придумывать дизайн одежды, аксессуаров', value: 'KH', dimension: 'KH' },
+            { label: 'Чинить велосипед, технику', value: 'T', dimension: 'T' },
+          ],
+        },
+        {
+          id: 'q15',
+          question: 'Что тебя больше привлекает?',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Делать что-то своими руками (шить, вязать)', value: 'KH', dimension: 'KH' },
+            { label: 'Организовывать мероприятия для друзей', value: 'CH', dimension: 'CH' },
+          ],
+        },
+        {
+          id: 'q16',
+          question: 'Ты бы выбрал(а)',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Переводить тексты на другой язык', value: 'Z', dimension: 'Z' },
+            { label: 'Наблюдать за погодой, природными явлениями', value: 'P', dimension: 'P' },
+          ],
+        },
+        {
+          id: 'q17',
+          question: 'Тебе ближе',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Копировать рисунки, карты, схемы', value: 'Z', dimension: 'Z' },
+            { label: 'Строить что-то из конструктора', value: 'T', dimension: 'T' },
+          ],
+        },
+        {
+          id: 'q18',
+          question: 'Что тебя привлекает?',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Ухаживать за растениями в саду', value: 'P', dimension: 'P' },
+            { label: 'Оформлять свою комнату', value: 'KH', dimension: 'KH' },
+          ],
+        },
+        {
+          id: 'q19',
+          question: 'Ты предпочтёшь',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Помогать одноклассникам с уроками', value: 'CH', dimension: 'CH' },
+            { label: 'Вести записи, делать конспекты', value: 'Z', dimension: 'Z' },
+          ],
+        },
+        {
+          id: 'q20',
+          question: 'Тебе больше подходит',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Настраивать роутер, технику дома', value: 'T', dimension: 'T' },
+            { label: 'Монтировать видео для YouTube', value: 'KH', dimension: 'KH' },
+          ],
+        },
+        {
+          id: 'q21',
+          question: 'Ты предпочтёшь',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Учить младших братьев/сестёр', value: 'CH', dimension: 'CH' },
+            { label: 'Ухаживать за цветами дома', value: 'P', dimension: 'P' },
+          ],
+        },
+        {
+          id: 'q22',
+          question: 'Что тебя больше привлекает?',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Считать баллы, вести статистику', value: 'Z', dimension: 'Z' },
+            { label: 'Собирать и настраивать ПК', value: 'T', dimension: 'T' },
+          ],
+        },
+        {
+          id: 'q23',
+          question: 'Ты бы выбрал(а)',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Делать логотипы и баннеры', value: 'KH', dimension: 'KH' },
+            { label: 'Решать споры между друзьями', value: 'CH', dimension: 'CH' },
+          ],
+        },
+        {
+          id: 'q24',
+          question: 'Тебе ближе',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Изучать насекомых, микробов', value: 'P', dimension: 'P' },
+            { label: 'Учиться программировать', value: 'Z', dimension: 'Z' },
+          ],
+        },
+        {
+          id: 'q25',
+          question: 'Что тебе интереснее?',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Разбирать и чинить электронику', value: 'T', dimension: 'T' },
+            { label: 'Рисовать людей, пейзажи', value: 'KH', dimension: 'KH' },
+          ],
+        },
+        {
+          id: 'q26',
+          question: 'Ты предпочтёшь',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Быть лидером в команде', value: 'CH', dimension: 'CH' },
+            { label: 'Анализировать данные и графики', value: 'Z', dimension: 'Z' },
+          ],
+        },
+        {
+          id: 'q27',
+          question: 'Тебе больше нравится',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Заниматься садоводством, огородом', value: 'P', dimension: 'P' },
+            { label: 'Создавать 3D-модели в программах', value: 'KH', dimension: 'KH' },
+          ],
+        },
+        {
+          id: 'q28',
+          question: 'Что тебя привлекает?',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Управлять дронами, роботами', value: 'T', dimension: 'T' },
+            { label: 'Помогать решать проблемы друзей', value: 'CH', dimension: 'CH' },
+          ],
+        },
+        {
+          id: 'q29',
+          question: 'Ты бы выбрал(а)',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Вести блог, писать посты', value: 'Z', dimension: 'Z' },
+            { label: 'Дрессировать домашних животных', value: 'P', dimension: 'P' },
+          ],
+        },
+        {
+          id: 'q30',
+          question: 'Тебе ближе',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Снимать и монтировать ролики', value: 'KH', dimension: 'KH' },
+            { label: 'Чинить велосипед, самокат', value: 'T', dimension: 'T' },
+          ],
+        },
+        {
+          id: 'q31',
+          question: 'Что тебе интереснее?',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Быть советником класса', value: 'CH', dimension: 'CH' },
+            { label: 'Собирать и анализировать информацию', value: 'Z', dimension: 'Z' },
+          ],
+        },
+        {
+          id: 'q32',
+          question: 'Ты предпочтёшь',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Изучать подводный мир, рыб', value: 'P', dimension: 'P' },
+            { label: 'Украшать пространство, делать дизайн', value: 'KH', dimension: 'KH' },
+          ],
+        },
+        {
+          id: 'q33',
+          question: 'Тебе больше подходит',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Проектировать механизмы в играх', value: 'T', dimension: 'T' },
+            { label: 'Вести записи, дневники', value: 'Z', dimension: 'Z' },
+          ],
+        },
+        {
+          id: 'q34',
+          question: 'Что тебя привлекает больше?',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Организовывать праздники для друзей', value: 'CH', dimension: 'CH' },
+            { label: 'Выращивать необычные растения', value: 'P', dimension: 'P' },
+          ],
+        },
+        {
+          id: 'q35',
+          question: 'Ты бы выбрал(а)',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Делать дизайн сайтов и приложений', value: 'KH', dimension: 'KH' },
+            { label: 'Собирать электронные схемы', value: 'T', dimension: 'T' },
+          ],
+        },
+        {
+          id: 'q36',
+          question: 'Тебе ближе',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Проверять работы одноклассников', value: 'Z', dimension: 'Z' },
+            { label: 'Играть с детьми, учить их чему-то', value: 'CH', dimension: 'CH' },
+          ],
+        },
+        {
+          id: 'q37',
+          question: 'Что тебе интереснее?',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Следить за экологией, природой', value: 'P', dimension: 'P' },
+            { label: 'Делать рекламные плакаты', value: 'KH', dimension: 'KH' },
+          ],
+        },
+        {
+          id: 'q38',
+          question: 'Ты предпочтёшь',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Моделировать самолёты, ракеты', value: 'T', dimension: 'T' },
+            { label: 'Сортировать и систематизировать информацию', value: 'Z', dimension: 'Z' },
+          ],
+        },
+        {
+          id: 'q39',
+          question: 'Тебе больше нравится',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Быть капитаном команды', value: 'CH', dimension: 'CH' },
+            { label: 'Сочинять музыку, создавать биты', value: 'KH', dimension: 'KH' },
+          ],
+        },
+        {
+          id: 'q40',
+          question: 'Что тебя привлекает?',
+          type: 'binary' as const,
+          dimension: 'KLIMOV',
+          options: [
+            { label: 'Проводить опыты с растениями', value: 'P', dimension: 'P' },
+            { label: 'Собирать технические устройства', value: 'T', dimension: 'T' },
+          ],
+        },
+      ],
+    },
+  ],
+  instructions: [
+    'В каждом вопросе выберите тот вариант, который вам ближе',
+    'Не думайте долго — выбирайте то, что вам действительно интересно',
+    'Нет правильных или неправильных ответов',
+    'Тест содержит 40 вопросов и займет около 7-10 минут',
+  ],
+};
+---
+
+<BaseLayout
+  title="Тест Климова (ДДО) бесплатно онлайн"
+  description="Пройдите бесплатный тест Климова и определите свой тип профессии: человек-природа, человек-техника, человек-человек, человек-знак или человек-художественный образ."
+  keywords="тест Климова онлайн, ДДО тест бесплатно, дифференциально-диагностический опросник, тест на профориентацию Климова, человек-природа, человек-техника, человек-человек, человек-знак, человек-художественный образ, профориентация онлайн"
+  jsonLd={generateBreadcrumbSchema(breadcrumbs)}
+>
+  <FreeTestFlow client:only="react" config={testConfig} />
+</BaseLayout>

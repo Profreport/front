@@ -1,0 +1,421 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import Breadcrumb from '@/components/Breadcrumb.astro';
+import FAQAccordion from '@/components/islands/FAQAccordion';
+import { generateBreadcrumbSchema, generateItemListSchema, generateFAQSchema } from '@/lib/utils';
+
+const breadcrumbs = [
+  { name: 'Главная', url: '/' },
+  { name: 'Бесплатные тесты', url: '/free-tests' },
+];
+
+const siteUrl = Astro.site?.toString() || import.meta.env.PUBLIC_SITE_URL || '';
+
+// FAQ для SEO
+const faqItems = [
+  {
+    question: 'Действительно ли тесты бесплатные?',
+    answer: 'Да, все тесты в этом разделе полностью бесплатные. Вы получаете результаты сразу на экране без необходимости регистрации или оплаты. Для получения более детального PDF-отчета с расширенным анализом доступны платные тесты.'
+  },
+  {
+    question: 'Сколько времени занимает прохождение бесплатного теста?',
+    answer: 'В зависимости от теста, прохождение занимает от 5 до 15 минут. MBTI — 5-7 минут (40 вопросов), DISC профиль — 8-10 минут (24 вопроса, формат most/least), тест Климова — 7-10 минут (40 вопросов), карьерные якоря Шейна — 10-12 минут (40 вопросов со шкалой оценки), карта интересов — 10-15 минут (90 вопросов, 15 сфер деятельности). Все тесты разработаны так, чтобы быть максимально быстрыми при сохранении точности результатов.'
+  },
+  {
+    question: 'Насколько точны результаты бесплатных тестов?',
+    answer: 'Все наши тесты основаны на проверенных научных методиках профориентации. Точность зависит от вашей честности при ответах. При правдивых ответах точность составляет 75-85%. Для более глубокого анализа рекомендуем пройти несколько тестов или платный комплексный тест.'
+  },
+  {
+    question: 'Нужна ли регистрация для прохождения тестов?',
+    answer: 'Нет, регистрация не требуется. Просто выберите тест и начните отвечать на вопросы. Результаты отобразятся сразу после завершения теста прямо на экране.'
+  },
+  {
+    question: 'Чем бесплатные тесты отличаются от платных?',
+    answer: 'Бесплатные тесты фокусируются на одном аспекте (тип личности, стиль работы, объекты деятельности) и показывают результаты на экране. Платные тесты — это комплексный анализ (RIASEC + Климов + личность + ценности) с детальным PDF-отчетом, 15-20 подходящими профессиями и планом развития карьеры.'
+  },
+  {
+    question: 'Можно ли пройти несколько тестов?',
+    answer: 'Да, более того — мы рекомендуем пройти 2-3 теста из разных категорий для наиболее полной картины. Каждый тест раскрывает разные аспекты вашей личности и карьерных предпочтений.'
+  },
+];
+
+// Массив будущих тестов
+const freeTests = [
+  {
+    id: 'mbti',
+    title: 'Тест типа личности MBTI',
+    subtitle: '16 типов личности',
+    description: 'Узнайте свой тип личности и получите список подходящих профессий на основе психологической типологии Майерс-Бриггс',
+    duration: '5-7 минут',
+    questionsCount: '40 вопросов',
+    icon: '🧠',
+    gradient: 'from-purple-500 to-pink-500',
+    link: '/test/free/mbti',
+    comingSoon: false,
+  },
+  {
+    id: 'klimov',
+    title: 'Тест Климова (ДДО)',
+    subtitle: 'Объекты деятельности',
+    description: 'Определите, к какому типу профессий вы склонны: человек-природа, человек-техника, человек-человек, человек-знак или человек-художественный образ',
+    duration: '7-10 минут',
+    questionsCount: '40 вопросов',
+    icon: '🎯',
+    gradient: 'from-blue-500 to-cyan-500',
+    link: '/test/free/klimov',
+    comingSoon: false,
+  },
+  {
+    id: 'disc',
+    title: 'DISC: Стиль поведения',
+    subtitle: 'Поведенческий профиль',
+    description: 'Узнайте свой стиль работы и коммуникации: доминирование, влияние, стабильность или добросовестность',
+    duration: '8-10 минут',
+    questionsCount: '24 вопроса',
+    icon: '💼',
+    gradient: 'from-green-500 to-emerald-500',
+    link: '/test/free/disc',
+    comingSoon: false,
+  },
+  {
+    id: 'career-anchors',
+    title: 'Карьерные якоря',
+    subtitle: 'Ценности в карьере + Work-Life Balance',
+    description: 'Выявите ваши ведущие карьерные мотивы: профессионализм, менеджмент, автономия, стабильность, предпринимательство, служение, вызов и баланс работы и жизни',
+    duration: '10-12 минут',
+    questionsCount: '40 вопросов',
+    icon: '⚓',
+    gradient: 'from-orange-500 to-red-500',
+    link: '/test/free/career-anchors',
+    comingSoon: false,
+  },
+  {
+    id: 'interest-map',
+    title: 'Карта интересов',
+    subtitle: '15 сфер деятельности',
+    description: 'Определите уровень интереса к 15 профессиональным областям: от IT и медицины до искусства и бизнеса. Современная адаптация классического теста Голомштока',
+    duration: '10-15 минут',
+    questionsCount: '90 вопросов',
+    icon: '🗺️',
+    gradient: 'from-indigo-500 to-purple-500',
+    link: '/test/free/interest-map',
+    comingSoon: false,
+  },
+  {
+    id: 'profession-matrix',
+    title: 'Матрица выбора профессии',
+    subtitle: 'Быстрый подбор',
+    description: 'Быстро найдите подходящую профессию на пересечении объекта труда (люди, информация, техника, искусство, природа) и характера работы (исполнительский, творческий, руководящий)',
+    duration: '2-3 минуты',
+    questionsCount: '8 вопросов',
+    icon: '🎲',
+    gradient: 'from-pink-500 to-rose-500',
+    link: '/test/free/profession-matrix',
+    comingSoon: false,
+  },
+];
+
+// Подготовка данных для ItemList Schema
+const testsForSchema = freeTests.map((test) => ({
+  name: test.title,
+  description: test.description,
+  url: siteUrl + test.link,
+}));
+
+// Генерация всех JSON-LD схем
+const jsonLd = [
+  generateBreadcrumbSchema(breadcrumbs),
+  generateItemListSchema(testsForSchema),
+  generateFAQSchema(faqItems),
+];
+---
+
+<BaseLayout
+  title="Бесплатные тесты на профориентацию онлайн 2026"
+  description="Пройдите бесплатные профориентационные тесты онлайн: MBTI тест личности, тест Климова ДДО, DISC профиль, карьерные якоря, карта интересов. Мгновенные результаты без регистрации."
+  keywords="бесплатный тест на профориентацию, тест на профориентацию онлайн бесплатно, MBTI тест бесплатно, тест Климова онлайн, ДДО тест, DISC тест бесплатно, карьерные якоря тест, тест типа личности, профориентация школьников бесплатно, профориентация подростков онлайн, выбор профессии тест бесплатно, психологический тест на профессию, тест Майерс-Бриггс, карта интересов Голомштока, матрица выбора профессии, профориентационное тестирование"
+  jsonLd={jsonLd}
+>
+  <Header />
+  <Breadcrumb items={breadcrumbs} />
+
+  <main>
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-primary/5 to-secondary/5 py-12 lg:py-16">
+      <div class="container-custom text-center">
+        <div class="max-w-4xl mx-auto">
+          <h1 class="text-4xl lg:text-5xl font-bold text-text-primary mb-6">
+            Бесплатные тесты на профориентацию
+          </h1>
+          <p class="text-lg lg:text-xl text-text-secondary mb-4 leading-relaxed">
+            Пройдите короткие тесты и получите мгновенные результаты прямо на сайте
+          </p>
+          <p class="text-base lg:text-lg text-text-secondary max-w-3xl mx-auto">
+            Каждый тест основан на научных методиках и поможет вам лучше понять свои склонности,
+            интересы и подходящие направления карьеры. Выберите тест и узнайте себя лучше!
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEO Content Section -->
+    <section class="py-12 lg:py-16 bg-background">
+      <div class="container-custom">
+        <div class="max-w-4xl mx-auto">
+          <div class="prose prose-lg max-w-none">
+            <h2 class="text-3xl font-bold text-text-primary mb-6">
+              Бесплатные профориентационные тесты: найдите свой путь
+            </h2>
+            <p class="text-text-secondary leading-relaxed mb-4">
+              Профориентация — это первый шаг к успешной карьере. Наши бесплатные тесты помогут вам лучше
+              понять себя, свои склонности и определить направление профессионального развития. Каждый тест
+              основан на проверенных научных методиках, используемых профессиональными карьерными консультантами
+              по всему миру.
+            </p>
+            <p class="text-text-secondary leading-relaxed mb-4">
+              <strong>MBTI (Майерс-Бриггс)</strong> — один из самых популярных тестов типа личности в мире.
+              Определяет один из 16 психологических типов и помогает понять, какие профессии подходят именно вашему типу мышления.
+              Используется крупными компаниями для подбора персонала и помогает понять ваш стиль работы, общения и принятия решений.
+            </p>
+            <p class="text-text-secondary leading-relaxed mb-4">
+              <strong>Тест Климова (ДДО)</strong> — классическая российская методика профориентации, которая
+              определяет предпочтения по объектам труда: человек-природа, человек-техника, человек-человек,
+              человек-знак или человек-художественный образ. Методика разработана советским психологом и особенно
+              эффективна для выбора профессионального направления.
+            </p>
+            <p class="text-text-secondary leading-relaxed mb-4">
+              <strong>DISC профиль</strong> — классический профессиональный инструмент для определения стиля поведения и коммуникации.
+              В формате «most/least» вы выбираете наиболее и наименее подходящие утверждения из четырех вариантов, что обеспечивает
+              высокую точность результатов. Определяет ваш профиль по четырем измерениям: доминирование (D), влияние (I),
+              стабильность (S) и добросовестность (C). Особенно полезен для понимания того, в какой рабочей среде вы будете наиболее эффективны.
+            </p>
+            <p class="text-text-secondary leading-relaxed mb-4">
+              <strong>Карьерные якоря Шейна</strong> — классическая методика Эдгара Шейна для выявления ваших ведущих карьерных мотивов и ценностей.
+              Тест определяет 8 карьерных якорей: профессиональная компетентность, менеджмент, автономия, стабильность,
+              предпринимательская креативность, служение, вызов и <strong>баланс работы и жизни (work-life balance)</strong>.
+              Последний якорь особенно важен для современных специалистов, которые ценят гармонию между карьерой и личной жизнью.
+              Знание своих карьерных якорей помогает избежать выгорания и выбрать по-настоящему подходящую профессию, которая будет
+              соответствовать вашим внутренним ценностям и приоритетам.
+            </p>
+            <p class="text-text-secondary leading-relaxed mb-4">
+              <strong>Карта интересов</strong> — современная адаптация классического теста Голомштока для определения профессиональных интересов.
+              90 вопросов оценивают ваш интерес к 15 сферам деятельности: IT и программирование, естественные науки, техника и инженерия,
+              медицина, искусство, языки и литература, педагогика и психология, бизнес и экономика, юриспруденция, социальная работа,
+              спорт, дизайн и медиа, транспорт и логистика, кулинария и сервис, управление и организация. Методика помогает выявить
+              наиболее привлекательные для вас области профессиональной деятельности.
+            </p>
+            <p class="text-text-secondary leading-relaxed">
+              <strong>Матрица выбора профессии</strong> — экспресс-методика для быстрого подбора подходящих профессий.
+              На пересечении предмета труда (люди, информация, техника, искусство) и характера работы (исполнительский,
+              творческий, руководящий) находятся конкретные профессии. Идеально подходит для первичной ориентации.
+            </p>
+            <p class="text-text-secondary leading-relaxed mt-4">
+              Все тесты доступны онлайн, не требуют регистрации и дают результаты сразу после прохождения.
+              Идеально подходят для школьников, студентов и взрослых, которые ищут свое профессиональное призвание.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="py-12 lg:py-16 bg-background">
+      <div class="container-custom">
+        <div class="max-w-5xl mx-auto">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+            <!-- Benefit 1 -->
+            <div class="text-center p-6 bg-surface rounded-lg border border-border hover:border-primary hover:shadow-md transition-all">
+              <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span class="text-3xl">⚡</span>
+              </div>
+              <h3 class="text-xl font-semibold text-text-primary mb-2">
+                Быстро
+              </h3>
+              <p class="text-text-secondary">
+                От 5 до 15 минут на каждый тест
+              </p>
+            </div>
+
+            <!-- Benefit 2 -->
+            <div class="text-center p-6 bg-surface rounded-lg border border-border hover:border-primary hover:shadow-md transition-all">
+              <div class="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span class="text-3xl">🎁</span>
+              </div>
+              <h3 class="text-xl font-semibold text-text-primary mb-2">
+                Бесплатно
+              </h3>
+              <p class="text-text-secondary">
+                Результаты сразу на экране без регистрации
+              </p>
+            </div>
+
+            <!-- Benefit 3 -->
+            <div class="text-center p-6 bg-surface rounded-lg border border-border hover:border-primary hover:shadow-md transition-all">
+              <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span class="text-3xl">🔬</span>
+              </div>
+              <h3 class="text-xl font-semibold text-text-primary mb-2">
+                Научно
+              </h3>
+              <p class="text-text-secondary">
+                Проверенные психологические методики
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tests Grid -->
+    <section class="py-12 lg:py-20 bg-gradient-to-b from-background to-surface">
+      <div class="container-custom">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl lg:text-4xl font-bold text-text-primary mb-4">
+            Выберите тест
+          </h2>
+          <p class="text-lg text-text-secondary max-w-2xl mx-auto">
+            Каждый тест фокусируется на определенном аспекте вашей личности и карьерных предпочтений
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto">
+          {freeTests.map((test) => (
+            <div class="group bg-surface rounded-xl border-2 border-border hover:border-primary hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col">
+              {/* Header with gradient */}
+              <div class={`bg-gradient-to-br ${test.gradient} p-6 text-white relative overflow-hidden`}>
+                <div class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+                <div class="relative z-10">
+                  <div class="text-5xl mb-3">
+                    {test.icon}
+                  </div>
+                  <h3 class="text-xl font-bold mb-1">
+                    {test.title}
+                  </h3>
+                  <p class="text-white/90 text-sm font-medium">
+                    {test.subtitle}
+                  </p>
+                </div>
+              </div>
+
+              {/* Content */}
+              <div class="p-6 flex-1 flex flex-col">
+                <p class="text-text-secondary mb-4 leading-relaxed flex-1">
+                  {test.description}
+                </p>
+
+                {/* Meta info */}
+                <div class="flex items-center gap-4 text-sm text-text-secondary mb-4 pb-4 border-b border-border">
+                  <div class="flex items-center gap-1">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <span>{test.duration}</span>
+                  </div>
+                  <div class="flex items-center gap-1">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                    </svg>
+                    <span>{test.questionsCount}</span>
+                  </div>
+                </div>
+
+                {/* Button */}
+                {test.comingSoon ? (
+                  <div class="text-center py-3 px-6 border-2 border-border rounded-lg bg-gray-50">
+                    <span class="text-text-secondary font-semibold">Скоро</span>
+                  </div>
+                ) : (
+                  <a
+                    href={test.link}
+                    class={`block text-center py-3 px-6 bg-gradient-to-r ${test.gradient} text-white font-semibold rounded-lg hover:opacity-90 hover:shadow-lg transition-all hover:-translate-y-0.5`}
+                  >
+                    Пройти тест
+                  </a>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 lg:py-24 bg-gradient-to-br from-primary/10 to-secondary/10 relative overflow-hidden">
+      {/* Decorative elements */}
+      <div class="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-secondary/5 rounded-full blur-3xl"></div>
+
+      <div class="container-custom relative z-10">
+        <div class="max-w-4xl mx-auto text-center">
+          <h2 class="text-3xl lg:text-4xl font-bold text-text-primary mb-6">
+            Хотите получить полный профессиональный анализ?
+          </h2>
+          <p class="text-lg lg:text-xl text-text-secondary mb-8 leading-relaxed">
+            Пройдите комплексный платный тест и получите детальный PDF-отчет с 15-20 подходящими профессиями,
+            планом развития и персональными рекомендациями от искусственного интеллекта
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="/tests"
+              class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-primary to-secondary text-white font-semibold rounded-lg hover:opacity-90 transition-all hover:shadow-lg hover:-translate-y-0.5 text-lg"
+            >
+              Платные тесты
+            </a>
+            <a
+              href="/about"
+              class="inline-flex items-center justify-center px-8 py-4 bg-white border-2 border-primary text-primary font-semibold rounded-lg hover:bg-primary hover:text-white transition-all text-lg"
+            >
+              Узнать подробнее
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Info Section -->
+    <section class="py-12 lg:py-16 bg-background">
+      <div class="container-custom">
+        <div class="max-w-4xl mx-auto">
+          <div class="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-lg">
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0 text-3xl">
+                💡
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold text-text-primary mb-2">
+                  Совет: пройдите несколько тестов
+                </h3>
+                <p class="text-text-secondary leading-relaxed">
+                  Каждый тест раскрывает разные аспекты вашей личности. Для наиболее полной картины
+                  рекомендуем пройти 2-3 теста из разных категорий. Это поможет вам получить более
+                  объективное представление о подходящих направлениях карьеры.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 lg:py-24 bg-background">
+      <div class="container-custom">
+        <div class="max-w-4xl mx-auto">
+          <div class="text-center mb-12">
+            <h2 class="text-3xl lg:text-4xl font-bold text-text-primary mb-4">
+              Часто задаваемые вопросы
+            </h2>
+            <p class="text-lg text-text-secondary">
+              Ответы на популярные вопросы о бесплатных тестах
+            </p>
+          </div>
+          <FAQAccordion client:load items={faqItems} />
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

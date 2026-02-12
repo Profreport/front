@@ -1,0 +1,82 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import FreeTestFlow from '@/components/islands/FreeTestFlow';
+import { generateBreadcrumbSchema } from '@/lib/utils';
+import { careerAnchorQuestions } from '@/data/career-anchors-types';
+
+const breadcrumbs = [
+  { name: 'Главная', url: '/' },
+  { name: 'Бесплатные тесты', url: '/free-tests' },
+  { name: 'Карьерные якоря', url: '/test/free/career-anchors' },
+];
+
+// Career Anchors Test Configuration (Edgar Schein)
+// Classic version with 40 questions on Likert scale (1-10)
+
+// Likert scale options (1-10)
+const likertOptions = [
+  { label: '1', value: 1 },
+  { label: '2', value: 2 },
+  { label: '3', value: 3 },
+  { label: '4', value: 4 },
+  { label: '5', value: 5 },
+  { label: '6', value: 6 },
+  { label: '7', value: 7 },
+  { label: '8', value: 8 },
+  { label: '9', value: 9 },
+  { label: '10', value: 10 },
+];
+
+// Adult version questions
+const sectionsAdult = [
+  {
+    id: 'career_anchors_adult',
+    title: 'Оцените каждое утверждение',
+    subtitle: 'Используйте шкалу от 1 до 10, где 1 = "совершенно не согласен", 10 = "полностью согласен"',
+    questions: careerAnchorQuestions.map((q) => ({
+      id: q.id,
+      question: q.textAdult,
+      type: 'likert' as const,
+      options: likertOptions,
+    })),
+  },
+];
+
+// Teen version questions
+const sectionsTeen = [
+  {
+    id: 'career_anchors_teen',
+    title: 'Оцените каждое утверждение',
+    subtitle: 'Используйте шкалу от 1 до 10, где 1 = "совершенно не согласен", 10 = "полностью согласен"',
+    questions: careerAnchorQuestions.map((q) => ({
+      id: q.id,
+      question: q.textTeen,
+      type: 'likert' as const,
+      options: likertOptions,
+    })),
+  },
+];
+
+const testConfig = {
+  testId: 'career-anchors',
+  title: 'Карьерные якоря Шейна (классическая версия)',
+  subtitle: 'Определите свои ведущие карьерные мотивы и ценности. Включает оценку баланса работы и жизни.',
+  sectionsAdult,
+  sectionsTeen,
+  instructions: [
+    'Отвечайте интуитивно, не задумываясь слишком долго',
+    'Оценивайте по шкале от 1 до 10, где 1 = "совершенно не согласен", 10 = "полностью согласен"',
+    'Будьте честны с собой — здесь нет правильных или неправильных ответов',
+    'Тест займет около 10-12 минут',
+  ],
+};
+---
+
+<BaseLayout
+  title="Тест карьерные якоря Шейна бесплатно онлайн — классическая версия 40 вопросов"
+  description="Пройдите бесплатный классический тест карьерных якорей Эдгара Шейна (40 вопросов). Определите свои ведущие карьерные мотивы: профессионализм, менеджмент, автономия, стабильность, предпринимательство, служение, вызов и баланс работы и жизни. Результаты сразу на экране."
+  keywords="карьерные якоря тест, тест Шейна бесплатно, career anchors, Edgar Schein test, карьерные ценности тест, карьерные мотивы, профориентация онлайн, тест на карьерные предпочтения, баланс работы и жизни, work life balance тест, классический тест карьерных якорей"
+  jsonLd={generateBreadcrumbSchema(breadcrumbs)}
+>
+  <FreeTestFlow client:only="react" config={testConfig} />
+</BaseLayout>

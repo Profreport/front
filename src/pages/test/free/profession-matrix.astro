@@ -1,0 +1,244 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import FreeTestFlow from '@/components/islands/FreeTestFlow';
+import { generateBreadcrumbSchema } from '@/lib/utils';
+
+const breadcrumbs = [
+  { name: 'Главная', url: '/' },
+  { name: 'Бесплатные тесты', url: '/free-tests' },
+  { name: 'Матрица выбора профессии', url: '/test/free/profession-matrix' },
+];
+
+const testConfig = {
+  testId: 'profession-matrix',
+  title: 'Матрица выбора профессии',
+  subtitle: 'Экспресс-тест для быстрого выбора направления',
+  instructions: [
+    'Тест состоит из 8 коротких вопросов',
+    'Отвечайте честно, выбирая наиболее близкий вам вариант',
+    'Тест займет всего 2-3 минуты',
+    'В результате вы получите список профессий, подходящих именно вам',
+  ],
+  // Adult version (более профессиональные формулировки)
+  sectionsAdult: [
+    {
+      id: 'object-section-adult',
+      title: 'Объект труда',
+      subtitle: 'С чем вы предпочитаете работать?',
+      questions: [
+        {
+          id: 'object_1',
+          question: 'С чем вам было бы интереснее всего работать?',
+          type: 'binary' as const,
+          options: [
+            { label: 'С людьми (клиенты, пациенты, ученики)', value: 'PEOPLE' },
+            { label: 'С информацией (данные, документы, тексты)', value: 'INFO' },
+            { label: 'С техникой (оборудование, механизмы, программы)', value: 'TECH' },
+            { label: 'С искусством (дизайн, творчество, визуальные образы)', value: 'ART' },
+            { label: 'С природой (растения, животные, окружающая среда)', value: 'NATURE' },
+          ],
+        },
+        {
+          id: 'object_2',
+          question: 'Какая деятельность приносит вам наибольшее удовлетворение?',
+          type: 'binary' as const,
+          options: [
+            { label: 'Общение и помощь людям', value: 'PEOPLE' },
+            { label: 'Анализ данных и работа с информацией', value: 'INFO' },
+            { label: 'Работа с техническими системами', value: 'TECH' },
+            { label: 'Создание визуальных и художественных объектов', value: 'ART' },
+            { label: 'Работа с живыми организмами и природой', value: 'NATURE' },
+          ],
+        },
+        {
+          id: 'object_3',
+          question: 'В каких журналах или блогах вам интереснее всего читать статьи?',
+          type: 'binary' as const,
+          options: [
+            { label: 'Психология, HR, коммуникации', value: 'PEOPLE' },
+            { label: 'Бизнес-аналитика, финансы, маркетинг', value: 'INFO' },
+            { label: 'Технологии, гаджеты, инженерия', value: 'TECH' },
+            { label: 'Дизайн, искусство, креатив', value: 'ART' },
+            { label: 'Экология, биология, природа', value: 'NATURE' },
+          ],
+        },
+        {
+          id: 'object_4',
+          question: 'Какой проект вам было бы интереснее реализовать?',
+          type: 'binary' as const,
+          options: [
+            { label: 'Организовать мероприятие для людей', value: 'PEOPLE' },
+            { label: 'Провести анализ данных или создать отчет', value: 'INFO' },
+            { label: 'Собрать или запрограммировать устройство', value: 'TECH' },
+            { label: 'Создать дизайн-проект или арт-объект', value: 'ART' },
+            { label: 'Создать экологический проект или ухаживать за растениями/животными', value: 'NATURE' },
+          ],
+        },
+      ],
+    },
+    {
+      id: 'activity-section-adult',
+      title: 'Характер деятельности',
+      subtitle: 'Как вы предпочитаете работать?',
+      questions: [
+        {
+          id: 'activity_1',
+          question: 'Какой стиль работы вам ближе?',
+          type: 'binary' as const,
+          options: [
+            { label: 'Работать по четким инструкциям и стандартам', value: 'EXEC' },
+            { label: 'Придумывать новые идеи и творческие решения', value: 'CREATIVE' },
+            { label: 'Руководить процессами и принимать решения', value: 'MANAGE' },
+          ],
+        },
+        {
+          id: 'activity_2',
+          question: 'В рабочей ситуации вы предпочитаете:',
+          type: 'binary' as const,
+          options: [
+            { label: 'Выполнять задачи качественно по установленным правилам', value: 'EXEC' },
+            { label: 'Экспериментировать и искать нестандартные подходы', value: 'CREATIVE' },
+            { label: 'Координировать работу команды и распределять задачи', value: 'MANAGE' },
+          ],
+        },
+        {
+          id: 'activity_3',
+          question: 'Что для вас важнее в работе?',
+          type: 'binary' as const,
+          options: [
+            { label: 'Точность, надежность и соблюдение стандартов', value: 'EXEC' },
+            { label: 'Свобода творчества и возможность реализовать свои идеи', value: 'CREATIVE' },
+            { label: 'Влияние на результат и ответственность за проект', value: 'MANAGE' },
+          ],
+        },
+        {
+          id: 'activity_4',
+          question: 'В какой роли вы чувствуете себя комфортнее всего?',
+          type: 'binary' as const,
+          options: [
+            { label: 'Специалист-исполнитель, эксперт в своей области', value: 'EXEC' },
+            { label: 'Креативщик, генератор идей', value: 'CREATIVE' },
+            { label: 'Лидер, координатор, управленец', value: 'MANAGE' },
+          ],
+        },
+      ],
+    },
+  ],
+  // Teen version (более простые формулировки)
+  sectionsTeen: [
+    {
+      id: 'object-section-teen',
+      title: 'Объект труда',
+      subtitle: 'С чем тебе интереснее работать?',
+      questions: [
+        {
+          id: 'object_1',
+          question: 'Что тебе нравится больше всего?',
+          type: 'binary' as const,
+          options: [
+            { label: 'Общаться с людьми, помогать им', value: 'PEOPLE' },
+            { label: 'Работать с информацией, изучать что-то новое', value: 'INFO' },
+            { label: 'Разбираться в технике, собирать что-то', value: 'TECH' },
+            { label: 'Рисовать, создавать что-то красивое', value: 'ART' },
+            { label: 'Быть на природе, ухаживать за животными или растениями', value: 'NATURE' },
+          ],
+        },
+        {
+          id: 'object_2',
+          question: 'Чем бы ты занимался(лась) в свободное время?',
+          type: 'binary' as const,
+          options: [
+            { label: 'Общался(лась) с друзьями, помогал(а) людям', value: 'PEOPLE' },
+            { label: 'Читал(а) книги, смотрел(а) образовательные видео', value: 'INFO' },
+            { label: 'Разбирался(лась) с гаджетами, играл(а) в компьютерные игры', value: 'TECH' },
+            { label: 'Рисовал(а), фотографировал(а), занимался(лась) творчеством', value: 'ART' },
+            { label: 'Гулял(а) на природе, ухаживал(а) за питомцами', value: 'NATURE' },
+          ],
+        },
+        {
+          id: 'object_3',
+          question: 'Какой предмет в школе тебе интереснее?',
+          type: 'binary' as const,
+          options: [
+            { label: 'Литература, обществознание, история', value: 'PEOPLE' },
+            { label: 'Математика, информатика, русский язык', value: 'INFO' },
+            { label: 'Физика, технология, информатика', value: 'TECH' },
+            { label: 'ИЗО, музыка, МХК', value: 'ART' },
+            { label: 'Биология, география, химия', value: 'NATURE' },
+          ],
+        },
+        {
+          id: 'object_4',
+          question: 'Какое задание тебе было бы интереснее выполнить?',
+          type: 'binary' as const,
+          options: [
+            { label: 'Организовать школьное мероприятие', value: 'PEOPLE' },
+            { label: 'Написать исследовательскую работу', value: 'INFO' },
+            { label: 'Создать презентацию с анимацией или собрать модель', value: 'TECH' },
+            { label: 'Нарисовать плакат или снять видео', value: 'ART' },
+            { label: 'Ухаживать за школьным садом или провести эксперимент с растениями', value: 'NATURE' },
+          ],
+        },
+      ],
+    },
+    {
+      id: 'activity-section-teen',
+      title: 'Характер деятельности',
+      subtitle: 'Как тебе нравится работать?',
+      questions: [
+        {
+          id: 'activity_1',
+          question: 'Как ты предпочитаешь выполнять задания?',
+          type: 'binary' as const,
+          options: [
+            { label: 'По инструкции, чтобы всё было правильно и точно', value: 'EXEC' },
+            { label: 'Придумывать свой способ, экспериментировать', value: 'CREATIVE' },
+            { label: 'Распределять задачи между друзьями и координировать работу', value: 'MANAGE' },
+          ],
+        },
+        {
+          id: 'activity_2',
+          question: 'В групповом проекте ты обычно:',
+          type: 'binary' as const,
+          options: [
+            { label: 'Делаешь свою часть работы качественно и в срок', value: 'EXEC' },
+            { label: 'Придумываешь креативные идеи для проекта', value: 'CREATIVE' },
+            { label: 'Руководишь группой и следишь, чтобы всё было сделано', value: 'MANAGE' },
+          ],
+        },
+        {
+          id: 'activity_3',
+          question: 'Что тебе важнее в работе?',
+          type: 'binary' as const,
+          options: [
+            { label: 'Сделать всё правильно и аккуратно', value: 'EXEC' },
+            { label: 'Сделать что-то оригинальное и интересное', value: 'CREATIVE' },
+            { label: 'Чтобы проект был успешным, а команда работала слаженно', value: 'MANAGE' },
+          ],
+        },
+        {
+          id: 'activity_4',
+          question: 'Какая роль тебе ближе?',
+          type: 'binary' as const,
+          options: [
+            { label: 'Специалист, который хорошо делает свою работу', value: 'EXEC' },
+            { label: 'Творческий человек, который придумывает идеи', value: 'CREATIVE' },
+            { label: 'Лидер, который организует и руководит', value: 'MANAGE' },
+          ],
+        },
+      ],
+    },
+  ],
+};
+
+const jsonLd = generateBreadcrumbSchema(breadcrumbs);
+---
+
+<BaseLayout
+  title="Матрица выбора профессии - бесплатный тест онлайн"
+  description="Пройдите бесплатный тест Матрица выбора профессии онлайн. Быстрый подбор подходящих профессий на пересечении объекта труда и характера работы. Результаты сразу на экране."
+  keywords="матрица выбора профессии, тест на профессию, экспресс тест профориентация, быстрый тест на профессию, объект труда тест, характер деятельности тест"
+  jsonLd={jsonLd}
+>
+  <FreeTestFlow client:load config={testConfig} />
+</BaseLayout>

@@ -23,8 +23,10 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
+    "@types/node": "^25.0.2",
     "@types/react": "^18.2.48",
     "@types/react-dom": "^18.2.18",
+    "puppeteer": "^24.33.0",
     "typescript": "^5.9.3"
   }
 }
