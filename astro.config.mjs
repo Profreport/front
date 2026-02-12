@@ -10,7 +10,7 @@ export default defineConfig({
       applyBaseStyles: false,
     }),
   ],
-  output: 'hybrid',
+  output: 'static',
   site: 'https://profreport.online',
   compressHTML: true,
   build: {
