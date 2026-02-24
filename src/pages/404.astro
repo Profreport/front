@@ -1,0 +1,38 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+---
+
+<BaseLayout
+  title="Страница не найдена"
+  description="Запрашиваемая страница не существует. Вернитесь на главную страницу ProfReport."
+>
+  <Header />
+
+  <main class="min-h-[60vh] flex items-center justify-center bg-background">
+    <div class="container-custom text-center py-24">
+      <p class="text-8xl font-bold text-primary mb-4">404</p>
+      <h1 class="text-3xl font-bold text-text-primary mb-4">Страница не найдена</h1>
+      <p class="text-text-secondary mb-8 max-w-md mx-auto">
+        Возможно, страница была удалена, перемещена или вы ввели неверный адрес.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="/"
+          class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-primary to-secondary text-white font-semibold rounded-md hover:opacity-90 transition-all"
+        >
+          На главную
+        </a>
+        <a
+          href="/professions"
+          class="inline-flex items-center justify-center px-8 py-4 border-2 border-primary text-primary font-semibold rounded-md hover:bg-primary/5 transition-all"
+        >
+          Все профессии
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>

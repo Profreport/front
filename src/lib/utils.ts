@@ -193,6 +193,48 @@ export function generateItemListSchema(items: Array<{ name: string; description:
 }
 
 /**
+ * Generate Article schema for profession pages
+ */
+export function generateArticleSchema(params: {
+  title: string;
+  description: string;
+  url: string;
+  imageUrl: string;
+  datePublished: string;
+  siteUrl: string;
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: params.title,
+    description: params.description,
+    url: params.url,
+    image: params.imageUrl,
+    datePublished: params.datePublished,
+    dateModified: params.datePublished,
+    author: {
+      '@type': 'Organization',
+      name: 'ProfReport',
+      url: params.siteUrl,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'ProfReport',
+      url: params.siteUrl,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${params.siteUrl}/logo.png`,
+      },
+    },
+    inLanguage: 'ru-RU',
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': params.url,
+    },
+  };
+}
+
+/**
  * Honeypot validation helper
  */
 export function isHoneypotFilled(value: string | undefined): boolean {

@@ -3,7 +3,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
 import Breadcrumb from '@/components/Breadcrumb.astro';
-import { generateBreadcrumbSchema } from '@/lib/utils';
+import { generateBreadcrumbSchema, generateArticleSchema } from '@/lib/utils';
 import { getProfessionById, professions } from '@/data/professions';
 
 export function getStaticPaths() {
@@ -26,16 +26,47 @@ const breadcrumbs = [
   { name: profession.title, url: `/professions/general/${id}` },
 ];
 
+// Маппинг названий профессий на их ID для внутренних ссылок
+const professionTitleToId = new Map(
+  professions.map((p) => [p.title.toLowerCase(), p.id])
+);
+
 // Форматирование зарплаты
 const formatSalary = (min: number, max: number) => {
   return `${min.toLocaleString('ru-RU')} - ${max.toLocaleString('ru-RU')} ₽`;
 };
+
+// Генерация уникального meta description
+const generateMetaDescription = (): string => {
+  if (profession.seoDescription) return profession.seoDescription;
+  const salaryRange = `${profession.salary.min.toLocaleString('ru-RU')}–${profession.salary.max.toLocaleString('ru-RU')} ₽`;
+  const firstSentence = profession.description.split('.')[0].trim();
+  const base = `${profession.title}: зарплата ${salaryRange}. ${firstSentence}.`;
+  return base.length > 160 ? base.substring(0, 157) + '…' : base;
+};
+const metaDescription = generateMetaDescription();
+
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://profreport.online';
+const pageUrl = `${siteUrl}/professions/general/${id}`;
+const imageUrl = profession.image.startsWith('http') ? profession.image : `${siteUrl}${profession.image}`;
+
+const jsonLdSchemas = [
+  generateBreadcrumbSchema(breadcrumbs),
+  generateArticleSchema({
+    title: `${profession.title} — описание профессии, зарплата, обучение`,
+    description: metaDescription,
+    url: pageUrl,
+    imageUrl,
+    datePublished: '2026-01-26',
+    siteUrl,
+  }),
+];
 ---
 
 <BaseLayout
-  title={`${profession.title} - Описание профессии`}
-  description={profession.description.substring(0, 160)}
-  jsonLd={generateBreadcrumbSchema(breadcrumbs)}
+  title={`${profession.title}: зарплата, обучение, карьера`}
+  description={metaDescription}
+  jsonLd={jsonLdSchemas}
 >
   <Header />
   <Breadcrumb items={breadcrumbs} />
@@ -274,11 +305,21 @@ const formatSalary = (min: number, max: number) => {
           <div class="bg-surface rounded-lg p-8 mb-8 shadow-sm">
             <h2 class="text-2xl font-bold text-text-primary mb-6">Смежные профессии</h2>
             <div class="flex flex-wrap gap-3">
-              {profession.relatedProfessions.map((related) => (
-                <span class="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium hover:bg-primary/20 transition-colors">
-                  {related}
-                </span>
-              ))}
+              {profession.relatedProfessions.map((related) => {
+                const relatedId = professionTitleToId.get(related.toLowerCase());
+                return relatedId ? (
+                  <a
+                    href={`/professions/general/${relatedId}`}
+                    class="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium hover:bg-primary/20 transition-colors"
+                  >
+                    {related}
+                  </a>
+                ) : (
+                  <span class="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium">
+                    {related}
+                  </span>
+                );
+              })}
             </div>
           </div>
         )}

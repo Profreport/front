@@ -6,10 +6,11 @@ export interface Props {
   description: string;
   keywords?: string;
   ogImage?: string;
-  jsonLd?: object;
+  jsonLd?: object | object[];
 }
 
 const { title, description, keywords, ogImage = '/og-default.png', jsonLd } = Astro.props;
+const jsonLdList = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
 const canonicalURL = Astro.site ? new URL(Astro.url.pathname, Astro.site).toString() : Astro.url.pathname;
 const ogImageURL = Astro.site ? new URL(ogImage, Astro.site).toString() : ogImage;
 const fullTitle = `${title} | ProfReport`;
@@ -73,9 +74,9 @@ const fullTitle = `${title} | ProfReport`;
     <meta property="twitter:image" content={ogImageURL} />
 
     <!-- JSON-LD Structured Data -->
-    {jsonLd && (
-      <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
-    )}
+    {jsonLdList.map((schema) => (
+      <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+    ))}
 
     <!-- CloudPayments Widget -->
     <script is:inline src="https://widget.cloudpayments.ru/bundles/cloudpayments.js"></script>

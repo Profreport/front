@@ -21,6 +21,7 @@ export interface Profession {
     level: string; // СПО, Бакалавриат, Магистратура
   }>;
   careerPath: string;
+  seoDescription?: string; // Уникальный meta description (120-160 символов). Если не задан — генерируется автоматически.
   // Новые поля для SEO
   responsibilities?: string[]; // Обязанности и функции
   prosAndCons?: {
